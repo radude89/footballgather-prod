@@ -1,0 +1,19 @@
+default_platform(:ios)
+
+before_all do
+  xcversion(version: "~> 12.4")
+end
+
+setup_travis
+
+platform :ios do
+  desc "Runs the unit tests of FootballGather"
+  lane :ut do
+    scan(scheme: "FootballGather-CI")
+  end
+
+  desc "Runs the UI tests of FootballGather"
+  lane :ui do
+    scan(scheme: "UITests")
+  end
+end
