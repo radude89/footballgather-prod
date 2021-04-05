@@ -1,0 +1,24 @@
+osx_image: xcode12.4
+language: swift
+
+cache:
+  bundler: true
+
+before_install:
+  - cd FootballGather
+  - brew update
+  - gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+
+install:
+  - bundle install
+
+jobs:
+  include:
+    - stage: test
+      name: Unit tests
+      script:
+        - bundle exec fastlane ut
+    - stage: test
+      name: UI Tests
+      script:
+        - bundle exec fastlane ui

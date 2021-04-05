@@ -1,0 +1,32 @@
+default_platform(:ios)
+
+before_all do
+  xcversion(version: "~> 12.4")
+  clear_derived_data
+end
+
+setup_travis
+SIMULATORS = [
+  'iPhone 8'
+]
+
+platform :ios do
+  desc "Runs the unit tests of FootballGather"
+  lane :ut do
+    scan(
+      scheme: "FootballGather-CI",
+      clean: true,
+      reset_simulator: true
+    )
+  end
+
+  desc "Runs the UI tests of FootballGather"
+  lane :ui do
+    scan(
+      scheme: "UITests",
+      clean: true,
+      reset_simulator: true,
+      devices: SIMULATORS
+    )
+  end
+end
