@@ -2,10 +2,10 @@ osx_image: xcode12.4
 language: swift
 
 before_install:
-  - brew update
   - gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
 
 install:
+  - brew update
   - bundle install
 
 jobs:
