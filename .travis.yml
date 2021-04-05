@@ -1,21 +1,2 @@
 osx_image: xcode12.4
 language: swift
-
-before_install:
-  - brew update
-  - gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
-
-install:
-  - bundle install
-
-jobs:
-  include:
-    - stage: Tests
-    name: Unit tests
-    script:
-      - bundle exec fastlane ut
-
-    - stage: Tests
-    name: UI Tests
-    script:
-      - bundle exec fastlane ui
