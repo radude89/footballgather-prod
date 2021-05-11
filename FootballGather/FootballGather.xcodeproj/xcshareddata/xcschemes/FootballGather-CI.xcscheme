@@ -46,6 +46,16 @@
                ReferencedContainer = "container:Packages/Localizable">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F795CCFA264A4F8D00D8FC3C"
+               BuildableName = "FootballGatherTests.xctest"
+               BlueprintName = "FootballGatherTests"
+               ReferencedContainer = "container:FootballGather.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -27,20 +27,25 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F756F8DE260C3D6600A36040"
+            BuildableName = "FootballGather.app"
+            BlueprintName = "FootballGather (iOS)"
+            ReferencedContainer = "container:FootballGather.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Localizable"
+            BuildableName = "Localizable"
+            BlueprintName = "Localizable"
+            ReferencedContainer = "container:Packages/Localizable">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F756F8EE260C3D6700A36040"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
-               ReferencedContainer = "container:FootballGather.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "YES">
             <BuildableReference
@@ -61,6 +66,17 @@
                BuildableName = "LocalizableTests"
                BlueprintName = "LocalizableTests"
                ReferencedContainer = "container:Packages/Localizable">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F795CCFA264A4F8D00D8FC3C"
+               BuildableName = "FootballGatherTests.xctest"
+               BlueprintName = "FootballGatherTests"
+               ReferencedContainer = "container:FootballGather.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
