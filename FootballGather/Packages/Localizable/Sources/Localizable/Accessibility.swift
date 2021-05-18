@@ -6,17 +6,18 @@
 //
 
 import Foundation
-import SwiftUI
 
-public enum AccessibilityID: String {
-    public typealias RawValue = String
-    
+public enum AccessibilityID: String {    
     case hello = "hello-text-id"
 }
 
-@available(iOS 14.0, *)
-extension View {
-    public func accessibilityID(_ identifier: AccessibilityID) -> ModifiedContent<Self, AccessibilityAttachmentModifier> {
-        accessibilityIdentifier(identifier.rawValue)
+extension AccessibilityID {
+    public enum View: String {
+        case playerList = "player-list-view"
     }
 }
+
+extension AccessibilityID: CaseIterable {}
+
+extension AccessibilityID.View: CaseIterable {}
+

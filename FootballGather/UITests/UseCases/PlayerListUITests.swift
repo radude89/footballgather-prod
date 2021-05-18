@@ -9,7 +9,8 @@ import XCTest
 
 final class PlayerListUITests: UITestCase {
     
-    override func setUp() {
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         launchApp()
     }
     
