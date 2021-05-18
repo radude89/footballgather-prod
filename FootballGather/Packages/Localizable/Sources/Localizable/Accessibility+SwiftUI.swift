@@ -14,10 +14,4 @@ extension View {
     ) -> ModifiedContent<Self, AccessibilityAttachmentModifier> {
         accessibilityIdentifier(identifier.rawValue)
     }
-    
-    public func accessibilityID(
-        _ identifier: AccessibilityID.View
-    ) -> ModifiedContent<Self, AccessibilityAttachmentModifier> {
-        accessibilityIdentifier(identifier.rawValue)
-    }
 }

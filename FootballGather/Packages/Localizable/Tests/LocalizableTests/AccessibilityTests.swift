@@ -16,13 +16,11 @@ final class AccessibilityTests: XCTestCase {
         }
     }
     
-    func testAccessibilityIDView() {
-        AccessibilityID.View.allCases.forEach { accessibilityID in
-            XCTAssertEqual(
-                text.accessibilityID(accessibilityID).content,
-                text.accessibilityIdentifier(accessibilityID.rawValue).content
-            )
-        }
-    }
-    
+}
+
+@available(iOS 14.0, *)
+extension AccessibilityTests {
+    static var allTests = [
+        ("testAccessibilityID", testAccessibilityID),
+    ]
 }

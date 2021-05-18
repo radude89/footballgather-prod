@@ -12,7 +12,7 @@ import SwiftUI
 final class FootballGatherAppTests: XCTestCase {
     
     func testBody() {
-        XCTAssertNotNil(FootballGatherApp().body as? WindowGroup<ContentView>)
+        XCTAssertNotNil(FootballGatherApp().body as? WindowGroup<PlayerListView>)
     }
     
 }

@@ -7,17 +7,8 @@
 
 import Foundation
 
-public enum AccessibilityID: String {    
-    case hello = "hello-text-id"
-}
-
-extension AccessibilityID {
-    public enum View: String {
-        case playerList = "player-list-view"
-    }
+public enum AccessibilityID: String {
+    case playerList = "player-list"
 }
 
 extension AccessibilityID: CaseIterable {}
-
-extension AccessibilityID.View: CaseIterable {}
-

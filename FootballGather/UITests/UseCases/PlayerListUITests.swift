@@ -20,6 +20,8 @@ final class PlayerListUITests: UITestCase {
     /// **WHEN** I am in the "Player List" screen
     /// **THEN** I can see all my players, ordered by the last date I have created them
     func testViewPlayerList() {
+        XCTAssertTrue(app.staticTexts[.playerList].waitToAppear())
+        
         
     }
 
