@@ -2,6 +2,7 @@ import XCTest
 import SwiftUI
 @testable import Localizable
 
+@available(macOS 11.0, *)
 @available(iOS 14.0, *)
 final class AccessibilityTests: XCTestCase {
     
@@ -18,6 +19,7 @@ final class AccessibilityTests: XCTestCase {
     
 }
 
+@available(macOS 11.0, *)
 @available(iOS 14.0, *)
 extension AccessibilityTests {
     static var allTests = [
