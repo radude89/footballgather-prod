@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@main
 struct FootballGatherApp: App {
     var body: some Scene {
         WindowGroup {

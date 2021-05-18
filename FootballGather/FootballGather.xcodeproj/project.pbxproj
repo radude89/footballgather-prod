@@ -11,6 +11,13 @@
 		F756F903260C3D6700A36040 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756F8D9260C3D6600A36040 /* ContentView.swift */; };
 		F756F905260C3D6700A36040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F756F8DA260C3D6600A36040 /* Assets.xcassets */; };
 		F756F960260C40DC00A36040 /* HelloWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756F95F260C40DC00A36040 /* HelloWorldUITests.swift */; };
+		F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */; };
+		F75AFA4F265368CF002D1CE8 /* TestRunnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA4E265368CF002D1CE8 /* TestRunnable.swift */; };
+		F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA50265368FB002D1CE8 /* TestApp.swift */; };
+		F75AFA5626536950002D1CE8 /* TestRunnableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5526536950002D1CE8 /* TestRunnableTests.swift */; };
+		F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA57265369E2002D1CE8 /* TestAppTests.swift */; };
+		F75AFA5A26536DA0002D1CE8 /* FootballGatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5926536DA0002D1CE8 /* FootballGatherAppTests.swift */; };
+		F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */; };
 		F78BA6A5260C533400083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A4260C533400083142 /* Localizable */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F795CCFE264A4F8D00D8FC3C /* FootballGatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F795CCFD264A4F8D00D8FC3C /* FootballGatherTests.swift */; };
@@ -43,6 +50,13 @@
 		F756F952260C40BB00A36040 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F756F956260C40BB00A36040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F756F95F260C40DC00A36040 /* HelloWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldUITests.swift; sourceTree = "<group>"; };
+		F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
+		F75AFA4E265368CF002D1CE8 /* TestRunnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunnable.swift; sourceTree = "<group>"; };
+		F75AFA50265368FB002D1CE8 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
+		F75AFA5526536950002D1CE8 /* TestRunnableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunnableTests.swift; sourceTree = "<group>"; };
+		F75AFA57265369E2002D1CE8 /* TestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppTests.swift; sourceTree = "<group>"; };
+		F75AFA5926536DA0002D1CE8 /* FootballGatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherAppTests.swift; sourceTree = "<group>"; };
+		F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncherTests.swift; sourceTree = "<group>"; };
 		F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballGatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795CCFD264A4F8D00D8FC3C /* FootballGatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherTests.swift; sourceTree = "<group>"; };
 		F795CCFF264A4F8D00D8FC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,7 +105,7 @@
 		F756F8D7260C3D6600A36040 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */,
+				F75AFA5326536916002D1CE8 /* App */,
 				F756F8D9260C3D6600A36040 /* ContentView.swift */,
 			);
 			path = Sources;
@@ -133,6 +147,28 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		F75AFA5326536916002D1CE8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */,
+				F75AFA4E265368CF002D1CE8 /* TestRunnable.swift */,
+				F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */,
+				F75AFA50265368FB002D1CE8 /* TestApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F75AFA5426536945002D1CE8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */,
+				F75AFA5526536950002D1CE8 /* TestRunnableTests.swift */,
+				F75AFA57265369E2002D1CE8 /* TestAppTests.swift */,
+				F75AFA5926536DA0002D1CE8 /* FootballGatherAppTests.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		F78BA6A1260C530F00083142 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +179,7 @@
 		F795CCFC264A4F8D00D8FC3C /* FootballGatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				F75AFA5426536945002D1CE8 /* App */,
 				F795CCFD264A4F8D00D8FC3C /* FootballGatherTests.swift */,
 				F795CCFF264A4F8D00D8FC3C /* Info.plist */,
 			);
@@ -283,8 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75AFA4F265368CF002D1CE8 /* TestRunnable.swift in Sources */,
 				F756F903260C3D6700A36040 /* ContentView.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
+				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
+				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75AFA5626536950002D1CE8 /* TestRunnableTests.swift in Sources */,
+				F75AFA5A26536DA0002D1CE8 /* FootballGatherAppTests.swift in Sources */,
 				F795CCFE264A4F8D00D8FC3C /* FootballGatherTests.swift in Sources */,
+				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
+				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -427,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -445,7 +489,7 @@
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,7 +512,7 @@
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,7 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
