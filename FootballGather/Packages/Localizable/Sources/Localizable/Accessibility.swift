@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public enum AccessibilityIDs: String {
+public enum AccessibilityID: String {
     public typealias RawValue = String
     
     case hello = "hello-text-id"
@@ -16,7 +16,7 @@ public enum AccessibilityIDs: String {
 
 @available(iOS 14.0, *)
 extension View {
-    public func accessibilityID(_ identifier: AccessibilityIDs) -> ModifiedContent<Self, AccessibilityAttachmentModifier> {
+    public func accessibilityID(_ identifier: AccessibilityID) -> ModifiedContent<Self, AccessibilityAttachmentModifier> {
         accessibilityIdentifier(identifier.rawValue)
     }
 }

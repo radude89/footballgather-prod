@@ -27,9 +27,3 @@ final class HelloWorldUITests: XCTestCase {
     }
 
 }
-
-extension XCUIElementQuery {
-    subscript(key: AccessibilityIDs) -> XCUIElement {
-        self[key.rawValue]
-    }
-}
