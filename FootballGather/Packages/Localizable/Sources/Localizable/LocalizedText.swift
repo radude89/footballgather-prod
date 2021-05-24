@@ -7,6 +7,7 @@
 
 import Foundation
 
-public struct LocalizedText: Localizable {
-    public static let hello = localizedText(key: "hello")
+public enum LocalizedText: Localizable {
+    public static let players = localizedText(key: "players")
+    public static let noPlayers = localizedText(key: "no.players")
 }

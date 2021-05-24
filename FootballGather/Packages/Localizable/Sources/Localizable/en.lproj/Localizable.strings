@@ -5,4 +5,5 @@
   Created by Radu Dan on 25.03.2021.
   
 */
-"hello" = "Hello world";
+"players" = "Players";
+"no.players" = "We could not find any players.\nPlease create one.";

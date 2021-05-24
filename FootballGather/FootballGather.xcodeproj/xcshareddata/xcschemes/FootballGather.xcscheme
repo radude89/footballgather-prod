@@ -78,6 +78,28 @@
                ReferencedContainer = "container:FootballGather.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:Packages/CoreModels">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsTests"
+               BuildableName = "FoundationToolsTests"
+               BlueprintName = "FoundationToolsTests"
+               ReferencedContainer = "container:Packages/FoundationTools">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

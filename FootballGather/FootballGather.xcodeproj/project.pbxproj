@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F705D010265B5D360057B63A /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F705D00F265B5D360057B63A /* FoundationTools */; };
 		F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */; };
 		F756F905260C3D6700A36040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F756F8DA260C3D6600A36040 /* Assets.xcassets */; };
 		F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */; };
-		F75AFA4F265368CF002D1CE8 /* TestRunnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA4E265368CF002D1CE8 /* TestRunnable.swift */; };
 		F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA50265368FB002D1CE8 /* TestApp.swift */; };
-		F75AFA5626536950002D1CE8 /* TestRunnableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5526536950002D1CE8 /* TestRunnableTests.swift */; };
 		F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA57265369E2002D1CE8 /* TestAppTests.swift */; };
 		F75AFA5A26536DA0002D1CE8 /* FootballGatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5926536DA0002D1CE8 /* FootballGatherAppTests.swift */; };
 		F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */; };
 		F75AFA5E26537B79002D1CE8 /* UITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA5D26537B79002D1CE8 /* UITestCase.swift */; };
 		F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */; };
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
-		F75AFA6826537FDD002D1CE8 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayerListView.swift */; };
-		F78BA6A5260C533400083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A4260C533400083142 /* Localizable */; };
+		F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayersView.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F705D008265B59A10057B63A /* FoundationTools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FoundationTools; sourceTree = "<group>"; };
 		F71D1E0A260C507300A2C816 /* Localizable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Localizable; sourceTree = "<group>"; };
+		F73C1386265B55780001704B /* CoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreModels; sourceTree = "<group>"; };
 		F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherApp.swift; sourceTree = "<group>"; };
 		F756F8DA260C3D6600A36040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F756F8DF260C3D6600A36040 /* FootballGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,16 +50,14 @@
 		F756F952260C40BB00A36040 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F756F956260C40BB00A36040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
-		F75AFA4E265368CF002D1CE8 /* TestRunnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunnable.swift; sourceTree = "<group>"; };
 		F75AFA50265368FB002D1CE8 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
-		F75AFA5526536950002D1CE8 /* TestRunnableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunnableTests.swift; sourceTree = "<group>"; };
 		F75AFA57265369E2002D1CE8 /* TestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppTests.swift; sourceTree = "<group>"; };
 		F75AFA5926536DA0002D1CE8 /* FootballGatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherAppTests.swift; sourceTree = "<group>"; };
 		F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncherTests.swift; sourceTree = "<group>"; };
 		F75AFA5D26537B79002D1CE8 /* UITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestCase.swift; sourceTree = "<group>"; };
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
-		F75AFA6626537FB4002D1CE8 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
+		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballGatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795CCFF264A4F8D00D8FC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78BA6A5260C533400083142 /* Localizable in Frameworks */,
+				F705D010265B5D360057B63A /* FoundationTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F705D011265B65A40057B63A /* PlayerList */ = {
+			isa = PBXGroup;
+			children = (
+				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
+			);
+			path = PlayerList;
+			sourceTree = "<group>";
+		};
 		F756F8D2260C3D6600A36040 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +151,8 @@
 		F756F993260C486400A36040 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				F705D008265B59A10057B63A /* FoundationTools */,
+				F73C1386265B55780001704B /* CoreModels */,
 				F71D1E0A260C507300A2C816 /* Localizable */,
 			);
 			path = Packages;
@@ -154,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */,
-				F75AFA4E265368CF002D1CE8 /* TestRunnable.swift */,
 				F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */,
 				F75AFA50265368FB002D1CE8 /* TestApp.swift */,
 			);
@@ -165,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */,
-				F75AFA5526536950002D1CE8 /* TestRunnableTests.swift */,
 				F75AFA57265369E2002D1CE8 /* TestAppTests.swift */,
 				F75AFA5926536DA0002D1CE8 /* FootballGatherAppTests.swift */,
 			);
@@ -192,7 +198,7 @@
 		F75AFA6526537F93002D1CE8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F75AFA6626537FB4002D1CE8 /* PlayerListView.swift */,
+				F705D011265B65A40057B63A /* PlayerList */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -230,7 +236,7 @@
 			);
 			name = "FootballGather (iOS)";
 			packageProductDependencies = (
-				F78BA6A4260C533400083142 /* Localizable */,
+				F705D00F265B5D360057B63A /* FoundationTools */,
 			);
 			productName = "Football Gather (iOS)";
 			productReference = F756F8DF260C3D6600A36040 /* FootballGather.app */;
@@ -347,10 +353,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F75AFA4F265368CF002D1CE8 /* TestRunnable.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
-				F75AFA6826537FDD002D1CE8 /* PlayerListView.swift in Sources */,
+				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F75AFA5626536950002D1CE8 /* TestRunnableTests.swift in Sources */,
 				F75AFA5A26536DA0002D1CE8 /* FootballGatherAppTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
@@ -687,9 +691,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F78BA6A4260C533400083142 /* Localizable */ = {
+		F705D00F265B5D360057B63A /* FoundationTools */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Localizable;
+			productName = FoundationTools;
 		};
 		F78BA6A9260C54CE00083142 /* Localizable */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -4,7 +4,18 @@ import XCTest
 final class LocalizableTests: XCTestCase {
     
     func testLocalizedTexts() {
-        XCTAssertEqual(LocalizedText.hello, NSLocalizedString("hello", bundle: Bundle.module, comment: ""))
+        let localizedTextDictionary = [
+            "players": LocalizedText.players,
+            "no.players": LocalizedText.noPlayers
+        ]
+        
+        localizedTextDictionary.forEach { key, value in
+            XCTAssertEqual(
+                value,
+                NSLocalizedString(key, bundle: Bundle.module, comment: ""),
+                "Text at \"\(key)\", is not equal with localized text \"\(value)\"."
+            )
+        }
     }
 
 }

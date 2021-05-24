@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FoundationTools
 
 @main
 struct AppLauncher {

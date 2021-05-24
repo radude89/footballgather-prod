@@ -10,7 +10,7 @@ import SwiftUI
 struct FootballGatherApp: App {
     var body: some Scene {
         WindowGroup {
-            PlayerListView()
+            PlayersView()
         }
     }
 }

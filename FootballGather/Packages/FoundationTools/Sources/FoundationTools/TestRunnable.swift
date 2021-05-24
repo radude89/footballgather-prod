@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol TestRunnable {
+public protocol TestRunnable {
     static var isRunningTests: Bool { get }
 }
 
-extension TestRunnable {
+public extension TestRunnable {
     static var isRunningTests: Bool {
         NSClassFromString("XCTestCase") != nil
     }
