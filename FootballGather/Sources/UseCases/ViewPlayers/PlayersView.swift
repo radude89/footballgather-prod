@@ -12,11 +12,7 @@ import CoreModels
 // MARK: - PlayersView
 
 struct PlayersView: View {
-    private var players: [Player] = [
-//        Player(name: "John"),
-//        Player(name: "Jane"),
-//        Player(name: "Arthur")
-    ]
+    private var players: [Player] = []
     
     var body: some View {
         NavigationView {
@@ -38,33 +34,9 @@ struct PlayersView: View {
     }
 }
 
-// MARK: - PlayerListView
-
-struct PlayerListView: View {
-    let players: [Player]
-    
-    var body: some View {
-        List {
-            ForEach(players) { player in
-                Text("\(player.name)")
-            }
-        }
-    }
-}
-
-// MARK: - Empty View
-
-struct EmptyPlayersView: View {
-    var body: some View {
-        Text(LocalizedText.noPlayers)
-            .multilineTextAlignment(.center)
-            .padding()
-    }
-}
-
 // MARK: - Preview
 
-struct PlayerListView_Previews: PreviewProvider {
+struct PlayersView_Previews: PreviewProvider {
     static var previews: some View {
         PlayersView()
     }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F705D010265B5D360057B63A /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F705D00F265B5D360057B63A /* FoundationTools */; };
+		F705D013265B66390057B63A /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D012265B66390057B63A /* PlayerListView.swift */; };
+		F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D015265B66A60057B63A /* PlayerExtensions.swift */; };
+		F705D018265B67560057B63A /* EmptyPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D017265B67560057B63A /* EmptyPlayersView.swift */; };
 		F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */; };
 		F756F905260C3D6700A36040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F756F8DA260C3D6600A36040 /* Assets.xcassets */; };
 		F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA4C265368B6002D1CE8 /* AppLauncher.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		F705D008265B59A10057B63A /* FoundationTools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FoundationTools; sourceTree = "<group>"; };
+		F705D012265B66390057B63A /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
+		F705D015265B66A60057B63A /* PlayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtensions.swift; sourceTree = "<group>"; };
+		F705D017265B67560057B63A /* EmptyPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlayersView.swift; sourceTree = "<group>"; };
 		F71D1E0A260C507300A2C816 /* Localizable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Localizable; sourceTree = "<group>"; };
 		F73C1386265B55780001704B /* CoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreModels; sourceTree = "<group>"; };
 		F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherApp.swift; sourceTree = "<group>"; };
@@ -89,12 +95,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F705D011265B65A40057B63A /* PlayerList */ = {
+		F705D011265B65A40057B63A /* ViewPlayers */ = {
 			isa = PBXGroup;
 			children = (
 				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
+				F705D012265B66390057B63A /* PlayerListView.swift */,
+				F705D017265B67560057B63A /* EmptyPlayersView.swift */,
 			);
-			path = PlayerList;
+			path = ViewPlayers;
+			sourceTree = "<group>";
+		};
+		F705D014265B66870057B63A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F705D015265B66A60057B63A /* PlayerExtensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F756F8D2260C3D6600A36040 = {
@@ -115,6 +131,7 @@
 			children = (
 				F75AFA5326536916002D1CE8 /* App */,
 				F75AFA6526537F93002D1CE8 /* UseCases */,
+				F705D014265B66870057B63A /* Helpers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -198,7 +215,7 @@
 		F75AFA6526537F93002D1CE8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F705D011265B65A40057B63A /* PlayerList */,
+				F705D011265B65A40057B63A /* ViewPlayers */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -353,9 +370,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F705D013265B66390057B63A /* PlayerListView.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
+				F705D018265B67560057B63A /* EmptyPlayersView.swift in Sources */,
 				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
+				F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
