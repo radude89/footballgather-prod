@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import FoundationTools
 
 class UITestCase: XCTestCase {
     
@@ -25,7 +26,10 @@ class UITestCase: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func launchApp() {
+    func launchApp(populatingStorage: Bool = false) {
+        if populatingStorage {
+            app.launchArguments.append(Command.populateStorage.rawValue)
+        }
         app.launch()
     }
     

@@ -12,7 +12,12 @@ import CoreModels
 // MARK: - PlayersView
 
 struct PlayersView: View {
-    private var players: [Player] = []
+    
+    @EnvironmentObject var storage: AppStorage
+    
+    private var players: [Player] {
+        storage.storedPlayers
+    }
     
     var body: some View {
         NavigationView {

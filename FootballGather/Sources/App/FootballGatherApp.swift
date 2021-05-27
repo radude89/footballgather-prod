@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct FootballGatherApp: App {
+    
+    @StateObject private var storage = AppStorage()
+    
     var body: some Scene {
         WindowGroup {
             PlayersView()
+                .environmentObject(storage)
         }
     }
 }
