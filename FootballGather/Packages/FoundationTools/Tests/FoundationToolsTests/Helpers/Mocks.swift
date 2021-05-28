@@ -40,3 +40,68 @@ extension Mocks {
         }
     }
 }
+
+// MARK: - FileStorage
+
+extension Mocks {
+    static func makeFileStorage(
+        _ fileManager: FileManager = .init(),
+        filePath: String = NSTemporaryDirectory() + "com.mocks",
+        storageCoder: StorageCoder = makeStorageCoder()
+    ) throws -> FileStorage<String, [String]> {
+        
+        try? fileManager.removeItem(atPath: filePath)
+        try fileManager.createDirectory(
+            atPath: filePath,
+            withIntermediateDirectories: false
+        )
+        
+        let url = URL(fileURLWithPath: filePath)
+        
+        return FileStorage(
+            fileManager: fileManager,
+            documentsURL: url,
+            coder: storageCoder
+        )
+    }
+    
+    static func makeStorageCoder(
+        encoder: StorageEncoder = Mocks.Encoder(),
+        decoder: StorageDecoder = Mocks.Decoder()
+    ) -> StorageCoder {
+        StorageCoder(
+            encoder: encoder,
+            decoder: decoder
+        )
+    }
+}
+
+// MARK: - StorageCoder
+
+extension Mocks {
+    final class Encoder: StorageEncoder {
+        var error: StorageError?
+        var encoder: StorageEncoder = JSONEncoder()
+        
+        func encode<T: Encodable>(_ value: T) throws -> Data {
+            guard error == nil else { throw error! }
+            
+            return try encoder.encode(value)
+        }
+    }
+    
+    final class Decoder: StorageDecoder {
+        var error: StorageError?
+        var decoder: StorageDecoder = JSONDecoder()
+        
+        func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
+            guard error == nil else { throw error! }
+            
+            return try decoder.decode(type, from: data)
+        }
+    }
+    
+    enum StorageError: Swift.Error {
+        case generic
+    }
+}

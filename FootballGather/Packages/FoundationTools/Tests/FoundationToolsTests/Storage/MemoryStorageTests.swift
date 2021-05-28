@@ -12,8 +12,8 @@ final class MemoryStorageTests: XCTestCase {
     
     private var sut: MemoryStorage<String, [String]>!
     private let storageKey = Mocks.storageKey
-    private let value = "stored-value"
-    private let anotherValue = "stored-another-value"
+    private let objectsToStore = ["stored-value"]
+    private let anotherObjectToStore = "stored-another-value"
     
     override func setUp() {
         super.setUp()
@@ -27,8 +27,8 @@ final class MemoryStorageTests: XCTestCase {
     }
     
     func testStore() {
-        sut.store([value], at: storageKey)
-        XCTAssertEqual(sut.load(forKey: storageKey), [value])
+        sut.store(objectsToStore, at: storageKey)
+        XCTAssertEqual(sut.load(forKey: storageKey), objectsToStore)
     }
     
     func testLoad_whenValueIsNil_isNil() {
@@ -36,8 +36,8 @@ final class MemoryStorageTests: XCTestCase {
     }
     
     func testSubscriptGetter_whenValueIsNotNil_returnsValue() {
-        sut.store([value], at: storageKey)
-        XCTAssertEqual(sut[storageKey], [value])
+        sut.store(objectsToStore, at: storageKey)
+        XCTAssertEqual(sut[storageKey], objectsToStore)
     }
     
     func testSubscriptGetter_whenValueIsNil_isNil() {
@@ -45,38 +45,40 @@ final class MemoryStorageTests: XCTestCase {
     }
 
     func testSubscriptGetter_whenKeyIsNotFound_isNil() {
-        sut.store([value], at: storageKey)
+        sut.store(objectsToStore, at: storageKey)
         XCTAssertNil(sut["@"])
     }
     
     func testSubscriptSetter() {
-        sut[storageKey] = [value]
-        XCTAssertEqual(sut[storageKey], [value])
+        sut[storageKey] = objectsToStore
+        XCTAssertEqual(sut[storageKey], objectsToStore)
     }
     
     func testSubscriptSetter_whenValueIsNil_clearsValue() {
-        sut[storageKey] = [value]
+        sut[storageKey] = objectsToStore
         sut[storageKey] = nil
         
         XCTAssertNil(sut[storageKey])
     }
     
     func testUpdate() {
-        sut.store([value], at: storageKey)
-        sut.update([anotherValue], at: storageKey)
+        sut.store(objectsToStore, at: storageKey)
+        sut.update([anotherObjectToStore], at: storageKey)
         
-        XCTAssertEqual(sut.load(forKey: storageKey), [anotherValue])
+        XCTAssertEqual(sut.load(forKey: storageKey), [anotherObjectToStore])
     }
     
     func testDelete() {
-        sut.store([value], at: storageKey)
+        sut.store(objectsToStore, at: storageKey)
         sut.deleteObject(forKey: storageKey)
         
         XCTAssertNil(sut.load(forKey: storageKey))
     }
     
     func testClear() {
-        sut.store([value, anotherValue], at: storageKey)
+        var objectsToStore = objectsToStore
+        objectsToStore.append(anotherObjectToStore)
+        sut.store(objectsToStore, at: storageKey)
         sut.clear()
         
         XCTAssertNil(sut.load(forKey: storageKey))
