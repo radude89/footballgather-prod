@@ -14,11 +14,10 @@ struct PlayerListView: View {
     let players: [Player]
     
     var body: some View {
-        List {
-            ForEach(players) { player in
-                Text("\(player.name)")
-            }
+        List(players) { player in
+            Text("\(player.name)")
         }
+        .listStyle(PlainListStyle())
     }
 }
 

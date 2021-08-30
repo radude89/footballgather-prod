@@ -15,27 +15,45 @@ struct PlayersView: View {
     
     @EnvironmentObject var storage: AppStorage
     
-    private var players: [Player] {
-        storage.storedPlayers
+    private var hasPlayers: Bool {
+        storage.storedPlayers.isEmpty
     }
     
     var body: some View {
         NavigationView {
             Group {
-                if players.isEmpty {
+                if hasPlayers {
                     EmptyPlayersView()
                 } else {
-                    PlayerListView(players: players)
+                    PlayerListView(players: storage.storedPlayers)
                 }
             }
             .navigationTitle(LocalizedText.players)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: hasPlayers ? nil : EditButton(),
+                trailing: trailingBarButton
+            )
         }
         .accessibilityID(mainViewAccessibilityID)
     }
     
+    private var trailingBarButton: some View {
+        Button(action: addPlayers) {
+            Image(systemName: "plus")
+                .accessibility(removeTraits: .isImage)
+        }
+        .accessibilityID(.addButton)
+        .accessibility(hint: Text(LocalizedText.addPlayersHint))
+        .accessibility(label: Text(LocalizedText.addPlayerLabel))
+    }
+    
+    private func addPlayers() {
+        storage.updatePlayers(Player.demoPlayers)
+    }
+    
     private var mainViewAccessibilityID: Localizable.AccessibilityID {
-        players.isEmpty ? .emptyView : .playerList
+        hasPlayers ? .emptyView : .playerList
     }
 }
 
@@ -44,5 +62,6 @@ struct PlayersView: View {
 struct PlayersView_Previews: PreviewProvider {
     static var previews: some View {
         PlayersView()
+            .environmentObject(AppStorage())
     }
 }

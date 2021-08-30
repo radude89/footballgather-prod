@@ -60,6 +60,11 @@ extension AppStorage: PlayerStorageHandler {
     }
     
     func updatePlayers(_ newPlayers: [Player]) {
+        objectWillChange.send()
+        updateStorage(with: newPlayers)
+    }
+    
+    private func updateStorage(with newPlayers: [Player]) {
         if var alreadyStoredObject = storage.load(forKey: storageKey) {
             alreadyStoredObject.players = newPlayers
             storage.update(alreadyStoredObject, at: storageKey)

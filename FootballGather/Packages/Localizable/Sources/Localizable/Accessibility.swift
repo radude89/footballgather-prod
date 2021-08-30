@@ -10,6 +10,7 @@ import Foundation
 public enum AccessibilityID: String {
     case playerList = "player-list"
     case emptyView = "empty-view"
+    case addButton = "add-button"
 }
 
 extension AccessibilityID: CaseIterable {}

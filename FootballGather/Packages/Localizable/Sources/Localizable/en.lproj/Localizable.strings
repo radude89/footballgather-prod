@@ -7,3 +7,5 @@
 */
 "players" = "Players";
 "no.players" = "We could not find any players.\nPlease create one.";
+"add.players.hint" = "Tap to add players";
+"add.player.label" = "Add player";

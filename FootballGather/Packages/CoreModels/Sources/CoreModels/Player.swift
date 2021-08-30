@@ -20,3 +20,5 @@ public struct Player {
 extension Player: Identifiable {}
 
 extension Player: Equatable {}
+
+extension Player: Hashable {}
