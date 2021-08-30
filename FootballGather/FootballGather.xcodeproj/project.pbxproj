@@ -111,14 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F705D011265B65A40057B63A /* ViewPlayers */ = {
+		F705D011265B65A40057B63A /* PlayerList */ = {
 			isa = PBXGroup;
 			children = (
 				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
 				F705D012265B66390057B63A /* PlayerListView.swift */,
 				F705D017265B67560057B63A /* EmptyPlayersView.swift */,
 			);
-			path = ViewPlayers;
+			path = PlayerList;
 			sourceTree = "<group>";
 		};
 		F705D014265B66870057B63A /* Helpers */ = {
@@ -231,7 +231,7 @@
 		F75AFA6526537F93002D1CE8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F705D011265B65A40057B63A /* ViewPlayers */,
+				F705D011265B65A40057B63A /* PlayerList */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
