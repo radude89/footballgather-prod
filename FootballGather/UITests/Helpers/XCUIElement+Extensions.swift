@@ -19,3 +19,9 @@ extension XCUIElementQuery {
         self[key.rawValue]
     }
 }
+
+extension UITestCase {
+    var cells: [XCUIElement] {
+        (0 ..< app.cells.count).enumerated().map { app.cells.element(boundBy: $0.offset) }
+    }
+}

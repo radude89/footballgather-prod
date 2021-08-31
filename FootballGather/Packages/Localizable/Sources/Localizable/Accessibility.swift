@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AccessibilityID.swift
 //  
 //
 //  Created by Radu Dan on 25.03.2021.
@@ -11,6 +11,10 @@ public enum AccessibilityID: String {
     case playerList = "player-list"
     case emptyView = "empty-view"
     case addButton = "add-button"
+    case editButton = "edit-button"
+    case doneButton = "done-button"
+    case selectedRow = "selected-row"
+    case unselectedRow = "unselected-row"
 }
 
 extension AccessibilityID: CaseIterable {}

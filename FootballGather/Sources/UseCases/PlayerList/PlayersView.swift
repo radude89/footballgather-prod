@@ -1,6 +1,6 @@
 //
 //  PlayerListView.swift
-//  UITests
+//  FootballGather (iOS)
 //
 //  Created by Radu Dan on 18.05.2021.
 //
@@ -14,6 +14,7 @@ import CoreModels
 struct PlayersView: View {
     
     @EnvironmentObject var storage: AppStorage
+    @State private var isEditing = false
     
     private var hasPlayers: Bool {
         storage.storedPlayers.isEmpty
@@ -31,11 +32,26 @@ struct PlayersView: View {
             .navigationTitle(LocalizedText.players)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: hasPlayers ? nil : EditButton(),
+                leading: hasPlayers ? nil : leadingBarButton,
                 trailing: trailingBarButton
             )
+            .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         }
         .accessibilityID(mainViewAccessibilityID)
+    }
+    
+    private var leadingBarButton: some View {
+        Button(
+            action: { isEditing.toggle() }
+        ) {
+            Text(isEditing ? LocalizedText.done : LocalizedText.edit)
+        }
+        .accessibilityID(isEditing ? .doneButton : .editButton)
+        .accessibility(
+            hint: Text(
+                isEditing ? LocalizedText.doneHint : LocalizedText.editHint
+            )
+        )
     }
     
     private var trailingBarButton: some View {

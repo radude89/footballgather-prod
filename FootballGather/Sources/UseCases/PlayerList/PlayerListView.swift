@@ -7,18 +7,70 @@
 
 import SwiftUI
 import CoreModels
+import Localizable
 
 // MARK: - PlayerListView
 
 struct PlayerListView: View {
     let players: [Player]
     
+    @State private var selectedRows = Set<UUID>()
+    @Environment(\.editMode) var editMode
+    
     var body: some View {
-        List(players) { player in
+        List(players, selection: $selectedRows) { player in
             Text("\(player.name)")
+                .accessibilityLabel(
+                    rowAccessibility(for: player).label
+                )
+                .accessibilityID(rowAccessibility(for: player).id)
         }
         .listStyle(PlainListStyle())
     }
+    
+    private func rowAccessibility(for player: Player) -> RowAccessibility {
+        if isEditing {
+            return editingRowAccessibility(for: player)
+        }
+        
+        return RowAccessibility(
+            label: Text("\(player.name)"),
+            id: .unselectedRow
+        )
+    }
+    
+    private var isEditing: Bool {
+        editMode?.wrappedValue == .active
+    }
+    
+    private func editingRowAccessibility(for player: Player) -> RowAccessibility {
+        if hasSelected(player) {
+            return RowAccessibility(
+                label: Text(
+                    String(format: LocalizedText.selectedPlayer, "\(player.name)")
+                ),
+                id: .selectedRow
+            )
+        }
+        
+        return RowAccessibility(
+            label: Text(
+                String(format: LocalizedText.tapToSelectPlayer, "\(player.name)")
+            ),
+            id: .unselectedRow
+        )
+    }
+    
+    private func hasSelected(_ player: Player) -> Bool {
+        selectedRows.contains(player.id)
+    }
+}
+
+// MARK: - RowAccessibility
+
+private struct RowAccessibility {
+    let label: Text
+    let id: AccessibilityID
 }
 
 // MARK: - Preview

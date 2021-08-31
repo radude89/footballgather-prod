@@ -9,3 +9,9 @@
 "no.players" = "We could not find any players.\nPlease create one.";
 "add.players.hint" = "Tap to add players";
 "add.player.label" = "Add player";
+"done" = "Done";
+"edit" = "Edit";
+"done.hint" = "When you are finished selecting players, tap on done.";
+"edit.hint" = "You can select your players for the gather or delete one of the players by swipping left the row the player is associated with.";
+"selected.player" = "%@ selected";
+"tap.select.player" = "Tap to select %@ or swipe to delete";
