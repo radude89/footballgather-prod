@@ -25,6 +25,7 @@
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F791020426E0735100BF79B9 /* PlayerListRowAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */; };
 		F791020826E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020726E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift */; };
+		F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020926E09DA100BF79B9 /* PlayersViewModel.swift */; };
 		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
 		F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A11D6D265CC4BC00AAD926 /* AppStorage.swift */; };
 		F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2934D265F444700E76DF0 /* AppStorageTests.swift */; };
@@ -76,6 +77,7 @@
 		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
 		F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListRowAccessibility.swift; sourceTree = "<group>"; };
 		F791020726E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListRowAccessibilityTests.swift; sourceTree = "<group>"; };
+		F791020926E09DA100BF79B9 /* PlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewModel.swift; sourceTree = "<group>"; };
 		F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballGatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795CCFF264A4F8D00D8FC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F798950126DC987200898B24 /* PlayerSelectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectionUITests.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
+				F791020926E09DA100BF79B9 /* PlayersViewModel.swift */,
 				F705D012265B66390057B63A /* PlayerListView.swift */,
 				F705D017265B67560057B63A /* EmptyPlayersView.swift */,
 				F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */,
@@ -452,6 +455,7 @@
 				F7BD16AA265F66A0005D1422 /* Storage.swift in Sources */,
 				F7BD16AC265F66C1005D1422 /* AppStorageFactory.swift in Sources */,
 				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
+				F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */,
 				F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
 			);
