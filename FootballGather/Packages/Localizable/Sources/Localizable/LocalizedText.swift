@@ -18,4 +18,5 @@ public enum LocalizedText: Localizable {
     public static let editHint = localizedText(key: "edit.hint")
     public static let selectedPlayer = localizedText(key: "selected.player")
     public static let tapToSelectPlayer = localizedText(key: "tap.select.player")
+    public static let selectedCount = localizedText(key: "selected.count")
 }

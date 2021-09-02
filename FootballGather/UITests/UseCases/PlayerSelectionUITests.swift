@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Localizable
 
 final class PlayerSelectionUITests: UITestCase {
     
@@ -29,6 +30,24 @@ final class PlayerSelectionUITests: UITestCase {
     /// **WHEN** I tap on "Select"
     /// **THEN** I can see all my players having a checkbox for selection
     /// **AND** I can select a player by tapping on his entry
+    ///
+    ///
+    /// **Scenario 2: Selecting one player**
+    ///
+    /// **GIVEN** I am in the "Player List" screen
+    /// **AND** I tapped on the "Select" button
+    /// **WHEN** I select one player
+    /// **THEN** the checkbox is ticked, marking the player for selection
+    ///
+    ///
+    /// **Scenario 3: Unselecting one player**
+    ///
+    /// **GIVEN** I am in the "Player List" screen
+    /// **AND** I tapped on the "Select" button
+    /// **AND** I have selected a player having the checkbox ticked
+    /// **WHEN** I select the same player again
+    /// **THEN** my player becomes unselected
+    /// **AND** the checkbox is unticked
     func testSelectingPlayers() {
         app.buttons[.editButton].tap()
         XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
@@ -38,6 +57,40 @@ final class PlayerSelectionUITests: UITestCase {
             cell.tap()
             XCTAssertTrue(cell.staticTexts[.selectedRow].waitToAppear())
         }
+    }
+    
+    /// **Scenario 4: Number of selected players**
+    ///
+    /// **GIVEN** I am in the "Player List" screen
+    /// **AND** I tapped on the "Select" button
+    /// **WHEN** I select at least one player
+    /// **THEN** the title displays the number of selected players
+    func testNumberOfSelectedPlayersUpdatesTitle() {
+        app.buttons[.editButton].tap()
+        XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
+        
+        let navBar = app.navigationBars.element(boundBy: 0)
+        XCTAssertEqual(navBar.identifier, LocalizedText.players)
+        
+        cells[0].tap()
+        cells[1].tap()
+        app.buttons[.doneButton].tap()
+        
+        XCTAssertEqual(navBar.identifier, String(format: LocalizedText.selectedCount, 2))
+        
+        // unselecting the rows
+        app.buttons[.editButton].tap()
+        cells[0].tap()
+        cells[1].tap()
+        app.buttons[.doneButton].tap()
+        
+        XCTAssertEqual(navBar.identifier, LocalizedText.players)
+        
+        // tap edit and then done should not select any players
+        app.buttons[.editButton].tap()
+        app.buttons[.doneButton].tap()
+        
+        XCTAssertEqual(navBar.identifier, LocalizedText.players)
     }
     
 }

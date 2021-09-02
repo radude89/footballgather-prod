@@ -15,3 +15,4 @@
 "edit.hint" = "You can select your players for the gather or delete one of the players by swipping left the row the player is associated with.";
 "selected.player" = "%@ selected";
 "tap.select.player" = "Tap to select %@ or swipe to delete";
+"selected.count" = "%d selected";

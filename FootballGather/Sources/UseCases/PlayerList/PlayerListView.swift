@@ -20,9 +20,7 @@ struct PlayerListView: View {
     var body: some View {
         List(players, selection: $selectedRows) { player in
             Text("\(player.name)")
-                .accessibilityLabel(
-                    rowAccessibility(for: player).label
-                )
+                .accessibilityLabel(rowAccessibility(for: player).label)
                 .accessibilityID(rowAccessibility(for: player).id)
         }
         .listStyle(PlainListStyle())

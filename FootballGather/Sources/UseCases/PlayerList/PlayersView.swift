@@ -31,7 +31,7 @@ struct PlayersView: View {
                     PlayerListView(players: storage.storedPlayers, selectedRows: $selectedRows)
                 }
             }
-            .navigationTitle(LocalizedText.players)
+            .navigationTitle(formattedNavigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: hasPlayers ? nil : leadingBarButton,
@@ -40,6 +40,17 @@ struct PlayersView: View {
             .environment(\.editMode, .constant(isEditing ? .active : .inactive))
         }
         .accessibilityID(mainViewAccessibilityID)
+    }
+    
+    private var formattedNavigationTitle: String {
+        if !isEditing && numberOfSelectedPlayers > 0 {
+            return String(format: LocalizedText.selectedCount, numberOfSelectedPlayers)
+        }
+        return LocalizedText.players
+    }
+    
+    private var numberOfSelectedPlayers: Int {
+        selectedRows.count
     }
     
     private var leadingBarButton: some View {
