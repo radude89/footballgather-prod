@@ -23,6 +23,8 @@
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayersView.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
+		F791020426E0735100BF79B9 /* PlayerListRowAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */; };
+		F791020826E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020726E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift */; };
 		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
 		F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A11D6D265CC4BC00AAD926 /* AppStorage.swift */; };
 		F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2934D265F444700E76DF0 /* AppStorageTests.swift */; };
@@ -72,6 +74,8 @@
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListRowAccessibility.swift; sourceTree = "<group>"; };
+		F791020726E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListRowAccessibilityTests.swift; sourceTree = "<group>"; };
 		F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballGatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795CCFF264A4F8D00D8FC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F798950126DC987200898B24 /* PlayerSelectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectionUITests.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
 				F705D012265B66390057B63A /* PlayerListView.swift */,
 				F705D017265B67560057B63A /* EmptyPlayersView.swift */,
+				F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */,
 			);
 			path = PlayerList;
 			sourceTree = "<group>";
@@ -246,12 +251,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F791020526E0753600BF79B9 /* PlayerList */ = {
+			isa = PBXGroup;
+			children = (
+				F791020726E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift */,
+			);
+			path = PlayerList;
+			sourceTree = "<group>";
+		};
+		F791020626E0754600BF79B9 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				F791020526E0753600BF79B9 /* PlayerList */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		F795CCFC264A4F8D00D8FC3C /* FootballGatherTests */ = {
 			isa = PBXGroup;
 			children = (
 				F7B2934F265F44E400E76DF0 /* Mocks.swift */,
 				F75AFA5426536945002D1CE8 /* App */,
 				F7B2934C265F441A00E76DF0 /* Helpers */,
+				F791020626E0754600BF79B9 /* UseCases */,
 				F795CCFF264A4F8D00D8FC3C /* Info.plist */,
 			);
 			path = FootballGatherTests;
@@ -423,6 +445,7 @@
 			files = (
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
 				F705D013265B66390057B63A /* PlayerListView.swift in Sources */,
+				F791020426E0735100BF79B9 /* PlayerListRowAccessibility.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
 				F705D018265B67560057B63A /* EmptyPlayersView.swift in Sources */,
@@ -453,6 +476,7 @@
 				F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
+				F791020826E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
 				F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */,
 				F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */,

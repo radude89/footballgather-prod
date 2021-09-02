@@ -28,67 +28,29 @@ struct PlayerListView: View {
         .listStyle(PlainListStyle())
     }
     
-    private func rowAccessibility(for player: Player) -> RowAccessibility {
+    private func rowAccessibility(for player: Player) -> PlayerListRowAccessibility {
         if isEditing {
-            return editingRowAccessibility(for: player)
+            return editingRowAccessibility(player)
         }
         
-        return unselectedRowAccessibility(for: player)
+        return .unselected(player)
     }
     
     private var isEditing: Bool {
         editMode?.wrappedValue == .active
     }
     
-    private func editingRowAccessibility(for player: Player) -> RowAccessibility {
+    private func editingRowAccessibility(_ player: Player) -> PlayerListRowAccessibility {
         if hasSelected(player) {
-            return selectedEditingRowAccessibility(for: player)
+            return .selectedEditing(player)
         }
         
-        return unselectedEditingRowAccessibility(for: player)
+        return .unselectedEditing(player)
     }
     
     private func hasSelected(_ player: Player) -> Bool {
         selectedRows.contains(player.id)
     }
-    
-    private func selectedEditingRowAccessibility(
-        for player: Player
-    ) -> RowAccessibility {
-        RowAccessibility(
-            label: Text(
-                String(format: LocalizedText.selectedPlayer, "\(player.name)")
-            ),
-            id: .selectedRow
-        )
-    }
-    
-    private func unselectedEditingRowAccessibility(
-        for player: Player
-    ) -> RowAccessibility {
-        RowAccessibility(
-            label: Text(
-                String(format: LocalizedText.tapToSelectPlayer, "\(player.name)")
-            ),
-            id: .unselectedRow
-        )
-    }
-    
-    private func unselectedRowAccessibility(
-        for player: Player
-    ) -> RowAccessibility {
-        RowAccessibility(
-            label: Text("\(player.name)"),
-            id: .unselectedRow
-        )
-    }
-}
-
-// MARK: - RowAccessibility
-
-private struct RowAccessibility {
-    let label: Text
-    let id: AccessibilityID
 }
 
 // MARK: - Preview
