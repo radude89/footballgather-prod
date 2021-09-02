@@ -14,7 +14,9 @@ import CoreModels
 struct PlayersView: View {
     
     @EnvironmentObject var storage: AppStorage
+    
     @State private var isEditing = false
+    @State private var selectedRows = Set<UUID>()
     
     private var hasPlayers: Bool {
         storage.storedPlayers.isEmpty
@@ -26,7 +28,7 @@ struct PlayersView: View {
                 if hasPlayers {
                     EmptyPlayersView()
                 } else {
-                    PlayerListView(players: storage.storedPlayers)
+                    PlayerListView(players: storage.storedPlayers, selectedRows: $selectedRows)
                 }
             }
             .navigationTitle(LocalizedText.players)
@@ -42,7 +44,7 @@ struct PlayersView: View {
     
     private var leadingBarButton: some View {
         Button(
-            action: { isEditing.toggle() }
+            action: toggleEditing
         ) {
             Text(isEditing ? LocalizedText.done : LocalizedText.edit)
         }
@@ -52,6 +54,14 @@ struct PlayersView: View {
                 isEditing ? LocalizedText.doneHint : LocalizedText.editHint
             )
         )
+    }
+    
+    private func toggleEditing() {
+        isEditing.toggle()
+        
+        if !isEditing {
+            print(selectedRows)
+        }
     }
     
     private var trailingBarButton: some View {

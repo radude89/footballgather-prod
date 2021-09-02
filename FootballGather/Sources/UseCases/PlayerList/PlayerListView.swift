@@ -14,7 +14,7 @@ import Localizable
 struct PlayerListView: View {
     let players: [Player]
     
-    @State private var selectedRows = Set<UUID>()
+    @Binding var selectedRows: Set<UUID>
     @Environment(\.editMode) var editMode
     
     var body: some View {
@@ -33,10 +33,7 @@ struct PlayerListView: View {
             return editingRowAccessibility(for: player)
         }
         
-        return RowAccessibility(
-            label: Text("\(player.name)"),
-            id: .unselectedRow
-        )
+        return unselectedRowAccessibility(for: player)
     }
     
     private var isEditing: Bool {
@@ -45,15 +42,31 @@ struct PlayerListView: View {
     
     private func editingRowAccessibility(for player: Player) -> RowAccessibility {
         if hasSelected(player) {
-            return RowAccessibility(
-                label: Text(
-                    String(format: LocalizedText.selectedPlayer, "\(player.name)")
-                ),
-                id: .selectedRow
-            )
+            return selectedEditingRowAccessibility(for: player)
         }
         
-        return RowAccessibility(
+        return unselectedEditingRowAccessibility(for: player)
+    }
+    
+    private func hasSelected(_ player: Player) -> Bool {
+        selectedRows.contains(player.id)
+    }
+    
+    private func selectedEditingRowAccessibility(
+        for player: Player
+    ) -> RowAccessibility {
+        RowAccessibility(
+            label: Text(
+                String(format: LocalizedText.selectedPlayer, "\(player.name)")
+            ),
+            id: .selectedRow
+        )
+    }
+    
+    private func unselectedEditingRowAccessibility(
+        for player: Player
+    ) -> RowAccessibility {
+        RowAccessibility(
             label: Text(
                 String(format: LocalizedText.tapToSelectPlayer, "\(player.name)")
             ),
@@ -61,8 +74,13 @@ struct PlayerListView: View {
         )
     }
     
-    private func hasSelected(_ player: Player) -> Bool {
-        selectedRows.contains(player.id)
+    private func unselectedRowAccessibility(
+        for player: Player
+    ) -> RowAccessibility {
+        RowAccessibility(
+            label: Text("\(player.name)"),
+            id: .unselectedRow
+        )
     }
 }
 
@@ -77,7 +95,10 @@ private struct RowAccessibility {
 
 struct PlayerListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerListView(players: Player.demoPlayers)
+        PlayerListView(
+            players: Player.demoPlayers,
+            selectedRows: .constant(.init())
+        )
             .previewLayout(.sizeThatFits)
     }
 }
