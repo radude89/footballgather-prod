@@ -34,9 +34,11 @@ struct PlayersView: View {
         if !viewModel.hasPlayers {
             PlayersEmptyView()
         } else {
-            PlayerListView(
-                players: viewModel.storedPlayers,
-                selectedRows: $viewModel.selectedRows
+            PlayersListView(
+                viewModel: .init(
+                    players: viewModel.storedPlayers,
+                    selectedRows: $viewModel.selectedRows
+                )
             )
         }
     }

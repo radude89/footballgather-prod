@@ -11,16 +11,16 @@ import CoreModels
 import Localizable
 @testable import FootballGather
 
-final class PlayerListRowAccessibilityTests: XCTestCase {
+final class PlayersListRowAccessibilityTests: XCTestCase {
     
     private let player = Player(name: "John")
     
     func testSelectedEditingPlayer() {
-        let sut = PlayerListRowAccessibility.selectedEditing(player)
+        let sut = PlayersListRowAccessibility.selectedEditing(player)
         
         XCTAssertEqual(
             sut,
-            PlayerListRowAccessibility(
+            PlayersListRowAccessibility(
                 label: Text(
                     String(format: LocalizedString.selectedPlayer, "\(player.name)")
                 ),
@@ -30,11 +30,11 @@ final class PlayerListRowAccessibilityTests: XCTestCase {
     }
     
     func testUnselectedEditingPlayer() {
-        let sut = PlayerListRowAccessibility.unselectedEditing(player)
+        let sut = PlayersListRowAccessibility.unselectedEditing(player)
         
         XCTAssertEqual(
             sut,
-            PlayerListRowAccessibility(
+            PlayersListRowAccessibility(
                 label: Text(
                     String(format: LocalizedString.tapToSelectPlayer, "\(player.name)")
                 ),
@@ -44,11 +44,11 @@ final class PlayerListRowAccessibilityTests: XCTestCase {
     }
     
     func testUnselectedPlayer() {
-        let sut = PlayerListRowAccessibility.unselected(player)
+        let sut = PlayersListRowAccessibility.unselected(player)
         
         XCTAssertEqual(
             sut,
-            PlayerListRowAccessibility(
+            PlayersListRowAccessibility(
                 label: Text(String(player.name)),
                 id: .unselectedRow
             )

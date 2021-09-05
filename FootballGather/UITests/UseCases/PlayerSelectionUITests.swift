@@ -31,14 +31,12 @@ final class PlayerSelectionUITests: UITestCase {
     /// **THEN** I can see all my players having a checkbox for selection
     /// **AND** I can select a player by tapping on his entry
     ///
-    ///
     /// **Scenario 2: Selecting one player**
     ///
     /// **GIVEN** I am in the "Player List" screen
     /// **AND** I tapped on the "Select" button
     /// **WHEN** I select one player
     /// **THEN** the checkbox is ticked, marking the player for selection
-    ///
     ///
     /// **Scenario 3: Unselecting one player**
     ///
@@ -63,7 +61,8 @@ final class PlayerSelectionUITests: UITestCase {
     ///
     /// **GIVEN** I am in the "Player List" screen
     /// **AND** I tapped on the "Select" button
-    /// **WHEN** I select at least one player
+    /// **WHEN** I am done selecting players
+    /// **AND** I selected at least one player
     /// **THEN** the title displays the number of selected players
     func testNumberOfSelectedPlayersUpdatesTitle() {
         app.buttons[.editButton].tap()

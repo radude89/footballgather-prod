@@ -1,6 +1,6 @@
 //
-//  PlayerListRowAccessibility.swift
-//  PlayerListRowAccessibility
+//  PlayersListRowAccessibility.swift
+//  PlayersListRowAccessibility
 //
 //  Created by Radu Dan on 02.09.2021.
 //
@@ -9,16 +9,16 @@ import SwiftUI
 import Localizable
 import CoreModels
 
-struct PlayerListRowAccessibility {
+struct PlayersListRowAccessibility {
     let label: Text
     let id: AccessibilityID
 }
 
-extension PlayerListRowAccessibility: Equatable {}
+extension PlayersListRowAccessibility: Equatable {}
 
-extension PlayerListRowAccessibility {
-    static func selectedEditing(_ player: Player) -> PlayerListRowAccessibility {
-        PlayerListRowAccessibility(
+extension PlayersListRowAccessibility {
+    static func selectedEditing(_ player: Player) -> PlayersListRowAccessibility {
+        PlayersListRowAccessibility(
             label: Text(
                 String(format: LocalizedString.selectedPlayer, "\(player.name)")
             ),
@@ -26,8 +26,8 @@ extension PlayerListRowAccessibility {
         )
     }
     
-    static func unselectedEditing(_ player: Player) -> PlayerListRowAccessibility {
-        PlayerListRowAccessibility(
+    static func unselectedEditing(_ player: Player) -> PlayersListRowAccessibility {
+        PlayersListRowAccessibility(
             label: Text(
                 String(format: LocalizedString.tapToSelectPlayer, "\(player.name)")
             ),
@@ -35,8 +35,8 @@ extension PlayerListRowAccessibility {
         )
     }
     
-    static func unselected(_ player: Player) -> PlayerListRowAccessibility {
-        PlayerListRowAccessibility(
+    static func unselected(_ player: Player) -> PlayersListRowAccessibility {
+        PlayersListRowAccessibility(
             label: Text(String(player.name)),
             id: .unselectedRow
         )
