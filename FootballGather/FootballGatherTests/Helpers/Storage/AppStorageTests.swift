@@ -44,7 +44,7 @@ final class AppStorageTests: XCTestCase {
             storageKey: Mocks.storageKey,
             commandLineHandler: Mocks.CommandRunner()
         )
-        sut.updatePlayers(Player.demoPlayers)
+        sut.updatePlayers(.demoPlayers)
         
         let players: [Player] = [
             Player(name: "John Smith"),

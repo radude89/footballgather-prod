@@ -7,10 +7,14 @@
 
 import CoreModels
 
-extension Player {
+extension Array where Element == Player {
     static let demoPlayers: [Player] = [
         Player(name: "John"),
         Player(name: "Jane"),
         Player(name: "Arthur")
     ]
+}
+
+extension Player {
+    static let demoPlayers = Array.demoPlayers
 }

@@ -38,12 +38,12 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testStoredPlayers_whenStorageIsNotEmpty_isNotEmpty() {
-        Mocks.storage.updatePlayers(Player.demoPlayers)
+        Mocks.storage.updatePlayers(.demoPlayers)
         XCTAssertFalse(sut.storedPlayers.isEmpty)
     }
     
     func testAddPlayers_updatesStorage() {
-        sut.addPlayers(Player.demoPlayers)
+        sut.addPlayers(.demoPlayers)
         
         XCTAssertFalse(Mocks.storage.storedPlayers.isEmpty)
     }

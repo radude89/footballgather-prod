@@ -35,7 +35,7 @@ extension PlayersViewModel {
         storage.storedPlayers
     }
     
-    func addPlayers(_ players: [Player] = Player.demoPlayers) {
+    func addPlayers(_ players: [Player] = .demoPlayers) {
         storage.updatePlayers(players)
     }
     

@@ -25,7 +25,7 @@ extension Mocks {
 // MARK: - StoredObject
 
 extension Mocks {
-    static let storedObject = StoredObject(players: Player.demoPlayers)
+    static let storedObject = StoredObject(players: .demoPlayers)
 }
 
 // MARK: - Command Runner

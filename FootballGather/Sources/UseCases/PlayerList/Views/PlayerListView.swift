@@ -56,7 +56,7 @@ struct PlayerListView: View {
 struct PlayerListView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerListView(
-            players: Player.demoPlayers,
+            players: .demoPlayers,
             selectedRows: .constant(.init())
         )
             .previewLayout(.sizeThatFits)

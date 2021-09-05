@@ -38,7 +38,7 @@ final class AppStorage: ObservableObject {
     
     private func storeData() {
         storage.store(
-            StoredObject(players: Player.demoPlayers),
+            StoredObject(players: .demoPlayers),
             at: storageKey
         )
     }

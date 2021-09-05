@@ -78,7 +78,7 @@ struct PlayersView: View {
     
     private func updatePlayers() {
         // TODO: Add the real implementation
-        viewModel.addPlayers(Player.demoPlayers)
+        viewModel.addPlayers(.demoPlayers)
     }
     
 }

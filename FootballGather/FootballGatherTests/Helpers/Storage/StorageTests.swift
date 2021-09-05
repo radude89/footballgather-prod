@@ -21,8 +21,8 @@ final class StorageTests: XCTestCase {
     }
     
     func testStoredObject_whenPlayersAreSet_setsPlayers() {
-        let sut = StoredObject(players: Player.demoPlayers)
-        XCTAssertEqual(sut.players, Player.demoPlayers)
+        let sut = StoredObject(players: .demoPlayers)
+        XCTAssertEqual(sut.players, .demoPlayers)
     }
     
 }
