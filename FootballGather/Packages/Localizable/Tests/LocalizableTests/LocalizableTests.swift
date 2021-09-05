@@ -5,8 +5,17 @@ final class LocalizableTests: XCTestCase {
     
     func testLocalizedTexts() {
         let localizedTextDictionary = [
-            "players": LocalizedText.players,
-            "no.players": LocalizedText.noPlayers
+            "players": LocalizedString.players,
+            "no.players": LocalizedString.noPlayers,
+            "add.players.hint": LocalizedString.addPlayersHint,
+            "add.player.label": LocalizedString.addPlayerLabel,
+            "done": LocalizedString.done,
+            "done.hint": LocalizedString.doneHint,
+            "edit": LocalizedString.edit,
+            "edit.hint": LocalizedString.editHint,
+            "selected.player": LocalizedString.selectedPlayer,
+            "tap.select.player": LocalizedString.tapToSelectPlayer,
+            "selected.count": LocalizedString.selectedCount
         ]
         
         localizedTextDictionary.forEach { key, value in

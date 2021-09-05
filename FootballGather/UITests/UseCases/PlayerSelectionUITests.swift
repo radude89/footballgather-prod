@@ -70,13 +70,13 @@ final class PlayerSelectionUITests: UITestCase {
         XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
         
         let navBar = app.navigationBars.element(boundBy: 0)
-        XCTAssertEqual(navBar.identifier, LocalizedText.players)
+        XCTAssertEqual(navBar.identifier, LocalizedString.players)
         
         cells[0].tap()
         cells[1].tap()
         app.buttons[.doneButton].tap()
         
-        XCTAssertEqual(navBar.identifier, String(format: LocalizedText.selectedCount, 2))
+        XCTAssertEqual(navBar.identifier, String(format: LocalizedString.selectedCount, 2))
         
         // unselecting the rows
         app.buttons[.editButton].tap()
@@ -84,13 +84,13 @@ final class PlayerSelectionUITests: UITestCase {
         cells[1].tap()
         app.buttons[.doneButton].tap()
         
-        XCTAssertEqual(navBar.identifier, LocalizedText.players)
+        XCTAssertEqual(navBar.identifier, LocalizedString.players)
         
         // tap edit and then done should not select any players
         app.buttons[.editButton].tap()
         app.buttons[.doneButton].tap()
         
-        XCTAssertEqual(navBar.identifier, LocalizedText.players)
+        XCTAssertEqual(navBar.identifier, LocalizedString.players)
     }
     
 }

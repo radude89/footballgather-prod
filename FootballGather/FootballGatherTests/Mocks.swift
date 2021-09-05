@@ -15,6 +15,11 @@ enum Mocks {}
 
 extension Mocks {
     static var storageKey = "test_storage_key"
+    
+    static let storage = AppStorage(
+        storageKey: Mocks.storageKey,
+        commandLineHandler: Mocks.CommandRunner()
+    )
 }
 
 // MARK: - StoredObject
@@ -39,4 +44,19 @@ extension Mocks {
         }
     }
 
+}
+
+// MARK: - PlayersViewModel
+
+extension Mocks {
+    static func makeButtonModel(
+        title: String = "Button",
+        accessibility: PlayersViewModel.AccessibilityModel = .init(
+            id: .doneButton,
+            hint: "Hint",
+            label: "Label"
+        )
+    ) -> PlayersViewModel.ButtonModel {
+        PlayersViewModel.ButtonModel(title: title, accessibility: accessibility)
+    }
 }

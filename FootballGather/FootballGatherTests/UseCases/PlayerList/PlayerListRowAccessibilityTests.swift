@@ -22,7 +22,7 @@ final class PlayerListRowAccessibilityTests: XCTestCase {
             sut,
             PlayerListRowAccessibility(
                 label: Text(
-                    String(format: LocalizedText.selectedPlayer, "\(player.name)")
+                    String(format: LocalizedString.selectedPlayer, "\(player.name)")
                 ),
                 id: .selectedRow
             )
@@ -36,7 +36,7 @@ final class PlayerListRowAccessibilityTests: XCTestCase {
             sut,
             PlayerListRowAccessibility(
                 label: Text(
-                    String(format: LocalizedText.tapToSelectPlayer, "\(player.name)")
+                    String(format: LocalizedString.tapToSelectPlayer, "\(player.name)")
                 ),
                 id: .unselectedRow
             )

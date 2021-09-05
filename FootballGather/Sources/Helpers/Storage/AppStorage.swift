@@ -43,6 +43,10 @@ final class AppStorage: ObservableObject {
         )
     }
     
+    func clear() {
+        storage.clear()
+    }
+    
 }
 
 // MARK: - AppStorage+Players

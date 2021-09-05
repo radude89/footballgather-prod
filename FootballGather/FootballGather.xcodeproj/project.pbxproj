@@ -10,7 +10,7 @@
 		F705D010265B5D360057B63A /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F705D00F265B5D360057B63A /* FoundationTools */; };
 		F705D013265B66390057B63A /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D012265B66390057B63A /* PlayerListView.swift */; };
 		F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D015265B66A60057B63A /* PlayerExtensions.swift */; };
-		F705D018265B67560057B63A /* EmptyPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D017265B67560057B63A /* EmptyPlayersView.swift */; };
+		F705D018265B67560057B63A /* PlayersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D017265B67560057B63A /* PlayersEmptyView.swift */; };
 		F71648E3265F4C6C008D52FE /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F71648E2265F4C6C008D52FE /* FoundationTools */; };
 		F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */; };
 		F756F905260C3D6700A36040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F756F8DA260C3D6600A36040 /* Assets.xcassets */; };
@@ -28,6 +28,10 @@
 		F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020926E09DA100BF79B9 /* PlayersViewModel.swift */; };
 		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
 		F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A11D6D265CC4BC00AAD926 /* AppStorage.swift */; };
+		F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2209726E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift */; };
+		F7B2209E26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2209D26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift */; };
+		F7B220A026E47BAA00BC7DD3 /* PlayersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2209F26E47BAA00BC7DD3 /* PlayersViewModelTests.swift */; };
+		F7B220A226E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B220A126E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift */; };
 		F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2934D265F444700E76DF0 /* AppStorageTests.swift */; };
 		F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2934F265F44E400E76DF0 /* Mocks.swift */; };
 		F7B29352265F474B00E76DF0 /* PlayerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B29351265F474B00E76DF0 /* PlayerExtensionsTests.swift */; };
@@ -58,7 +62,7 @@
 		F705D008265B59A10057B63A /* FoundationTools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FoundationTools; sourceTree = "<group>"; };
 		F705D012265B66390057B63A /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		F705D015265B66A60057B63A /* PlayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtensions.swift; sourceTree = "<group>"; };
-		F705D017265B67560057B63A /* EmptyPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlayersView.swift; sourceTree = "<group>"; };
+		F705D017265B67560057B63A /* PlayersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersEmptyView.swift; sourceTree = "<group>"; };
 		F71D1E0A260C507300A2C816 /* Localizable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Localizable; sourceTree = "<group>"; };
 		F73C1386265B55780001704B /* CoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreModels; sourceTree = "<group>"; };
 		F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherApp.swift; sourceTree = "<group>"; };
@@ -82,6 +86,10 @@
 		F795CCFF264A4F8D00D8FC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F798950126DC987200898B24 /* PlayerSelectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectionUITests.swift; sourceTree = "<group>"; };
 		F7A11D6D265CC4BC00AAD926 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
+		F7B2209726E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersViewModel+UIModel.swift"; sourceTree = "<group>"; };
+		F7B2209D26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersViewModel+BarButtonFactory.swift"; sourceTree = "<group>"; };
+		F7B2209F26E47BAA00BC7DD3 /* PlayersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewModelTests.swift; sourceTree = "<group>"; };
+		F7B220A126E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersViewModel+UIModelTests.swift"; sourceTree = "<group>"; };
 		F7B2934D265F444700E76DF0 /* AppStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageTests.swift; sourceTree = "<group>"; };
 		F7B2934F265F44E400E76DF0 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		F7B29351265F474B00E76DF0 /* PlayerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtensionsTests.swift; sourceTree = "<group>"; };
@@ -122,11 +130,8 @@
 		F705D011265B65A40057B63A /* PlayerList */ = {
 			isa = PBXGroup;
 			children = (
-				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
-				F791020926E09DA100BF79B9 /* PlayersViewModel.swift */,
-				F705D012265B66390057B63A /* PlayerListView.swift */,
-				F705D017265B67560057B63A /* EmptyPlayersView.swift */,
-				F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */,
+				F7B2209B26E35DC100BC7DD3 /* Views */,
+				F7B2209C26E35DCF00BC7DD3 /* ViewModels */,
 			);
 			path = PlayerList;
 			sourceTree = "<group>";
@@ -258,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				F791020726E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift */,
+				F7B2209F26E47BAA00BC7DD3 /* PlayersViewModelTests.swift */,
+				F7B220A126E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift */,
 			);
 			path = PlayerList;
 			sourceTree = "<group>";
@@ -280,6 +287,27 @@
 				F795CCFF264A4F8D00D8FC3C /* Info.plist */,
 			);
 			path = FootballGatherTests;
+			sourceTree = "<group>";
+		};
+		F7B2209B26E35DC100BC7DD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
+				F705D017265B67560057B63A /* PlayersEmptyView.swift */,
+				F705D012265B66390057B63A /* PlayerListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7B2209C26E35DCF00BC7DD3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F791020926E09DA100BF79B9 /* PlayersViewModel.swift */,
+				F7B2209726E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift */,
+				F7B2209D26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift */,
+				F791020326E0735100BF79B9 /* PlayerListRowAccessibility.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F7B2934C265F441A00E76DF0 /* Helpers */ = {
@@ -451,10 +479,12 @@
 				F791020426E0735100BF79B9 /* PlayerListRowAccessibility.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
-				F705D018265B67560057B63A /* EmptyPlayersView.swift in Sources */,
+				F705D018265B67560057B63A /* PlayersEmptyView.swift in Sources */,
 				F7BD16AA265F66A0005D1422 /* Storage.swift in Sources */,
 				F7BD16AC265F66C1005D1422 /* AppStorageFactory.swift in Sources */,
+				F7B2209E26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift in Sources */,
 				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
+				F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */,
 				F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */,
 				F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
@@ -479,9 +509,11 @@
 				F7B29352265F474B00E76DF0 /* PlayerExtensionsTests.swift in Sources */,
 				F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
+				F7B220A226E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayerListRowAccessibilityTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
+				F7B220A026E47BAA00BC7DD3 /* PlayersViewModelTests.swift in Sources */,
 				F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */,
 				F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */,
 			);

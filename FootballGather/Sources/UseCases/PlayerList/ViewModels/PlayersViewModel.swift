@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
-import FoundationTools
+import Localizable
 import CoreModels
+
+// MARK: - PlayersViewModel
 
 final class PlayersViewModel: ObservableObject {
     
@@ -15,25 +17,29 @@ final class PlayersViewModel: ObservableObject {
     @Published var selectedRows = Set<UUID>()
     
     private let storage: AppStorage
-    
+
     init(storage: AppStorage) {
         self.storage = storage
     }
     
+}
+
+// MARK: - Player interaction
+    
+extension PlayersViewModel {
     var hasPlayers: Bool {
-        storage.storedPlayers.isEmpty
+        storage.storedPlayers.isEmpty == false
     }
     
     var storedPlayers: [Player] {
         storage.storedPlayers
     }
     
-    func addPlayers() {
-        storage.updatePlayers(Player.demoPlayers)
-    }
-    
-    func updatePlayers(_ players: [Player]) {
+    func addPlayers(_ players: [Player] = Player.demoPlayers) {
         storage.updatePlayers(players)
     }
     
+    func toggleEditing() {
+        isEditing.toggle()
+    }
 }

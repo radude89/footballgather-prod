@@ -1,5 +1,5 @@
 //
-//  EmptyPlayersView.swift
+//  PlayersEmptyView.swift
 //  FootballGather (iOS)
 //
 //  Created by Radu Dan on 24.05.2021.
@@ -8,11 +8,9 @@
 import SwiftUI
 import Localizable
 
-// MARK: - EmptyPlayersView
-
-struct EmptyPlayersView: View {
+struct PlayersEmptyView: View {
     var body: some View {
-        Text(LocalizedText.noPlayers)
+        Text(LocalizedString.noPlayers)
             .multilineTextAlignment(.center)
             .padding()
     }
@@ -22,7 +20,7 @@ struct EmptyPlayersView: View {
 
 struct EmptyPlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyPlayersView()
+        PlayersEmptyView()
             .previewLayout(.sizeThatFits)
     }
 }

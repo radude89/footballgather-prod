@@ -20,7 +20,7 @@ extension PlayerListRowAccessibility {
     static func selectedEditing(_ player: Player) -> PlayerListRowAccessibility {
         PlayerListRowAccessibility(
             label: Text(
-                String(format: LocalizedText.selectedPlayer, "\(player.name)")
+                String(format: LocalizedString.selectedPlayer, "\(player.name)")
             ),
             id: .selectedRow
         )
@@ -29,7 +29,7 @@ extension PlayerListRowAccessibility {
     static func unselectedEditing(_ player: Player) -> PlayerListRowAccessibility {
         PlayerListRowAccessibility(
             label: Text(
-                String(format: LocalizedText.tapToSelectPlayer, "\(player.name)")
+                String(format: LocalizedString.tapToSelectPlayer, "\(player.name)")
             ),
             id: .unselectedRow
         )
