@@ -15,6 +15,7 @@ public enum AccessibilityID: String {
     case doneButton = "done-button"
     case selectedRow = "selected-row"
     case unselectedRow = "unselected-row"
+    case addView = "add-view"
 }
 
 extension AccessibilityID: CaseIterable {}

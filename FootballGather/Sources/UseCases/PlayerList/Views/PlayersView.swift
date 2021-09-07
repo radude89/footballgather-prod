@@ -15,6 +15,8 @@ struct PlayersView: View {
     
     @ObservedObject var viewModel: PlayersViewModel
     
+    @State private var showAddView = false
+    
     var body: some View {
         NavigationView {
             mainContent
@@ -25,6 +27,7 @@ struct PlayersView: View {
                     trailing: trailingBarButton
                 )
                 .environment(\.editMode, viewModel.editModeBinding)
+                .sheet(isPresented: $showAddView, content: AddPlayerView.init)
         }
         .accessibilityID(viewModel.mainViewAccessibilityID)
     }
@@ -65,7 +68,7 @@ struct PlayersView: View {
     }
     
     private var trailingBarButton: some View {
-        Button(action: updatePlayers) {
+        Button(action: { showAddView = true }) {
             Image(systemName: "plus")
                 .accessibility(removeTraits: .isImage)
         }
@@ -77,12 +80,6 @@ struct PlayersView: View {
             Text(viewModel.trailingBarButton.accessibilityLabel)
         )
     }
-    
-    private func updatePlayers() {
-        // TODO: Add the real implementation
-        viewModel.addPlayers(.demoPlayers)
-    }
-    
 }
 
 // MARK: - Preview

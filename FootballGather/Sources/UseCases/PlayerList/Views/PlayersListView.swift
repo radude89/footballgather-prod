@@ -30,7 +30,7 @@ struct PlayersListView: View {
                     viewModel.accessibilityLabel(for: player, isEditing: isEditing)
                 )
         }
-        .listStyle(PlainListStyle())
+        .listStyle(.plain)
     }
     
     private var isEditing: Bool {
