@@ -29,6 +29,9 @@ struct PlayersListView: View {
                 .accessibilityLabel(
                     viewModel.accessibilityLabel(for: player, isEditing: isEditing)
                 )
+                .accessibilityAddTraits(
+                    viewModel.hasSelected(player) ? .isSelected : []
+                )
         }
         .listStyle(.plain)
     }

@@ -32,7 +32,6 @@ final class AddPlayerUITests: UITestCase {
     /// **THEN** I am navigated to the "Add Player" screen
     func testViewAddPlayer() {
         app.buttons[.addButton].tap()
-        
         XCTAssertTrue(app.otherElements[.addView].waitToAppear())
     }
     

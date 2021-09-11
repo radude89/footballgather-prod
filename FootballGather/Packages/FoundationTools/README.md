@@ -1,3 +1,3 @@
 # FoundationTools
 
-A description of this package.
+FoundationTools contains the core utils, helpers, extensions files.

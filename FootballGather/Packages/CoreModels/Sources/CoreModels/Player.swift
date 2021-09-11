@@ -9,11 +9,20 @@ import Foundation
 
 public struct Player {
     public let id: UUID
-    public let name: String
+    public var name: String
+    public var position: Position?
+    public var skill: Skill?
     
-    public init(id: UUID = .init(), name: String) {
+    public init(
+        id: UUID = .init(),
+        name: String,
+        position: Position? = nil,
+        skill: Skill? = nil
+    ) {
         self.id = id
         self.name = name
+        self.position = position
+        self.skill = skill
     }
 }
 

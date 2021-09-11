@@ -13,10 +13,12 @@ final class PlayerTests: XCTestCase {
     func testInit() {
         let id = UUID()
         let name = "John Doe"
-        let player = Player(id: id, name: name)
+        let player = Player(id: id, name: name, position: .defender, skill: .amateur)
         
         XCTAssertEqual(player.id, id)
         XCTAssertEqual(player.name, name)
+        XCTAssertEqual(player.position, .defender)
+        XCTAssertEqual(player.skill, .amateur)
     }
     
     func testInit_whenNameIsEmpty() {
@@ -26,12 +28,14 @@ final class PlayerTests: XCTestCase {
         
         XCTAssertEqual(player.id, id)
         XCTAssertEqual(player.name, name)
+        XCTAssertNil(player.position)
+        XCTAssertNil(player.skill)
     }
     
     func testEquatable_whenPropertiesAreTheSame_equals() {
         let id = UUID()
-        let player1 = Player(id: id, name: "John")
-        let player2 = Player(id: id, name: "John")
+        let player1 = Player(id: id, name: "John", position: .forward, skill: .rookie)
+        let player2 = Player(id: id, name: "John", position: .forward, skill: .rookie)
         
         XCTAssertEqual(player1, player2)
     }

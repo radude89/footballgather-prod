@@ -16,3 +16,12 @@
 "selected.player" = "%@ selected";
 "tap.select.player" = "Tap to select %@ or swipe to delete";
 "selected.count" = "%d selected";
+"player.name.field" = "*Name of the player";
+"section.player.details.header" = "Player Details";
+"section.player.details.footer" = "Choose a name for your player so that you recognize him/her later on. Please note you can have players with the same name.\n*This field is mandatory.";
+"skill" = "Skill";
+"position" = "Position";
+"skillset.and.position.header" = "Skillset & position";
+"skillset.and.position.footer" = "Make sure you balance your teams based on the skillset and position of your players.";
+"save" = "Save";
+"add.player" = "Add Player";
