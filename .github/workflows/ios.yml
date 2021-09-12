@@ -1,0 +1,40 @@
+name: Run UT and UI tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  install-dependencies:
+    runs-on: macos-11
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: List available Xcode versions
+        run: ls /Applications | grep Xcode
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_13.0.app
+
+      - name: Check cache
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install dependencies
+        run: sh ./FootballGather/scripts/install-dependencies.sh
+
+      - name: Run UT
+        run: |
+          cd FootballGather
+          bundle exec fastlane ut
+
+      - name: Run UI tests
+        run: |
+          cd FootballGather
+          bundle exec fastlane ui

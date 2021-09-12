@@ -9,5 +9,5 @@ if [ -e "Gemfile" ]; then
   echo "Installing gems"
   gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
   bundle config path vendor/bundle
-  bundle install || echo "Failed to install bundle"
+  bundle install --jobs 4 || echo "Failed to install bundle"
 fi
