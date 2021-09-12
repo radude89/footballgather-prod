@@ -5,7 +5,6 @@ before_all do
   clear_derived_data
 end
 
-setup_travis
 SIMULATORS = [
   'iPhone 8'
 ]
