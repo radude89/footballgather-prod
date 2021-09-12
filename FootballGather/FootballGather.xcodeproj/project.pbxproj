@@ -37,6 +37,12 @@
 		F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */; };
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayersView.swift */; };
+		F761201326EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift */; };
+		F761201526EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */; };
+		F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */; };
+		F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */; };
+		F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */; };
+		F761201D26EE310000DB06E0 /* SaveSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201C26EE310000DB06E0 /* SaveSectionViewModelTests.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */; };
 		F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */; };
@@ -112,6 +118,12 @@
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		F761201226EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModelTests.swift; sourceTree = "<group>"; };
+		F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSectionViewModelTests.swift; sourceTree = "<group>"; };
+		F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModelTests.swift; sourceTree = "<group>"; };
+		F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModelTests.swift; sourceTree = "<group>"; };
+		F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModelTests.swift; sourceTree = "<group>"; };
+		F761201C26EE310000DB06E0 /* SaveSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F791020326E0735100BF79B9 /* PlayersListRowAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListRowAccessibility.swift; sourceTree = "<group>"; };
@@ -329,6 +341,19 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		F761201126EDDBB800DB06E0 /* AddPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F761201226EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift */,
+				F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */,
+				F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */,
+				F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */,
+				F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */,
+				F761201C26EE310000DB06E0 /* SaveSectionViewModelTests.swift */,
+			);
+			path = AddPlayer;
+			sourceTree = "<group>";
+		};
 		F78BA6A1260C530F00083142 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				F791020526E0753600BF79B9 /* PlayerList */,
+				F761201126EDDBB800DB06E0 /* AddPlayer */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -617,12 +643,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B29352265F474B00E76DF0 /* PlayerExtensionsTests.swift in Sources */,
+				F761201326EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift in Sources */,
 				F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F7557EFA26E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift in Sources */,
 				F7B220A226E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift in Sources */,
+				F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */,
+				F761201526EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
+				F761201D26EE310000DB06E0 /* SaveSectionViewModelTests.swift in Sources */,
+				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */,
+				F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
 				F7B220A026E47BAA00BC7DD3 /* PlayersViewModelTests.swift in Sources */,
 				F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */,

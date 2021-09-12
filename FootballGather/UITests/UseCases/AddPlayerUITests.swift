@@ -27,7 +27,7 @@ final class AddPlayerUITests: UITestCase {
     
     /// **Scenario 1: Adding players**
     ///
-    /// **GIVE** I am in the "Player List" screen
+    /// **GIVEN** I am in the "Player List" screen
     /// **WHEN** I tap on the "Add Player" button
     /// **THEN** I am navigated to the "Add Player" screen
     func testViewAddPlayer() {
