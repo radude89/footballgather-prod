@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  install-dependencies:
+  run-tests:
     runs-on: macos-11
     defaults:
       run:
