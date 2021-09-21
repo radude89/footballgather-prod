@@ -28,4 +28,5 @@ public enum LocalizedString: Localizable {
     public static let sectionSkillsetFooter = localizedText(key: "skillset.and.position.footer")
     public static let save = localizedText(key: "save")
     public static let addPlayer = localizedText(key: "add.player")
+    public static let cancel = localizedText(key: "cancel")
 }

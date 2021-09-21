@@ -22,8 +22,6 @@
 		F71E989226ECB53A005A1EA7 /* SkillPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */; };
 		F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989326ECB5CC005A1EA7 /* PositionPickerView.swift */; };
 		F71E989626ECB5F2005A1EA7 /* PositionPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */; };
-		F71E989826ECB675005A1EA7 /* SaveSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989726ECB675005A1EA7 /* SaveSection.swift */; };
-		F71E989A26ECB6A8005A1EA7 /* SaveSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989926ECB6A8005A1EA7 /* SaveSectionViewModel.swift */; };
 		F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */; };
 		F7557EF826E4F7DB00C31A2F /* PlayersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557EF726E4F7DB00C31A2F /* PlayersListViewModelTests.swift */; };
 		F7557EFA26E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557EF926E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift */; };
@@ -37,12 +35,11 @@
 		F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */; };
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayersView.swift */; };
-		F761201326EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift */; };
+		F761201326EDDBD200DB06E0 /* AddPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* AddPlayerViewModelTests.swift */; };
 		F761201526EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */; };
 		F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */; };
 		F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */; };
 		F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */; };
-		F761201D26EE310000DB06E0 /* SaveSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201C26EE310000DB06E0 /* SaveSectionViewModelTests.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */; };
 		F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */; };
@@ -63,6 +60,8 @@
 		F7BD16AC265F66C1005D1422 /* AppStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16AB265F66C1005D1422 /* AppStorageFactory.swift */; };
 		F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16B0265F67C8005D1422 /* StorageTests.swift */; };
 		F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16B2265F684A005D1422 /* AppStorageFactoryTests.swift */; };
+		F7FC6F6026F9C48E008583E6 /* AddPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* AddPlayerViewModel.swift */; };
+		F7FC6F6226F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +97,6 @@
 		F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModel.swift; sourceTree = "<group>"; };
 		F71E989326ECB5CC005A1EA7 /* PositionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerView.swift; sourceTree = "<group>"; };
 		F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModel.swift; sourceTree = "<group>"; };
-		F71E989726ECB675005A1EA7 /* SaveSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSection.swift; sourceTree = "<group>"; };
-		F71E989926ECB6A8005A1EA7 /* SaveSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSectionViewModel.swift; sourceTree = "<group>"; };
 		F73C1386265B55780001704B /* CoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreModels; sourceTree = "<group>"; };
 		F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerUITests.swift; sourceTree = "<group>"; };
 		F7557EF726E4F7DB00C31A2F /* PlayersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModelTests.swift; sourceTree = "<group>"; };
@@ -118,12 +115,11 @@
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
-		F761201226EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModelTests.swift; sourceTree = "<group>"; };
+		F761201226EDDBD200DB06E0 /* AddPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModelTests.swift; sourceTree = "<group>"; };
 		F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModelTests.swift; sourceTree = "<group>"; };
-		F761201C26EE310000DB06E0 /* SaveSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F791020326E0735100BF79B9 /* PlayersListRowAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListRowAccessibility.swift; sourceTree = "<group>"; };
@@ -145,6 +141,8 @@
 		F7BD16AB265F66C1005D1422 /* AppStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageFactory.swift; sourceTree = "<group>"; };
 		F7BD16B0265F67C8005D1422 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		F7BD16B2265F684A005D1422 /* AppStorageFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageFactoryTests.swift; sourceTree = "<group>"; };
+		F7FC6F5F26F9C48E008583E6 /* AddPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewModel.swift; sourceTree = "<group>"; };
+		F7FC6F6126F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +196,6 @@
 			children = (
 				F71E988526ECB382005A1EA7 /* PlayerDetailsSection.swift */,
 				F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */,
-				F71E989726ECB675005A1EA7 /* SaveSection.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -344,12 +341,12 @@
 		F761201126EDDBB800DB06E0 /* AddPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				F761201226EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift */,
+				F761201226EDDBD200DB06E0 /* AddPlayerViewModelTests.swift */,
+				F7FC6F6126F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift */,
 				F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */,
 				F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */,
 				F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */,
 				F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */,
-				F761201C26EE310000DB06E0 /* SaveSectionViewModelTests.swift */,
 			);
 			path = AddPlayer;
 			sourceTree = "<group>";
@@ -364,12 +361,12 @@
 		F790923126EB0ED0002C9FDF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F7FC6F5F26F9C48E008583E6 /* AddPlayerViewModel.swift */,
 				F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */,
 				F71E988726ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift */,
 				F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */,
 				F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */,
 				F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */,
-				F71E989926ECB6A8005A1EA7 /* SaveSectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -595,7 +592,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */,
-				F71E989A26ECB6A8005A1EA7 /* SaveSectionViewModel.swift in Sources */,
 				F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */,
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
 				F71E988426ECB333005A1EA7 /* AddPlayerFormViewModel.swift in Sources */,
@@ -607,7 +603,6 @@
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
 				F705D018265B67560057B63A /* PlayersEmptyView.swift in Sources */,
 				F7BD16AA265F66A0005D1422 /* Storage.swift in Sources */,
-				F71E989826ECB675005A1EA7 /* SaveSection.swift in Sources */,
 				F7BD16AC265F66C1005D1422 /* AppStorageFactory.swift in Sources */,
 				F7B2209E26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift in Sources */,
 				F71E989626ECB5F2005A1EA7 /* PositionPickerViewModel.swift in Sources */,
@@ -621,6 +616,7 @@
 				F71E988626ECB382005A1EA7 /* PlayerDetailsSection.swift in Sources */,
 				F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */,
 				F79F6A9626E7196600E4E587 /* AddPlayerView.swift in Sources */,
+				F7FC6F6026F9C48E008583E6 /* AddPlayerViewModel.swift in Sources */,
 				F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */,
 				F71E988826ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift in Sources */,
 			);
@@ -643,7 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B29352265F474B00E76DF0 /* PlayerExtensionsTests.swift in Sources */,
-				F761201326EDDBD200DB06E0 /* AddPlayerFormViewModelTests.swift in Sources */,
+				F761201326EDDBD200DB06E0 /* AddPlayerViewModelTests.swift in Sources */,
 				F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F7557EFA26E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift in Sources */,
@@ -651,7 +647,6 @@
 				F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */,
 				F761201526EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
-				F761201D26EE310000DB06E0 /* SaveSectionViewModelTests.swift in Sources */,
 				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */,
 				F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */,
@@ -660,6 +655,7 @@
 				F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */,
 				F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */,
 				F7557EF826E4F7DB00C31A2F /* PlayersListViewModelTests.swift in Sources */,
+				F7FC6F6226F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +727,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -786,7 +782,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -804,7 +800,7 @@
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -827,7 +823,7 @@
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Supporting files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -848,7 +844,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -870,7 +866,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				INFOPLIST_FILE = UITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -894,7 +890,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				INFOPLIST_FILE = FootballGatherTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -916,7 +912,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				INFOPLIST_FILE = FootballGatherTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

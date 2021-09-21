@@ -8,6 +8,6 @@
 import SwiftUI
 import CoreModels
 
-final class AddPlayerFormViewModel: ObservableObject {
-    @Published var selectedPlayer = Player(name: "")
+struct AddPlayerFormViewModel {
+    @Binding var selectedPlayer: Player
 }

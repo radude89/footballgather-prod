@@ -10,28 +10,21 @@ import CoreModels
 
 struct AddPlayerFormView: View {
     
-    let onSave: (() -> Void)
-    
-    @StateObject private var viewModel = AddPlayerFormViewModel()
+    let viewModel: AddPlayerFormViewModel
     
     var body: some View {
         Form {
             PlayerDetailsSection(
                 viewModel: .init(
-                    playerName: $viewModel.selectedPlayer.name
+                    playerName: viewModel.$selectedPlayer.name
                 )
             )
             
             SkillAndPositionSection(
                 viewModel: .init(
-                    skill: $viewModel.selectedPlayer.skill,
-                    position: $viewModel.selectedPlayer.position
+                    skill: viewModel.$selectedPlayer.skill,
+                    position: viewModel.$selectedPlayer.position
                 )
-            )
-            
-            SaveSection(
-                viewModel: .init(playerName: $viewModel.selectedPlayer.name),
-                onSave: onSave
             )
         }
     }
@@ -42,6 +35,10 @@ struct AddPlayerFormView: View {
 
 struct AddPlayerFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlayerFormView(onSave: {})
+        AddPlayerFormView(
+            viewModel: .init(
+                selectedPlayer: .constant(Player.demoPlayers[0])
+            )
+        )
     }
 }

@@ -15,7 +15,17 @@ final class LocalizableTests: XCTestCase {
             "edit.hint": LocalizedString.editHint,
             "selected.player": LocalizedString.selectedPlayer,
             "tap.select.player": LocalizedString.tapToSelectPlayer,
-            "selected.count": LocalizedString.selectedCount
+            "selected.count": LocalizedString.selectedCount,
+            "player.name.field": LocalizedString.playerNameField,
+            "section.player.details.header": LocalizedString.sectionDetailsHeader,
+            "section.player.details.footer": LocalizedString.sectionDetailsFooter,
+            "skill": LocalizedString.skill,
+            "position": LocalizedString.position,
+            "skillset.and.position.header": LocalizedString.sectionSkillsetHeader,
+            "skillset.and.position.footer": LocalizedString.sectionSkillsetFooter,
+            "save": LocalizedString.save,
+            "add.player": LocalizedString.addPlayer,
+            "cancel": LocalizedString.cancel
         ]
         
         localizedTextDictionary.forEach { key, value in
