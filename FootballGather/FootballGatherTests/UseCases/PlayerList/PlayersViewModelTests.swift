@@ -19,8 +19,8 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     override func tearDown() {
-        super.tearDown()
         Mocks.storage.clear()
+        super.tearDown()
     }
     
     func testHasPlayers_whenStorageIsEmpty_isFalse() {
@@ -28,8 +28,7 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testHasPlayers_whenStorageIsNotEmpty_isTrue() {
-        Mocks.storage.updatePlayers([Player(name: "John")])
-        
+        sut.storage.addPlayer(Player(name: "John"))
         XCTAssertTrue(sut.hasPlayers)
     }
     
@@ -38,14 +37,13 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testStoredPlayers_whenStorageIsNotEmpty_isNotEmpty() {
-        Mocks.storage.updatePlayers(.demoPlayers)
+        sut.storage.addPlayer(.demo)
         XCTAssertFalse(sut.storedPlayers.isEmpty)
     }
     
     func testAddPlayers_updatesStorage() {
-        sut.addPlayers(.demoPlayers)
-        
-        XCTAssertFalse(Mocks.storage.storedPlayers.isEmpty)
+        sut.storage.addPlayer(.demo)
+        XCTAssertFalse(sut.storedPlayers.isEmpty)
     }
     
     func testToggleEditing() {

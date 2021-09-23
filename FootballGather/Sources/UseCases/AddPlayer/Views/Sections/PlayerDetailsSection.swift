@@ -20,6 +20,7 @@ struct PlayerDetailsSection: View {
                     text: viewModel.$playerName
                 )
                     .disableAutocorrection(true)
+                    .textInputAutocapitalization(.words)
             },
             header: {
                 Text(LocalizedString.sectionDetailsHeader)

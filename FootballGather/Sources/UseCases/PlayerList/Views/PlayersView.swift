@@ -27,10 +27,11 @@ struct PlayersView: View {
                     trailing: trailingBarButton
                 )
                 .environment(\.editMode, viewModel.editModeBinding)
-                .sheet(
-                    isPresented: $showAddView,
-                    content: AddPlayerView.init
-                )
+                .sheet(isPresented: $showAddView) {
+                    AddPlayerView(
+                        viewModel: .init(storage: viewModel.storage)
+                    )
+                }
         }
         .accessibilityID(viewModel.mainViewAccessibilityID)
     }

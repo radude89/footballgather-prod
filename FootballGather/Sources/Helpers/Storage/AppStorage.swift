@@ -54,7 +54,7 @@ final class AppStorage: ObservableObject {
 protocol PlayerStorageHandler {
     var storedPlayers: [Player] { get }
     
-    func updatePlayers(_ newPlayers: [Player])
+    func addPlayer(_ player: Player)
 }
 
 extension AppStorage: PlayerStorageHandler {
@@ -63,17 +63,17 @@ extension AppStorage: PlayerStorageHandler {
         return storedObject?.players ?? []
     }
     
-    func updatePlayers(_ newPlayers: [Player]) {
+    func addPlayer(_ player: Player) {
         objectWillChange.send()
-        updateStorage(with: newPlayers)
+        updateStorage(with: player)
     }
     
-    private func updateStorage(with newPlayers: [Player]) {
-        if var alreadyStoredObject = storage.load(forKey: storageKey) {
-            alreadyStoredObject.players = newPlayers
-            storage.update(alreadyStoredObject, at: storageKey)
+    private func updateStorage(with player: Player) {
+        if var players = storage.load(forKey: storageKey)?.players {
+            players.append(player)
+            storage.update(StoredObject(players: players), at: storageKey)
         } else {
-            storage.store(StoredObject(players: newPlayers), at: storageKey)
+            storage.store(StoredObject(players: [player]), at: storageKey)
         }
     }
 }

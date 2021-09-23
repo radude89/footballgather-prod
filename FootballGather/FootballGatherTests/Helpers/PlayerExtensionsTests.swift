@@ -16,4 +16,14 @@ final class PlayerExtensionsTests: XCTestCase {
         XCTAssertFalse(sut.isEmpty)
     }
     
+    func testDemoPlayer() {
+        let sut = Player.demo
+        XCTAssertTrue(Player.demoPlayers.contains(sut))
+    }
+    
+    func testDemoPlayer_inArray() {
+        let sut = Array.demoPlayer
+        XCTAssertTrue(Array.demoPlayers.contains(sut))
+    }
+    
 }

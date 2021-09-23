@@ -13,21 +13,27 @@ import CoreModels
 final class AddPlayerViewModelTests: XCTestCase {
     
     private var cancellables: Set<AnyCancellable>!
+    private var sut: AddPlayerViewModel!
+    private let allSkills = Player.Skill.allCases
+    private let allPositions = Player.Position.allCases
     
     override func setUp() {
         super.setUp()
+        
         cancellables = []
+        sut = AddPlayerViewModel(storage: Mocks.storage)
     }
     
     override func tearDown() {
         cancellables = []
+        Mocks.storage.clear()
+        
         super.tearDown()
     }
     
     func testSelectedPlayer() throws {
         var expectedPlayerNames = ["", "John"]
         let receivedAllExpectation = expectation(description: "Adding player expectation")
-        let sut = AddPlayerViewModel()
                 
         sut.$selectedPlayer
             .sink { player in
@@ -53,6 +59,54 @@ final class AddPlayerViewModelTests: XCTestCase {
         sut.selectedPlayer.name = "John"
         
         waitForExpectations(timeout: 2, handler: nil)
+    }
+    
+    func testSaveIsDisabled_whenNameIsEmpty_isTrue() {
+        XCTAssertTrue(sut.saveIsDisabled)
+    }
+    
+    func testSaveIsDisabled_whenNameIsNotEmpty_isFalse() {
+        sut.selectedPlayer.name = "Jane"
+        XCTAssertFalse(sut.saveIsDisabled)
+    }
+    
+    func testHasEnteredDetails_whenNameIsNotEmpty_isTrue() {
+        sut.selectedPlayer.name = "Perry"
+        XCTAssertTrue(sut.hasEnteredDetails)
+    }
+    
+    func testHasEnteredDetails_whenSkillIsNotEmpty_isTrue() {
+        allSkills.forEach { skill in
+            sut.selectedPlayer.skill = skill
+            XCTAssertTrue(sut.hasEnteredDetails)
+        }
+    }
+    
+    func testHasEnteredDetails_whenPositionIsNotEmpty_isTrue() {
+        allPositions.forEach { position in
+            sut.selectedPlayer.position = position
+            XCTAssertTrue(sut.hasEnteredDetails)
+        }
+    }
+    
+    func testHasEnteredDetails_isFalse() {
+        XCTAssertFalse(sut.hasEnteredDetails)
+    }
+    
+    func testSavePlayer_whenNameIsNotEmpty_addsToStorage() {
+        sut.selectedPlayer.name = "Doe"
+        sut.savePlayer()
+        
+        let storedPlayers = Mocks.storage.storedPlayers
+        XCTAssertEqual(storedPlayers.count, 1)
+        XCTAssertTrue(
+            storedPlayers.contains(sut.selectedPlayer)
+        )
+    }
+    
+    func testSavePlayer_whenNameIsEmpty_doesNotAddToStorage() {
+        sut.savePlayer()
+        XCTAssertEqual(Mocks.storage.storedPlayers.count, 0)
     }
     
 }

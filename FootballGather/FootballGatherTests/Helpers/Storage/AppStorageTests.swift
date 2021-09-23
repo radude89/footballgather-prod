@@ -39,18 +39,17 @@ final class AppStorageTests: XCTestCase {
         XCTAssertFalse(sut.storedPlayers.isEmpty)
     }
     
-    func testAppStorage_whenHasAlreadyStoredPlayers_updatesStorage() {
+    func testAppStorage_addPlayer_updatesStorage() {
         let sut = AppStorage(
             storageKey: Mocks.storageKey,
             commandLineHandler: Mocks.CommandRunner()
         )
-        sut.updatePlayers(.demoPlayers)
-        
         let players: [Player] = [
             Player(name: "John Smith"),
             Player(name: "Jane Smith")
         ]
-        sut.updatePlayers(players)
+        
+        players.forEach { sut.addPlayer($0) }
         
         XCTAssertEqual(sut.storedPlayers, players)
     }

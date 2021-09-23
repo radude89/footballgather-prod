@@ -12,12 +12,16 @@ struct AddPlayerView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject private var viewModel = AddPlayerViewModel()
+    @ObservedObject var viewModel: AddPlayerViewModel
+    
+    @State private var showConfirmationAlert = false
         
     var body: some View {
         NavigationView {
             AddPlayerFormView(
-                viewModel: .init(selectedPlayer: $viewModel.selectedPlayer)
+                viewModel: .init(
+                    selectedPlayer: $viewModel.selectedPlayer
+                )
             )
                 .interactiveDismissDisabled(true)
                 .navigationBarTitle(LocalizedString.addPlayer)
@@ -25,6 +29,9 @@ struct AddPlayerView: View {
                     leading: cancelButton,
                     trailing: saveButton
                 )
+                .alert(isPresented: $showConfirmationAlert) {
+                    confirmationAlert
+                }
         }
         .accessibilityID(.addView)
     }
@@ -33,7 +40,28 @@ struct AddPlayerView: View {
         Button(
             LocalizedString.cancel,
             role: .cancel,
-            action: dismissView
+            action: handleDismiss
+        )
+    }
+    
+    private func handleDismiss() {
+        if viewModel.hasEnteredDetails {
+            showConfirmationAlert = true
+        } else {
+            dismiss()
+        }
+    }
+    
+    private var confirmationAlert: Alert {
+        Alert(
+            title: Text("Do you want to discard your changes?"),
+            message: Text("Your changes will be lost."),
+            primaryButton: .cancel(Text("Cancel")),
+            secondaryButton:
+                    .destructive(
+                        Text("Discard"),
+                        action: { dismiss() }
+                    )
         )
     }
     
@@ -42,15 +70,8 @@ struct AddPlayerView: View {
             .disabled(viewModel.saveIsDisabled)
     }
     
-    private func dismissView() {
-        // TODO: Toggle alert
-        
-        dismiss()
-    }
-    
     private func savePlayer() {
-        // TODO: Save player details
-        
+        viewModel.savePlayer()
         dismiss()
     }
     
@@ -60,6 +81,6 @@ struct AddPlayerView: View {
 
 struct AddPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlayerView()
+        AddPlayerView(viewModel: .init(storage: .init()))
     }
 }

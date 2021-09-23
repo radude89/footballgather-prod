@@ -16,7 +16,7 @@ final class PlayersViewModel: ObservableObject {
     @Published var isEditing = false
     @Published var selectedRows = Set<UUID>()
     
-    private let storage: AppStorage
+    private(set) var storage: AppStorage
 
     init(storage: AppStorage) {
         self.storage = storage
@@ -33,10 +33,6 @@ extension PlayersViewModel {
     
     var storedPlayers: [Player] {
         storage.storedPlayers
-    }
-    
-    func addPlayers(_ players: [Player] = .demoPlayers) {
-        storage.updatePlayers(players)
     }
     
     func toggleEditing() {

@@ -13,8 +13,11 @@ extension Array where Element == Player {
         Player(name: "Jane"),
         Player(name: "Arthur")
     ]
+    
+    static let demoPlayer = demoPlayers.randomElement()!
 }
 
 extension Player {
     static let demoPlayers = Array.demoPlayers
+    static let demo = demoPlayers.randomElement()!
 }
