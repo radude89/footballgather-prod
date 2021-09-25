@@ -29,4 +29,7 @@ public enum LocalizedString: Localizable {
     public static let save = localizedText(key: "save")
     public static let addPlayer = localizedText(key: "add.player")
     public static let cancel = localizedText(key: "cancel")
+    public static let discardConfirmation = localizedText(key: "discard.confirmation")
+    public static let discardChangesLost = localizedText(key: "discard.changes.lost")
+    public static let discard = localizedText(key: "discard")
 }

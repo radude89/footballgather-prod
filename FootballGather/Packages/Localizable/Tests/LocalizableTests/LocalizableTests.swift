@@ -25,7 +25,10 @@ final class LocalizableTests: XCTestCase {
             "skillset.and.position.footer": LocalizedString.sectionSkillsetFooter,
             "save": LocalizedString.save,
             "add.player": LocalizedString.addPlayer,
-            "cancel": LocalizedString.cancel
+            "cancel": LocalizedString.cancel,
+            "discard.confirmation": LocalizedString.discardConfirmation,
+            "discard.changes.lost": LocalizedString.discardChangesLost,
+            "discard": LocalizedString.discard
         ]
         
         localizedTextDictionary.forEach { key, value in

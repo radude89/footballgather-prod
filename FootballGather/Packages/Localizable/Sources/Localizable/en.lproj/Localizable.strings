@@ -26,3 +26,6 @@
 "save" = "Save";
 "add.player" = "Add Player";
 "cancel" = "Cancel";
+"discard.confirmation" = "Do you want to discard your changes?";
+"discard.changes.lost" = "Your changes will be lost.";
+"discard" = "Dsicard";

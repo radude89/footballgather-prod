@@ -54,12 +54,12 @@ struct AddPlayerView: View {
     
     private var confirmationAlert: Alert {
         Alert(
-            title: Text("Do you want to discard your changes?"),
-            message: Text("Your changes will be lost."),
-            primaryButton: .cancel(Text("Cancel")),
+            title: Text(LocalizedString.discardConfirmation),
+            message: Text(LocalizedString.discardChangesLost),
+            primaryButton: .cancel(Text(LocalizedString.cancel)),
             secondaryButton:
                     .destructive(
-                        Text("Discard"),
+                        Text(LocalizedString.discard),
                         action: { dismiss() }
                     )
         )
