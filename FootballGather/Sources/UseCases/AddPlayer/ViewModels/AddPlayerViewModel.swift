@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModels
+import FoundationTools
 
 final class AddPlayerViewModel: ObservableObject {
     
@@ -18,21 +19,17 @@ final class AddPlayerViewModel: ObservableObject {
         self.storage = storage
     }
     
-    var saveIsDisabled: Bool {
-        selectedPlayer.name.isEmpty
-    }
-    
     var hasEnteredDetails: Bool {
         selectedPlayer.name.isEmpty == false ||
         selectedPlayer.skill != nil ||
         selectedPlayer.position != nil
     }
     
+    var playerIsValid: Bool {
+        NameValidator(name: selectedPlayer.name).isValid
+    }
+    
     func savePlayer() {
-        guard selectedPlayer.name.isEmpty == false else {
-            return
-        }
-        
         storage.addPlayer(selectedPlayer)
     }
     

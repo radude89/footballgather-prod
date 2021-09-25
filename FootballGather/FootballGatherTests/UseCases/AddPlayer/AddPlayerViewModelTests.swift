@@ -61,13 +61,25 @@ final class AddPlayerViewModelTests: XCTestCase {
         waitForExpectations(timeout: 2, handler: nil)
     }
     
-    func testSaveIsDisabled_whenNameIsEmpty_isTrue() {
-        XCTAssertTrue(sut.saveIsDisabled)
+    func testPlayerIsValid_whenNameIsNotEmpty_isTrue() {
+        sut.selectedPlayer.name = "Jane"
+        XCTAssertTrue(sut.playerIsValid)
     }
     
-    func testSaveIsDisabled_whenNameIsNotEmpty_isFalse() {
-        sut.selectedPlayer.name = "Jane"
-        XCTAssertFalse(sut.saveIsDisabled)
+    func testPlayerIsValid_whenNameIsEmpty_isFalse() {
+        XCTAssertFalse(sut.playerIsValid)
+    }
+    
+    func testPlayerIsValid_whenNameStartsWithSpace_isFalse() {
+        sut.selectedPlayer.name = " Thomas"
+        XCTAssertFalse(sut.playerIsValid)
+    }
+    
+    func testPlayerIsValid_whenNameIsAllSpaces_isFalse() {
+        (0...10).forEach { index in
+            sut.selectedPlayer.name = String(repeating: " ", count: index)
+            XCTAssertFalse(sut.playerIsValid)
+        }
     }
     
     func testHasEnteredDetails_whenNameIsNotEmpty_isTrue() {
@@ -93,7 +105,7 @@ final class AddPlayerViewModelTests: XCTestCase {
         XCTAssertFalse(sut.hasEnteredDetails)
     }
     
-    func testSavePlayer_whenNameIsNotEmpty_addsToStorage() {
+    func testSavePlayer_addsToStorage() {
         sut.selectedPlayer.name = "Doe"
         sut.savePlayer()
         
@@ -102,11 +114,6 @@ final class AddPlayerViewModelTests: XCTestCase {
         XCTAssertTrue(
             storedPlayers.contains(sut.selectedPlayer)
         )
-    }
-    
-    func testSavePlayer_whenNameIsEmpty_doesNotAddToStorage() {
-        sut.savePlayer()
-        XCTAssertEqual(Mocks.storage.storedPlayers.count, 0)
     }
     
 }
