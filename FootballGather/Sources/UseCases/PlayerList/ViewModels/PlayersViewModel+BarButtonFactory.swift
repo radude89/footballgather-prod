@@ -5,7 +5,7 @@
 //  Created by Radu Dan on 04.09.2021.
 //
 
-import FoundationTools
+import UITools
 import Localizable
 
 extension PlayersViewModel {

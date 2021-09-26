@@ -20,6 +20,20 @@
                ReferencedContainer = "container:FootballGather.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:Packages/UITools">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -98,6 +112,17 @@
                BuildableName = "FoundationToolsTests"
                BlueprintName = "FoundationToolsTests"
                ReferencedContainer = "container:Packages/FoundationTools">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:Packages/UITools">
             </BuildableReference>
          </TestableReference>
       </Testables>

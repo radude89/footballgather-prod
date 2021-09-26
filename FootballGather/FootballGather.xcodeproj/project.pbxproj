@@ -12,6 +12,9 @@
 		F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D015265B66A60057B63A /* PlayerExtensions.swift */; };
 		F705D018265B67560057B63A /* PlayersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705D017265B67560057B63A /* PlayersEmptyView.swift */; };
 		F71648E3265F4C6C008D52FE /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F71648E2265F4C6C008D52FE /* FoundationTools */; };
+		F71D37AE26FF7C31002DC14E /* UITools in Frameworks */ = {isa = PBXBuildFile; productRef = F71D37AD26FF7C31002DC14E /* UITools */; };
+		F71D37B027001D46002DC14E /* AddPlayerUITests+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */; };
+		F71D37B227002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */; };
 		F71E988226ECB296005A1EA7 /* AddPlayerFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988126ECB296005A1EA7 /* AddPlayerFormView.swift */; };
 		F71E988426ECB333005A1EA7 /* AddPlayerFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */; };
 		F71E988626ECB382005A1EA7 /* PlayerDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988526ECB382005A1EA7 /* PlayerDetailsSection.swift */; };
@@ -87,6 +90,9 @@
 		F705D015265B66A60057B63A /* PlayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerExtensions.swift; sourceTree = "<group>"; };
 		F705D017265B67560057B63A /* PlayersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersEmptyView.swift; sourceTree = "<group>"; };
 		F71D1E0A260C507300A2C816 /* Localizable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Localizable; sourceTree = "<group>"; };
+		F71D37AC26FF48FD002DC14E /* UITools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UITools; sourceTree = "<group>"; };
+		F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+Validation.swift"; sourceTree = "<group>"; };
+		F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+DiscardConfirmation.swift"; sourceTree = "<group>"; };
 		F71E988126ECB296005A1EA7 /* AddPlayerFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormView.swift; sourceTree = "<group>"; };
 		F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModel.swift; sourceTree = "<group>"; };
 		F71E988526ECB382005A1EA7 /* PlayerDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSection.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71D37AE26FF7C31002DC14E /* UITools in Frameworks */,
 				F705D010265B5D360057B63A /* FoundationTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +291,7 @@
 		F756F993260C486400A36040 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				F71D37AC26FF48FD002DC14E /* UITools */,
 				F705D008265B59A10057B63A /* FoundationTools */,
 				F73C1386265B55780001704B /* CoreModels */,
 				F71D1E0A260C507300A2C816 /* Localizable */,
@@ -325,6 +333,8 @@
 				F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */,
 				F798950126DC987200898B24 /* PlayerSelectionUITests.swift */,
 				F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */,
+				F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */,
+				F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -474,6 +484,7 @@
 			name = "FootballGather (iOS)";
 			packageProductDependencies = (
 				F705D00F265B5D360057B63A /* FoundationTools */,
+				F71D37AD26FF7C31002DC14E /* UITools */,
 			);
 			productName = "Football Gather (iOS)";
 			productReference = F756F8DF260C3D6600A36040 /* FootballGather.app */;
@@ -626,9 +637,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71D37B227002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift in Sources */,
 				F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */,
 				F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */,
 				F75AFA5E26537B79002D1CE8 /* UITestCase.swift in Sources */,
+				F71D37B027001D46002DC14E /* AddPlayerUITests+Validation.swift in Sources */,
 				F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */,
 				F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */,
 			);
@@ -977,6 +990,10 @@
 		F71648E2265F4C6C008D52FE /* FoundationTools */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FoundationTools;
+		};
+		F71D37AD26FF7C31002DC14E /* UITools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UITools;
 		};
 		F78BA6A9260C54CE00083142 /* Localizable */ = {
 			isa = XCSwiftPackageProductDependency;

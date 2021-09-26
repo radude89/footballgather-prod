@@ -21,6 +21,7 @@ struct PlayerDetailsSection: View {
                 )
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.words)
+                    .accessibilityID(.enterNameTextfield)
             },
             header: {
                 Text(LocalizedString.sectionDetailsHeader)
