@@ -1,6 +1,6 @@
 //
-//  PlayerDetailsSection.swift
-//  PlayerDetailsSection
+//  NameDetailsSection.swift
+//  NameDetailsSection
 //
 //  Created by Radu Dan on 11.09.2021.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 import Localizable
 
-struct PlayerDetailsSection: View {
+struct NameDetailsSection: View {
     
     let viewModel: PlayerDetailsSectionViewModel
     
@@ -34,8 +34,8 @@ struct PlayerDetailsSection: View {
     
 }
 
-struct PlayerDetailsSection_Previews: PreviewProvider {
+struct NameDetailsSection_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerDetailsSection(viewModel: .init(playerName: .constant("John")))
+        NameDetailsSection(viewModel: .init(playerName: .constant("John")))
     }
 }

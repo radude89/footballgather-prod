@@ -17,7 +17,7 @@
 		F71D37B227002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */; };
 		F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */; };
 		F71E988426ECB333005A1EA7 /* AddPlayerFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */; };
-		F71E988626ECB382005A1EA7 /* PlayerDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988526ECB382005A1EA7 /* PlayerDetailsSection.swift */; };
+		F71E988626ECB382005A1EA7 /* NameDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */; };
 		F71E988826ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988726ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift */; };
 		F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */; };
 		F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */; };
@@ -95,7 +95,7 @@
 		F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+DiscardConfirmation.swift"; sourceTree = "<group>"; };
 		F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormView.swift; sourceTree = "<group>"; };
 		F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModel.swift; sourceTree = "<group>"; };
-		F71E988526ECB382005A1EA7 /* PlayerDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSection.swift; sourceTree = "<group>"; };
+		F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSection.swift; sourceTree = "<group>"; };
 		F71E988726ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSectionViewModel.swift; sourceTree = "<group>"; };
 		F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSection.swift; sourceTree = "<group>"; };
 		F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModel.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		F71E989B26ECB70A005A1EA7 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				F71E988526ECB382005A1EA7 /* PlayerDetailsSection.swift */,
+				F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */,
 				F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */,
 			);
 			path = Sections;
@@ -624,7 +624,7 @@
 				F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */,
 				F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
-				F71E988626ECB382005A1EA7 /* PlayerDetailsSection.swift in Sources */,
+				F71E988626ECB382005A1EA7 /* NameDetailsSection.swift in Sources */,
 				F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */,
 				F79F6A9626E7196600E4E587 /* PlayerDetailsView.swift in Sources */,
 				F7FC6F6026F9C48E008583E6 /* AddPlayerViewModel.swift in Sources */,

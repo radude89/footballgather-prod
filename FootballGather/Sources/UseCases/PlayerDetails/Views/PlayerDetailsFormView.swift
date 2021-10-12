@@ -14,7 +14,7 @@ struct PlayerDetailsFormView: View {
     
     var body: some View {
         Form {
-            PlayerDetailsSection(
+            NameDetailsSection(
                 viewModel: .init(
                     playerName: viewModel.$selectedPlayer.name
                 )
