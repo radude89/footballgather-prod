@@ -11,12 +11,13 @@ import FoundationTools
 
 final class AddPlayerViewModel: ObservableObject {
     
-    @Published var selectedPlayer = Player(name: "")
+    @Published var selectedPlayer: Player
     
     private let storage: AppStorage
     
-    init(storage: AppStorage) {
+    init(storage: AppStorage, player: Player = .init(name: "")) {
         self.storage = storage
+        selectedPlayer = player
     }
     
     var hasEnteredDetails: Bool {

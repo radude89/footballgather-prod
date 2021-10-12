@@ -70,10 +70,15 @@ extension AppStorage: PlayerStorageHandler {
     
     private func updateStorage(with player: Player) {
         if var players = storage.load(forKey: storageKey)?.players {
-            players.append(player)
+            update(&players, with: player)
             storage.update(StoredObject(players: players), at: storageKey)
         } else {
             storage.store(StoredObject(players: [player]), at: storageKey)
         }
+    }
+    
+    private func update(_ players: inout [Player], with player: Player) {
+        players.removeAll { $0.id == player.id }
+        players.append(player)
     }
 }
