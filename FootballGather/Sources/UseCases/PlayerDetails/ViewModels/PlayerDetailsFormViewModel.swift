@@ -1,6 +1,6 @@
 //
-//  AddPlayerFormViewModel.swift
-//  AddPlayerFormViewModel
+//  PlayerDetailsFormViewModel.swift
+//  PlayerDetailsFormViewModel
 //
 //  Created by Radu Dan on 11.09.2021.
 //
@@ -8,6 +8,6 @@
 import SwiftUI
 import CoreModels
 
-struct AddPlayerFormViewModel {
+struct PlayerDetailsFormViewModel {
     @Binding var selectedPlayer: Player
 }

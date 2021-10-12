@@ -1,6 +1,6 @@
 //
-//  AddPlayerViewModelTests.swift
-//  AddPlayerViewModelTests
+//  PlayerDetailsViewModelTests.swift
+//  PlayerDetailsViewModelTests
 //
 //  Created by Radu Dan on 12.09.2021.
 //
@@ -10,10 +10,10 @@ import Combine
 import CoreModels
 @testable import FootballGather
 
-final class AddPlayerViewModelTests: XCTestCase {
+final class PlayerDetailsViewModelTests: XCTestCase {
     
     private var cancellables: Set<AnyCancellable>!
-    private var sut: AddPlayerViewModel!
+    private var sut: PlayerDetailsViewModel!
     private let allSkills = Player.Skill.allCases
     private let allPositions = Player.Position.allCases
     
@@ -21,7 +21,7 @@ final class AddPlayerViewModelTests: XCTestCase {
         super.setUp()
         
         cancellables = []
-        sut = AddPlayerViewModel(storage: Mocks.storage)
+        sut = PlayerDetailsViewModel(storage: Mocks.storage)
     }
     
     override func tearDown() {

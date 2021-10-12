@@ -1,5 +1,5 @@
 //
-//  AddPlayerViewModel.swift
+//  PlayerDetailsViewModel.swift
 //  FootballGather (iOS)
 //
 //  Created by Radu Dan on 21.09.2021.
@@ -9,7 +9,7 @@ import SwiftUI
 import CoreModels
 import FoundationTools
 
-final class AddPlayerViewModel: ObservableObject {
+final class PlayerDetailsViewModel: ObservableObject {
     
     @Published var selectedPlayer: Player
     

@@ -1,6 +1,6 @@
 //
-//  PlayerDetailsSectionViewModelTests.swift
-//  PlayerDetailsSectionViewModelTests
+//  NameDetailsSectionViewModelTests.swift
+//  NameDetailsSectionViewModelTests
 //
 //  Created by Radu Dan on 12.09.2021.
 //
@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 @testable import FootballGather
 
-final class PlayerDetailsSectionViewModelTests: XCTestCase {
+final class NameDetailsSectionViewModelTests: XCTestCase {
     
     func testPlayerName() {
         let playerName = "John"
@@ -19,7 +19,7 @@ final class PlayerDetailsSectionViewModelTests: XCTestCase {
             XCTAssertEqual(newValue, playerName)
         }
         
-        let sut = PlayerDetailsSectionViewModel(playerName: binding)
+        let sut = NameDetailsSectionViewModel(playerName: binding)
         sut.playerName = playerName
     }
     

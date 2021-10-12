@@ -16,9 +16,9 @@
 		F71D37B027001D46002DC14E /* AddPlayerUITests+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */; };
 		F71D37B227002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */; };
 		F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */; };
-		F71E988426ECB333005A1EA7 /* AddPlayerFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */; };
+		F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988326ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift */; };
 		F71E988626ECB382005A1EA7 /* NameDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */; };
-		F71E988826ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988726ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift */; };
+		F71E988826ECB421005A1EA7 /* NameDetailsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988726ECB421005A1EA7 /* NameDetailsSectionViewModel.swift */; };
 		F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */; };
 		F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */; };
 		F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988F26ECB50E005A1EA7 /* SkillPickerView.swift */; };
@@ -38,8 +38,8 @@
 		F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */; };
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayersView.swift */; };
-		F761201326EDDBD200DB06E0 /* AddPlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* AddPlayerViewModelTests.swift */; };
-		F761201526EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */; };
+		F761201326EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */; };
+		F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */; };
 		F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */; };
 		F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */; };
 		F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */; };
@@ -63,8 +63,8 @@
 		F7BD16AC265F66C1005D1422 /* AppStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16AB265F66C1005D1422 /* AppStorageFactory.swift */; };
 		F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16B0265F67C8005D1422 /* StorageTests.swift */; };
 		F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16B2265F684A005D1422 /* AppStorageFactoryTests.swift */; };
-		F7FC6F6026F9C48E008583E6 /* AddPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* AddPlayerViewModel.swift */; };
-		F7FC6F6226F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift */; };
+		F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */; };
+		F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +94,9 @@
 		F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+Validation.swift"; sourceTree = "<group>"; };
 		F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+DiscardConfirmation.swift"; sourceTree = "<group>"; };
 		F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormView.swift; sourceTree = "<group>"; };
-		F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModel.swift; sourceTree = "<group>"; };
+		F71E988326ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModel.swift; sourceTree = "<group>"; };
 		F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSection.swift; sourceTree = "<group>"; };
-		F71E988726ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSectionViewModel.swift; sourceTree = "<group>"; };
+		F71E988726ECB421005A1EA7 /* NameDetailsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSectionViewModel.swift; sourceTree = "<group>"; };
 		F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSection.swift; sourceTree = "<group>"; };
 		F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModel.swift; sourceTree = "<group>"; };
 		F71E988F26ECB50E005A1EA7 /* SkillPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerView.swift; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
-		F761201226EDDBD200DB06E0 /* AddPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewModelTests.swift; sourceTree = "<group>"; };
-		F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSectionViewModelTests.swift; sourceTree = "<group>"; };
+		F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModelTests.swift; sourceTree = "<group>"; };
 		F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModelTests.swift; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 		F7BD16AB265F66C1005D1422 /* AppStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageFactory.swift; sourceTree = "<group>"; };
 		F7BD16B0265F67C8005D1422 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		F7BD16B2265F684A005D1422 /* AppStorageFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageFactoryTests.swift; sourceTree = "<group>"; };
-		F7FC6F5F26F9C48E008583E6 /* AddPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewModel.swift; sourceTree = "<group>"; };
-		F7FC6F6126F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerFormViewModelTests.swift; sourceTree = "<group>"; };
+		F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
+		F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,17 +348,17 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		F761201126EDDBB800DB06E0 /* AddPlayer */ = {
+		F761201126EDDBB800DB06E0 /* PlayerDetails */ = {
 			isa = PBXGroup;
 			children = (
-				F761201226EDDBD200DB06E0 /* AddPlayerViewModelTests.swift */,
-				F7FC6F6126F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift */,
-				F761201426EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift */,
+				F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */,
+				F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */,
+				F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */,
 				F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */,
 				F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */,
 				F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */,
 			);
-			path = AddPlayer;
+			path = PlayerDetails;
 			sourceTree = "<group>";
 		};
 		F78BA6A1260C530F00083142 /* Frameworks */ = {
@@ -371,9 +371,9 @@
 		F790923126EB0ED0002C9FDF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F7FC6F5F26F9C48E008583E6 /* AddPlayerViewModel.swift */,
-				F71E988326ECB333005A1EA7 /* AddPlayerFormViewModel.swift */,
-				F71E988726ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift */,
+				F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */,
+				F71E988326ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift */,
+				F71E988726ECB421005A1EA7 /* NameDetailsSectionViewModel.swift */,
 				F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */,
 				F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */,
 				F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */,
@@ -397,7 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				F791020526E0753600BF79B9 /* PlayerList */,
-				F761201126EDDBB800DB06E0 /* AddPlayer */,
+				F761201126EDDBB800DB06E0 /* PlayerDetails */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -605,7 +605,7 @@
 				F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */,
 				F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */,
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
-				F71E988426ECB333005A1EA7 /* AddPlayerFormViewModel.swift in Sources */,
+				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
 				F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */,
 				F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */,
 				F705D013265B66390057B63A /* PlayersListView.swift in Sources */,
@@ -627,9 +627,9 @@
 				F71E988626ECB382005A1EA7 /* NameDetailsSection.swift in Sources */,
 				F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */,
 				F79F6A9626E7196600E4E587 /* PlayerDetailsView.swift in Sources */,
-				F7FC6F6026F9C48E008583E6 /* AddPlayerViewModel.swift in Sources */,
+				F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */,
 				F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */,
-				F71E988826ECB421005A1EA7 /* PlayerDetailsSectionViewModel.swift in Sources */,
+				F71E988826ECB421005A1EA7 /* NameDetailsSectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,13 +652,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B29352265F474B00E76DF0 /* PlayerExtensionsTests.swift in Sources */,
-				F761201326EDDBD200DB06E0 /* AddPlayerViewModelTests.swift in Sources */,
+				F761201326EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift in Sources */,
 				F7B2934E265F444700E76DF0 /* AppStorageTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F7557EFA26E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift in Sources */,
 				F7B220A226E47FC800BC7DD3 /* PlayersViewModel+UIModelTests.swift in Sources */,
 				F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */,
-				F761201526EE23EE00DB06E0 /* PlayerDetailsSectionViewModelTests.swift in Sources */,
+				F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
 				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */,
@@ -668,7 +668,7 @@
 				F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */,
 				F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */,
 				F7557EF826E4F7DB00C31A2F /* PlayersListViewModelTests.swift in Sources */,
-				F7FC6F6226F9CBCA008583E6 /* AddPlayerFormViewModelTests.swift in Sources */,
+				F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

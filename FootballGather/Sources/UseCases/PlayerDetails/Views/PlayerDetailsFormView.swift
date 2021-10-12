@@ -10,7 +10,7 @@ import CoreModels
 
 struct PlayerDetailsFormView: View {
     
-    let viewModel: AddPlayerFormViewModel
+    let viewModel: PlayerDetailsFormViewModel
     
     var body: some View {
         Form {

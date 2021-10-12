@@ -10,7 +10,7 @@ import Localizable
 
 struct NameDetailsSection: View {
     
-    let viewModel: PlayerDetailsSectionViewModel
+    let viewModel: NameDetailsSectionViewModel
     
     var body: some View {
         Section(

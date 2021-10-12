@@ -12,7 +12,7 @@ import Localizable
 struct PlayerDetailsView: View {
     
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: AddPlayerViewModel
+    @ObservedObject var viewModel: PlayerDetailsViewModel
     
     @State private var showConfirmationAlert = false
         

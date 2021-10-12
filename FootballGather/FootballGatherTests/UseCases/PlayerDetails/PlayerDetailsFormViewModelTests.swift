@@ -1,5 +1,5 @@
 //
-//  AddPlayerFormViewModelTests.swift
+//  PlayerDetailsFormViewModelTests.swift
 //  FootballGatherTests
 //
 //  Created by Radu Dan on 21.09.2021.
@@ -10,7 +10,7 @@ import SwiftUI
 import CoreModels
 @testable import FootballGather
 
-final class AddPlayerFormViewModelTests: XCTestCase {
+final class PlayerDetailsFormViewModelTests: XCTestCase {
     
     func testSelectedPlayer() {
         let player = Player(name: "John")
@@ -20,7 +20,7 @@ final class AddPlayerFormViewModelTests: XCTestCase {
             XCTAssertEqual(newValue, player)
         }
         
-        let sut = AddPlayerFormViewModel(selectedPlayer: binding)
+        let sut = PlayerDetailsFormViewModel(selectedPlayer: binding)
         sut.selectedPlayer = player
     }
     
