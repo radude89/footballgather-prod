@@ -1,6 +1,6 @@
 //
-//  AddPlayerView.swift
-//  AddPlayerView
+//  PlayerDetailsView.swift
+//  PlayerDetailsView
 //
 //  Created by Radu Dan on 07.09.2021.
 //
@@ -9,7 +9,7 @@ import SwiftUI
 import UITools
 import Localizable
 
-struct AddPlayerView: View {
+struct PlayerDetailsView: View {
     
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: AddPlayerViewModel
@@ -71,8 +71,8 @@ struct AddPlayerView: View {
 
 // MARK: - Preview
 
-struct AddPlayerView_Previews: PreviewProvider {
+struct PlayerDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlayerView(viewModel: .init(storage: .init()))
+        PlayerDetailsView(viewModel: .init(storage: .init()))
     }
 }

@@ -216,13 +216,13 @@
 			path = Pickers;
 			sourceTree = "<group>";
 		};
-		F7427D7A26E7185700474D18 /* AddPlayer */ = {
+		F7427D7A26E7185700474D18 /* PlayerDetails */ = {
 			isa = PBXGroup;
 			children = (
 				F7427D7B26E7186100474D18 /* Views */,
 				F790923126EB0ED0002C9FDF /* ViewModels */,
 			);
-			path = AddPlayer;
+			path = PlayerDetails;
 			sourceTree = "<group>";
 		};
 		F7427D7B26E7186100474D18 /* Views */ = {
@@ -343,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				F705D011265B65A40057B63A /* PlayerList */,
-				F7427D7A26E7185700474D18 /* AddPlayer */,
+				F7427D7A26E7185700474D18 /* PlayerDetails */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";

@@ -28,7 +28,7 @@ struct PlayersView: View {
                 )
                 .environment(\.editMode, viewModel.editModeBinding)
                 .sheet(isPresented: $showAddView) {
-                    AddPlayerView(
+                    PlayerDetailsView(
                         viewModel: .init(storage: viewModel.storage)
                     )
                 }
