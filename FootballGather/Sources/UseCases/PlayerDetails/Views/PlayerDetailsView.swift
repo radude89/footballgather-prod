@@ -18,7 +18,7 @@ struct PlayerDetailsView: View {
         
     var body: some View {
         NavigationView {
-            AddPlayerFormView(
+            PlayerDetailsFormView(
                 viewModel: .init(
                     selectedPlayer: $viewModel.selectedPlayer
                 )

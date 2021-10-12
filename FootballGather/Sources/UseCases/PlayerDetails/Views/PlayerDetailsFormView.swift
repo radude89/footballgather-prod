@@ -1,6 +1,6 @@
 //
-//  AddPlayerFormView.swift
-//  AddPlayerFormView
+//  PlayerDetailsFormView.swift
+//  PlayerDetailsFormView
 //
 //  Created by Radu Dan on 11.09.2021.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModels
 
-struct AddPlayerFormView: View {
+struct PlayerDetailsFormView: View {
     
     let viewModel: AddPlayerFormViewModel
     
@@ -33,9 +33,9 @@ struct AddPlayerFormView: View {
 
 // MARK: - Preview
 
-struct AddPlayerFormView_Previews: PreviewProvider {
+struct PlayerDetailsFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlayerFormView(
+        PlayerDetailsFormView(
             viewModel: .init(
                 selectedPlayer: .constant(Player.demoPlayers[0])
             )
