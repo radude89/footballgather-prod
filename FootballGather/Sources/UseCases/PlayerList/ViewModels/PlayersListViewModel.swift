@@ -11,11 +11,17 @@ import SwiftUI
 
 final class PlayersListViewModel {
     
+    @Binding var selectedRows: Set<UUID>
     let players: [Player]
     
-    @Binding var selectedRows: Set<UUID>
+    private(set) var storage: AppStorage
     
-    init(players: [Player], selectedRows: Binding<Set<UUID>>) {
+    init(
+        storage: AppStorage,
+        players: [Player],
+        selectedRows: Binding<Set<UUID>>
+    ) {
+        self.storage = storage
         self.players = players
         _selectedRows = selectedRows
     }

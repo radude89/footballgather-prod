@@ -11,10 +11,16 @@ import CoreModels
 
 final class PlayersListViewModelTests: XCTestCase {
     
+    override func tearDown() {
+        Mocks.storage.clear()
+        super.tearDown()
+    }
+    
     func testHasSelected_whenRowContainsPlayerID_isTrue() {
         let player = Player.demoPlayers[0]
         let selectedRowID = player.id
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: .demoPlayers,
             selectedRows: .constant([selectedRowID])
         )
@@ -24,6 +30,7 @@ final class PlayersListViewModelTests: XCTestCase {
     
     func testHasSelected_whenSelectedRowsAreEmpty_isFalse() {
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: .demoPlayers,
             selectedRows: .constant([])
         )
@@ -38,6 +45,7 @@ final class PlayersListViewModelTests: XCTestCase {
             Player.demoPlayers.map { $0.id }
         )
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: .demoPlayers,
             selectedRows: .constant(selectedRows)
         )
@@ -51,6 +59,7 @@ final class PlayersListViewModelTests: XCTestCase {
         let players = Player.demoPlayers
         let selectedRows = Set<UUID>(players.map { $0.id })
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant(selectedRows)
         )

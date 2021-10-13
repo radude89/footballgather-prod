@@ -19,6 +19,7 @@ public enum AccessibilityID: String {
     case saveButton = "save-button"
     case cancelButton = "cancel-button"
     case enterNameTextfield = "enter-name-textfield"
+    case detailsView = "details-view"
 }
 
 extension AccessibilityID: CaseIterable {}

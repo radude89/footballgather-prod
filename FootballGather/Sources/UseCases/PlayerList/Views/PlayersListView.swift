@@ -22,18 +22,36 @@ struct PlayersListView: View {
             viewModel.players,
             selection: viewModel.$selectedRows
         ) { player in
-            Text(PlayersListViewModel.formattedRowTitle(for: player))
-                .accessibilityID(
-                    viewModel.accessibilityID(for: player, isEditing: isEditing)
+            NavigationLink(
+                destination: PlayerDetailsView(
+                    viewModel: .init(
+                        storage: viewModel.storage,
+                        state: .viewingDetails,
+                        player: player
+                    )
                 )
-                .accessibilityLabel(
-                    viewModel.accessibilityLabel(for: player, isEditing: isEditing)
-                )
-                .accessibilityAddTraits(
-                    viewModel.hasSelected(player) ? .isSelected : []
-                )
+            ) {
+                makeListRow(for: player)
+            }
         }
         .listStyle(.plain)
+    }
+    
+    private func makeListRow(for player: Player) -> some View {
+        Text(PlayersListViewModel.formattedRowTitle(for: player))
+            .accessibilityID(
+                viewModel.accessibilityID(
+                    for: player, isEditing: isEditing
+                )
+            )
+            .accessibilityLabel(
+                viewModel.accessibilityLabel(
+                    for: player, isEditing: isEditing
+                )
+            )
+            .accessibilityAddTraits(
+                viewModel.hasSelected(player) ? .isSelected : []
+            )
     }
     
     private var isEditing: Bool {
@@ -48,6 +66,7 @@ struct PlayerListView_Previews: PreviewProvider {
     static var previews: some View {
         PlayersListView(
             viewModel: .init(
+                storage: .init(),
                 players: .demoPlayers,
                 selectedRows: .constant(.init())
             )

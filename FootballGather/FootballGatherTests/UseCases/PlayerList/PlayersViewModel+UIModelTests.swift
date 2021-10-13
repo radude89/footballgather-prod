@@ -46,7 +46,7 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     }
     
     func testFormattedNavigationTitle_whenHasPlayersAndNoSelectedRows_returnsLocalizedStringPlayers() {
-        Player.demoPlayers.forEach { Mocks.storage.addPlayer($0) }
+        Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
         
         XCTAssertEqual(
             sut.formattedNavigationTitle, LocalizedString.players
@@ -54,7 +54,7 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     }
     
     func testFormattedNavigationTitle_whenHasPlayersAndHasSelectedRows_returnsLocalizedSelectedCount() {
-        Player.demoPlayers.forEach { Mocks.storage.addPlayer($0) }
+        Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
         
         Player.demoPlayers.forEach { player in
             sut.selectedRows.insert(player.id)
@@ -114,7 +114,7 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     }
     
     func testMainViewAccessibilityID_whenHasPlayers_isEmptyView() {
-        Player.demoPlayers.forEach { Mocks.storage.addPlayer($0) }
+        Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
         
         XCTAssertEqual(sut.mainViewAccessibilityID, .playerList)
     }

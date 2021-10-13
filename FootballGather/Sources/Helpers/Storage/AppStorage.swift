@@ -54,7 +54,7 @@ final class AppStorage: ObservableObject {
 protocol PlayerStorageHandler {
     var storedPlayers: [Player] { get }
     
-    func addPlayer(_ player: Player)
+    func updatePlayer(_ player: Player)
 }
 
 extension AppStorage: PlayerStorageHandler {
@@ -63,7 +63,7 @@ extension AppStorage: PlayerStorageHandler {
         return storedObject?.players ?? []
     }
     
-    func addPlayer(_ player: Player) {
+    func updatePlayer(_ player: Player) {
         objectWillChange.send()
         updateStorage(with: player)
     }

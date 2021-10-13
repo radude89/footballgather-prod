@@ -8,6 +8,7 @@
 import XCTest
 import Combine
 import CoreModels
+import Localizable
 @testable import FootballGather
 
 final class PlayerDetailsViewModelTests: XCTestCase {
@@ -21,7 +22,11 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         super.setUp()
         
         cancellables = []
-        sut = PlayerDetailsViewModel(storage: Mocks.storage)
+        
+        sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .addingPlayers
+        )
     }
     
     override func tearDown() {
@@ -114,6 +119,65 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         XCTAssertTrue(
             storedPlayers.contains(sut.selectedPlayer)
         )
+    }
+    
+    func testIsAddingPlayers_whenStateIsAddingPlayers_isTrue() {
+        XCTAssertTrue(sut.isAddingPlayers)
+    }
+    
+    func testIsAddingPlayers_whenStateIsViewingDetails_isFalse() {
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .viewingDetails
+        )
+        
+        XCTAssertFalse(sut.isAddingPlayers)
+    }
+    
+    func testFormattedNavigationBarTitle_whenStateIsViewingDetails_isPlayerName() {
+        let playerName = "Jerry"
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .viewingDetails
+        )
+        sut.selectedPlayer.name = playerName
+        
+        XCTAssertEqual(sut.formattedNavigationBarTitle, playerName)
+    }
+    
+    func testFormattedNavigationBarTitle_whenStateIsAddingPlayers_isPlayerDetailsModelNavigationTitle() {
+        let detailsModel = PlayerDetailsUIModelFactory.makeDetailsModel(
+            for: .demo, state: .addingPlayers
+        )
+        
+        
+        XCTAssertEqual(sut.formattedNavigationBarTitle, detailsModel.navigationTitle)
+    }
+    
+    func testShowLeadingBarItem_whenStateIsAddingPlayers_isTrue() {
+        XCTAssertTrue(sut.showLeadingBarItem)
+    }
+    
+    func testShowLeadingBarItem_whenStateIsViewingDetails_isFalse() {
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .viewingDetails
+        )
+        
+        XCTAssertFalse(sut.showLeadingBarItem)
+    }
+    
+    func testViewAccessibilityID_whenStateIsAddingPlayers_isAddView() {
+        XCTAssertEqual(sut.viewAccessibilityID, .addView)
+    }
+    
+    func testViewAccessibilityID_whenStateIsViewingPlayers_isDetailsView() {
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .viewingDetails
+        )
+        
+        XCTAssertEqual(sut.viewAccessibilityID, .detailsView)
     }
     
 }

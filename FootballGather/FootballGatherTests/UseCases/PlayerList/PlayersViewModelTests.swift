@@ -28,7 +28,7 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testHasPlayers_whenStorageIsNotEmpty_isTrue() {
-        sut.storage.addPlayer(Player(name: "John"))
+        sut.storage.updatePlayer(Player(name: "John"))
         XCTAssertTrue(sut.hasPlayers)
     }
     
@@ -37,12 +37,12 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testStoredPlayers_whenStorageIsNotEmpty_isNotEmpty() {
-        sut.storage.addPlayer(.demo)
+        sut.storage.updatePlayer(.demo)
         XCTAssertFalse(sut.storedPlayers.isEmpty)
     }
     
     func testAddPlayers_updatesStorage() {
-        sut.storage.addPlayer(.demo)
+        sut.storage.updatePlayer(.demo)
         XCTAssertFalse(sut.storedPlayers.isEmpty)
     }
     

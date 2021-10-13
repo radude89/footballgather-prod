@@ -49,7 +49,7 @@ final class AppStorageTests: XCTestCase {
             Player(name: "Jane Smith")
         ]
         
-        players.forEach { sut.addPlayer($0) }
+        players.forEach { sut.updatePlayer($0) }
         
         XCTAssertEqual(sut.storedPlayers, players)
     }

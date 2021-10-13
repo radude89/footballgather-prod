@@ -18,9 +18,15 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         Int.random(in: 0 ..< players.count)
     }
     
+    override func tearDown() {
+        Mocks.storage.clear()
+        super.tearDown()
+    }
+    
     func testAccessibilityID_whenIsEditingAndHasSelectedPlayer_equalsSelectedEditingPlayerAccessibilityID() {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant([player.id])
         )
@@ -34,6 +40,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     func testAccessibilityID_whenIsEditingAndHasNotSelectedPlayer_equalsUnselectedEditingPlayerAccessibilityID() {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant([])
         )
@@ -47,6 +54,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     func testAccessibilityID_whenIsNotEditing_equalsUnselectedPlayerAccessibilityID() {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant([player.id])
         )
@@ -60,6 +68,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     func testAccessibilityLabel_whenIsEditingAndHasSelectedPlayer_equalsSelectedEditingPlayerAccessibilityLabel() {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant([player.id])
         )
@@ -73,6 +82,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     func testAccessibilityLabel_whenIsEditingAndHasNotSelectedPlayer_equalsUnselectedEditingPlayerAccessibilityLabel() {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant([])
         )
@@ -86,6 +96,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     func testAccessibilityLabel_whenIsNotEditing_equalsUnselectedPlayerAccessibilityLabel() {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
+            storage: Mocks.storage,
             players: players,
             selectedRows: .constant([player.id])
         )

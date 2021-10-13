@@ -17,26 +17,37 @@ struct PlayerDetailsView: View {
     @State private var showConfirmationAlert = false
         
     var body: some View {
-        NavigationView {
-            PlayerDetailsFormView(
-                viewModel: .init(
-                    selectedPlayer: $viewModel.selectedPlayer
-                )
-            )
-                .interactiveDismissDisabled(true)
-                .navigationBarTitle(LocalizedString.addPlayer)
-                .navigationBarItems(
-                    leading: cancelButton,
-                    trailing: saveButton
-                )
-                .confirmationAlert(
-                    title: LocalizedString.discardConfirmation,
-                    message: LocalizedString.discardChangesLost,
-                    confirmActionTitle: LocalizedString.discard,
-                    isPresented: $showConfirmationAlert
-                )
+        detailsView
+            .accessibilityID(viewModel.viewAccessibilityID)
+    }
+    
+    @ViewBuilder
+    private var detailsView: some View {
+        if viewModel.isAddingPlayers {
+            NavigationView { formView }
+        } else {
+            formView
         }
-        .accessibilityID(.addView)
+    }
+    
+    private var formView: some View {
+        PlayerDetailsFormView(
+            viewModel: .init(
+                selectedPlayer: $viewModel.selectedPlayer
+            )
+        )
+            .interactiveDismissDisabled(true)
+            .navigationBarTitle(viewModel.formattedNavigationBarTitle)
+            .navigationBarItems(
+                leading: viewModel.showLeadingBarItem ? cancelButton : nil,
+                trailing: saveButton
+            )
+            .confirmationAlert(
+                title: LocalizedString.discardConfirmation,
+                message: LocalizedString.discardChangesLost,
+                confirmActionTitle: LocalizedString.discard,
+                isPresented: $showConfirmationAlert
+            )
     }
     
     private var cancelButton: some View {
@@ -73,6 +84,8 @@ struct PlayerDetailsView: View {
 
 struct PlayerDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerDetailsView(viewModel: .init(storage: .init()))
+        PlayerDetailsView(
+            viewModel: .init(storage: .init(), state: .viewingDetails)
+        )
     }
 }

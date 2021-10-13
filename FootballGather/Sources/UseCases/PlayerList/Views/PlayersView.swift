@@ -29,7 +29,10 @@ struct PlayersView: View {
                 .environment(\.editMode, viewModel.editModeBinding)
                 .sheet(isPresented: $showAddView) {
                     PlayerDetailsView(
-                        viewModel: .init(storage: viewModel.storage)
+                        viewModel: .init(
+                            storage: viewModel.storage,
+                            state: .addingPlayers
+                        )
                     )
                 }
         }
@@ -43,6 +46,7 @@ struct PlayersView: View {
         } else {
             PlayersListView(
                 viewModel: .init(
+                    storage: viewModel.storage,
                     players: viewModel.storedPlayers,
                     selectedRows: $viewModel.selectedRows
                 )
