@@ -23,7 +23,7 @@ struct PlayerDetailsView: View {
     
     @ViewBuilder
     private var detailsView: some View {
-        if viewModel.isAddingPlayers {
+        if viewModel.isAddingPlayer {
             NavigationView { formView }
         } else {
             formView
@@ -33,7 +33,8 @@ struct PlayerDetailsView: View {
     private var formView: some View {
         PlayerDetailsFormView(
             viewModel: .init(
-                selectedPlayer: $viewModel.selectedPlayer
+                selectedPlayer: $viewModel.selectedPlayer,
+                isAddingPlayer: viewModel.isAddingPlayer
             )
         )
             .interactiveDismissDisabled(true)

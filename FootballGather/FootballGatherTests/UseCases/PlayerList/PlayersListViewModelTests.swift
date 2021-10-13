@@ -21,7 +21,6 @@ final class PlayersListViewModelTests: XCTestCase {
         let selectedRowID = player.id
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: .demoPlayers,
             selectedRows: .constant([selectedRowID])
         )
         
@@ -31,7 +30,6 @@ final class PlayersListViewModelTests: XCTestCase {
     func testHasSelected_whenSelectedRowsAreEmpty_isFalse() {
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: .demoPlayers,
             selectedRows: .constant([])
         )
         
@@ -46,7 +44,6 @@ final class PlayersListViewModelTests: XCTestCase {
         )
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: .demoPlayers,
             selectedRows: .constant(selectedRows)
         )
         
@@ -57,10 +54,11 @@ final class PlayersListViewModelTests: XCTestCase {
     
     func testHasSelected_whenAllRowsAreSelected_isTrueForAllPlayers() {
         let players = Player.demoPlayers
+        players.forEach { Mocks.storage.updatePlayer($0) }
+        
         let selectedRows = Set<UUID>(players.map { $0.id })
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant(selectedRows)
         )
         

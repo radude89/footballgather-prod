@@ -7,11 +7,13 @@
 
 import XCTest
 import CoreModels
+import Combine
 @testable import FootballGather
 
 final class PlayersViewModelTests: XCTestCase {
     
     private var sut: PlayersViewModel!
+    private var cancellable: AnyCancellable?
     
     override func setUp() {
         super.setUp()
@@ -20,6 +22,8 @@ final class PlayersViewModelTests: XCTestCase {
     
     override func tearDown() {
         Mocks.storage.clear()
+        cancellable = nil
+        
         super.tearDown()
     }
     
@@ -50,6 +54,17 @@ final class PlayersViewModelTests: XCTestCase {
         XCTAssertFalse(sut.isEditing)
         sut.toggleEditing()
         XCTAssertTrue(sut.isEditing)
+    }
+    
+    func testReloadView() {
+        let reloadViewExpectation = expectation(description: "Reload view expectation")
+        cancellable = sut.objectWillChange.sink { _ in
+            reloadViewExpectation.fulfill()
+        }
+        
+        sut.reloadView()
+        
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
 }

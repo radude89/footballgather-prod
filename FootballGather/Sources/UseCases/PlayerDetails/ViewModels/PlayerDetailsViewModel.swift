@@ -39,10 +39,21 @@ final class PlayerDetailsViewModel: ObservableObject {
     }
     
     var playerIsValid: Bool {
-        NameValidator(name: selectedPlayer.name).isValid
+        let enteredNameIsValid = NameValidator(name: selectedPlayer.name).isValid
+        
+        if state == .viewingDetails {
+            return !sameNameEntered && enteredNameIsValid
+        }
+        
+        return NameValidator(name: selectedPlayer.name).isValid
     }
     
-    var isAddingPlayers: Bool {
+    private var sameNameEntered: Bool {
+        let storedPlayer = storage.storedPlayers.first { $0.id == selectedPlayer.id }
+        return selectedPlayer.name == storedPlayer?.name
+    }
+    
+    var isAddingPlayer: Bool {
         state == .addingPlayers
     }
     
@@ -67,7 +78,7 @@ final class PlayerDetailsViewModel: ObservableObject {
 // MARK: - State
 
 extension PlayerDetailsViewModel {
-    enum State {
+    enum State: CaseIterable {
         case viewingDetails
         case addingPlayers
     }

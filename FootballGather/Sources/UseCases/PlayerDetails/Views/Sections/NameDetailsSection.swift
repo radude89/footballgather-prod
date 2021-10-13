@@ -21,21 +21,25 @@ struct NameDetailsSection: View {
                 )
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.words)
+                    .submitLabel(.done)
                     .accessibilityID(.enterNameTextfield)
             },
             header: {
                 Text(LocalizedString.sectionDetailsHeader)
             },
-            footer: {
-                Text(LocalizedString.sectionDetailsFooter)
-            }
+            footer: { footerViewContent }
         )
     }
     
+    private var footerViewContent: some View {
+        viewModel.isAddingPlayer ? Text(LocalizedString.sectionDetailsFooter) : nil
+    }
 }
 
 struct NameDetailsSection_Previews: PreviewProvider {
     static var previews: some View {
-        NameDetailsSection(viewModel: .init(playerName: .constant("John")))
+        NameDetailsSection(
+            viewModel: .init(playerName: .constant("John"), isAddingPlayer: true)
+        )
     }
 }

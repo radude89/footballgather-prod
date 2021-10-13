@@ -67,7 +67,6 @@ struct PlayerListView_Previews: PreviewProvider {
         PlayersListView(
             viewModel: .init(
                 storage: .init(),
-                players: .demoPlayers,
                 selectedRows: .constant(.init())
             )
         )

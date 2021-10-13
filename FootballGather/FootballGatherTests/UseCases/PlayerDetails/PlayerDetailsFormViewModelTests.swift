@@ -20,7 +20,10 @@ final class PlayerDetailsFormViewModelTests: XCTestCase {
             XCTAssertEqual(newValue, player)
         }
         
-        let sut = PlayerDetailsFormViewModel(selectedPlayer: binding)
+        let sut = PlayerDetailsFormViewModel(
+            selectedPlayer: binding,
+            isAddingPlayer: true
+        )
         sut.selectedPlayer = player
     }
     

@@ -22,6 +22,10 @@ final class PlayersViewModel: ObservableObject {
         self.storage = storage
     }
     
+    func reloadView() {
+        objectWillChange.send()
+    }
+    
 }
 
 // MARK: - Player interaction

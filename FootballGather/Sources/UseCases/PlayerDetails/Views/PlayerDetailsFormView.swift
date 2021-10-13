@@ -16,14 +16,16 @@ struct PlayerDetailsFormView: View {
         Form {
             NameDetailsSection(
                 viewModel: .init(
-                    playerName: viewModel.$selectedPlayer.name
+                    playerName: viewModel.$selectedPlayer.name,
+                    isAddingPlayer: viewModel.isAddingPlayer
                 )
             )
             
             SkillAndPositionSection(
                 viewModel: .init(
                     skill: viewModel.$selectedPlayer.skill,
-                    position: viewModel.$selectedPlayer.position
+                    position: viewModel.$selectedPlayer.position,
+                    isAddingPlayer: viewModel.isAddingPlayer
                 )
             )
         }
@@ -37,7 +39,8 @@ struct PlayerDetailsFormView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerDetailsFormView(
             viewModel: .init(
-                selectedPlayer: .constant(Player.demoPlayers[0])
+                selectedPlayer: .constant(Player.demoPlayers[0]),
+                isAddingPlayer: true
             )
         )
     }

@@ -19,7 +19,10 @@ final class NameDetailsSectionViewModelTests: XCTestCase {
             XCTAssertEqual(newValue, playerName)
         }
         
-        let sut = NameDetailsSectionViewModel(playerName: binding)
+        let sut = NameDetailsSectionViewModel(
+            playerName: binding,
+            isAddingPlayer: true
+        )
         sut.playerName = playerName
     }
     

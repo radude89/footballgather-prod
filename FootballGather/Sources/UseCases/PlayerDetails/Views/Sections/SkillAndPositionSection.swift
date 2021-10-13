@@ -21,19 +21,24 @@ struct SkillAndPositionSection: View {
             header:  {
                 Text(LocalizedString.sectionSkillsetHeader)
             },
-            footer: {
-                Text(LocalizedString.sectionSkillsetFooter)
-            }
+            footer: { footerViewContent }
         )
+    }
+    
+    private var footerViewContent: some View {
+        viewModel.isAddingPlayer ? Text(LocalizedString.sectionSkillsetFooter) : nil
     }
     
 }
 
 struct SkillAndPositionSection_Previews: PreviewProvider {
     static var previews: some View {
-        SkillAndPositionSection(viewModel: .init(
-            skill: .constant(.amateur),
-            position: .constant(.forward))
+        SkillAndPositionSection(
+            viewModel: .init(
+                skill: .constant(.amateur),
+                position: .constant(.forward),
+                isAddingPlayer: true
+            )
         )
     }
 }

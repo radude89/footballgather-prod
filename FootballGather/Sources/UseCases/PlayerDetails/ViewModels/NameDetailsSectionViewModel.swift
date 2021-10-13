@@ -9,4 +9,5 @@ import SwiftUI
 
 struct NameDetailsSectionViewModel {
     @Binding var playerName: String
+    let isAddingPlayer: Bool
 }

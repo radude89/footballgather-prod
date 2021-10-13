@@ -32,7 +32,8 @@ final class SkillAndPositionSectionViewModelTests: XCTestCase {
                 
                 let sut = SkillAndPositionSectionViewModel(
                     skill: skillBinding,
-                    position: positionBinding
+                    position: positionBinding,
+                    isAddingPlayer: true
                 )
                 
                 sut.skill = skill
@@ -44,7 +45,8 @@ final class SkillAndPositionSectionViewModelTests: XCTestCase {
     func testSkillAndPosition_whenNil() {
         let sut = SkillAndPositionSectionViewModel(
             skill: .constant(nil),
-            position: .constant(nil)
+            position: .constant(nil),
+            isAddingPlayer: true
         )
         
         XCTAssertNil(sut.skill)

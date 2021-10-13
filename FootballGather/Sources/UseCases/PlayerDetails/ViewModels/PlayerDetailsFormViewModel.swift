@@ -10,4 +10,5 @@ import CoreModels
 
 struct PlayerDetailsFormViewModel {
     @Binding var selectedPlayer: Player
+    let isAddingPlayer: Bool
 }

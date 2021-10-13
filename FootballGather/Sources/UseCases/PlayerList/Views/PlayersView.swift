@@ -47,10 +47,10 @@ struct PlayersView: View {
             PlayersListView(
                 viewModel: .init(
                     storage: viewModel.storage,
-                    players: viewModel.storedPlayers,
                     selectedRows: $viewModel.selectedRows
                 )
             )
+                .onAppear(perform: viewModel.reloadView)
         }
     }
     

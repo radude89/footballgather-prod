@@ -27,7 +27,6 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant([player.id])
         )
         
@@ -41,7 +40,6 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant([])
         )
         
@@ -55,7 +53,6 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant([player.id])
         )
         
@@ -69,7 +66,6 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant([player.id])
         )
         
@@ -83,7 +79,6 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant([])
         )
         
@@ -97,7 +92,6 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         let player = players[rowIndex]
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            players: players,
             selectedRows: .constant([player.id])
         )
         
