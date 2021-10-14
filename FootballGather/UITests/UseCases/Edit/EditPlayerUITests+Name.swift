@@ -36,20 +36,17 @@ extension EditPlayerUITests {
         XCTAssertFalse(saveButton.isEnabled)
         
         nameField.tap()
-        
         nameField.clearText()
         nameField.typeText("Jane")
-        
         XCTAssertFalse(saveButton.isEnabled)
-        
-        nameField.clearText()
-        nameField.typeText("Jane2")
-
-        XCTAssertTrue(saveButton.isEnabled)
         
         nameField.clearText()
         nameField.typeText(" ")
         XCTAssertFalse(saveButton.isEnabled)
+        
+        nameField.clearText()
+        nameField.typeText("Jane2")
+        XCTAssertTrue(saveButton.isEnabled)
     }
     
 }

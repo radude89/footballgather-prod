@@ -10,8 +10,7 @@ import XCTest
 final class EditPlayerUITests: UITestCase {
     
     var selectionHandler: PlayerDetailsSelection!
-    
-    private let playerToEditIndex = 1
+    let playerToEditIndex = 1
     
     // MARK: - Setup
     
