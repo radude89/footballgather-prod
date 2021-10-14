@@ -147,6 +147,36 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         XCTAssertTrue(sut.playerIsValid)
     }
     
+    func testPlayerIsValid_whenEnteringDifferentPositions_isTrue() {
+        let player = Player(name: "Mike")
+        Mocks.storage.updatePlayer(player)
+        
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .viewingDetails,
+            player: player
+        )
+        
+        sut.selectedPlayer.position = allPositions.randomElement()
+        
+        XCTAssertTrue(sut.playerIsValid)
+    }
+    
+    func testPlayerIsValid_whenEnteringDifferentSkills_isTrue() {
+        let player = Player(name: "Andrew")
+        Mocks.storage.updatePlayer(player)
+        
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .viewingDetails,
+            player: player
+        )
+        
+        sut.selectedPlayer.skill = allSkills.randomElement()
+        
+        XCTAssertTrue(sut.playerIsValid)
+    }
+    
     func testHasEnteredDetails_whenNameIsNotEmpty_isTrue() {
         sut.selectedPlayer.name = "Perry"
         XCTAssertTrue(sut.hasEnteredDetails)

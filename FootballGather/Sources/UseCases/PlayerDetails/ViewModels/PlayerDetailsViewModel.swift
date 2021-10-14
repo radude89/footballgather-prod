@@ -42,15 +42,14 @@ final class PlayerDetailsViewModel: ObservableObject {
         let enteredNameIsValid = NameValidator(name: selectedPlayer.name).isValid
         
         if state == .viewingDetails {
-            return !sameNameEntered && enteredNameIsValid
+            return !sameDetailsEntered && enteredNameIsValid
         }
         
-        return NameValidator(name: selectedPlayer.name).isValid
+        return enteredNameIsValid
     }
     
-    private var sameNameEntered: Bool {
-        let storedPlayer = storage.storedPlayers.first { $0.id == selectedPlayer.id }
-        return selectedPlayer.name == storedPlayer?.name
+    private var sameDetailsEntered: Bool {
+        PlayerDetailsDuplicateVerifier(storage: storage).sameDetailsEntered(for: selectedPlayer)
     }
     
     var isAddingPlayer: Bool {

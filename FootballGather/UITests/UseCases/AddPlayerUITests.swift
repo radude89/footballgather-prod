@@ -11,11 +11,14 @@ import CoreModels
 
 final class AddPlayerUITests: UITestCase {
     
+    private var selectionHandler: PlayerDetailsSelection!
+    
     // MARK: - Setup
     
     override func setUp() {
         super.setUp()
         
+        selectionHandler = PlayerDetailsSelection(app: app)
         launchApp()
         presentEmptyView()
         presentAddView()
@@ -53,54 +56,36 @@ final class AddPlayerUITests: UITestCase {
     /// **AND** the new player I created is on top of the list
     func testCreatingPlayer() {
         let name = "Margaret"
-        let nameField = app.textFields[.enterNameTextfield]
-        nameField.tap()
-        nameField.typeText(name)
-        nameField.dismissKeyboard()
         
+        enterName(name)
         selectRandomSkill()
         selectRandomPosition()
-        
-        let saveButton = app.buttons[.saveButton]
-        XCTAssertTrue(saveButton.waitToAppear())
-        saveButton.tap()
+        saveDetails()
         
         XCTAssertTrue(app.cells[name].waitToAppear())
     }
     
-}
-
-// MARK: - Helpers
-private extension AddPlayerUITests {
-    enum CellType {
-        case skill
-        case position
+    private func enterName(_ name: String) {
+        let nameField = app.textFields[.enterNameTextfield]
+        nameField.tap()
+        nameField.typeText(name)
+        nameField.dismissKeyboard()
     }
     
-    func selectRandomSkill() {
-        selectCell(.skill)
-        app.cells.element(boundBy: Int.random(in: 0..<Player.Skill.allCases.count)).tap()
+    private func selectRandomSkill() {
+        selectionHandler.selectCell(.skill)
+        selectionHandler.selectSkill()
     }
     
-    func selectRandomPosition() {
-        selectCell(.position)
-        app.cells.element(boundBy: Int.random(in: 0..<Player.Position.allCases.count)).tap()
+    private func selectRandomPosition() {
+        selectionHandler.selectCell(.position)
+        selectionHandler.selectPosition()
     }
     
-    func selectCell(_ type: CellType) {
-        let cell: XCUIElement
-        
-        switch type {
-        case .skill:
-            cell = app.cells[LocalizedString.skill]
-        case .position:
-            cell = app.cells[LocalizedString.position]
-        }
-        
-        if !cell.exists {
-            app.swipeUp()
-        }
-        
-        cell.tap()
+    private func saveDetails() {
+        let saveButton = app.buttons[.saveButton]
+        XCTAssertTrue(saveButton.waitToAppear())
+        saveButton.tap()
     }
+    
 }

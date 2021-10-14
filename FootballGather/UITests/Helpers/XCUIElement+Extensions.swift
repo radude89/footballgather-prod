@@ -16,6 +16,10 @@ extension XCUIElement {
     func dismissKeyboard() {
         typeText("\n")
     }
+    
+    var isTicked: Bool {
+        images["Selected"].exists
+    }
 }
 
 extension XCUIElementQuery {
@@ -34,5 +38,9 @@ extension UITestCase {
     func clearText(of field: XCUIElement) {
         field.doubleTap()
         app.keys["delete"].tap()
+    }
+    
+    func goBack() {
+        app.navigationBars.buttons.element(boundBy: 0).tap()
     }
 }

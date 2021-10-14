@@ -34,9 +34,7 @@ extension AddPlayerUITests {
         nameField.tap()
         nameField.typeText("A")
         
-        let cancelButton = app.buttons[.cancelButton]
-        XCTAssertTrue(cancelButton.waitToAppear())
-        cancelButton.tap()
+        tapCancel()
         
         let alert = app.alerts[LocalizedString.discardConfirmation]
         XCTAssertTrue(alert.waitToAppear())
@@ -45,6 +43,12 @@ extension AddPlayerUITests {
         
         XCTAssertTrue(app.otherElements[.emptyView].exists)
         XCTAssertFalse(app.otherElements[.playerList].exists)
+    }
+    
+    private func tapCancel() {
+        let cancelButton = app.buttons[.cancelButton]
+        XCTAssertTrue(cancelButton.waitToAppear())
+        cancelButton.tap()
     }
     
     /// **Scenario 3**: Alert dialog cancel
@@ -61,9 +65,7 @@ extension AddPlayerUITests {
         nameField.tap()
         nameField.typeText("Mike")
         
-        let cancelButton = app.buttons[.cancelButton]
-        XCTAssertTrue(cancelButton.waitToAppear())
-        cancelButton.tap()
+        tapCancel()
         
         let alert = app.alerts[LocalizedString.discardConfirmation]
         XCTAssertTrue(alert.waitToAppear())
