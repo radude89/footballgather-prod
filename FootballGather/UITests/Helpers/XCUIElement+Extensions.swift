@@ -20,6 +20,14 @@ extension XCUIElement {
     var isTicked: Bool {
         images["Selected"].exists
     }
+    
+    func clearText() {
+        guard let text = value as? String, !text.isEmpty else {
+            return
+        }
+        
+        text.forEach { _ in typeText(XCUIKeyboardKey.delete.rawValue) }
+    }
 }
 
 extension XCUIElementQuery {
@@ -31,13 +39,6 @@ extension XCUIElementQuery {
 extension UITestCase {
     var cells: [XCUIElement] {
         (0 ..< app.cells.count).enumerated().map { app.cells.element(boundBy: $0.offset) }
-    }
-}
-
-extension UITestCase {
-    func clearText(of field: XCUIElement) {
-        field.doubleTap()
-        app.keys["delete"].tap()
     }
     
     func goBack() {

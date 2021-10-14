@@ -46,7 +46,7 @@ extension AddPlayerUITests {
         
         XCTAssertTrue(saveButton.isEnabled)
         
-        clearText(of: nameField)
+        nameField.clearText()
         
         XCTAssertFalse(saveButton.isEnabled)
         
