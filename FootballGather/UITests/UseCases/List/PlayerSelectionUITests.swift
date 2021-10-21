@@ -47,7 +47,7 @@ final class PlayerSelectionUITests: UITestCase {
     /// **THEN** my player becomes unselected
     /// **AND** the checkbox is unticked
     func testSelectingPlayers() {
-        app.buttons[.editButton].tap()
+        app.buttons[.selectButton].tap()
         XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
         
         cells.forEach { cell in
@@ -65,7 +65,7 @@ final class PlayerSelectionUITests: UITestCase {
     /// **AND** I selected at least one player
     /// **THEN** the title displays the number of selected players
     func testNumberOfSelectedPlayersUpdatesTitle() {
-        app.buttons[.editButton].tap()
+        app.buttons[.selectButton].tap()
         XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
         
         let navBar = app.navigationBars.element(boundBy: 0)
@@ -78,7 +78,7 @@ final class PlayerSelectionUITests: UITestCase {
         XCTAssertEqual(navBar.identifier, String(format: LocalizedString.selectedCount, 2))
         
         // unselecting the rows
-        app.buttons[.editButton].tap()
+        app.buttons[.selectButton].tap()
         cells[0].tap()
         cells[1].tap()
         app.buttons[.doneButton].tap()
@@ -86,7 +86,7 @@ final class PlayerSelectionUITests: UITestCase {
         XCTAssertEqual(navBar.identifier, LocalizedString.players)
         
         // tap edit and then done should not select any players
-        app.buttons[.editButton].tap()
+        app.buttons[.selectButton].tap()
         app.buttons[.doneButton].tap()
         
         XCTAssertEqual(navBar.identifier, LocalizedString.players)

@@ -11,7 +11,7 @@ public enum AccessibilityID: String {
     case playerList = "player-list"
     case emptyView = "empty-view"
     case addButton = "add-button"
-    case editButton = "edit-button"
+    case selectButton = "select-button"
     case doneButton = "done-button"
     case selectedRow = "selected-row"
     case unselectedRow = "unselected-row"

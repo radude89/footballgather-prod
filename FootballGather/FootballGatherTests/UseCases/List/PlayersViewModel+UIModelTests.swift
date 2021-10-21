@@ -71,11 +71,11 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     
     func testLeadingBarButton_whenNotEditing_returnsCorrectButton() {
         let expectedButton = PlayersViewModel.ButtonModel(
-            title: LocalizedString.edit,
+            title: LocalizedString.select,
             accessibility: PlayersViewModel.AccessibilityModel(
-                id: .editButton,
-                hint: LocalizedString.editHint,
-                label: LocalizedString.edit
+                id: .selectButton,
+                hint: LocalizedString.selectHint,
+                label: LocalizedString.select
             )
         )
         let leadingBarButton = sut.leadingBarButton

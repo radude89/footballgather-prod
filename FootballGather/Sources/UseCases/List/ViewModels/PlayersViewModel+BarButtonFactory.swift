@@ -40,11 +40,11 @@ extension PlayersViewModel {
         )
         
         private static let leadingBarButton = PlayersViewModel.ButtonModel(
-            title: LocalizedString.edit,
+            title: LocalizedString.select,
             accessibility: PlayersViewModel.AccessibilityModel(
-                id: .editButton,
-                hint: LocalizedString.editHint,
-                label: LocalizedString.edit
+                id: .selectButton,
+                hint: LocalizedString.selectHint,
+                label: LocalizedString.select
             )
         )
         
