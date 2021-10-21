@@ -200,13 +200,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F705D011265B65A40057B63A /* PlayerList */ = {
+		F705D011265B65A40057B63A /* List */ = {
 			isa = PBXGroup;
 			children = (
 				F7B2209B26E35DC100BC7DD3 /* Views */,
 				F7B2209C26E35DCF00BC7DD3 /* ViewModels */,
 			);
-			path = PlayerList;
+			path = List;
 			sourceTree = "<group>";
 		};
 		F705D014265B66870057B63A /* Helpers */ = {
@@ -275,13 +275,13 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
-		F7427D7A26E7185700474D18 /* PlayerDetails */ = {
+		F7427D7A26E7185700474D18 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				F7427D7B26E7186100474D18 /* Views */,
 				F790923126EB0ED0002C9FDF /* ViewModels */,
 			);
-			path = PlayerDetails;
+			path = Details;
 			sourceTree = "<group>";
 		};
 		F7427D7B26E7186100474D18 /* Views */ = {
@@ -394,6 +394,7 @@
 				F72D3223271854750001CD6F /* Details */,
 				F72D32222718546E0001CD6F /* Add */,
 				F72D3224271854820001CD6F /* Edit */,
+				F7944F952721521A002DAF6D /* Confirmation */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -401,13 +402,14 @@
 		F75AFA6526537F93002D1CE8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F705D011265B65A40057B63A /* PlayerList */,
-				F7427D7A26E7185700474D18 /* PlayerDetails */,
+				F705D011265B65A40057B63A /* List */,
+				F7427D7A26E7185700474D18 /* Details */,
+				F7944F94272151FD002DAF6D /* Confirmation */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		F761201126EDDBB800DB06E0 /* PlayerDetails */ = {
+		F761201126EDDBB800DB06E0 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */,
@@ -418,7 +420,7 @@
 				F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */,
 				F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */,
 			);
-			path = PlayerDetails;
+			path = Details;
 			sourceTree = "<group>";
 		};
 		F78BA6A1260C530F00083142 /* Frameworks */ = {
@@ -443,7 +445,7 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		F791020526E0753600BF79B9 /* PlayerList */ = {
+		F791020526E0753600BF79B9 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				F7B2209F26E47BAA00BC7DD3 /* PlayersViewModelTests.swift */,
@@ -452,16 +454,30 @@
 				F7557EF926E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift */,
 				F791020726E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift */,
 			);
-			path = PlayerList;
+			path = List;
 			sourceTree = "<group>";
 		};
 		F791020626E0754600BF79B9 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F791020526E0753600BF79B9 /* PlayerList */,
-				F761201126EDDBB800DB06E0 /* PlayerDetails */,
+				F791020526E0753600BF79B9 /* List */,
+				F761201126EDDBB800DB06E0 /* Details */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F7944F94272151FD002DAF6D /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		F7944F952721521A002DAF6D /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Confirmation;
 			sourceTree = "<group>";
 		};
 		F795CCFC264A4F8D00D8FC3C /* FootballGatherTests */ = {
