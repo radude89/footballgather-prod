@@ -102,4 +102,40 @@ final class PlayersListViewModelTests: XCTestCase {
         )
     }
     
+    func testShouldConfirmPlayers_whenSeletedRowsAreTwo_isTrue() {
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant([UUID(), UUID()])
+        )
+        
+        XCTAssertTrue(sut.shouldConfirmPlayers)
+    }
+    
+    func testShouldConfirmPlayers_whenSeletedRowsAreGreaterThanTwo_isTrue() {
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant([UUID(), UUID(), UUID()])
+        )
+        
+        XCTAssertTrue(sut.shouldConfirmPlayers)
+    }
+    
+    func testShouldConfirmPlayers_whenSeletedRowsAreZero_isFalse() {
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant([])
+        )
+        
+        XCTAssertFalse(sut.shouldConfirmPlayers)
+    }
+    
+    func testShouldConfirmPlayers_whenSeletedRowsAreOne_isFalse() {
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant([UUID()])
+        )
+        
+        XCTAssertFalse(sut.shouldConfirmPlayers)
+    }
+    
 }

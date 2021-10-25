@@ -14,10 +14,18 @@ import Localizable
 struct PlayersListView: View {
     
     let viewModel: PlayersListViewModel
-    
     @Environment(\.editMode) var editMode
     
+    @State private var isShowingConfirmPlayersView = false
+    
     var body: some View {
+        VStack {
+            playerList
+            confirmPlayersNavigationLink
+        }
+    }
+    
+    private var playerList: some View {
         List(
             viewModel.players,
             selection: viewModel.$selectedRows
@@ -56,6 +64,25 @@ struct PlayersListView: View {
     
     private var isEditing: Bool {
         editMode?.wrappedValue == .active
+    }
+    
+    private var confirmPlayersNavigationLink: some View {
+        NavigationLink(
+            destination: ConfirmPlayersView(),
+            isActive: $isShowingConfirmPlayersView
+        ) {
+            confirmPlayersButton
+        }
+    }
+    
+    private var confirmPlayersButton: some View {
+        Button(LocalizedString.confirmPlayersTitle) {
+            isShowingConfirmPlayersView = true
+        }
+        .accessibilityID(.confirmButton)
+        .accessibilityHint(LocalizedString.confirmPlayersButtonHint)
+        .padding(.bottom)
+        .disabled(!viewModel.shouldConfirmPlayers)
     }
     
 }

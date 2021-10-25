@@ -29,3 +29,5 @@
 "discard.confirmation" = "Do you want to discard your changes?";
 "discard.changes.lost" = "Your changes will be lost.";
 "discard" = "Discard";
+"confirm.players.title" = "Confirm Players";
+"confirm.players.button.hint" = "Becomes enabled when you select at least two players";

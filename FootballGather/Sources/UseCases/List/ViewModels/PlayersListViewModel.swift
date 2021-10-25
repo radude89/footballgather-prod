@@ -33,4 +33,10 @@ final class PlayersListViewModel {
         player.name
     }
     
+    var shouldConfirmPlayers: Bool {
+        selectedRows.count >= minAllowedPlayersToStartMatch
+    }
+    
+    private let minAllowedPlayersToStartMatch = 2
+    
 }

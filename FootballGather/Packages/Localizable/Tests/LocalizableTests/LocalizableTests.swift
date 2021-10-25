@@ -28,7 +28,8 @@ final class LocalizableTests: XCTestCase {
             "cancel": LocalizedString.cancel,
             "discard.confirmation": LocalizedString.discardConfirmation,
             "discard.changes.lost": LocalizedString.discardChangesLost,
-            "discard": LocalizedString.discard
+            "discard": LocalizedString.discard,
+            "confirm.players.title": LocalizedString.confirmPlayersTitle
         ]
         
         localizedTextDictionary.forEach { key, value in

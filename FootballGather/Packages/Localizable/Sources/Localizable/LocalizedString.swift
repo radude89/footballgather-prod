@@ -32,4 +32,6 @@ public enum LocalizedString: Localizable {
     public static let discardConfirmation = localizedText(key: "discard.confirmation")
     public static let discardChangesLost = localizedText(key: "discard.changes.lost")
     public static let discard = localizedText(key: "discard")
+    public static let confirmPlayersTitle = localizedText(key: "confirm.players.title")
+    public static let confirmPlayersButtonHint = localizedText(key: "confirm.players.button.hint")
 }

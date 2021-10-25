@@ -14,11 +14,12 @@ final class PlayerSelectionUITests: UITestCase {
     
     override func setUp() {
         super.setUp()
-        presentPlayerList()
+        
+        launchApp(populatingStorage: true)
+        presentPlayerListView()
     }
     
-    private func presentPlayerList() {
-        launchApp(populatingStorage: true)
+    private func presentPlayerListView() {
         XCTAssertTrue(app.otherElements[.playerList].waitToAppear())
     }
     
