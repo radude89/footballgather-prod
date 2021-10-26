@@ -34,4 +34,8 @@ public enum LocalizedString: Localizable {
     public static let discard = localizedText(key: "discard")
     public static let confirmPlayersTitle = localizedText(key: "confirm.players.title")
     public static let confirmPlayersButtonHint = localizedText(key: "confirm.players.button.hint")
+    public static let benchSection = localizedText(key: "bench.section")
+    public static let teamASection = localizedText(key: "team.a.section")
+    public static let teamBSection = localizedText(key: "team.b.section")
+    public static let startGather = localizedText(key: "start.gather")
 }

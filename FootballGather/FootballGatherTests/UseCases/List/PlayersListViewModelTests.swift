@@ -138,4 +138,26 @@ final class PlayersListViewModelTests: XCTestCase {
         XCTAssertFalse(sut.shouldConfirmPlayers)
     }
     
+    func testSelectedPlayers_whenSelectedRowsAreNotEmpty_equalsCorrectPlayers() {
+        let players = Player.demoPlayers
+        players.forEach { Mocks.storage.updatePlayer($0) }
+        let selectedRows = Set<UUID>(players.map { $0.id })
+        
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant(selectedRows)
+        )
+        
+        XCTAssertEqual(sut.selectedPlayers, players)
+    }
+    
+    func testSelectedPlayers_whenSelectedRowsAreEmpty_isEmpty() {
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant([])
+        )
+        
+        XCTAssertTrue(sut.selectedPlayers.isEmpty)
+    }
+    
 }

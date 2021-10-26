@@ -39,4 +39,8 @@ final class PlayersListViewModel {
     
     private let minAllowedPlayersToStartMatch = 2
     
+    var selectedPlayers: [Player] {
+        players.filter { selectedRows.contains($0.id) }
+    }
+    
 }

@@ -34,24 +34,21 @@ final class ConfirmPlayersUITests: UITestCase {
     /// **AND** I see my selected players under the "BENCH" section
     /// **AND** the bottom "Start Gather" button is DISABLED
     func testViewConfirmPlayers() {
-//        selectPlayers()
-//        confirmSelection()
-//        
-//        XCTAssertTrue(app.otherElements[.confirmPlayersView].waitToAppear())
-//        
-//        let navBar = app.navigationBars.element(boundBy: 0)
-//        XCTAssertEqual(navBar.identifier, LocalizedString.confirmPlayersTitle)
-//        
-//        XCTAssertTrue(app.tables[.confirmPlayersTableView].waitToAppear())
-//        
-//        XCTAssertTrue(app.tables.otherElements[.benchView].exists)
-//        XCTAssertTrue(app.tables.otherElements[.teamAView].exists)
-//        XCTAssertTrue(app.tables.otherElements[.teamBView].exists)
-//        
-//        XCTAssertEqual(cells[0].label, "Jane")
-//        XCTAssertEqual(cells[1].label, "John")
-//        
-//        XCTAssertFalse(app.buttons[.startGatherButton].isEnabled)
+        selectPlayers()
+        confirmSelection()
+        assertNavigationTitle(is: LocalizedString.confirmPlayersTitle)
+
+        let playersTeamsTable = app.tables[.confirmPlayersView]
+        XCTAssertTrue(playersTeamsTable.waitToAppear())
+        
+        assertBenchSectionExists(in: playersTeamsTable)
+        assertTeamASectionExists(in: playersTeamsTable)
+        assertTeamBSectionExists(in: playersTeamsTable)
+        
+        assertRow(at: 0, hasLabel: "John")
+        assertRow(at: 1, hasLabel: "Jane")
+        
+        XCTAssertFalse(app.buttons[.startGatherButton].isEnabled)
     }
     
     private func selectPlayers() {
@@ -66,6 +63,30 @@ final class ConfirmPlayersUITests: UITestCase {
     
     private func confirmSelection() {
         app.buttons[.confirmButton].tap()
+    }
+    
+    private func assertNavigationTitle(is title: String, line: UInt = #line) {
+        let navBar = app.navigationBars.element(boundBy: 0)
+        XCTAssertEqual(navBar.identifier, title, line: line)
+    }
+    
+    private func assertBenchSectionExists(in table: XCUIElement, line: UInt = #line) {
+        XCTAssertTrue(table.staticTexts[.benchView].exists, line: line)
+        XCTAssertTrue(table.staticTexts[LocalizedString.benchSection].exists, line: line)
+    }
+    
+    private func assertTeamASectionExists(in table: XCUIElement, line: UInt = #line) {
+        XCTAssertTrue(table.staticTexts[.teamAView].exists, line: line)
+        XCTAssertTrue(table.staticTexts[LocalizedString.teamASection].exists, line: line)
+    }
+    
+    private func assertTeamBSectionExists(in table: XCUIElement, line: UInt = #line) {
+        XCTAssertTrue(table.staticTexts[.teamBView].exists, line: line)
+        XCTAssertTrue(table.staticTexts[LocalizedString.teamBSection].exists, line: line)
+    }
+    
+    private func assertRow(at index: Int, hasLabel label: String, line: UInt = #line) {
+        XCTAssertEqual(cells[index].label, label, line: line)
     }
     
 }
