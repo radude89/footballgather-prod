@@ -53,12 +53,8 @@ final class ConfirmPlayersUITests: UITestCase {
     
     private func selectPlayers() {
         app.buttons[.selectButton].tap()
-        XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
-        
         cells[0].tap()
         cells[1].tap()
-        
-        app.buttons[.doneButton].tap()
     }
     
     private func confirmSelection() {

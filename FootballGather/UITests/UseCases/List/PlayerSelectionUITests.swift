@@ -49,7 +49,7 @@ final class PlayerSelectionUITests: UITestCase {
     /// **AND** the checkbox is unticked
     func testSelectingPlayers() {
         app.buttons[.selectButton].tap()
-        XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
+        XCTAssertTrue(app.buttons[.cancelButton].waitToAppear())
         
         cells.forEach { cell in
             XCTAssertTrue(cell.staticTexts[.unselectedRow].waitToAppear())
@@ -62,35 +62,46 @@ final class PlayerSelectionUITests: UITestCase {
     ///
     /// **GIVEN** I am in the "Player List" screen
     /// **AND** I tapped on the "Select" button
-    /// **WHEN** I am done selecting players
-    /// **AND** I selected at least one player
+    /// **WHEN** I selected at least one player
     /// **THEN** the title displays the number of selected players
     func testNumberOfSelectedPlayersUpdatesTitle() {
         app.buttons[.selectButton].tap()
-        XCTAssertTrue(app.buttons[.doneButton].waitToAppear())
+        XCTAssertTrue(app.buttons[.cancelButton].waitToAppear())
         
-        let navBar = app.navigationBars.element(boundBy: 0)
-        XCTAssertEqual(navBar.identifier, LocalizedString.players)
+        XCTAssertFalse(app.buttons[.confirmButton].isEnabled)
         
-        cells[0].tap()
-        cells[1].tap()
-        app.buttons[.doneButton].tap()
+        assertNavBarTitle(is: LocalizedString.players)
+        tapCells(havingIndexes: 0, 1)
         
-        XCTAssertEqual(navBar.identifier, String(format: LocalizedString.selectedCount, 2))
+        assertNavBarTitle(is: String(format: LocalizedString.selectedCount, 2))
+        
+        XCTAssertTrue(app.buttons[.confirmButton].isEnabled)
         
         // unselecting the rows
-        app.buttons[.selectButton].tap()
-        cells[0].tap()
-        cells[1].tap()
-        app.buttons[.doneButton].tap()
+        tapCells(havingIndexes: 0, 1)
+        app.buttons[.cancelButton].tap()
         
-        XCTAssertEqual(navBar.identifier, LocalizedString.players)
+        assertNavBarTitle(is: LocalizedString.players)
         
         // tap edit and then done should not select any players
         app.buttons[.selectButton].tap()
-        app.buttons[.doneButton].tap()
+        app.buttons[.cancelButton].tap()
         
-        XCTAssertEqual(navBar.identifier, LocalizedString.players)
+        assertNavBarTitle(is: LocalizedString.players)
+    }
+    
+    private var navBar: XCUIElement {
+        app.navigationBars.element(boundBy: 0)
+    }
+    
+    private func assertNavBarTitle(is title: String) {
+        XCTAssertEqual(navBar.identifier, title)
+    }
+    
+    private func tapCells(havingIndexes indexes: Int...) {
+        indexes.forEach { index in
+            cells[index].tap()
+        }
     }
     
 }

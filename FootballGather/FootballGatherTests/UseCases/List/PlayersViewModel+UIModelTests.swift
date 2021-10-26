@@ -31,8 +31,8 @@ final class PlayersViewModelUIModelTests: XCTestCase {
         XCTAssertEqual(sut.accessibilityLabel, sut.accessibility.label)
     }
     
-    func testFormattedNavigationTitle_whenIsEditing_returnsLocalizedStringPlayers() {
-        sut.isEditing = true
+    func testFormattedNavigationTitle_whenIsNotSelectingPlayers_returnsLocalizedStringPlayers() {
+        sut.isSelectingPlayers = false
         
         XCTAssertEqual(
             sut.formattedNavigationTitle, LocalizedString.players
@@ -40,6 +40,7 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     }
     
     func testFormattedNavigationTitle_whenNumberOfSelectedPlayersIsLessThanZero_returnsLocalizedStringPlayers() {
+        sut.isSelectingPlayers = false
         XCTAssertEqual(
             sut.formattedNavigationTitle, LocalizedString.players
         )
@@ -47,6 +48,7 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     
     func testFormattedNavigationTitle_whenHasPlayersAndNoSelectedRows_returnsLocalizedStringPlayers() {
         Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
+        sut.isSelectingPlayers = false
         
         XCTAssertEqual(
             sut.formattedNavigationTitle, LocalizedString.players
@@ -60,6 +62,8 @@ final class PlayersViewModelUIModelTests: XCTestCase {
             sut.selectedRows.insert(player.id)
         }
         
+        sut.isSelectingPlayers = true
+        
         XCTAssertEqual(
             sut.formattedNavigationTitle,
             String(
@@ -69,7 +73,7 @@ final class PlayersViewModelUIModelTests: XCTestCase {
         )
     }
     
-    func testLeadingBarButton_whenNotEditing_returnsCorrectButton() {
+    func testLeadingBarButton_whenNotSelectingPlayers_returnsCorrectButton() {
         let expectedButton = PlayersViewModel.ButtonModel(
             title: LocalizedString.select,
             accessibility: PlayersViewModel.AccessibilityModel(
@@ -83,15 +87,15 @@ final class PlayersViewModelUIModelTests: XCTestCase {
         XCTAssertEqual(leadingBarButton, expectedButton)
     }
     
-    func testLeadingBarButton_whenEditing_returnsCorrectButton() {
-        sut.isEditing = true
+    func testLeadingBarButton_whenSelectingPlayers_returnsCorrectButton() {
+        sut.isSelectingPlayers = true
         
         let expectedButton = PlayersViewModel.ButtonModel(
-            title: LocalizedString.done,
+            title: LocalizedString.cancel,
             accessibility: PlayersViewModel.AccessibilityModel(
-                id: .doneButton,
-                hint: LocalizedString.doneHint,
-                label: LocalizedString.done
+                id: .cancelButton,
+                hint: LocalizedString.cancelHint,
+                label: LocalizedString.cancel
             )
         )
         let leadingBarButton = sut.leadingBarButton
@@ -123,12 +127,12 @@ final class PlayersViewModelUIModelTests: XCTestCase {
         XCTAssertEqual(sut.mainViewAccessibilityID, .emptyView)
     }
     
-    func testEditModeBinding_whenIsEditing_isActive() {
-        sut.isEditing = true
+    func testEditModeBinding_whenIsSelectingPlayers_isActive() {
+        sut.isSelectingPlayers = true
         XCTAssertEqual(sut.editModeBinding.wrappedValue, .active)
     }
     
-    func testEditModeBinding_whenIsNotEditing_isInactive() {
+    func testEditModeBinding_whenIsNotSelectingPlayers_isInactive() {
         XCTAssertEqual(sut.editModeBinding.wrappedValue, .inactive)
     }
     

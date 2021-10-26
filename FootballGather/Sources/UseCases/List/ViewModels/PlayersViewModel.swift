@@ -13,7 +13,7 @@ import CoreModels
 
 final class PlayersViewModel: ObservableObject {
     
-    @Published var isEditing = false
+    @Published var isSelectingPlayers = false
     @Published var selectedRows = Set<UUID>()
     
     private(set) var storage: AppStorage
@@ -39,7 +39,16 @@ extension PlayersViewModel {
         storage.storedPlayers
     }
     
-    func toggleEditing() {
-        isEditing.toggle()
+    func toggleSelection() {
+        isSelectingPlayers.toggle()
+        clearSelectedRowsIfNeeded()
+    }
+    
+    private func clearSelectedRowsIfNeeded() {
+        guard !isSelectingPlayers else {
+            return
+        }
+        
+        selectedRows = []
     }
 }

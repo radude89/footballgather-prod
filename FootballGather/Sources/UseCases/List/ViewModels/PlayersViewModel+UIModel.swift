@@ -46,7 +46,7 @@ extension PlayersViewModel.ButtonModel {
 
 extension PlayersViewModel {
     var formattedNavigationTitle: String {
-        if !isEditing && numberOfSelectedPlayers > 0 {
+        if isSelectingPlayers && numberOfSelectedPlayers > 0 {
             return String(format: LocalizedString.selectedCount, numberOfSelectedPlayers)
         }
         
@@ -58,11 +58,17 @@ extension PlayersViewModel {
     }
     
     var leadingBarButton: ButtonModel {
-        BarButtonFactory.barButton(.leading, isEditing: isEditing)
+        BarButtonFactory.barButton(
+            .leading,
+            isSelectingPlayers: isSelectingPlayers
+        )
     }
     
     var trailingBarButton: ButtonModel {
-        BarButtonFactory.barButton(.trailing, isEditing: isEditing)
+        BarButtonFactory.barButton(
+            .trailing,
+            isSelectingPlayers: isSelectingPlayers
+        )
     }
     
     var mainViewAccessibilityID: Localizable.AccessibilityID {
@@ -70,6 +76,6 @@ extension PlayersViewModel {
     }
     
     var editModeBinding: Binding<EditMode> {
-        isEditing ? .constant(.active) : .constant(.inactive)
+        isSelectingPlayers ? .constant(.active) : .constant(.inactive)
     }
 }

@@ -12,30 +12,32 @@ extension PlayersViewModel {
     enum BarButtonFactory {
         static func barButton(
             _ type: NavigationBarButtonType,
-            isEditing: Bool
+            isSelectingPlayers: Bool
         ) -> ButtonModel {
             switch type {
             case .leading:
-                return makeLeadingBarButton(isEditing: isEditing)
+                return makeLeadingBarButton(isSelectingPlayers: isSelectingPlayers)
             case .trailing:
                 return trailingBarButton
             }
         }
         
-        private static func makeLeadingBarButton(isEditing: Bool) -> PlayersViewModel.ButtonModel {
-            if isEditing {
-                return leadingBarButtonWhenEditing
+        private static func makeLeadingBarButton(
+            isSelectingPlayers: Bool
+        ) -> PlayersViewModel.ButtonModel {
+            if isSelectingPlayers {
+                return leadingBarButtonWhenSelectingPlayers
             }
             
             return leadingBarButton
         }
         
-        private static let leadingBarButtonWhenEditing = PlayersViewModel.ButtonModel(
-            title: LocalizedString.done,
+        private static let leadingBarButtonWhenSelectingPlayers = PlayersViewModel.ButtonModel(
+            title: LocalizedString.cancel,
             accessibility: PlayersViewModel.AccessibilityModel(
-                id: .doneButton,
-                hint: LocalizedString.doneHint,
-                label: LocalizedString.done
+                id: .cancelButton,
+                hint: LocalizedString.cancelHint,
+                label: LocalizedString.cancel
             )
         )
         

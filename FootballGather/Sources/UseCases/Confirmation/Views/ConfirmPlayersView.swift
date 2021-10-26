@@ -34,15 +34,6 @@ struct ConfirmPlayersView: View {
         }
     }
     
-    private var startGatherButton: some View {
-        Button(LocalizedString.startGather) {
-            
-        }
-        .accessibilityID(.startGatherButton)
-        .padding()
-        .disabled(true)
-    }
-    
     private func makeSection(for team: Team) -> some View {
         Section(viewModel.sectionName(for: team)) {
             makeRows(for: team)
@@ -56,6 +47,15 @@ struct ConfirmPlayersView: View {
         ForEach(viewModel.players(in: team)) { player in
             Text(viewModel.rowDescription(for: player))
         }
+    }
+    
+    private var startGatherButton: some View {
+        Button(LocalizedString.startGather) {
+            
+        }
+        .accessibilityID(.startGatherButton)
+        .padding()
+        .disabled(true)
     }
     
 }

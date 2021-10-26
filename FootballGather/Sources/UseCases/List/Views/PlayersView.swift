@@ -55,7 +55,7 @@ struct PlayersView: View {
     }
     
     private var leadingBarButton: some View {
-        Button(action: toggleEditing) {
+        Button(action: viewModel.toggleSelection) {
             Text(viewModel.leadingBarButton.title)
         }
         .accessibilityID(viewModel.leadingBarButton.accessibilityID)
@@ -65,14 +65,6 @@ struct PlayersView: View {
         .accessibilityLabel(
             Text(viewModel.leadingBarButton.accessibilityLabel)
         )
-    }
-    
-    private func toggleEditing() {
-        viewModel.toggleEditing()
-        
-        if !viewModel.isEditing {
-            print(viewModel.selectedRows)
-        }
     }
     
     private var trailingBarButton: some View {
@@ -88,6 +80,7 @@ struct PlayersView: View {
             Text(viewModel.trailingBarButton.accessibilityLabel)
         )
     }
+    
 }
 
 // MARK: - Preview

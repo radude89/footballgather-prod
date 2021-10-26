@@ -13,7 +13,7 @@ public enum LocalizedString: Localizable {
     public static let addPlayersHint = localizedText(key: "add.players.hint")
     public static let addPlayerLabel = localizedText(key: "add.player.label")
     public static let done = localizedText(key: "done")
-    public static let doneHint = localizedText(key: "done.hint")
+    public static let cancelHint = localizedText(key: "cancel.hint")
     public static let select = localizedText(key: "select")
     public static let selectHint = localizedText(key: "select.hint")
     public static let selectedPlayer = localizedText(key: "selected.player")

@@ -11,7 +11,7 @@
 "add.player.label" = "Add player";
 "done" = "Done";
 "select" = "Select";
-"done.hint" = "When you are finished selecting players, tap on done.";
+"cancel.hint" = "If you want to unselect your players, tap on cancel.";
 "select.hint" = "You can select your players for the gather or delete one of the players by swipping left the row the player is associated with.";
 "selected.player" = "%@ selected";
 "tap.select.player" = "Tap to select %@ or swipe to delete";

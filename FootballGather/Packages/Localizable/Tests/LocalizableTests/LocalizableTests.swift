@@ -10,7 +10,7 @@ final class LocalizableTests: XCTestCase {
             "add.players.hint": LocalizedString.addPlayersHint,
             "add.player.label": LocalizedString.addPlayerLabel,
             "done": LocalizedString.done,
-            "done.hint": LocalizedString.doneHint,
+            "cancel.hint": LocalizedString.cancelHint,
             "select": LocalizedString.select,
             "select.hint": LocalizedString.selectHint,
             "selected.player": LocalizedString.selectedPlayer,
