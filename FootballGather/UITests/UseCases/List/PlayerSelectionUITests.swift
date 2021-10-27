@@ -70,10 +70,10 @@ final class PlayerSelectionUITests: UITestCase {
         
         XCTAssertFalse(app.buttons[.confirmButton].isEnabled)
         
-        assertNavBarTitle(is: LocalizedString.players)
+        assertNavigationTitle(is: LocalizedString.players)
         tapCells(havingIndexes: 0, 1)
         
-        assertNavBarTitle(is: String(format: LocalizedString.selectedCount, 2))
+        assertNavigationTitle(is: String(format: LocalizedString.selectedCount, 2))
         
         XCTAssertTrue(app.buttons[.confirmButton].isEnabled)
         
@@ -81,21 +81,13 @@ final class PlayerSelectionUITests: UITestCase {
         tapCells(havingIndexes: 0, 1)
         app.buttons[.cancelButton].tap()
         
-        assertNavBarTitle(is: LocalizedString.players)
+        assertNavigationTitle(is: LocalizedString.players)
         
         // tap edit and then done should not select any players
         app.buttons[.selectButton].tap()
         app.buttons[.cancelButton].tap()
         
-        assertNavBarTitle(is: LocalizedString.players)
-    }
-    
-    private var navBar: XCUIElement {
-        app.navigationBars.element(boundBy: 0)
-    }
-    
-    private func assertNavBarTitle(is title: String) {
-        XCTAssertEqual(navBar.identifier, title)
+        assertNavigationTitle(is: LocalizedString.players)
     }
     
     private func tapCells(havingIndexes indexes: Int...) {

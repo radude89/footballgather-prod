@@ -41,9 +41,23 @@ final class ConfirmPlayersUITests: UITestCase {
         let playersTeamsTable = app.tables[.confirmPlayersView]
         XCTAssertTrue(playersTeamsTable.waitToAppear())
         
-        assertBenchSectionExists(in: playersTeamsTable)
-        assertTeamASectionExists(in: playersTeamsTable)
-        assertTeamBSectionExists(in: playersTeamsTable)
+        assertSectionExists(
+            havingID: .benchView,
+            label: LocalizedString.benchSection,
+            inTable: playersTeamsTable
+        )
+        
+        assertSectionExists(
+            havingID: .teamAView,
+            label: LocalizedString.teamASection,
+            inTable: playersTeamsTable
+        )
+        
+        assertSectionExists(
+            havingID: .teamBView,
+            label: LocalizedString.teamBSection,
+            inTable: playersTeamsTable
+        )
         
         assertRow(at: 0, hasLabel: "John")
         assertRow(at: 1, hasLabel: "Jane")
@@ -61,24 +75,14 @@ final class ConfirmPlayersUITests: UITestCase {
         app.buttons[.confirmButton].tap()
     }
     
-    private func assertNavigationTitle(is title: String, line: UInt = #line) {
-        let navBar = app.navigationBars.element(boundBy: 0)
-        XCTAssertEqual(navBar.identifier, title, line: line)
-    }
-    
-    private func assertBenchSectionExists(in table: XCUIElement, line: UInt = #line) {
-        XCTAssertTrue(table.staticTexts[.benchView].exists, line: line)
-        XCTAssertTrue(table.staticTexts[LocalizedString.benchSection].exists, line: line)
-    }
-    
-    private func assertTeamASectionExists(in table: XCUIElement, line: UInt = #line) {
-        XCTAssertTrue(table.staticTexts[.teamAView].exists, line: line)
-        XCTAssertTrue(table.staticTexts[LocalizedString.teamASection].exists, line: line)
-    }
-    
-    private func assertTeamBSectionExists(in table: XCUIElement, line: UInt = #line) {
-        XCTAssertTrue(table.staticTexts[.teamBView].exists, line: line)
-        XCTAssertTrue(table.staticTexts[LocalizedString.teamBSection].exists, line: line)
+    private func assertSectionExists(
+        havingID id: AccessibilityID,
+        label: String,
+        inTable table: XCUIElement,
+        line: UInt = #line
+    ) {
+        XCTAssertTrue(table.staticTexts[id].exists, line: line)
+        XCTAssertTrue(table.staticTexts[label].exists, line: line)
     }
     
     private func assertRow(at index: Int, hasLabel label: String, line: UInt = #line) {
