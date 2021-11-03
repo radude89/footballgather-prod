@@ -26,12 +26,16 @@ struct ConfirmPlayersView: View {
             teamsListViewContent
         }
         .accessibilityID(.confirmPlayersView)
+        .toolbar {
+            EditButton()
+        }
     }
     
     private var teamsListViewContent: some View {
         ForEach(viewModel.teams, id:\.self) { team in
             makeSection(for: team)
         }
+        .onMove(perform: move)
     }
     
     private func makeSection(for team: Team) -> some View {
@@ -41,6 +45,10 @@ struct ConfirmPlayersView: View {
         .accessibilityID(
             viewModel.accessibilityID(for: team)
         )
+    }
+    
+    private func move(from source: IndexSet, to destination: Int) {
+        print("Moving from \(source) to \(destination).")
     }
     
     private func makeRows(for team: Team) -> some View {

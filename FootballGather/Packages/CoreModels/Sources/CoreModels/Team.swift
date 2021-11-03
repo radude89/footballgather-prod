@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Team: String {
+public enum Team: Int {
     case bench, teamA, teamB
 }
 
