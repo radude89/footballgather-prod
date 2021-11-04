@@ -104,7 +104,7 @@ extension ConfirmPlayersViewController: UITableViewDataSource {
     }
     
     private func makeCell() -> UITableViewCell {
-        var cell : UITableViewCell!
+        var cell: UITableViewCell!
         cell = tableView.dequeueReusableCell(withIdentifier: Self.cellID)
         
         if cell == nil {

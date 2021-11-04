@@ -31,11 +31,7 @@ struct ConfirmPlayersViewModel {
     }
     
     func titleForHeaderInSection(_ section: Int) -> String? {
-        guard let team = Team(rawValue: section) else {
-            return nil
-        }
-        
-        return team.name.uppercased()
+        Team(rawValue: section)?.name.uppercased()
     }
     
     func rowTitle(at indexPath: IndexPath) -> String? {
@@ -48,7 +44,10 @@ struct ConfirmPlayersViewModel {
         return players[indexPath.row].name
     }
     
-    mutating func move(from source: IndexPath, to destination: IndexPath) {
+    mutating func move(
+        from source: IndexPath,
+        to destination: IndexPath
+    ) {
         guard let sourceTeam = Team(rawValue: source.section),
               let sourcePlayers = playersTeams[sourceTeam],
               0 ..< sourcePlayers.count ~= source.row,

@@ -12,14 +12,24 @@ import Localizable
 
 final class ConfirmPlayersViewModelTests: XCTestCase {
     
+    private var sut: ConfirmPlayersViewModel!
+    private let players = Player.demoPlayers
+    
+    override func setUp() {
+        super.setUp()
+        sut = ConfirmPlayersViewModel(players: players)
+    }
+    
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
     func testTeams_equalsAllCases() {
-        let sut = ConfirmPlayersViewModel(players: [])
         XCTAssertEqual(sut.teams, Team.allCases)
     }
     
     func testSectionName_isUppercased() {
-        let sut = ConfirmPlayersViewModel(players: [])
-        
         Team.allCases.forEach { team in
             let sectionName = sut.sectionName(for: team)
             XCTAssertEqual(sectionName, team.name.uppercased())
@@ -27,34 +37,26 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
     }
     
     func testAccessibilityID_whenTeamIsBench_isBenchView() {
-        let sut = ConfirmPlayersViewModel(players: [])
-        
         XCTAssertEqual(
             sut.accessibilityID(for: .bench), .benchView
         )
     }
     
     func testAccessibilityID_whenTeamIsTeamA_isTeamAView() {
-        let sut = ConfirmPlayersViewModel(players: [])
-        
         XCTAssertEqual(
             sut.accessibilityID(for: .teamA), .teamAView
         )
     }
     
     func testAccessibilityID_whenTeamIsTeamB_isTeamBView() {
-        let sut = ConfirmPlayersViewModel(players: [])
-        
         XCTAssertEqual(
             sut.accessibilityID(for: .teamB), .teamBView
         )
     }
     
     func testPlayers_whenTeamHasPlayers_equalPlayersFromTheGivenTeam() {
-        let sut = ConfirmPlayersViewModel(players: .demoPlayers)
-        
         XCTAssertEqual(
-            sut.players(in: .bench), Player.demoPlayers
+            sut.players(in: .bench), players
         )
         XCTAssertTrue(sut.players(in: .teamA).isEmpty)
         XCTAssertTrue(sut.players(in: .teamB).isEmpty)
@@ -62,9 +64,193 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
     
     func testRowDescription_isPlayerName() {
         let player = Player(name: "Garry")
-        let sut = ConfirmPlayersViewModel(players: [])
-        
         XCTAssertEqual(sut.rowDescription(for: player), player.name)
+    }
+    
+    func testNumberOfSections_equalsTeamsCount() {
+        XCTAssertEqual(sut.numberOfSections, Team.allCases.count)
+    }
+    
+    func testNumberOfRows_whenSectionIsInvalid_isZero() {
+        XCTAssertEqual(sut.numberOfRows(in: -1), 0)
+        XCTAssertEqual(sut.numberOfRows(in: Int.max), 0)
+        XCTAssertEqual(sut.numberOfRows(in: 999), 0)
+        XCTAssertEqual(sut.numberOfRows(in: Team.allCases.count), 0)
+        XCTAssertEqual(sut.numberOfRows(in: Team.allCases.count + 1), 0)
+        XCTAssertEqual(sut.numberOfRows(in: -Int.max), 0)
+    }
+    
+    func testNumberOfRows_whenTeamIsAOrB_isZero() {
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+    }
+    
+    func testNumberOfRows_whenTeamIsBench_isNumberOfDemoPlayers() {
+        XCTAssertEqual(
+            numberOfRows(in: .bench),
+            players.count
+        )
+    }
+    
+    func testTitleForHeaderInSection_isUppercased() {
+        Team.allCases.forEach { team in
+            let title = sut.titleForHeaderInSection(team.rawValue)
+            XCTAssertEqual(title, team.name.uppercased())
+        }
+    }
+    
+    func testRowTitle_equalsPlayersName() {
+        players.enumerated().forEach { index, player in
+            XCTAssertEqual(
+                rowTitle(at: index, team: .bench),
+                players[index].name
+            )
+        }
+    }
+    
+    func testRowTitle_whenSectionIsInvalid_isNil() {
+        XCTAssertNil(rowTitle(section: -1))
+        XCTAssertNil(rowTitle(section: Int.max))
+        XCTAssertNil(rowTitle(section: 999))
+        XCTAssertNil(rowTitle(section: Team.allCases.count))
+        XCTAssertNil(rowTitle(section: Team.allCases.count + 1))
+        XCTAssertNil(rowTitle(section: -Int.max))
+    }
+    
+    func testRowTitle_whenThereAreNotPlayers_isNil() {
+        XCTAssertNil(rowTitle(at: 0, team: .teamA))
+        XCTAssertNil(rowTitle(at: 0, team: .teamB))
+    }
+    
+    func testRowTitle_whenRowIndexIsInvalid_isNil() {
+        XCTAssertNil(rowTitle(at: -1, team: .bench))
+        XCTAssertNil(rowTitle(at: players.count, team: .bench))
+        XCTAssertNil(rowTitle(at: players.count + 1, team: .bench))
+        XCTAssertNil(rowTitle(at: Int.max, team: .bench))
+        XCTAssertNil(rowTitle(at: -Int.max, team: .bench))
+    }
+    
+    func testMove() {
+        move(from: .bench, to: .teamA)
+        XCTAssertEqual(numberOfRows(in: .bench), players.count - 1)
+        XCTAssertEqual(numberOfRows(in: .teamA), 1)
+        
+        move(from: .bench, to: .teamB)
+        XCTAssertEqual(numberOfRows(in: .bench), players.count - 2)
+        XCTAssertEqual(numberOfRows(in: .teamB), 1)
+        XCTAssertEqual(numberOfRows(in: .teamA), 1)
+        
+        move(from: .teamB, to: .teamA)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertEqual(numberOfRows(in: .teamA), 2)
+        
+        move(from: .teamA, to: .bench)
+        move(from: .teamA, to: .bench)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .bench), players.count)
+        
+        move(from: .bench, to: .teamB)
+        move(from: .bench, to: .teamB)
+        move(from: .teamB, to: .teamA)
+        move(from: .teamB, to: .bench)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertEqual(numberOfRows(in: .teamA), 1)
+        XCTAssertEqual(numberOfRows(in: .bench), players.count - 1)
+    }
+    
+    func testMove_whenSourceSectionIsInvalid_returns() {
+        move(from: -1, to: Team.teamA.rawValue)
+        move(from: -Int.max, to: Team.teamA.rawValue)
+        move(from: Int.max, to: Team.teamA.rawValue)
+        move(from: players.count, to: Team.teamA.rawValue)
+        move(from: players.count + 1, to: Team.teamA.rawValue)
+    }
+    
+    func testMove_whenDestinationSectionIsInvalid_returns() {
+        move(from: Team.bench.rawValue, to: -1)
+        move(from: Team.bench.rawValue, to: -Int.max)
+        move(from: Team.bench.rawValue, to: Int.max)
+        move(from: Team.bench.rawValue, to: players.count)
+        move(from: Team.bench.rawValue, to: players.count + 1)
+    }
+    
+    func testMove_whenThereAreNotPlayers_returns() {
+        move(from: .teamA, to: .bench)
+        XCTAssertEqual(numberOfRows(in: .bench), players.count)
+        
+        move(from: .teamB, to: .bench)
+        XCTAssertEqual(numberOfRows(in: .bench), players.count)
+    }
+    
+    func testMove_whenSourceRowIsInvalid_returns() {
+        [Team.teamA, Team.teamB].forEach { team in
+            move(from: .bench, sourceRowIndex: -1, to: team)
+            XCTAssertEqual(numberOfRows(in: .bench), players.count)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            
+            move(from: .bench, sourceRowIndex: -Int.max, to: team)
+            XCTAssertEqual(numberOfRows(in: .bench), players.count)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            
+            move(from: .bench, sourceRowIndex: Int.max, to: team)
+            XCTAssertEqual(numberOfRows(in: .bench), players.count)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            
+            move(from: .bench, sourceRowIndex: players.count, to: team)
+            XCTAssertEqual(numberOfRows(in: .bench), players.count)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            
+            move(from: .bench, sourceRowIndex: players.count + 1, to: team)
+            XCTAssertEqual(numberOfRows(in: .bench), players.count)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    private func numberOfRows(in team: Team) -> Int {
+        sut.numberOfRows(in: team.rawValue)
+    }
+    
+    private func rowTitle(at row: Int = 0, section: Int) -> String? {
+        sut.rowTitle(at: IndexPath(row: row, section: section))
+    }
+    
+    private func rowTitle(at row: Int, team: Team) -> String? {
+        sut.rowTitle(
+            at: IndexPath(
+                row: row, section: team.rawValue
+            )
+        )
+    }
+    
+    private func move(
+        from source: Team,
+        sourceRowIndex: Int = 0,
+        to destination: Team,
+        destinationRowIndex: Int = 0
+    ) {
+        sut.move(
+            from: .init(
+                row: sourceRowIndex,
+                section: source.rawValue
+            ),
+            to: .init(
+                row: destinationRowIndex,
+                section: destination.rawValue
+            )
+        )
+    }
+    
+    private func move(
+        from sourceSection: Int,
+        to destinationSection: Int
+    ) {
+        sut.move(
+            from: .init(row: 0, section: sourceSection),
+            to: .init(row: 0, section: destinationSection)
+        )
     }
     
 }
