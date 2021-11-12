@@ -1,5 +1,5 @@
 //
-//  LayoutHandler.swift
+//  LayoutPinner.swift
 //  
 //
 //  Created by Radu Dan on 08.11.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-public enum LayoutHandler {
+public enum LayoutPinner {
     
-    public static func pinTop(
+    public static func top(
         _ view: UIView,
         to anotherView: UIView,
         usingSafeLayoutGuide: Bool = true,
@@ -28,7 +28,7 @@ public enum LayoutHandler {
             .isActive = true
     }
     
-    public static func pinBottom(
+    public static func bottom(
         _ view: UIView,
         to anotherView: UIView,
         usingSafeLayoutGuide: Bool = false,
@@ -47,7 +47,7 @@ public enum LayoutHandler {
             .isActive = true
     }
     
-    public static func pinLeading(
+    public static func leading(
         _ view: UIView,
         to anotherView: UIView,
         spacing: CGFloat = 0
@@ -61,7 +61,7 @@ public enum LayoutHandler {
             .isActive = true
     }
     
-    public static func pinTrailing(
+    public static func trailing(
         _ view: UIView,
         to anotherView: UIView,
         spacing: CGFloat = 0

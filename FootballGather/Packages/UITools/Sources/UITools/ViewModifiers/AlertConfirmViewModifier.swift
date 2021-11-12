@@ -47,7 +47,7 @@ public struct AlertConfirmViewModifier: ViewModifier {
     
 }
 
-// MARK: - View extesion
+// MARK: - View extension
 
 public extension View {
     func confirmationAlert(

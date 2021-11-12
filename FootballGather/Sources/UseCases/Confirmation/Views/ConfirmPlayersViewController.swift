@@ -30,17 +30,13 @@ final class ConfirmPlayersViewController: UIViewController {
         return tableView
     }()
     
-    private let startGatherButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(LocalizedString.startGather, for: .normal)
-        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
-        button.isEnabled = false
-        button.accessibilityIdentifier = AccessibilityID.startGatherButton.rawValue
-        button.accessibilityHint = LocalizedString.startGatherHint
-        button.addTarget(self, action: #selector(startGather), for: .touchUpInside)
-        return button
-    }()
+    private let startGatherButton = ButtonFactory.makeSystemButton(
+        title: LocalizedString.startGather,
+        isEnabled: false,
+        accessibilityID: .startGatherButton,
+        accessibilityHint: LocalizedString.startGatherHint,
+        selector: #selector(startGather)
+    )
     
     @objc private func startGather() {
         // TODO: Present `Gather` screen
@@ -88,9 +84,9 @@ private extension ConfirmPlayersViewController {
     }
     
     func setupTableViewConstraints() {
-        LayoutHandler.pinTop(tableView, to: view, usingSafeLayoutGuide: true)
-        LayoutHandler.pinLeading(tableView, to: view)
-        LayoutHandler.pinTrailing(tableView, to: view)
+        LayoutPinner.top(tableView, to: view, usingSafeLayoutGuide: true)
+        LayoutPinner.leading(tableView, to: view)
+        LayoutPinner.trailing(tableView, to: view)
         
         tableView
             .bottomAnchor
@@ -99,11 +95,11 @@ private extension ConfirmPlayersViewController {
     }
     
     func setupStartGatherButtonConstraints() {
-        LayoutHandler.pinLeading(startGatherButton, to: view)
-        LayoutHandler.pinTrailing(startGatherButton, to: view)
+        LayoutPinner.leading(startGatherButton, to: view)
+        LayoutPinner.trailing(startGatherButton, to: view)
         
         let bottomSpacing: CGFloat = 10
-        LayoutHandler.pinBottom(startGatherButton, to: view, spacing: -bottomSpacing)
+        LayoutPinner.bottom(startGatherButton, to: view, spacing: -bottomSpacing)
     }
 }
 
