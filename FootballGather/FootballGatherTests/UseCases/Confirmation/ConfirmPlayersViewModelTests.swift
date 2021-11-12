@@ -29,44 +29,6 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertEqual(sut.teams, Team.allCases)
     }
     
-    func testSectionName_isUppercased() {
-        Team.allCases.forEach { team in
-            let sectionName = sut.sectionName(for: team)
-            XCTAssertEqual(sectionName, team.name.uppercased())
-        }
-    }
-    
-    func testAccessibilityID_whenTeamIsBench_isBenchView() {
-        XCTAssertEqual(
-            sut.accessibilityID(for: .bench), .benchView
-        )
-    }
-    
-    func testAccessibilityID_whenTeamIsTeamA_isTeamAView() {
-        XCTAssertEqual(
-            sut.accessibilityID(for: .teamA), .teamAView
-        )
-    }
-    
-    func testAccessibilityID_whenTeamIsTeamB_isTeamBView() {
-        XCTAssertEqual(
-            sut.accessibilityID(for: .teamB), .teamBView
-        )
-    }
-    
-    func testPlayers_whenTeamHasPlayers_equalPlayersFromTheGivenTeam() {
-        XCTAssertEqual(
-            sut.players(in: .bench), players
-        )
-        XCTAssertTrue(sut.players(in: .teamA).isEmpty)
-        XCTAssertTrue(sut.players(in: .teamB).isEmpty)
-    }
-    
-    func testRowDescription_isPlayerName() {
-        let player = Player(name: "Garry")
-        XCTAssertEqual(sut.rowDescription(for: player), player.name)
-    }
-    
     func testNumberOfSections_equalsTeamsCount() {
         XCTAssertEqual(sut.numberOfSections, Team.allCases.count)
     }

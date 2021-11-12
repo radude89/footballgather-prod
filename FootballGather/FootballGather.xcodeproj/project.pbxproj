@@ -57,7 +57,6 @@
 		F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */; };
 		F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */; };
 		F78C2C8F27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */; };
-		F78CC69427266C56008FCFA5 /* ConfirmPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78CC69327266C56008FCFA5 /* ConfirmPlayersView.swift */; };
 		F791020426E0735100BF79B9 /* PlayersListRowAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020326E0735100BF79B9 /* PlayersListRowAccessibility.swift */; };
 		F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020726E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift */; };
 		F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F791020926E09DA100BF79B9 /* PlayersViewModel.swift */; };
@@ -79,6 +78,7 @@
 		F7BD16B3265F684A005D1422 /* AppStorageFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD16B2265F684A005D1422 /* AppStorageFactoryTests.swift */; };
 		F7C77DE527310E4E00470E4E /* ConfirmPlayersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C77DE427310E4E00470E4E /* ConfirmPlayersViewControllerTests.swift */; };
 		F7C77DE727310E7600470E4E /* ConfirmPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */; };
+		F7F492902733AA2900231D8D /* ConfirmPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */; };
 		F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */; };
 		F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */; };
 /* End PBXBuildFile section */
@@ -155,7 +155,6 @@
 		F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDetailsViewModel+UIModel.swift"; sourceTree = "<group>"; };
-		F78CC69327266C56008FCFA5 /* ConfirmPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersView.swift; sourceTree = "<group>"; };
 		F791020326E0735100BF79B9 /* PlayersListRowAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListRowAccessibility.swift; sourceTree = "<group>"; };
 		F791020726E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListRowAccessibilityTests.swift; sourceTree = "<group>"; };
 		F791020926E09DA100BF79B9 /* PlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 		F7BD16B2265F684A005D1422 /* AppStorageFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageFactoryTests.swift; sourceTree = "<group>"; };
 		F7C77DE427310E4E00470E4E /* ConfirmPlayersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewControllerTests.swift; sourceTree = "<group>"; };
 		F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewController.swift; sourceTree = "<group>"; };
+		F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersView.swift; sourceTree = "<group>"; };
 		F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,7 +310,7 @@
 		F7532F772727B02E00C55078 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F78CC69327266C56008FCFA5 /* ConfirmPlayersView.swift */,
+				F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */,
 				F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */,
 			);
 			path = Views;
@@ -734,11 +734,11 @@
 				F78C2C8F27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
 				F705D018265B67560057B63A /* PlayersEmptyView.swift in Sources */,
-				F78CC69427266C56008FCFA5 /* ConfirmPlayersView.swift in Sources */,
 				F7BD16AA265F66A0005D1422 /* Storage.swift in Sources */,
 				F7BD16AC265F66C1005D1422 /* AppStorageFactory.swift in Sources */,
 				F7B2209E26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift in Sources */,
 				F71E989626ECB5F2005A1EA7 /* PositionPickerViewModel.swift in Sources */,
+				F7F492902733AA2900231D8D /* ConfirmPlayersView.swift in Sources */,
 				F7C77DE727310E7600470E4E /* ConfirmPlayersViewController.swift in Sources */,
 				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
 				F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */,

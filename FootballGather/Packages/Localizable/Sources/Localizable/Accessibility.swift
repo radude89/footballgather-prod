@@ -21,9 +21,6 @@ public enum AccessibilityID: String {
     case enterNameTextfield = "enter-name-textfield"
     case detailsView = "details-view"
     case confirmPlayersView = "confirm-players-view"
-    case benchView = "bench-view"
-    case teamAView = "team-a-view"
-    case teamBView = "team-b-view"
     case confirmButton = "confirm-button"
     case startGatherButton = "start-gather-button"
 }

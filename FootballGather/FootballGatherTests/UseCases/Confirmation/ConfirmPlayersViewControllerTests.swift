@@ -174,6 +174,33 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         }
     }
     
+    func testEditingStyleForRowAt_isNone() {
+        XCTAssertEqual(
+            sut.tableView(.init(), editingStyleForRowAt: .init()),
+            .none
+        )
+    }
+    
+    func testShouldIndentWhileEditingRowAt_isFalse() {
+        XCTAssertFalse(
+            sut.tableView(.init(), shouldIndentWhileEditingRowAt: .init())
+        )
+    }
+    
+    func testSetEditing() throws {
+        let tableView = try XCTUnwrap(
+            sut.view.subviews.first { $0 is UITableView } as? UITableView
+        )
+        
+        XCTAssertFalse(tableView.isEditing)
+        
+        sut.setEditing(true, animated: false)
+        XCTAssertTrue(tableView.isEditing)
+        
+        sut.setEditing(false, animated: false)
+        XCTAssertFalse(tableView.isEditing)
+    }
+    
     // MARK: - Helpers
     
     private func numberOfSections(

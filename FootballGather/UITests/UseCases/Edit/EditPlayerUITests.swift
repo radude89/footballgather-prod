@@ -27,6 +27,8 @@ final class EditPlayerUITests: UITestCase {
         XCTAssertTrue(app.tables[.detailsView].waitToAppear())
     }
     
+    // MARK: - Helpers
+    
     func save() {
         app.buttons[.saveButton].tap()
     }

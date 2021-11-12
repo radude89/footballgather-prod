@@ -5,6 +5,7 @@
 //  Created by Radu Dan on 02.11.2021.
 //
 
+import UITools
 import UIKit
 import CoreModels
 import Localizable
@@ -13,9 +14,12 @@ import Localizable
 
 final class ConfirmPlayersViewController: UIViewController {
     
+    // MARK: - Properties
+    
     private var viewModel = ConfirmPlayersViewModel(players: [])
     
     private static let cellID = "ConfirmPlayersCell"
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +29,24 @@ final class ConfirmPlayersViewController: UIViewController {
         )
         return tableView
     }()
+    
+    private let startGatherButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(LocalizedString.startGather, for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.isEnabled = false
+        button.accessibilityIdentifier = AccessibilityID.startGatherButton.rawValue
+        button.accessibilityHint = LocalizedString.startGatherHint
+        button.addTarget(self, action: #selector(startGather), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func startGather() {
+        // TODO: Present `Gather` screen
+    }
+    
+    // MARK: - Public API
     
     convenience init(players: [Player]) {
         self.init()
@@ -51,32 +73,37 @@ final class ConfirmPlayersViewController: UIViewController {
 private extension ConfirmPlayersViewController {
     func setupViews() {
         tableView.dataSource = self
-        navigationItem.rightBarButtonItem = editButtonItem
+        tableView.delegate = self
+        tableView.accessibilityIdentifier = AccessibilityID.confirmPlayersView.rawValue
     }
     
     func setupHierarchy() {
         view.addSubview(tableView)
+        view.addSubview(startGatherButton)
     }
     
     func setupConstraints() {
-        tableView.leadingAnchor
-            .constraint(equalTo: view.leadingAnchor)
-            .isActive = true
-        
-        tableView
-            .topAnchor
-            .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-            .isActive = true
-        
-        tableView
-            .trailingAnchor
-            .constraint(equalTo: view.trailingAnchor)
-            .isActive = true
+        setupTableViewConstraints()
+        setupStartGatherButtonConstraints()
+    }
+    
+    func setupTableViewConstraints() {
+        LayoutHandler.pinTop(tableView, to: view, usingSafeLayoutGuide: true)
+        LayoutHandler.pinLeading(tableView, to: view)
+        LayoutHandler.pinTrailing(tableView, to: view)
         
         tableView
             .bottomAnchor
-            .constraint(equalTo: view.bottomAnchor)
+            .constraint(equalTo: startGatherButton.topAnchor)
             .isActive = true
+    }
+    
+    func setupStartGatherButtonConstraints() {
+        LayoutHandler.pinLeading(startGatherButton, to: view)
+        LayoutHandler.pinTrailing(startGatherButton, to: view)
+        
+        let bottomSpacing: CGFloat = 10
+        LayoutHandler.pinBottom(startGatherButton, to: view, spacing: -bottomSpacing)
     }
 }
 
@@ -108,10 +135,7 @@ extension ConfirmPlayersViewController: UITableViewDataSource {
         cell = tableView.dequeueReusableCell(withIdentifier: Self.cellID)
         
         if cell == nil {
-            cell = UITableViewCell(
-                style: .default,
-                reuseIdentifier: Self.cellID
-            )
+            cell = UITableViewCell(style: .default, reuseIdentifier: Self.cellID)
         }
         
         return cell
@@ -124,6 +148,7 @@ extension ConfirmPlayersViewController: UITableViewDataSource {
         var content = UIListContentConfiguration.cell()
         content.text = viewModel.rowTitle(at: indexPath)
         cell.contentConfiguration = content
+        cell.separatorInset = .zero
     }
 
     func tableView(
@@ -146,5 +171,23 @@ extension ConfirmPlayersViewController: UITableViewDataSource {
         to destinationIndexPath: IndexPath
     ) {
         viewModel.move(from: sourceIndexPath, to: destinationIndexPath)
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ConfirmPlayersViewController: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        editingStyleForRowAt indexPath: IndexPath
+    ) -> UITableViewCell.EditingStyle {
+        .none
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        shouldIndentWhileEditingRowAt indexPath: IndexPath
+    ) -> Bool {
+        false
     }
 }

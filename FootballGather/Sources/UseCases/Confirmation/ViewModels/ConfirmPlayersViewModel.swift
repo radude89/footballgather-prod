@@ -13,6 +13,8 @@ struct ConfirmPlayersViewModel {
     
     private var playersTeams: [Team: [Player]]
     
+    let teams = Team.allCases
+    
     init(players: [Player]) {
         playersTeams = [:]
         playersTeams[.bench] = players
@@ -80,32 +82,6 @@ struct ConfirmPlayersViewModel {
             playersTeams[team] = [player]
         }
         
-    }
-    
-    // MARK: SwiftUI APIs To be removed
-    let teams = Team.allCases
-    
-    func sectionName(for team: Team) -> String {
-        team.name.uppercased()
-    }
-    
-    func accessibilityID(for team: Team) -> AccessibilityID {
-        switch team {
-        case .bench:
-            return .benchView
-        case .teamA:
-            return .teamAView
-        case .teamB:
-            return .teamBView
-        }
-    }
-    
-    func players(in team: Team) -> [Player] {
-        playersTeams[team] ?? []
-    }
-    
-    func rowDescription(for player: Player) -> String {
-        player.name
     }
     
 }

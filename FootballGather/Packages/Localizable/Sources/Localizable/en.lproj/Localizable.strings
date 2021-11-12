@@ -31,7 +31,5 @@
 "discard" = "Discard";
 "confirm.players.title" = "Confirm Players";
 "confirm.players.button.hint" = "Becomes enabled when you select at least two players";
-"bench.section" = "BENCH";
-"team.a.section" = "TEAM A";
-"team.b.section" = "TEAM B";
 "start.gather" = "Start Gather";
+"start.gather.hint" = "Move your bench players to Team A or Team B. You need at least one player in each team to be able to start the gather.";

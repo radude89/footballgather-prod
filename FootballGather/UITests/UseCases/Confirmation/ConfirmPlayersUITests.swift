@@ -7,6 +7,7 @@
 
 import XCTest
 import Localizable
+import CoreModels
 
 final class ConfirmPlayersUITests: UITestCase {
     
@@ -42,20 +43,17 @@ final class ConfirmPlayersUITests: UITestCase {
         XCTAssertTrue(playersTeamsTable.waitToAppear())
         
         assertSectionExists(
-            havingID: .benchView,
-            label: LocalizedString.benchSection,
+            havingLabel: Team.bench.name.uppercased(),
             inTable: playersTeamsTable
         )
         
         assertSectionExists(
-            havingID: .teamAView,
-            label: LocalizedString.teamASection,
+            havingLabel: Team.teamA.name.uppercased(),
             inTable: playersTeamsTable
         )
         
         assertSectionExists(
-            havingID: .teamBView,
-            label: LocalizedString.teamBSection,
+            havingLabel: Team.teamB.name.uppercased(),
             inTable: playersTeamsTable
         )
         
@@ -64,6 +62,8 @@ final class ConfirmPlayersUITests: UITestCase {
         
         XCTAssertFalse(app.buttons[.startGatherButton].isEnabled)
     }
+    
+    // MARK: - Helpers
     
     private func selectPlayers() {
         app.buttons[.selectButton].tap()
@@ -76,17 +76,19 @@ final class ConfirmPlayersUITests: UITestCase {
     }
     
     private func assertSectionExists(
-        havingID id: AccessibilityID,
-        label: String,
+        havingLabel label: String,
         inTable table: XCUIElement,
         line: UInt = #line
     ) {
-        XCTAssertTrue(table.staticTexts[id].exists, line: line)
         XCTAssertTrue(table.staticTexts[label].exists, line: line)
     }
     
-    private func assertRow(at index: Int, hasLabel label: String, line: UInt = #line) {
-        XCTAssertEqual(cells[index].label, label, line: line)
+    private func assertRow(
+        at index: Int,
+        hasLabel label: String,
+        line: UInt = #line
+    ) {
+        XCTAssertTrue(cells[index].staticTexts[label].exists, line: line)
     }
     
 }

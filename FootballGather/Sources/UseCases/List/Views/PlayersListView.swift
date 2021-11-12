@@ -69,8 +69,9 @@ struct PlayersListView: View {
     private var confirmPlayersNavigationLink: some View {
         NavigationLink(
             destination: ConfirmPlayersView(
-                viewModel: .init(players: viewModel.selectedPlayers)
-            ),
+                players: viewModel.selectedPlayers
+            )
+                .navigationTitle(LocalizedString.confirmPlayersTitle),
             isActive: $isShowingConfirmPlayersView
         ) {
             confirmPlayersButton

@@ -30,10 +30,8 @@ final class LocalizableTests: XCTestCase {
             "discard.changes.lost": LocalizedString.discardChangesLost,
             "discard": LocalizedString.discard,
             "confirm.players.title": LocalizedString.confirmPlayersTitle,
-            "bench.section": LocalizedString.benchSection,
-            "team.a.section": LocalizedString.teamASection,
-            "team.b.section": LocalizedString.teamBSection,
-            "start.gather": LocalizedString.startGather
+            "start.gather": LocalizedString.startGather,
+            "start.gather.hint": LocalizedString.startGatherHint
         ]
         
         localizedTextDictionary.forEach { key, value in

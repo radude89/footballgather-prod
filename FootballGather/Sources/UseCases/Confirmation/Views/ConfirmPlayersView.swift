@@ -2,78 +2,22 @@
 //  ConfirmPlayersView.swift
 //  FootballGather (iOS)
 //
-//  Created by Radu Dan on 25.10.2021.
+//  Created by Radu Dan on 04.11.2021.
 //
 
 import SwiftUI
-import Localizable
 import CoreModels
 
-struct ConfirmPlayersView: View {
+struct ConfirmPlayersView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UIViewController
+    let players: [Player]
     
-    let viewModel: ConfirmPlayersViewModel
-    
-    var body: some View {
-        VStack {
-            teamsListView
-            startGatherButton
-        }
-        .navigationTitle(LocalizedString.confirmPlayersTitle)
+    func makeUIViewController(context: Context) -> UIViewController {
+        let viewController = ConfirmPlayersViewController(players: players)
+        viewController.setEditing(true, animated: true)
+        return viewController
     }
     
-    private var teamsListView: some View {
-        List {
-            teamsListViewContent
-        }
-        .accessibilityID(.confirmPlayersView)
-        .toolbar {
-            EditButton()
-        }
-    }
-    
-    private var teamsListViewContent: some View {
-        ForEach(viewModel.teams, id:\.self) { team in
-            makeSection(for: team)
-        }
-        .onMove(perform: move)
-    }
-    
-    private func makeSection(for team: Team) -> some View {
-        Section(viewModel.sectionName(for: team)) {
-            makeRows(for: team)
-        }
-        .accessibilityID(
-            viewModel.accessibilityID(for: team)
-        )
-    }
-    
-    private func move(from source: IndexSet, to destination: Int) {
-        print("Moving from \(source) to \(destination).")
-    }
-    
-    private func makeRows(for team: Team) -> some View {
-        ForEach(viewModel.players(in: team)) { player in
-            Text(viewModel.rowDescription(for: player))
-        }
-    }
-    
-    private var startGatherButton: some View {
-        Button(LocalizedString.startGather) {
-            
-        }
-        .accessibilityID(.startGatherButton)
-        .padding()
-        .disabled(true)
-    }
-    
-}
-
-// MARK: - Previews
-
-struct ConfirmPlayersView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfirmPlayersView(
-            viewModel: .init(players: .demoPlayers)
-        )
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) { 
     }
 }
