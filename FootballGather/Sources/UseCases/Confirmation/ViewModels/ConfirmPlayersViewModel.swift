@@ -20,6 +20,11 @@ struct ConfirmPlayersViewModel {
         playersTeams[.bench] = players
     }
     
+    var startGatherIsEnabled: Bool {
+        playersTeams[.teamA]?.isEmpty == false &&
+        playersTeams[.teamB]?.isEmpty == false
+    }
+    
     var numberOfSections: Int {
         teams.count
     }
@@ -81,7 +86,6 @@ struct ConfirmPlayersViewModel {
         } else {
             playersTeams[team] = [player]
         }
-        
     }
     
 }

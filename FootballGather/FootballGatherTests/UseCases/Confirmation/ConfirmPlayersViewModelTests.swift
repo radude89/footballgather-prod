@@ -96,21 +96,25 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         move(from: .bench, to: .teamA)
         XCTAssertEqual(numberOfRows(in: .bench), players.count - 1)
         XCTAssertEqual(numberOfRows(in: .teamA), 1)
+        XCTAssertFalse(sut.startGatherIsEnabled)
         
         move(from: .bench, to: .teamB)
         XCTAssertEqual(numberOfRows(in: .bench), players.count - 2)
         XCTAssertEqual(numberOfRows(in: .teamB), 1)
         XCTAssertEqual(numberOfRows(in: .teamA), 1)
+        XCTAssertTrue(sut.startGatherIsEnabled)
         
         move(from: .teamB, to: .teamA)
         XCTAssertEqual(numberOfRows(in: .teamB), 0)
         XCTAssertEqual(numberOfRows(in: .teamA), 2)
+        XCTAssertFalse(sut.startGatherIsEnabled)
         
         move(from: .teamA, to: .bench)
         move(from: .teamA, to: .bench)
         XCTAssertEqual(numberOfRows(in: .teamB), 0)
         XCTAssertEqual(numberOfRows(in: .teamA), 0)
         XCTAssertEqual(numberOfRows(in: .bench), players.count)
+        XCTAssertFalse(sut.startGatherIsEnabled)
         
         move(from: .bench, to: .teamB)
         move(from: .bench, to: .teamB)
@@ -119,30 +123,68 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertEqual(numberOfRows(in: .teamB), 0)
         XCTAssertEqual(numberOfRows(in: .teamA), 1)
         XCTAssertEqual(numberOfRows(in: .bench), players.count - 1)
+        XCTAssertFalse(sut.startGatherIsEnabled)
     }
     
     func testMove_whenSourceSectionIsInvalid_returns() {
-        move(from: -1, to: Team.teamA.rawValue)
-        move(from: -Int.max, to: Team.teamA.rawValue)
-        move(from: Int.max, to: Team.teamA.rawValue)
-        move(from: players.count, to: Team.teamA.rawValue)
-        move(from: players.count + 1, to: Team.teamA.rawValue)
+        [Team.teamA, Team.teamB].forEach { team in
+            move(from: -1, to: team.rawValue)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
+            
+            move(from: -Int.max, to: team.rawValue)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
+            
+            move(from: Int.max, to: team.rawValue)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
+            
+            move(from: players.count, to: team.rawValue)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
+            
+            move(from: players.count + 1, to: team.rawValue)
+            XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
+        }
     }
     
     func testMove_whenDestinationSectionIsInvalid_returns() {
         move(from: Team.bench.rawValue, to: -1)
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertFalse(sut.startGatherIsEnabled)
+        
         move(from: Team.bench.rawValue, to: -Int.max)
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertFalse(sut.startGatherIsEnabled)
+        
         move(from: Team.bench.rawValue, to: Int.max)
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertFalse(sut.startGatherIsEnabled)
+        
         move(from: Team.bench.rawValue, to: players.count)
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertFalse(sut.startGatherIsEnabled)
+        
         move(from: Team.bench.rawValue, to: players.count + 1)
+        XCTAssertEqual(numberOfRows(in: .teamA), 0)
+        XCTAssertEqual(numberOfRows(in: .teamB), 0)
+        XCTAssertFalse(sut.startGatherIsEnabled)
     }
     
     func testMove_whenThereAreNotPlayers_returns() {
         move(from: .teamA, to: .bench)
         XCTAssertEqual(numberOfRows(in: .bench), players.count)
+        XCTAssertFalse(sut.startGatherIsEnabled)
         
         move(from: .teamB, to: .bench)
         XCTAssertEqual(numberOfRows(in: .bench), players.count)
+        XCTAssertFalse(sut.startGatherIsEnabled)
     }
     
     func testMove_whenSourceRowIsInvalid_returns() {
@@ -150,22 +192,27 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
             move(from: .bench, sourceRowIndex: -1, to: team)
             XCTAssertEqual(numberOfRows(in: .bench), players.count)
             XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
             
             move(from: .bench, sourceRowIndex: -Int.max, to: team)
             XCTAssertEqual(numberOfRows(in: .bench), players.count)
             XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
             
             move(from: .bench, sourceRowIndex: Int.max, to: team)
             XCTAssertEqual(numberOfRows(in: .bench), players.count)
             XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
             
             move(from: .bench, sourceRowIndex: players.count, to: team)
             XCTAssertEqual(numberOfRows(in: .bench), players.count)
             XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
             
             move(from: .bench, sourceRowIndex: players.count + 1, to: team)
             XCTAssertEqual(numberOfRows(in: .bench), players.count)
             XCTAssertEqual(numberOfRows(in: team), 0)
+            XCTAssertFalse(sut.startGatherIsEnabled)
         }
     }
     

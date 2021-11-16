@@ -167,6 +167,7 @@ extension ConfirmPlayersViewController: UITableViewDataSource {
         to destinationIndexPath: IndexPath
     ) {
         viewModel.move(from: sourceIndexPath, to: destinationIndexPath)
+        startGatherButton.isEnabled = viewModel.startGatherIsEnabled
     }
 }
 

@@ -52,6 +52,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         
         XCTAssertEqual(numberOfRows(in: .bench), 2)
         XCTAssertEqual(numberOfRows(in: .teamA), 1)
+        XCTAssertFalse(startGatherButton.isEnabled)
         
         assertPlayerName(
             at: 0,
@@ -75,6 +76,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         
         XCTAssertEqual(numberOfRows(in: .bench), 2)
         XCTAssertEqual(numberOfRows(in: .teamB), 1)
+        XCTAssertFalse(startGatherButton.isEnabled)
         
         assertPlayerName(
             at: 0,
@@ -101,6 +103,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         XCTAssertEqual(numberOfRows(in: .bench), 1)
         XCTAssertEqual(numberOfRows(in: .teamA), 1)
         XCTAssertEqual(numberOfRows(in: .teamB), 1)
+        XCTAssertTrue(startGatherButton.isEnabled)
         
         assertPlayerName(
             at: 0,
@@ -127,6 +130,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         XCTAssertEqual(numberOfRows(in: .bench), 1)
         XCTAssertEqual(numberOfRows(in: .teamA), 1)
         XCTAssertEqual(numberOfRows(in: .teamB), 1)
+        XCTAssertTrue(startGatherButton.isEnabled)
         
         assertPlayerName(
             at: 0,
@@ -202,6 +206,12 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private var startGatherButton: UIButton {
+        sut.view.subviews.first {
+            $0.accessibilityIdentifier == AccessibilityID.startGatherButton.rawValue
+        } as! UIButton
+    }
     
     private func numberOfSections(
         in tableView: UITableView = .init()

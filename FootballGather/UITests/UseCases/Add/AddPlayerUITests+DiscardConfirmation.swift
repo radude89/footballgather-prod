@@ -30,25 +30,32 @@ extension AddPlayerUITests {
     /// **AND** I am navigated back to the "Player List" screen
     /// **AND** I don't see any new players in the list
     func testDiscard() {
-        let nameField = app.textFields[.enterNameTextfield]
-        nameField.tap()
-        nameField.typeText("A")
-        
+        enterName("A")
         tapCancel()
-        
-        let alert = app.alerts[LocalizedString.discardConfirmation]
-        XCTAssertTrue(alert.waitToAppear())
-        
-        alert.buttons[LocalizedString.discard].tap()
+        tapOnConfirmationAlertButton(named: LocalizedString.discard)
         
         XCTAssertTrue(app.otherElements[.emptyView].exists)
         XCTAssertFalse(app.otherElements[.playerList].exists)
+    }
+    
+    private func enterName(_ name: String) {
+        let nameField = app.textFields[.enterNameTextfield]
+        nameField.tap()
+        nameField.typeText(name)
+        nameField.dismissKeyboard()
     }
     
     private func tapCancel() {
         let cancelButton = app.buttons[.cancelButton]
         XCTAssertTrue(cancelButton.waitToAppear())
         cancelButton.tap()
+    }
+    
+    private func tapOnConfirmationAlertButton(named buttonName: String) {
+        let alert = app.alerts[LocalizedString.discardConfirmation]
+        XCTAssertTrue(alert.waitToAppear())
+        
+        alert.buttons[buttonName].tap()
     }
     
     /// **Scenario 3**: Alert dialog cancel
@@ -61,16 +68,9 @@ extension AddPlayerUITests {
     /// **THEN** the alert dialog dismisses
     /// **AND** I remain in the "Add Player" screen
     func testCancel() {
-        let nameField = app.textFields[.enterNameTextfield]
-        nameField.tap()
-        nameField.typeText("Mike")
-        
+        enterName("Mike")
         tapCancel()
-        
-        let alert = app.alerts[LocalizedString.discardConfirmation]
-        XCTAssertTrue(alert.waitToAppear())
-        
-        alert.buttons[LocalizedString.cancel].tap()
+        tapOnConfirmationAlertButton(named: LocalizedString.cancel)
         
         XCTAssertTrue(app.otherElements[.addView].exists)
     }
