@@ -9,6 +9,7 @@ import UITools
 import UIKit
 import CoreModels
 import Localizable
+import SwiftUI
 
 // MARK: - ConfirmPlayersViewController
 
@@ -39,7 +40,9 @@ final class ConfirmPlayersViewController: UIViewController {
     )
     
     @objc private func startGather() {
-        // TODO: Present `Gather` screen
+        let gatherView = GatherView(viewModel: .init(playersTeams: viewModel.playersTeams))
+        let gatherViewController = UIHostingController(rootView: gatherView)
+        navigationController?.pushViewController(gatherViewController, animated: true)
     }
     
     // MARK: - Public API

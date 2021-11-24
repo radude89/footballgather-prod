@@ -33,8 +33,9 @@ extension ConfirmPlayersUITests {
         let startGatherButton = app.buttons[.startGatherButton]
         XCTAssertFalse(startGatherButton.isEnabled)
         
-        move("John", to: .teamA)
-        move("Jane", to: .teamB)
+        let playerMover = PlayerMover(app: app, table: confirmTable)
+        playerMover.move("John", to: .teamA)
+        playerMover.move("Jane", to: .teamB)
         
         assertPlayers(inTeam: .bench, haveNames: [])
         assertPlayers(inTeam: .teamA, haveNames: ["John"])
@@ -42,17 +43,10 @@ extension ConfirmPlayersUITests {
         
         XCTAssertTrue(startGatherButton.isEnabled)
         
-        move("John", to: .bench)
+        playerMover.move("John", to: .bench)
         XCTAssertFalse(startGatherButton.isEnabled)
     }
-    
-    private func move(_ playerName: String, to team: Team) {
-        let sectionLabel = confirmTable.staticTexts[team.name.uppercased()]
-        
-        app.buttons["Reorder \(playerName)"]
-            .press(forDuration: 0.3, thenDragTo: sectionLabel)
-    }
-    
+
     private func assertPlayers(
         inTeam team: Team,
         haveNames names: [String],

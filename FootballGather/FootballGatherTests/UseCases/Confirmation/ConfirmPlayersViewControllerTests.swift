@@ -205,6 +205,15 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         XCTAssertFalse(tableView.isEditing)
     }
     
+    func testStartGather() {
+        let navController = MockNavController(rootViewController: sut)
+        
+        startGatherButton.sendActions(for: .touchUpInside)
+        
+        XCTAssertTrue(navController.viewControllerPushed)
+        XCTAssertTrue(navController.pushedViewControllerIsConfirmPlayersViewController)
+    }
+    
     // MARK: - Helpers
     
     private var startGatherButton: UIButton {
@@ -272,6 +281,16 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
         
         return (cell.contentConfiguration as? UIListContentConfiguration)?.text
+    }
+    
+    private final class MockNavController: UINavigationController {
+        private(set) var viewControllerPushed = false
+        private(set) var pushedViewControllerIsConfirmPlayersViewController = false
+        
+        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+            viewControllerPushed = true
+            pushedViewControllerIsConfirmPlayersViewController = viewController is ConfirmPlayersViewController
+        }
     }
     
 }

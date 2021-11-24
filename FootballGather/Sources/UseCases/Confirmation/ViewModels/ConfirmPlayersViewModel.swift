@@ -11,7 +11,7 @@ import Foundation
 
 struct ConfirmPlayersViewModel {
     
-    private var playersTeams: [Team: [Player]]
+    private(set) var playersTeams: [Team: [Player]]
     
     let teams = Team.allCases
     
