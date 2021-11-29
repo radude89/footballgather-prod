@@ -65,7 +65,7 @@ struct AppNavigator {
     }
     
     private func waitForGatherViewToAppear() {
-        XCTAssertTrue(app.tables[.gatherView].waitToAppear())
+        XCTAssertTrue(app.tables[.gatherPlayersList].waitToAppear())
     }
     
 }

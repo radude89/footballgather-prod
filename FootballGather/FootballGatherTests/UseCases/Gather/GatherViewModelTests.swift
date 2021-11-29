@@ -2,7 +2,7 @@
 //  GatherViewModelTests.swift
 //  FootballGatherTests
 //
-//  Created by Radu Dan on 24.11.2021.
+//  Created by Radu Dan on 29.11.2021.
 //
 
 import XCTest
@@ -16,9 +16,9 @@ final class GatherViewModelTests: XCTestCase {
             playersTeams: [.teamA: .demoPlayers, .teamB: .demoPlayers]
         )
         
-        XCTAssertEqual(sut.players(in: .teamA), .demoPlayers)
-        XCTAssertEqual(sut.players(in: .teamB), .demoPlayers)
-        XCTAssertTrue(sut.players(in: .bench).isEmpty)
+        XCTAssertEqual(sut.playersTeams[.teamA], .demoPlayers)
+        XCTAssertEqual(sut.playersTeams[.teamB], .demoPlayers)
+        XCTAssertNil(sut.playersTeams[.bench])
     }
     
 }

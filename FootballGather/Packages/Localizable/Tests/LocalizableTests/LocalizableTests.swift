@@ -31,7 +31,8 @@ final class LocalizableTests: XCTestCase {
             "discard": LocalizedString.discard,
             "confirm.players.title": LocalizedString.confirmPlayersTitle,
             "start.gather": LocalizedString.startGather,
-            "start.gather.hint": LocalizedString.startGatherHint
+            "start.gather.hint": LocalizedString.startGatherHint,
+            "gather.in.progress": LocalizedString.gatherInProgress
         ]
         
         localizedTextDictionary.forEach { key, value in

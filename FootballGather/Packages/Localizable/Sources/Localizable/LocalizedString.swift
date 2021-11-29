@@ -36,4 +36,5 @@ public enum LocalizedString: Localizable {
     public static let confirmPlayersButtonHint = localizedText(key: "confirm.players.button.hint")
     public static let startGather = localizedText(key: "start.gather")
     public static let startGatherHint = localizedText(key: "start.gather.hint")
+    public static let gatherInProgress = localizedText(key: "gather.in.progress")
 }

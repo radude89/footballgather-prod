@@ -23,7 +23,7 @@ public enum AccessibilityID: String {
     case confirmPlayersView = "confirm-players-view"
     case confirmButton = "confirm-button"
     case startGatherButton = "start-gather-button"
-    case gatherView = "gather-view"
+    case gatherPlayersList = "gather-players-list"
 }
 
 extension AccessibilityID: CaseIterable {}

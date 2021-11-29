@@ -14,25 +14,16 @@ struct GatherView: View {
     let viewModel: GatherViewModel
     
     var body: some View {
-        List {
-            Section(header: Text("TEAM A")) {
-                ForEach(viewModel.players(in: .teamA)) { player in
-                    Text(player.name)
-                }
-            }
-            
-            Section(header: Text("TEAM B")) {
-                ForEach(viewModel.players(in: .teamB)) { player in
-                    Text(player.name)
-                }
-            }
+        VStack {
+            GatherPlayersView(
+                viewModel: .init(playersTeams: viewModel.playersTeams)
+            )
         }
-        .listStyle(.plain)
-        .accessibilityID(.gatherView)
         .navigationBarBackButtonHidden(true)
-        .navigationTitle("Gather in progress")
+        .navigationTitle(LocalizedString.gatherInProgress)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
 }
 
 // MARK: - Preview
