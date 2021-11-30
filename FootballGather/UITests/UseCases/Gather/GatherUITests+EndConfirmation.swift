@@ -15,14 +15,6 @@ extension GatherUITests {
     /// **GIVEN** I am in the "Gather" screen
     /// **WHEN** I tap on "End Gather" button
     /// **THEN** I am asked if I am sure to end the gather
-    ///
-    /// **Scenario 4: Confirming ending gather**
-    ///
-    /// **GIVEN** I seeing the "End Gather" confirmation popup
-    /// **WHEN** I tap on "OK"
-    /// **THEN** the gather ends
-    /// **AND** I am redirected back to "Player List" screen
-    /// **AND** all players are unselected
     func testEndGather() {
         let endGatherButton = app.buttons[.endGatherButton]
         XCTAssertTrue(endGatherButton.waitToAppear())
@@ -33,6 +25,8 @@ extension GatherUITests {
         
         alert.buttons[LocalizedString.yes].tap()
         
-        XCTAssertTrue(app.otherElements[.playerList].waitToAppear())
+        let doesNotExistPredicate = NSPredicate(format: "exists == FALSE")
+        expectation(for: doesNotExistPredicate, evaluatedWith: app.tables[.gatherPlayersList], handler: nil)
+        waitForExpectations(timeout: 3, handler: nil)
     }
 }
