@@ -19,6 +19,5 @@ struct ConfirmPlayersView: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
     }
 }

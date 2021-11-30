@@ -14,8 +14,8 @@ import Localizable
 struct PlayersListView: View {
     
     let viewModel: PlayersListViewModel
-    @Environment(\.editMode) var editMode
     
+    @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
     
     var body: some View {
@@ -68,14 +68,16 @@ struct PlayersListView: View {
     
     private var confirmPlayersNavigationLink: some View {
         NavigationLink(
-            destination: ConfirmPlayersView(
-                players: viewModel.selectedPlayers
-            )
-                .navigationTitle(LocalizedString.confirmPlayersTitle),
+            destination: confirmView,
             isActive: $isShowingConfirmPlayersView
         ) {
             confirmPlayersButton
         }
+    }
+    
+    private var confirmView: some View {
+        ConfirmPlayersView(players: viewModel.selectedPlayers)
+            .navigationTitle(LocalizedString.confirmPlayersTitle)
     }
     
     private var confirmPlayersButton: some View {

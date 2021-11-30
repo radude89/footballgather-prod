@@ -11,9 +11,9 @@ import Localizable
 
 struct PlayerDetailsView: View {
     
-    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: PlayerDetailsViewModel
     
+    @Environment(\.dismiss) private var dismiss
     @State private var showConfirmationAlert = false
         
     var body: some View {
