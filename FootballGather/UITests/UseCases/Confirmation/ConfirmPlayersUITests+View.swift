@@ -21,40 +21,15 @@ extension ConfirmPlayersUITests {
     /// **AND** I see my selected players under the "BENCH" section
     /// **AND** the bottom "Start Gather" button is DISABLED
     func testViewConfirmPlayers() {
-        assertSectionExists(
-            forTeam: .bench,
-            inTable: confirmTable
-        )
+        let teamsAsserter = TeamsTableAsserter(cells: cells, table: confirmTable)
+
+        teamsAsserter.assertSection(forTeam: .bench, shouldExist: true)
+        teamsAsserter.assertSection(forTeam: .teamA, shouldExist: true)
+        teamsAsserter.assertSection(forTeam: .teamB, shouldExist: true)
         
-        assertSectionExists(
-            forTeam: .teamA,
-            inTable: confirmTable
-        )
-        
-        assertSectionExists(
-            forTeam: .teamB,
-            inTable: confirmTable
-        )
-        
-        assertRow(at: 0, hasLabel: "John")
-        assertRow(at: 1, hasLabel: "Jane")
+        teamsAsserter.assertRow(at: 0, hasLabel: "John")
+        teamsAsserter.assertRow(at: 1, hasLabel: "Jane")
         
         XCTAssertFalse(app.buttons[.startGatherButton].isEnabled)
-    }
-    
-    private func assertSectionExists(
-        forTeam team: Team,
-        inTable table: XCUIElement,
-        line: UInt = #line
-    ) {
-        XCTAssertTrue(table.staticTexts[team.name.uppercased()].exists, line: line)
-    }
-    
-    private func assertRow(
-        at index: Int,
-        hasLabel label: String,
-        line: UInt = #line
-    ) {
-        XCTAssertTrue(cells[index].staticTexts[label].exists, line: line)
     }
 }

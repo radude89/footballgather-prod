@@ -65,6 +65,7 @@ struct AppNavigator {
     }
     
     private func waitForGatherViewToAppear() {
+        testCase.assertNavigationTitle(is: LocalizedString.gatherInProgress)
         XCTAssertTrue(app.tables[.gatherPlayersList].waitToAppear())
     }
     

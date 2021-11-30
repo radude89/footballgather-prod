@@ -22,6 +22,16 @@ extension GatherUITests {
     /// **THEN** I can see my players I chose in the "Confirmation" screen
     /// **AND** the players are in the correct Team
     func testViewGather() {
+        let teamsTable = app.tables[.gatherPlayersList]
+        XCTAssertTrue(teamsTable.exists)
         
+        let teamsTableAsserter = TeamsTableAsserter(cells: cells, table: teamsTable)
+        
+        teamsTableAsserter.assertSection(forTeam: .bench, shouldExist: false)
+        teamsTableAsserter.assertSection(forTeam: .teamA, shouldExist: true)
+        teamsTableAsserter.assertSection(forTeam: .teamB, shouldExist: true)
+        
+        teamsTableAsserter.assertRow(at: 0, hasLabel: "John")
+        teamsTableAsserter.assertRow(at: 1, hasLabel: "Jane")
     }
 }
