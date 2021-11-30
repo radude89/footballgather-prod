@@ -18,7 +18,10 @@ struct GatherView: View {
             GatherPlayersView(
                 viewModel: .init(playersTeams: viewModel.playersTeams)
             )
+            
+            GatherEndView()
         }
+        .padding(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
         .navigationBarTitleDisplayMode(.inline)

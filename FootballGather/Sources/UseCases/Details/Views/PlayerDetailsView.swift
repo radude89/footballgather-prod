@@ -44,10 +44,11 @@ struct PlayerDetailsView: View {
                 trailing: saveButton
             )
             .confirmationAlert(
+                isPresented: $showConfirmationAlert,
                 title: LocalizedString.discardConfirmation,
                 message: LocalizedString.discardChangesLost,
                 confirmActionTitle: LocalizedString.discard,
-                isPresented: $showConfirmationAlert
+                confirmAction: { dismiss() }
             )
     }
     

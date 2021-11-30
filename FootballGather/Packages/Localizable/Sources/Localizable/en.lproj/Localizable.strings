@@ -34,3 +34,8 @@
 "start.gather" = "Start Gather";
 "start.gather.hint" = "Move your bench players to Team A or Team B. You need at least one player in each team to be able to start the gather.";
 "gather.in.progress" = "Gather in progress";
+"end.gather" = "End Gather";
+"end.gather.confirmation" = "Do you want to end your gather?";
+"end.gather.message" = "Your gather will end and you can find the result in the History tab.";
+"yes" = "Yes";
+"no" = "No";

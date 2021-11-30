@@ -37,4 +37,9 @@ public enum LocalizedString: Localizable {
     public static let startGather = localizedText(key: "start.gather")
     public static let startGatherHint = localizedText(key: "start.gather.hint")
     public static let gatherInProgress = localizedText(key: "gather.in.progress")
+    public static let endGather = localizedText(key: "end.gather")
+    public static let endGatherConfirmation = localizedText(key: "end.gather.confirmation")
+    public static let endGatherMessage = localizedText(key: "end.gather.message")
+    public static let yes = localizedText(key: "yes")
+    public static let no = localizedText(key: "no")
 }

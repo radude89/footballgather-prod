@@ -80,6 +80,8 @@
 		F7A5256127550CBF006D2CBC /* GatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5256027550CBF006D2CBC /* GatherViewModelTests.swift */; };
 		F7A5256427551931006D2CBC /* GatherScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5256227551901006D2CBC /* GatherScoreView.swift */; };
 		F7A525662755FC51006D2CBC /* TeamsTableAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */; };
+		F7A52568275606C5006D2CBC /* GatherUITests+EndConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */; };
+		F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A52569275620B8006D2CBC /* GatherEndView.swift */; };
 		F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2209726E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift */; };
 		F7B2209E26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2209D26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift */; };
 		F7B220A026E47BAA00BC7DD3 /* PlayersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2209F26E47BAA00BC7DD3 /* PlayersViewModelTests.swift */; };
@@ -195,6 +197,8 @@
 		F7A5256027550CBF006D2CBC /* GatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherViewModelTests.swift; sourceTree = "<group>"; };
 		F7A5256227551901006D2CBC /* GatherScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherScoreView.swift; sourceTree = "<group>"; };
 		F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsTableAsserter.swift; sourceTree = "<group>"; };
+		F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+EndConfirmation.swift"; sourceTree = "<group>"; };
+		F7A52569275620B8006D2CBC /* GatherEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherEndView.swift; sourceTree = "<group>"; };
 		F7B2209726E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F7B2209D26E35E6E00BC7DD3 /* PlayersViewModel+BarButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersViewModel+BarButtonFactory.swift"; sourceTree = "<group>"; };
 		F7B2209F26E47BAA00BC7DD3 /* PlayersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewModelTests.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 			children = (
 				F703EB2F274DF38800460551 /* GatherView.swift */,
 				F7A5255E27550B37006D2CBC /* GatherPlayersView.swift */,
+				F7A52569275620B8006D2CBC /* GatherEndView.swift */,
 				F7A5256227551901006D2CBC /* GatherScoreView.swift */,
 			);
 			path = Views;
@@ -667,6 +672,7 @@
 			children = (
 				F73147E7274CA6D5003F773E /* GatherUITests.swift */,
 				F73147E9274CA91D003F773E /* GatherUITests+View.swift */,
+				F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -811,6 +817,7 @@
 				F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */,
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
 				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
+				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
 				F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */,
 				F703EB30274DF38800460551 /* GatherView.swift in Sources */,
 				F7A5256427551931006D2CBC /* GatherScoreView.swift in Sources */,
@@ -865,6 +872,7 @@
 				F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */,
 				F72D32132717D7CF0001CD6F /* EditPlayerUITests+Position.swift in Sources */,
 				F72D3220271842410001CD6F /* EditPlayerUITests+Name.swift in Sources */,
+				F7A52568275606C5006D2CBC /* GatherUITests+EndConfirmation.swift in Sources */,
 				F7A525662755FC51006D2CBC /* TeamsTableAsserter.swift in Sources */,
 				F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */,
 				F72D321C271833D20001CD6F /* EditPlayerUITests.swift in Sources */,
