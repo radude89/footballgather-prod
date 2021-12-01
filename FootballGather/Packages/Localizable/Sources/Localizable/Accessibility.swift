@@ -25,6 +25,13 @@ public enum AccessibilityID: String {
     case startGatherButton = "start-gather-button"
     case gatherPlayersList = "gather-players-list"
     case endGatherButton = "end-gather-button"
+    case scoreView = "score-view"
+    case teamAScoreLabel = "score-team-a-label"
+    case teamBScoreLabel = "score-team-b-label"
+    case teamAScoreIncrement = "score-team-a-increment-button"
+    case teamBScoreIncrement = "score-team-b-increment-button"
+    case teamAScoreDecrement = "score-team-a-decrement-button"
+    case teamBScoreDecrement = "score-team-b-decrement-button"
 }
 
 extension AccessibilityID: CaseIterable {}
