@@ -9,35 +9,58 @@ import SwiftUI
 import CoreModels
 
 struct GatherScoreView: View {
-    @State private var teamAScore = 99
-    @State private var teamBScore = 98
+    
+    @ObservedObject var viewModel: GatherScoreViewModel
+    
+    private enum ViewConstants {
+        static let defaultSpacing: CGFloat = 25
+    }
     
     var body: some View {
-        HStack(spacing: 50) {
-            scoreView(for: .teamA, value: $teamAScore)
-            scoreView(for: .teamB, value: $teamBScore)
+        HStack(spacing: 2 * ViewConstants.defaultSpacing) {
+            scoreView(for: .teamA)
+            scoreView(for: .teamB)
         }
         .padding()
     }
     
-    private func scoreView(for team: Team, value: Binding<Int>) -> some View {
-        VStack(spacing: 25) {
-            Text(team.name.uppercased())
-            Text("\(value.wrappedValue)")
-                .padding()
-                .font(.system(.largeTitle, design: .monospaced))
-                .background(
-                    Circle()
-                        .stroke(.black, lineWidth: 2)
-                )
-            Stepper("", value: value, in: 1...99)
-                .labelsHidden()
+    private func scoreView(for team: Team) -> some View {
+        VStack(spacing: ViewConstants.defaultSpacing) {
+            headerView(for: team)
+            scoreLabel(for: team)
+            stepperView(for: team)
         }
     }
+    
+    private func headerView(for team: Team) -> some View {
+        Text(viewModel.headerTitle(for: team))
+    }
+    
+    private func scoreLabel(for team: Team) -> some View {
+        Text("\(viewModel.formattedScore(for: team))")
+            .padding()
+            .font(.system(.largeTitle, design: .monospaced))
+            .background(
+                Circle()
+                    .stroke(.black, lineWidth: 2)
+            )
+    }
+    
+    private func stepperView(for team: Team) -> some View {
+        Stepper("") {
+            viewModel.onIncrementScore(for: team)
+        } onDecrement: {
+            viewModel.onDecrementScore(for: team)
+        }
+        .labelsHidden()
+    }
+    
 }
+
+// MARK: - Preview
 
 struct GatherScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        GatherScoreView()
+        GatherScoreView(viewModel: .init())
     }
 }

@@ -15,6 +15,9 @@ struct GatherView: View {
     
     var body: some View {
         VStack {
+            
+            GatherScoreView(viewModel: .init())
+            
             GatherPlayersView(
                 viewModel: .init(playersTeams: viewModel.playersTeams)
             )

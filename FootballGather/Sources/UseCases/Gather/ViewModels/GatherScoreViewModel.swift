@@ -1,0 +1,55 @@
+//
+//  GatherScoreViewModel.swift
+//  FootballGather (iOS)
+//
+//  Created by Radu Dan on 02.12.2021.
+//
+
+import SwiftUI
+import CoreModels
+
+final class GatherScoreViewModel: ObservableObject {
+    
+    @Published var teamAScore: Int
+    @Published var teamBScore: Int
+    
+    private var scoreHandler: GatherScoreHandler
+    
+    init(scoreHandler: GatherScoreHandler = .init()) {
+        self.scoreHandler = scoreHandler
+        teamAScore = scoreHandler.score(for: .teamA)
+        teamBScore = scoreHandler.score(for: .teamB)
+    }
+    
+    func headerTitle(for team: Team) -> String {
+        team.name.uppercased()
+    }
+    
+    func formattedScore(for team: Team) -> String {
+        "\(scoreHandler.score(for: team))"
+    }
+    
+    func onIncrementScore(for team: Team) {
+        scoreHandler.incrementScore(for: team)
+        updateScore(for: team, increment: true)
+    }
+    
+    func onDecrementScore(for team: Team) {
+        scoreHandler.decrementScore(for: team)
+        updateScore(for: team, increment: false)
+    }
+    
+    private func updateScore(for team: Team, increment: Bool) {
+        let value = increment ? 1 : -1
+        
+        switch team {
+        case .teamA:
+            teamAScore += value
+        case .teamB:
+            teamBScore += value
+        default:
+            break
+        }
+    }
+    
+}

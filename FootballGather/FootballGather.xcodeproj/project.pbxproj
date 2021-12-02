@@ -101,6 +101,8 @@
 		F7F492902733AA2900231D8D /* ConfirmPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */; };
 		F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */; };
 		F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */; };
+		F7FEF35F27590928009F60E6 /* GatherScoreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FEF35E27590928009F60E6 /* GatherScoreViewModelTests.swift */; };
+		F7FEF36127591951009F60E6 /* GatherScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FEF36027591951009F60E6 /* GatherScoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +223,8 @@
 		F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersView.swift; sourceTree = "<group>"; };
 		F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModelTests.swift; sourceTree = "<group>"; };
+		F7FEF35E27590928009F60E6 /* GatherScoreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherScoreViewModelTests.swift; sourceTree = "<group>"; };
+		F7FEF36027591951009F60E6 /* GatherScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherScoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +273,7 @@
 				F7A5255C27550AFF006D2CBC /* GatherViewModel.swift */,
 				F703EB34274DF4E800460551 /* GatherPlayersViewModel.swift */,
 				F7A525702757F091006D2CBC /* GatherScoreHandler.swift */,
+				F7FEF36027591951009F60E6 /* GatherScoreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				F7A5256027550CBF006D2CBC /* GatherViewModelTests.swift */,
 				F703EB32274DF3AC00460551 /* GatherPlayersViewModelTests.swift */,
 				F7A5256E2757E1FD006D2CBC /* GatherScoreHandlerTests.swift */,
+				F7FEF35E27590928009F60E6 /* GatherScoreViewModelTests.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -832,6 +838,7 @@
 				F7A5256427551931006D2CBC /* GatherScoreView.swift in Sources */,
 				F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */,
 				F705D013265B66390057B63A /* PlayersListView.swift in Sources */,
+				F7FEF36127591951009F60E6 /* GatherScoreViewModel.swift in Sources */,
 				F791020426E0735100BF79B9 /* PlayersListRowAccessibility.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F78C2C8F27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift in Sources */,
@@ -911,6 +918,7 @@
 				F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */,
 				F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
+				F7FEF35F27590928009F60E6 /* GatherScoreViewModelTests.swift in Sources */,
 				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */,
 				F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */,

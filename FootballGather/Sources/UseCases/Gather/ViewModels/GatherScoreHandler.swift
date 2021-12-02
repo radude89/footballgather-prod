@@ -17,12 +17,12 @@ struct GatherScoreHandler {
         self.maxScore = maxScore
     }
     
-    func formattedScore(for team: Team) -> String {
+    func score(for team: Team) -> Int {
         guard let score = score[team] else {
-            return "0"
+            return 0
         }
         
-        return "\(score)"
+        return score
     }
     
     mutating func incrementScore(for team: Team) {
