@@ -12,6 +12,8 @@ import FoundationTools
 
 final class GatherScoreViewModelTests: XCTestCase {
     
+    private static let maxScore = GatherMaxScore.computeValue()
+    
     func testHeaderTitle() {
         let sut = GatherScoreViewModel()
         
@@ -30,8 +32,8 @@ final class GatherScoreViewModelTests: XCTestCase {
     func testIncrementsScore() {
         var scoreHandler = GatherScoreHandler(
             score: [
-                .teamA: Int.random(in: 0...GatherScore.maxValue),
-                .teamB: Int.random(in: 0...GatherScore.maxValue)
+                .teamA: Int.random(in: 0...Self.maxScore),
+                .teamB: Int.random(in: 0...Self.maxScore)
             ]
         )
         let sut = GatherScoreViewModel(scoreHandler: scoreHandler)
@@ -51,7 +53,7 @@ final class GatherScoreViewModelTests: XCTestCase {
     }
     
     func testIncrementsScore_forBench_breaks() {
-        let score = Int.random(in: 1..<GatherScore.maxValue)
+        let score = Int.random(in: 1..<Self.maxScore)
         let scoreHandler = GatherScoreHandler(
             score: [
                 .teamA: score,
@@ -69,8 +71,8 @@ final class GatherScoreViewModelTests: XCTestCase {
     func testDecrementsScore() {
         var scoreHandler = GatherScoreHandler(
             score: [
-                .teamA: Int.random(in: 0...GatherScore.maxValue),
-                .teamB: Int.random(in: 0...GatherScore.maxValue)
+                .teamA: Int.random(in: 0...Self.maxScore),
+                .teamB: Int.random(in: 0...Self.maxScore)
             ]
         )
         let sut = GatherScoreViewModel(scoreHandler: scoreHandler)
@@ -87,7 +89,7 @@ final class GatherScoreViewModelTests: XCTestCase {
     }
     
     func testDecrementsScore_forBench_breaks() {
-        let score = Int.random(in: 1..<GatherScore.maxValue)
+        let score = Int.random(in: 1..<Self.maxScore)
         let scoreHandler = GatherScoreHandler(
             score: [
                 .teamA: score,

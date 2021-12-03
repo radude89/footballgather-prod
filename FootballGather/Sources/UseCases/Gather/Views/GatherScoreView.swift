@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModels
+import FoundationTools
 
 struct GatherScoreView: View {
     
@@ -34,6 +35,7 @@ struct GatherScoreView: View {
     
     private func headerView(for team: Team) -> some View {
         Text(viewModel.headerTitle(for: team))
+            .accessibilityIdentifier(GatherScoreAccessibility.scoreHeaderID(for: team))
     }
     
     private func scoreLabel(for team: Team) -> some View {
@@ -44,6 +46,7 @@ struct GatherScoreView: View {
                 Circle()
                     .stroke(.black, lineWidth: 2)
             )
+            .accessibilityIdentifier(GatherScoreAccessibility.scoreLabelID(for: team))
     }
     
     private func stepperView(for team: Team) -> some View {
@@ -53,6 +56,7 @@ struct GatherScoreView: View {
             viewModel.onDecrementScore(for: team)
         }
         .labelsHidden()
+        .accessibilityIdentifier(GatherScoreAccessibility.scoreStepperID(for: team))
     }
     
 }

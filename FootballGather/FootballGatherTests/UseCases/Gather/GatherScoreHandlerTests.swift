@@ -12,6 +12,8 @@ import FoundationTools
 
 final class GatherScoreHandlerTests: XCTestCase {
     
+    private static let maxScore = GatherMaxScore.computeValue()
+    
     func testScore_isInitialZero() {
         let sut = GatherScoreHandler()
         
@@ -32,16 +34,16 @@ final class GatherScoreHandlerTests: XCTestCase {
     func testScore_whenCurrentScoreIsMaximumAndIcrements_keepsSameScore() {
         var sut = GatherScoreHandler(
             score: [
-                .teamA: GatherScore.maxValue,
-                .teamB: GatherScore.maxValue
+                .teamA: Self.maxScore,
+                .teamB: Self.maxScore
             ]
         )
         
         sut.incrementScore(for: .teamA)
         sut.incrementScore(for: .teamB)
         
-        XCTAssertEqual(sut.score(for: .teamA), GatherScore.maxValue)
-        XCTAssertEqual(sut.score(for: .teamB), GatherScore.maxValue)
+        XCTAssertEqual(sut.score(for: .teamA), Self.maxScore)
+        XCTAssertEqual(sut.score(for: .teamB), Self.maxScore)
     }
     
     func testScore_whenDecrements_updatesScore() {

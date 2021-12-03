@@ -8,6 +8,7 @@
 import XCTest
 import CoreModels
 import FoundationTools
+import Localizable
 
 extension GatherUITests {
     
@@ -27,72 +28,16 @@ extension GatherUITests {
     /// **Scenario 3: Maximum score**
     ///
     /// **GIVEN** I am in the "Gather" screen
-    /// **AND** the score of one of my team is "99"
+    /// **AND** the score of one of my team is the maximum score allowed by the app
     /// **WHEN** I press "+"
-    /// **THEN** the score stays at "99"
-    func testUpdateScore() throws {
-        /*
-        XCTAssertTrue(app.otherElements[.scoreView].exists)
-        
-        try [Team.teamA, Team.teamB].forEach { team in
-            let score = try XCTUnwrap(scoreLabel(for: team))
-            XCTAssertEqual(score.label, "0")
+    /// **THEN** the score stays at the maximum score
+    func testUpdateScore() {
+        [Team.teamA, Team.teamB].forEach { team in
+            let scoreViewAsserter = GatherScoreViewAsserter(team: team, app: app)
+            scoreViewAsserter.assertScoreViewIsPresented()
             
-            let scoreIncrementer = try XCTUnwrap(incrementer(for: team))
-            scoreIncrementer.tap()
-            
-            XCTAssertEqual(score.label, "1")
-            
-            let scoreDecrementer = try XCTUnwrap(decrementer(for: team))
-            scoreDecrementer.tap()
-            
-            XCTAssertEqual(score.label, "0")
-            
-            scoreDecrementer.tap()
-            XCTAssertEqual(score.label, "0")
-            
-            (1...GatherScore.maxValue).forEach { index in
-                scoreIncrementer.tap()
-                XCTAssertEqual(score.label, "\(index)")
-            }
-            
-            XCTAssertEqual(score.label, "\(GatherScore.maxValue)")
-            
-            scoreIncrementer.tap()
-            XCTAssertEqual(score.label, "\(GatherScore.maxValue)")
-         }*/
-    }
-    
-    private func scoreLabel(for team: Team) -> XCUIElement? {
-        switch team {
-        case .bench:
-            return nil
-        case .teamA:
-            return app.staticTexts[.teamAScoreLabel]
-        case .teamB:
-            return app.staticTexts[.teamBScoreLabel]
-        }
-    }
-    
-    private func incrementer(for team: Team) -> XCUIElement? {
-        switch team {
-        case .bench:
-            return nil
-        case .teamA:
-            return app.buttons[.teamAScoreIncrement]
-        case .teamB:
-            return app.buttons[.teamBScoreIncrement]
-        }
-    }
-    
-    private func decrementer(for team: Team) -> XCUIElement? {
-        switch team {
-        case .bench:
-            return nil
-        case .teamA:
-            return app.buttons[.teamAScoreDecrement]
-        case .teamB:
-            return app.buttons[.teamBScoreDecrement]
+            var scoreAsserter = GatherScoreHandlerAsserter(team: team, app: app)
+            scoreAsserter.assertScoreUpdatesCorrectly()
         }
     }
     

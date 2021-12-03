@@ -45,6 +45,8 @@ struct GatherEndView: View {
     
 }
 
+// MARK: - Preview
+
 struct GatherEndView_Previews: PreviewProvider {
     static var previews: some View {
         GatherEndView()
