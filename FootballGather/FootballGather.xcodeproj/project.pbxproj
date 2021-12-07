@@ -276,8 +276,8 @@
 			children = (
 				F7A5255C27550AFF006D2CBC /* GatherViewModel.swift */,
 				F703EB34274DF4E800460551 /* GatherPlayersViewModel.swift */,
-				F7FEF36027591951009F60E6 /* GatherScoreViewModel.swift */,
 				F7A525702757F091006D2CBC /* GatherScoreHandler.swift */,
+				F7FEF36027591951009F60E6 /* GatherScoreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

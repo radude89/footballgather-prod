@@ -50,12 +50,6 @@ struct GatherScoreHandlerAsserter {
         return app.staticTexts[scoreLabelID]
     }
     
-    private var scoreLabel: XCUIElement {
-        let scoreLabelID = GatherScoreAccessibility.scoreLabelID(for: team)
-        let score = app.staticTexts[scoreLabelID]
-        return score
-    }
-    
     private mutating func assertScoreCorrectlyIncrements(
         file: StaticString = #file,
         line: UInt = #line
@@ -107,12 +101,8 @@ struct GatherScoreHandlerAsserter {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        (1...Self.maxScore).forEach { index in
+        (1...Self.maxScore + 1).forEach { index in
             assertScoreCorrectlyIncrements(file: file, line: line)
         }
-        
-        XCTAssertEqual(score.label, "\(Self.maxScore)", file: file, line: line)
-
-        assertScoreCorrectlyIncrements(file: file, line: line)
     }
 }
