@@ -30,6 +30,8 @@
 		F71E989626ECB5F2005A1EA7 /* PositionPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */; };
 		F71F5CCB271855D500C31944 /* EditPlayerUITests+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F5CCA271855D500C31944 /* EditPlayerUITests+Save.swift */; };
 		F7223BC2274239C100446224 /* PlayersFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7223BC1274239C100446224 /* PlayersFinder.swift */; };
+		F72972B3275F15B300900714 /* TimerControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72972B2275F15B300900714 /* TimerControllerTests.swift */; };
+		F72972B62760709400900714 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72972B42760709200900714 /* TimerController.swift */; };
 		F72D321127171E360001CD6F /* PlayerDetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D321027171E360001CD6F /* PlayerDetailsUITests.swift */; };
 		F72D32132717D7CF0001CD6F /* EditPlayerUITests+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32122717D7CF0001CD6F /* EditPlayerUITests+Position.swift */; };
 		F72D32162717E0440001CD6F /* PlayerDetailsDuplicateVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32142717E0220001CD6F /* PlayerDetailsDuplicateVerifier.swift */; };
@@ -148,6 +150,8 @@
 		F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModel.swift; sourceTree = "<group>"; };
 		F71F5CCA271855D500C31944 /* EditPlayerUITests+Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditPlayerUITests+Save.swift"; sourceTree = "<group>"; };
 		F7223BC1274239C100446224 /* PlayersFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersFinder.swift; sourceTree = "<group>"; };
+		F72972B2275F15B300900714 /* TimerControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControllerTests.swift; sourceTree = "<group>"; };
+		F72972B42760709200900714 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		F72D321027171E360001CD6F /* PlayerDetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsUITests.swift; sourceTree = "<group>"; };
 		F72D32122717D7CF0001CD6F /* EditPlayerUITests+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditPlayerUITests+Position.swift"; sourceTree = "<group>"; };
 		F72D32142717E0220001CD6F /* PlayerDetailsDuplicateVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsDuplicateVerifier.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				F703EB34274DF4E800460551 /* GatherPlayersViewModel.swift */,
 				F7A525702757F091006D2CBC /* GatherScoreHandler.swift */,
 				F7FEF36027591951009F60E6 /* GatherScoreViewModel.swift */,
+				F72972B42760709200900714 /* TimerController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -682,6 +687,7 @@
 				F703EB32274DF3AC00460551 /* GatherPlayersViewModelTests.swift */,
 				F7A5256E2757E1FD006D2CBC /* GatherScoreHandlerTests.swift */,
 				F7FEF35E27590928009F60E6 /* GatherScoreViewModelTests.swift */,
+				F72972B2275F15B300900714 /* TimerControllerTests.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -844,6 +850,7 @@
 			files = (
 				F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */,
 				F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */,
+				F72972B62760709400900714 /* TimerController.swift in Sources */,
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
 				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
 				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
@@ -948,6 +955,7 @@
 				F7C77DE527310E4E00470E4E /* ConfirmPlayersViewControllerTests.swift in Sources */,
 				F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */,
 				F72D32182717E1060001CD6F /* PlayerDetailsDuplicateVerifierTests.swift in Sources */,
+				F72972B3275F15B300900714 /* TimerControllerTests.swift in Sources */,
 				F7A5256127550CBF006D2CBC /* GatherViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
