@@ -1,5 +1,5 @@
 //
-//  GatherScoreHandlerAsserter.swift
+//  ScoreHandlerAsserter.swift
 //  UITests
 //
 //  Created by Radu Dan on 03.12.2021.
@@ -9,7 +9,7 @@ import XCTest
 import CoreModels
 import FoundationTools
 
-struct GatherScoreHandlerAsserter {
+struct ScoreHandlerAsserter {
     private let team: Team
     private let app: XCUIApplication
     private var currentScore: Int
@@ -33,7 +33,7 @@ struct GatherScoreHandlerAsserter {
     // MARK: - Private methods
     
     private var stepper: XCUIElement {
-        let stepperID = GatherScoreAccessibility.scoreStepperID(for: team)
+        let stepperID = ScoreAccessibility.scoreStepperID(for: team)
         return app.steppers[stepperID]
     }
     
@@ -46,7 +46,7 @@ struct GatherScoreHandlerAsserter {
     }
     
     private var score: XCUIElement {
-        let scoreLabelID = GatherScoreAccessibility.scoreLabelID(for: team)
+        let scoreLabelID = ScoreAccessibility.scoreLabelID(for: team)
         return app.staticTexts[scoreLabelID]
     }
     

@@ -1,5 +1,5 @@
 //
-//  GatherScoreViewModel.swift
+//  ScoreViewModel.swift
 //  FootballGather (iOS)
 //
 //  Created by Radu Dan on 02.12.2021.
@@ -8,14 +8,14 @@
 import SwiftUI
 import CoreModels
 
-final class GatherScoreViewModel: ObservableObject {
+final class ScoreViewModel: ObservableObject {
     
     @Published var teamAScore: Int
     @Published var teamBScore: Int
     
-    private var scoreHandler: GatherScoreHandler
+    private var scoreHandler: ScoreHandler
     
-    init(scoreHandler: GatherScoreHandler = .init()) {
+    init(scoreHandler: ScoreHandler = .init()) {
         self.scoreHandler = scoreHandler
         teamAScore = scoreHandler.score(for: .teamA)
         teamBScore = scoreHandler.score(for: .teamB)

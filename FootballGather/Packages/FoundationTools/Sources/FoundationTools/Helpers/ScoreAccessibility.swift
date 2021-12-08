@@ -1,5 +1,5 @@
 //
-//  GatherScoreAccessibility.swift
+//  ScoreAccessibility.swift
 //  
 //
 //  Created by Radu Dan on 03.12.2021.
@@ -8,7 +8,7 @@
 import CoreModels
 import Localizable
 
-public enum GatherScoreAccessibility {
+public enum ScoreAccessibility {
     public static func viewID(
         for team: Team,
         accessibilityID: AccessibilityID

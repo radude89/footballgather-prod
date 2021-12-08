@@ -1,5 +1,5 @@
 //
-//  GatherScoreHandler.swift
+//  ScoreHandler.swift
 //  FootballGather (iOS)
 //
 //  Created by Radu Dan on 01.12.2021.
@@ -8,7 +8,7 @@
 import CoreModels
 import FoundationTools
 
-struct GatherScoreHandler {
+struct ScoreHandler {
     private var score: [Team: Int]
     private let maxScore: Int
     

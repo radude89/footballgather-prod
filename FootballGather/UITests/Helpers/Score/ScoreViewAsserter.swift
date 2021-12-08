@@ -1,5 +1,5 @@
 //
-//  GatherScoreViewAsserter.swift
+//  ScoreViewAsserter.swift
 //  UITests
 //
 //  Created by Radu Dan on 03.12.2021.
@@ -10,7 +10,7 @@ import CoreModels
 import Localizable
 import FoundationTools
 
-struct GatherScoreViewAsserter {
+struct ScoreViewAsserter {
     private let team: Team
     private let app: XCUIApplication
     
@@ -47,7 +47,7 @@ struct GatherScoreViewAsserter {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        let accessibilityID = GatherScoreAccessibility
+        let accessibilityID = ScoreAccessibility
             .viewID(for: team, accessibilityID: id)
         XCTAssertTrue(elements[accessibilityID].exists, file: file, line: line)
     }

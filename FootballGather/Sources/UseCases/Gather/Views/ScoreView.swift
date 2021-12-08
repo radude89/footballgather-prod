@@ -1,5 +1,5 @@
 //
-//  GatherScoreView.swift
+//  ScoreView.swift
 //  FootballGatherTests
 //
 //  Created by Radu Dan on 29.11.2021.
@@ -9,9 +9,9 @@ import SwiftUI
 import CoreModels
 import FoundationTools
 
-struct GatherScoreView: View {
+struct ScoreView: View {
     
-    @ObservedObject var viewModel: GatherScoreViewModel
+    @ObservedObject var viewModel: ScoreViewModel
     
     private enum ViewConstants {
         static let defaultSpacing: CGFloat = 25
@@ -35,7 +35,7 @@ struct GatherScoreView: View {
     
     private func headerView(for team: Team) -> some View {
         Text(viewModel.headerTitle(for: team))
-            .accessibilityIdentifier(GatherScoreAccessibility.scoreHeaderID(for: team))
+            .accessibilityIdentifier(ScoreAccessibility.scoreHeaderID(for: team))
     }
     
     private func scoreLabel(for team: Team) -> some View {
@@ -46,7 +46,7 @@ struct GatherScoreView: View {
                 Circle()
                     .stroke(.black, lineWidth: 2)
             )
-            .accessibilityIdentifier(GatherScoreAccessibility.scoreLabelID(for: team))
+            .accessibilityIdentifier(ScoreAccessibility.scoreLabelID(for: team))
     }
     
     private func stepperView(for team: Team) -> some View {
@@ -56,15 +56,15 @@ struct GatherScoreView: View {
             viewModel.onDecrementScore(for: team)
         }
         .labelsHidden()
-        .accessibilityIdentifier(GatherScoreAccessibility.scoreStepperID(for: team))
+        .accessibilityIdentifier(ScoreAccessibility.scoreStepperID(for: team))
     }
     
 }
 
 // MARK: - Preview
 
-struct GatherScoreView_Previews: PreviewProvider {
+struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        GatherScoreView(viewModel: .init())
+        ScoreView(viewModel: .init())
     }
 }

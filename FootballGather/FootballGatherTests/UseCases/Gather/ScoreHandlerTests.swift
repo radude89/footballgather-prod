@@ -1,5 +1,5 @@
 //
-//  GatherScoreHandlerTests.swift
+//  ScoreHandlerTests.swift
 //  FootballGatherTests
 //
 //  Created by Radu Dan on 01.12.2021.
@@ -10,19 +10,19 @@ import CoreModels
 import FoundationTools
 @testable import FootballGather
 
-final class GatherScoreHandlerTests: XCTestCase {
+final class ScoreHandlerTests: XCTestCase {
     
     private static let maxScore = GatherMaxScore.computeValue()
     
     func testScore_isInitialZero() {
-        let sut = GatherScoreHandler()
+        let sut = ScoreHandler()
         
         XCTAssertEqual(sut.score(for: .teamA), 0)
         XCTAssertEqual(sut.score(for: .teamB), 0)
     }
     
     func testScore_whenIncrements_updatesScore() {
-        var sut = GatherScoreHandler()
+        var sut = ScoreHandler()
         
         sut.incrementScore(for: .teamA)
         sut.incrementScore(for: .teamB)
@@ -32,7 +32,7 @@ final class GatherScoreHandlerTests: XCTestCase {
     }
     
     func testScore_whenCurrentScoreIsMaximumAndIcrements_keepsSameScore() {
-        var sut = GatherScoreHandler(
+        var sut = ScoreHandler(
             score: [
                 .teamA: Self.maxScore,
                 .teamB: Self.maxScore
@@ -47,7 +47,7 @@ final class GatherScoreHandlerTests: XCTestCase {
     }
     
     func testScore_whenDecrements_updatesScore() {
-        var sut = GatherScoreHandler(
+        var sut = ScoreHandler(
             score: [
                 .teamA: 10,
                 .teamB: 10
@@ -62,7 +62,7 @@ final class GatherScoreHandlerTests: XCTestCase {
     }
     
     func testScore_whenCurrentScoreIsZeroAndDecrements_scoreRemainsAtZero() {
-        var sut = GatherScoreHandler()
+        var sut = ScoreHandler()
         
         sut.decrementScore(for: .teamA)
         sut.decrementScore(for: .teamB)

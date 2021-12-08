@@ -33,10 +33,10 @@ extension GatherUITests {
     /// **THEN** the score stays at the maximum score
     func testUpdateScore() {
         [Team.teamA, Team.teamB].forEach { team in
-            let scoreViewAsserter = GatherScoreViewAsserter(team: team, app: app)
+            let scoreViewAsserter = ScoreViewAsserter(team: team, app: app)
             scoreViewAsserter.assertScoreViewIsPresented()
             
-            var scoreAsserter = GatherScoreHandlerAsserter(team: team, app: app)
+            var scoreAsserter = ScoreHandlerAsserter(team: team, app: app)
             scoreAsserter.assertScoreUpdatesCorrectly()
         }
     }

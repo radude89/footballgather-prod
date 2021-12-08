@@ -1,5 +1,5 @@
 //
-//  GatherScoreViewModelTests.swift
+//  ScoreViewModelTests.swift
 //  FootballGatherTests
 //
 //  Created by Radu Dan on 02.12.2021.
@@ -10,12 +10,12 @@ import CoreModels
 import FoundationTools
 @testable import FootballGather
 
-final class GatherScoreViewModelTests: XCTestCase {
+final class ScoreViewModelTests: XCTestCase {
     
     private static let maxScore = GatherMaxScore.computeValue()
     
     func testHeaderTitle() {
-        let sut = GatherScoreViewModel()
+        let sut = ScoreViewModel()
         
         Team.allCases.forEach { team in
             XCTAssertEqual(sut.headerTitle(for: team), team.name.uppercased())
@@ -23,20 +23,20 @@ final class GatherScoreViewModelTests: XCTestCase {
     }
     
     func testShowsScore() {
-        let sut = GatherScoreViewModel(scoreHandler: .init())
+        let sut = ScoreViewModel(scoreHandler: .init())
         
         XCTAssertEqual(sut.formattedScore(for: .teamA), "0")
         XCTAssertEqual(sut.formattedScore(for: .teamB), "0")
     }
     
     func testIncrementsScore() {
-        var scoreHandler = GatherScoreHandler(
+        var scoreHandler = ScoreHandler(
             score: [
                 .teamA: Int.random(in: 0...Self.maxScore),
                 .teamB: Int.random(in: 0...Self.maxScore)
             ]
         )
-        let sut = GatherScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel(scoreHandler: scoreHandler)
         
         [Team.teamA, Team.teamB].forEach { team in
             sut.onIncrementScore(for: team)
@@ -54,13 +54,13 @@ final class GatherScoreViewModelTests: XCTestCase {
     
     func testIncrementsScore_forBench_breaks() {
         let score = Int.random(in: 1..<Self.maxScore)
-        let scoreHandler = GatherScoreHandler(
+        let scoreHandler = ScoreHandler(
             score: [
                 .teamA: score,
                 .teamB: score
             ]
         )
-        let sut = GatherScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel(scoreHandler: scoreHandler)
         
         sut.onIncrementScore(for: .bench)
         
@@ -69,13 +69,13 @@ final class GatherScoreViewModelTests: XCTestCase {
     }
     
     func testDecrementsScore() {
-        var scoreHandler = GatherScoreHandler(
+        var scoreHandler = ScoreHandler(
             score: [
                 .teamA: Int.random(in: 0...Self.maxScore),
                 .teamB: Int.random(in: 0...Self.maxScore)
             ]
         )
-        let sut = GatherScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel(scoreHandler: scoreHandler)
         
         [Team.teamA, Team.teamB].forEach { team in
             sut.onDecrementScore(for: team)
@@ -90,13 +90,13 @@ final class GatherScoreViewModelTests: XCTestCase {
     
     func testDecrementsScore_forBench_breaks() {
         let score = Int.random(in: 1..<Self.maxScore)
-        let scoreHandler = GatherScoreHandler(
+        let scoreHandler = ScoreHandler(
             score: [
                 .teamA: score,
                 .teamB: score
             ]
         )
-        let sut = GatherScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel(scoreHandler: scoreHandler)
         
         sut.onDecrementScore(for: .bench)
         
