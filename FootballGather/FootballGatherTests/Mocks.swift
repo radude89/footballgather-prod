@@ -7,6 +7,7 @@
 
 import FoundationTools
 import CoreModels
+import SwiftUI
 @testable import FootballGather
 
 enum Mocks {}
@@ -59,4 +60,10 @@ extension Mocks {
     ) -> PlayersViewModel.ButtonModel {
         PlayersViewModel.ButtonModel(title: title, accessibility: accessibility)
     }
+}
+
+// MARK: - Timer
+
+extension Mocks {
+    static let timer = Timer.TimerPublisher(interval: 0.0000001, runLoop: .current, mode: .default)
 }

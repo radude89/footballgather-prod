@@ -10,36 +10,17 @@ import Combine
 @testable import FootballGather
 
 final class TimerControllerTests: XCTestCase {
-    
-    private var cancellables: Set<AnyCancellable>!
-    private var sut: TimerController!
-    
-    override func setUp() {
-        super.setUp()
-        
-        cancellables = []
-        sut = TimerController(timeInterval: 0.0001, runLoop: .current, runLoopMode: .default)
-    }
-    
-    override func tearDown() {
-        sut.stopTimer()
-        cancellables = []
-        
-        super.tearDown()
-    }
-    
+
     func testTimer() {
         let timerExpectation = expectation(description: "Timer Expectation")
+        var sut = TimerController(timeInterval: 0.0000001, runLoop: .current, runLoopMode: .default)
         
-        sut.startTimer()
-
-        sut.timer.sink { [weak self] date in
-            self?.sut.stopTimer()
+        sut.startTimer { date in
+            sut.stopTimer()
             timerExpectation.fulfill()
         }
-        .store(in: &cancellables)
         
-        wait(for: [timerExpectation], timeout: 3)
+        wait(for: [timerExpectation], timeout: 0.1)
     }
     
 }

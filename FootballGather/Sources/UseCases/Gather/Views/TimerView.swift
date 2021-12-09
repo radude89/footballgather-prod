@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct TimerView: View {
+    
+    @State private var controller = TimerController()
+    @State private var newDate = Date()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, World! \(newDate)")
+//            .onAppear {
+//                controller.startTimer()
+//            }
+//            .onReceive(controller.timer!) { date in
+//                print(date)
+//                newDate = date
+//            }
+    }
+    
+    func output(date: Date) {
+        
     }
 }
 
