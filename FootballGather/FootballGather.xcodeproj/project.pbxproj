@@ -45,6 +45,7 @@
 		F73147EA274CA91D003F773E /* GatherUITests+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73147E9274CA91D003F773E /* GatherUITests+View.swift */; };
 		F73147ED274CA98F003F773E /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73147EC274CA98F003F773E /* AppNavigator.swift */; };
 		F73147EF274CABC6003F773E /* PlayerMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73147EE274CABC6003F773E /* PlayerMover.swift */; };
+		F73171CB2763819600BC2CCC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73171CA2763819600BC2CCC /* TimerViewModel.swift */; };
 		F73E058627435EC2003E5F4F /* ConfirmPlayersUITests+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */; };
 		F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */; };
 		F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */; };
@@ -167,6 +168,7 @@
 		F73147E9274CA91D003F773E /* GatherUITests+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+View.swift"; sourceTree = "<group>"; };
 		F73147EC274CA98F003F773E /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		F73147EE274CABC6003F773E /* PlayerMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMover.swift; sourceTree = "<group>"; };
+		F73171CA2763819600BC2CCC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		F73C1386265B55780001704B /* CoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreModels; sourceTree = "<group>"; };
 		F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+View.swift"; sourceTree = "<group>"; };
 		F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+Move.swift"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				F703EB34274DF4E800460551 /* GatherPlayersViewModel.swift */,
 				F7A525702757F091006D2CBC /* ScoreHandler.swift */,
 				F7FEF36027591951009F60E6 /* ScoreViewModel.swift */,
+				F73171CA2763819600BC2CCC /* TimerViewModel.swift */,
 				F72972B42760709200900714 /* TimerController.swift */,
 			);
 			path = ViewModels;
@@ -862,6 +865,7 @@
 				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
 				F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */,
 				F703EB30274DF38800460551 /* GatherView.swift in Sources */,
+				F73171CB2763819600BC2CCC /* TimerViewModel.swift in Sources */,
 				F7A5256427551931006D2CBC /* ScoreView.swift in Sources */,
 				F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */,
 				F705D013265B66390057B63A /* PlayersListView.swift in Sources */,

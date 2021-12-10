@@ -11,9 +11,8 @@ import Combine
 
 final class TimerViewModelTests: XCTestCase {
     
-    private let timerController = Mocks.TimerController()
-    
     func testStartTimer() {
+        let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
         sut.startTimer()
@@ -22,6 +21,7 @@ final class TimerViewModelTests: XCTestCase {
     }
     
     func testStopTimer() {
+        let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
         sut.stopTimer()
@@ -29,41 +29,39 @@ final class TimerViewModelTests: XCTestCase {
         XCTAssertTrue(timerController.timerStopped)
     }
     
-    func testStartTime_updatesDate() {
+    func testStartTime_decrementsRemainingTime() {
+        let timerController = Mocks.TimerController(remainingTimeUnit: 2)
+        let sut = TimerViewModel(
+            timerController: timerController,
+            remainingTimeInSeconds: 2
+        )
+        let spy = ValueSpy(sut.$remainingTimeInSeconds.eraseToAnyPublisher())
         
+        sut.startTimer()
+        
+        XCTAssertEqual(spy.values, [2, 1, 0])
     }
     
-}
-
-final class TimerViewModel {
-    private var timerController: TimerControllable
-    
-    init(timerController: TimerControllable = TimerController()) {
-        self.timerController = timerController
+    func testStartTimer_stopsTimerAfterReachingToZero() {
+        let timerController = Mocks.TimerController()
+        let sut = TimerViewModel(timerController: timerController)
+        
+        sut.startTimer()
+        
+        XCTAssertTrue(timerController.timerStopped)
     }
     
-    func startTimer() {
-        timerController.startTimer { _ in }
-    }
-    
-    func stopTimer() {
-        timerController.stopTimer()
-    }
 }
 
 // MARK: - Helpers
 
-extension Mocks {
-    final class TimerController: TimerControllable {
-        private(set) var timerStarted = false
-        private(set) var timerStopped = false
-
-        func startTimer(onUpdate: @escaping (Date) -> ()) {
-            timerStarted = true
-        }
-        
-        func stopTimer() {
-            timerStopped = true
-        }
+private final class ValueSpy<Value> {
+    private(set) var values: [Value] = []
+    private var cancellable: AnyCancellable?
+    
+    init(_ publisher: AnyPublisher<Value, Never>) {
+        cancellable = publisher.sink(receiveValue: { [weak self] value in
+            self?.values.append(value)
+        })
     }
 }

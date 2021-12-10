@@ -13,9 +13,9 @@ final class TimerControllerTests: XCTestCase {
 
     func testTimer() {
         let timerExpectation = expectation(description: "Timer Expectation")
-        var sut = TimerController(timeInterval: 0.0000001, runLoop: .current, runLoopMode: .default)
+        let sut = TimerController(timeInterval: 0.0000001, runLoop: .current, runLoopMode: .default)
         
-        sut.startTimer { date in
+        sut.startTimer { _ in
             sut.stopTimer()
             timerExpectation.fulfill()
         }

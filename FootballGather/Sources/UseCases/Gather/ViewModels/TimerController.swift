@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 
-protocol TimerControllable {
-    mutating func startTimer(onUpdate: @escaping (Date) -> ())
-    mutating func stopTimer()
+protocol TimerControllable: AnyObject {
+    func startTimer(onUpdate: @escaping (Date) -> ())
+    func stopTimer()
 }
 
-struct TimerController {
+final class TimerController {
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     private let timeInterval: TimeInterval
     private let runLoop: RunLoop
@@ -32,14 +32,14 @@ struct TimerController {
 }
 
 extension TimerController: TimerControllable {
-    mutating func startTimer(onUpdate: @escaping (Date) -> ()) {
+    func startTimer(onUpdate: @escaping (Date) -> ()) {
         timer = Timer.publish(every: timeInterval, on: runLoop, in: runLoopMode).autoconnect()
         cancellable = timer?.sink { date in
             onUpdate(date)
         }
     }
     
-    mutating func stopTimer() {
+    func stopTimer() {
         timer?.upstream.connect().cancel()
         cancellable = nil
     }
