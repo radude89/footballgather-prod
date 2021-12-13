@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FoundationTools
 
 final class TimerViewModel {
     
@@ -21,7 +22,7 @@ final class TimerViewModel {
     
     init(
         timerController: TimerControllable = TimerController(),
-        remainingTimeInSeconds: Int = 1
+        remainingTimeInSeconds: Int = GatherDefaultTime.inSeconds
     ) {
         precondition(
             remainingTimeInSeconds > 0,

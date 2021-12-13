@@ -44,7 +44,7 @@ final class TimerViewModelTests: XCTestCase {
     
     func testStartTimer_stopsTimerAfterReachingToZero() {
         let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = TimerViewModel(timerController: timerController, remainingTimeInSeconds: 1)
         
         sut.startTimer()
         
