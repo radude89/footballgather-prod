@@ -11,7 +11,13 @@ final class TimerViewModel {
     
     private var timerController: TimerControllable
     
-    @Published private(set) var remainingTimeInSeconds: Int
+    private var remainingTimeInSeconds: Int {
+        didSet {
+            formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+        }
+    }
+    
+    @Published private(set) var formattedTime: String
     
     init(
         timerController: TimerControllable = TimerController(),
@@ -24,6 +30,7 @@ final class TimerViewModel {
         
         self.timerController = timerController
         self.remainingTimeInSeconds = remainingTimeInSeconds
+        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
     }
     
     func startTimer() {

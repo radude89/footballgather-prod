@@ -35,11 +35,11 @@ final class TimerViewModelTests: XCTestCase {
             timerController: timerController,
             remainingTimeInSeconds: 2
         )
-        let spy = ValueSpy(sut.$remainingTimeInSeconds.eraseToAnyPublisher())
+        let spy = ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
         
         sut.startTimer()
         
-        XCTAssertEqual(spy.values, [2, 1, 0])
+        XCTAssertEqual(spy.values, ["00:02", "00:01", "00:00"])
     }
     
     func testStartTimer_stopsTimerAfterReachingToZero() {
