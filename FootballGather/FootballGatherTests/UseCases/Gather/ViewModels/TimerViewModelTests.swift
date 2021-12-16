@@ -31,7 +31,7 @@ final class TimerViewModelTests: XCTestCase {
         
         sut.onActionTimer()
         
-        XCTAssertEqual(spy.values, ["00:02", "00:01", "00:00"])
+        XCTAssertEqual(spy.values, ["00:02", "00:01", "00:00", "00:02"])
     }
     
     func testOnActionTimer_stopsTimerAfterReachingToZero() {
@@ -55,7 +55,7 @@ final class TimerViewModelTests: XCTestCase {
         sut.cancelTimer()
         sut.onActionTimer()
         
-        XCTAssertEqual(spy.values, ["00:01", "00:00", "00:01", "00:00"])
+        XCTAssertEqual(spy.values, ["00:01", "00:00", "00:01", "00:01", "00:00", "00:01"])
         XCTAssertTrue(timerController.timerStopped)
     }
     

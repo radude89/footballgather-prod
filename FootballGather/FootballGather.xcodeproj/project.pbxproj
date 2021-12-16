@@ -109,6 +109,7 @@
 		F7F25CF7276AEC53001B9986 /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F25CF6276AEC53001B9986 /* TimerState.swift */; };
 		F7F25CFB276AF750001B9986 /* TimerViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F25CFA276AF750001B9986 /* TimerViewModel+UIModel.swift */; };
 		F7F25CFD276AF7C8001B9986 /* TimerViewModel+UIModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F25CFC276AF7C8001B9986 /* TimerViewModel+UIModelTests.swift */; };
+		F7F25CFF276B1A4D001B9986 /* GatherUITests+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F25CFE276B1A4D001B9986 /* GatherUITests+Timer.swift */; };
 		F7F492902733AA2900231D8D /* ConfirmPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */; };
 		F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */; };
 		F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */; };
@@ -243,6 +244,7 @@
 		F7F25CF6276AEC53001B9986 /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		F7F25CFA276AF750001B9986 /* TimerViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F7F25CFC276AF7C8001B9986 /* TimerViewModel+UIModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerViewModel+UIModelTests.swift"; sourceTree = "<group>"; };
+		F7F25CFE276B1A4D001B9986 /* GatherUITests+Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+Timer.swift"; sourceTree = "<group>"; };
 		F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersView.swift; sourceTree = "<group>"; };
 		F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModelTests.swift; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				F73147E9274CA91D003F773E /* GatherUITests+View.swift */,
 				F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */,
 				F7A5256C275750D6006D2CBC /* GatherUITests+Score.swift */,
+				F7F25CFE276B1A4D001B9986 /* GatherUITests+Timer.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 				F72D321C271833D20001CD6F /* EditPlayerUITests.swift in Sources */,
 				F7C47305275A7443007D19F2 /* ScoreHandlerAsserter.swift in Sources */,
 				F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */,
+				F7F25CFF276B1A4D001B9986 /* GatherUITests+Timer.swift in Sources */,
 				F7223BC2274239C100446224 /* PlayersFinder.swift in Sources */,
 				F75AFA5E26537B79002D1CE8 /* UITestCase.swift in Sources */,
 				F73147ED274CA98F003F773E /* AppNavigator.swift in Sources */,
