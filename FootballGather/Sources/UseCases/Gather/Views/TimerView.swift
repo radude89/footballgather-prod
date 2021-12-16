@@ -6,16 +6,43 @@
 //
 
 import SwiftUI
+import Localizable
 
 struct TimerView: View {
     
     @ObservedObject var viewModel: TimerViewModel
     
     var body: some View {
+        HStack(spacing: 50) {
+            cancelTimerButton
+            timeView
+            actionTimerButton
+        }
+        .padding()
+    }
+    
+    private var cancelTimerButton: some View {
+        Button(
+            LocalizedString.cancel,
+            action: viewModel.cancelTimer
+        )
+            .disabled(!viewModel.cancelButtonIsEnabled)
+            .accessibilityID(.cancelButton)
+            .accessibilityLabel(LocalizedString.cancelTimerLabel)
+    }
+    
+    private var timeView: some View {
         Text("\(viewModel.formattedTime)")
-            .onAppear {
-                viewModel.startTimer()
-            }
+            .accessibilityID(.timerView)
+    }
+    
+    private var actionTimerButton: some View {
+        Button(
+            viewModel.actionButtonTitle,
+            action: viewModel.onActionTimer
+        )
+            .accessibilityID(.actionTimerButton)
+            .accessibilityLabel(viewModel.actionButtonAccessibilityLabel)
     }
     
 }

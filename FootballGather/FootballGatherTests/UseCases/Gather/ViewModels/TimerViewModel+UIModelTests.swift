@@ -20,7 +20,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertTrue(sut.cancelButtonIsEnabled)
     }
@@ -29,8 +29,8 @@ final class TimerViewModelUIModelTests: XCTestCase {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
-        sut.startTimer()
-        sut.pauseTimer()
+        sut.onActionTimer()
+        sut.onActionTimer()
         
         XCTAssertTrue(sut.cancelButtonIsEnabled)
     }
@@ -44,7 +44,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertEqual(sut.actionButtonTitle, LocalizedString.pause)
     }
@@ -56,8 +56,8 @@ final class TimerViewModelUIModelTests: XCTestCase {
             remainingTimeInSeconds: 2
         )
         
-        sut.startTimer()
-        sut.pauseTimer()
+        sut.onActionTimer()
+        sut.onActionTimer()
         
         XCTAssertEqual(sut.actionButtonTitle, LocalizedString.resume)
     }
@@ -75,7 +75,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertEqual(
             sut.actionButtonAccessibilityLabel,
@@ -90,8 +90,8 @@ final class TimerViewModelUIModelTests: XCTestCase {
             remainingTimeInSeconds: 2
         )
         
-        sut.startTimer()
-        sut.pauseTimer()
+        sut.onActionTimer()
+        sut.onActionTimer()
         
         XCTAssertEqual(
             sut.actionButtonAccessibilityLabel,

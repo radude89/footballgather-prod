@@ -48,4 +48,5 @@ public enum LocalizedString: Localizable {
     public static let pauseTimerLabel = localizedText(key: "pause.timer.label")
     public static let resume = localizedText(key: "resume")
     public static let resumeTimerLabel = localizedText(key: "resume.timer.label")
+    public static let cancelTimerLabel = localizedText(key: "cancel.timer.label")
 }

@@ -12,16 +12,16 @@ import Localizable
 
 final class TimerViewModelTests: XCTestCase {
     
-    func testStartTimer() {
+    func testOnActionTimer_timerStarted() {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController)
         
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertTrue(timerController.timerStarted)
     }
     
-    func testStartTime_decrementsRemainingTime() {
+    func testOnActionTimer_decrementsRemainingTime() {
         let timerController = Mocks.TimerController(remainingTimeUnit: 2)
         let sut = TimerViewModel(
             timerController: timerController,
@@ -29,16 +29,16 @@ final class TimerViewModelTests: XCTestCase {
         )
         let spy = ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
         
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertEqual(spy.values, ["00:02", "00:01", "00:00"])
     }
     
-    func testStartTimer_stopsTimerAfterReachingToZero() {
+    func testOnActionTimer_stopsTimerAfterReachingToZero() {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(timerController: timerController, remainingTimeInSeconds: 1)
         
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertTrue(timerController.timerStopped)
     }
@@ -51,9 +51,9 @@ final class TimerViewModelTests: XCTestCase {
         )
         let spy = ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
         
-        sut.startTimer()
+        sut.onActionTimer()
         sut.cancelTimer()
-        sut.startTimer()
+        sut.onActionTimer()
         
         XCTAssertEqual(spy.values, ["00:01", "00:00", "00:01", "00:00"])
         XCTAssertTrue(timerController.timerStopped)

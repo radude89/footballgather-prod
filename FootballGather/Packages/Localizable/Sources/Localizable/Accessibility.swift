@@ -28,6 +28,8 @@ public enum AccessibilityID: String {
     case scoreHeader = "score-header"
     case scoreLabel = "score-label"
     case scoreStepper = "score-stepper"
+    case actionTimerButton = "action-timer-button"
+    case timerView = "timer-view"
 }
 
 extension AccessibilityID: CaseIterable {}

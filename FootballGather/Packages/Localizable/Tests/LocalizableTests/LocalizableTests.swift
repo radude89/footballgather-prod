@@ -43,7 +43,8 @@ final class LocalizableTests: XCTestCase {
             "pause": LocalizedString.pause,
             "pause.timer.label": LocalizedString.pauseTimerLabel,
             "resume": LocalizedString.resume,
-            "resume.timer.label": LocalizedString.resumeTimerLabel
+            "resume.timer.label": LocalizedString.resumeTimerLabel,
+            "cancel.timer.label": LocalizedString.cancelTimerLabel
         ]
         
         localizedTextDictionary.forEach { key, value in

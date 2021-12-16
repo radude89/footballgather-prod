@@ -64,7 +64,16 @@ final class TimerViewModel: ObservableObject {
     
     // MARK: - Timer interaction
     
-    func startTimer() {
+    func onActionTimer() {
+        switch timerState {
+        case .paused, .stopped:
+            startTimer()
+        case .started:
+            pauseTimer()
+        }
+    }
+    
+    private func startTimer() {
         setTimerState(to: .started)
         timerController.startTimer { [weak self] _ in
             self?.onUpdateTime()
@@ -85,14 +94,18 @@ final class TimerViewModel: ObservableObject {
     }
     
     private func stopTimerIfReachedToZero() {
-        if remainingTimeInSeconds == 0 {
-            setTimerState(to: .stopped)
-            stopTimer()
+        guard remainingTimeInSeconds == 0 else {
+            return
         }
+        
+        setTimerState(to: .stopped)
+        remainingTimeInSeconds = initialTimeInSeconds
+        stopTimer()
     }
     
-    func pauseTimer() {
+    private func pauseTimer() {
         setTimerState(to: .paused)
+        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
         stopTimer()
     }
     
