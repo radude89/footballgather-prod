@@ -12,7 +12,7 @@ import FoundationTools
 
 final class ScoreViewModelTests: XCTestCase {
     
-    private static let maxScore = GatherMaxScore.computeValue()
+    private static let maxScore = GatherMaxScore.value()
     
     func testHeaderTitle() {
         let sut = ScoreViewModel()

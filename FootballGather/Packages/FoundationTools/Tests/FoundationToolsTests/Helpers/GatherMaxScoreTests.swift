@@ -11,12 +11,12 @@ import XCTest
 final class GatherMaxScoreTests: XCTestCase {
     
     func testMaxScore_whenIsRunningUITests() {
-        let maxScore = GatherMaxScore.computeValue(isRunningUITests: true)
+        let maxScore = GatherMaxScore.value(isRunningUITests: true)
         XCTAssertEqual(maxScore, 3)
     }
     
     func testMaxScore_whenIsNotRunningUITests() {
-        let maxScore = GatherMaxScore.computeValue(isRunningUITests: false)
+        let maxScore = GatherMaxScore.value(isRunningUITests: false)
         XCTAssertEqual(maxScore, 99)
     }
     

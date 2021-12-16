@@ -31,7 +31,7 @@ final class GatherTimeFormatterTests: XCTestCase {
         XCTAssertEqual(sut.formattedTime, "01:00")
     }
     
-    func testFormattedTime_whenTimeIsBetweenOneMinuteAndOneHour_showsTimeInMMSSForma() {
+    func testFormattedTime_whenTimeIsBetweenOneMinuteAndOneHour_showsTimeInMMSSFormat() {
         (60..<Self.oneHourInSeconds).forEach { seconds in
             let sut = GatherTimeFormatter(seconds: seconds)
             XCTAssertEqual(sut.formattedTime, expectedFormattedTime(for: seconds))

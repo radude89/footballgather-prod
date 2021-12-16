@@ -9,27 +9,19 @@ import SwiftUI
 
 struct TimerView: View {
     
-    @State private var controller = TimerController()
-    @State private var newDate = Date()
+    @ObservedObject var viewModel: TimerViewModel
     
     var body: some View {
-        Text("Hello, World! \(newDate)")
-//            .onAppear {
-//                controller.startTimer()
-//            }
-//            .onReceive(controller.timer!) { date in
-//                print(date)
-//                newDate = date
-//            }
+        Text("\(viewModel.formattedTime)")
+            .onAppear {
+                viewModel.startTimer()
+            }
     }
     
-    func output(date: Date) {
-        
-    }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(viewModel: .init(remainingTimeInSeconds: 5))
     }
 }

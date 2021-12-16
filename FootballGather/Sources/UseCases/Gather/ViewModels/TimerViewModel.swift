@@ -7,10 +7,13 @@
 
 import SwiftUI
 import FoundationTools
+import Localizable
 
-final class TimerViewModel {
+final class TimerViewModel: ObservableObject {
     
     private var timerController: TimerControllable
+    private var timerState = TimerState.stopped
+    private let initialTimeInSeconds: Int
     
     private var remainingTimeInSeconds: Int {
         didSet {
@@ -31,32 +34,76 @@ final class TimerViewModel {
         
         self.timerController = timerController
         self.remainingTimeInSeconds = remainingTimeInSeconds
+        initialTimeInSeconds = remainingTimeInSeconds
+        
         formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
     }
     
+    // MARK: - UI Model
+    
+    var cancelButtonIsEnabled: Bool {
+        switch timerState {
+        case .started, .paused:
+            return true
+        case .stopped:
+            return false
+        }
+    }
+    
+    var actionButtonTitle: String {
+        ActionTimerButtonModelFactory
+            .makeModel(from: timerState)
+            .title
+    }
+    
+    var actionButtonAccessibilityLabel: String {
+        ActionTimerButtonModelFactory
+            .makeModel(from: timerState)
+            .accessibilityLabel
+    }
+    
+    // MARK: - Timer interaction
+    
     func startTimer() {
+        setTimerState(to: .started)
         timerController.startTimer { [weak self] _ in
             self?.onUpdateTime()
         }
     }
     
+    private func setTimerState(to newState: TimerState) {
+        timerState = newState
+    }
+    
     private func onUpdateTime() {
         decreaseTime()
-        stopTimeIfReachedToZero()
+        stopTimerIfReachedToZero()
     }
     
     private func decreaseTime() {
         remainingTimeInSeconds -= 1
     }
     
-    private func stopTimeIfReachedToZero() {
+    private func stopTimerIfReachedToZero() {
         if remainingTimeInSeconds == 0 {
+            setTimerState(to: .stopped)
             stopTimer()
         }
     }
     
-    func stopTimer() {
+    func pauseTimer() {
+        setTimerState(to: .paused)
+        stopTimer()
+    }
+    
+    private func stopTimer() {
         timerController.stopTimer()
+    }
+    
+    func cancelTimer() {
+        setTimerState(to: .stopped)
+        remainingTimeInSeconds = initialTimeInSeconds
+        stopTimer()
     }
     
 }

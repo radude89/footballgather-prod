@@ -42,4 +42,10 @@ public enum LocalizedString: Localizable {
     public static let endGatherMessage = localizedText(key: "end.gather.message")
     public static let yes = localizedText(key: "yes")
     public static let no = localizedText(key: "no")
+    public static let start = localizedText(key: "start")
+    public static let startTimerLabel = localizedText(key: "start.timer.label")
+    public static let pause = localizedText(key: "pause")
+    public static let pauseTimerLabel = localizedText(key: "pause.timer.label")
+    public static let resume = localizedText(key: "resume")
+    public static let resumeTimerLabel = localizedText(key: "resume.timer.label")
 }

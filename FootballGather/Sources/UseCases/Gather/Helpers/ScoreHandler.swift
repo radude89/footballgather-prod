@@ -12,7 +12,10 @@ struct ScoreHandler {
     private var score: [Team: Int]
     private let maxScore: Int
     
-    init(score: [Team: Int] = [:], maxScore: Int = GatherMaxScore.computeValue()) {
+    init(
+        score: [Team: Int] = [:],
+        maxScore: Int = GatherMaxScore.value()
+    ) {
         self.score = score
         self.maxScore = maxScore
     }

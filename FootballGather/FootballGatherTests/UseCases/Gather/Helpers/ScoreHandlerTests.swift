@@ -12,7 +12,7 @@ import FoundationTools
 
 final class ScoreHandlerTests: XCTestCase {
     
-    private static let maxScore = GatherMaxScore.computeValue()
+    private static let maxScore = GatherMaxScore.value()
     
     func testScore_isInitialZero() {
         let sut = ScoreHandler()

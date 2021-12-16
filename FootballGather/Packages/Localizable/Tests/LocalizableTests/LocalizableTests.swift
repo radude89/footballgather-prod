@@ -37,7 +37,13 @@ final class LocalizableTests: XCTestCase {
             "end.gather.confirmation": LocalizedString.endGatherConfirmation,
             "end.gather.message": LocalizedString.endGatherMessage,
             "yes": LocalizedString.yes,
-            "no": LocalizedString.no
+            "no": LocalizedString.no,
+            "start": LocalizedString.start,
+            "start.timer.label": LocalizedString.startTimerLabel,
+            "pause": LocalizedString.pause,
+            "pause.timer.label": LocalizedString.pauseTimerLabel,
+            "resume": LocalizedString.resume,
+            "resume.timer.label": LocalizedString.resumeTimerLabel
         ]
         
         localizedTextDictionary.forEach { key, value in

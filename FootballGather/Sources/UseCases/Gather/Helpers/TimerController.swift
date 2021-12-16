@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol TimerControllable: AnyObject {
+protocol TimerControllable {
     func startTimer(onUpdate: @escaping (Date) -> ())
     func stopTimer()
 }

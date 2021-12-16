@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+import Localizable
 @testable import FootballGather
 
 final class TimerViewModelTests: XCTestCase {
@@ -18,15 +19,6 @@ final class TimerViewModelTests: XCTestCase {
         sut.startTimer()
         
         XCTAssertTrue(timerController.timerStarted)
-    }
-    
-    func testStopTimer() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
-        
-        sut.stopTimer()
-        
-        XCTAssertTrue(timerController.timerStopped)
     }
     
     func testStartTime_decrementsRemainingTime() {
@@ -48,6 +40,22 @@ final class TimerViewModelTests: XCTestCase {
         
         sut.startTimer()
         
+        XCTAssertTrue(timerController.timerStopped)
+    }
+    
+    func testCancelTimer_resetsTimeToInitial() {
+        let timerController = Mocks.TimerController()
+        let sut = TimerViewModel(
+            timerController: timerController,
+            remainingTimeInSeconds: 1
+        )
+        let spy = ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
+        
+        sut.startTimer()
+        sut.cancelTimer()
+        sut.startTimer()
+        
+        XCTAssertEqual(spy.values, ["00:01", "00:00", "00:01", "00:00"])
         XCTAssertTrue(timerController.timerStopped)
     }
     

@@ -12,7 +12,7 @@ public enum GatherMaxScore {
     
     public static let maxScoreWhenIsRunningUITests = 3
     
-    public static func computeValue(
+    public static func value(
         isRunningUITests: Bool = CommandLineHandler().isRunningUITests
     ) -> Int {
         if isRunningUITests {
