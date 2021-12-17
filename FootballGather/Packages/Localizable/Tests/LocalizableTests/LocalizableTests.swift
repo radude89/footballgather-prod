@@ -44,7 +44,9 @@ final class LocalizableTests: XCTestCase {
             "pause.timer.label": LocalizedString.pauseTimerLabel,
             "resume": LocalizedString.resume,
             "resume.timer.label": LocalizedString.resumeTimerLabel,
-            "cancel.timer.label": LocalizedString.cancelTimerLabel
+            "cancel.timer.label": LocalizedString.cancelTimerLabel,
+            "ok": LocalizedString.ok,
+            "time.is.up.title": LocalizedString.timeIsUpTitle
         ]
         
         localizedTextDictionary.forEach { key, value in

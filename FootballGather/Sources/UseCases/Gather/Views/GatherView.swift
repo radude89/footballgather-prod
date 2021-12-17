@@ -17,6 +17,8 @@ struct GatherView: View {
         VStack {
             ScoreView(viewModel: .init())
             
+            TimerView(viewModel: .init())
+            
             GatherPlayersView(
                 viewModel: .init(playersTeams: viewModel.playersTeams)
             )

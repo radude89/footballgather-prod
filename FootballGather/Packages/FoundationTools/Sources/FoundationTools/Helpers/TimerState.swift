@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TimerState {
+public enum TimerState {
     case started
     case paused
     case stopped

@@ -22,10 +22,11 @@ final class TimerViewModel: ObservableObject {
     }
     
     @Published private(set) var formattedTime: String
+    @Published var timeIsUp: Bool
     
     init(
         timerController: TimerControllable = TimerController(),
-        remainingTimeInSeconds: Int = GatherDefaultTime.inSeconds
+        remainingTimeInSeconds: Int = GatherDefaultTime.value()
     ) {
         precondition(
             remainingTimeInSeconds > 0,
@@ -34,8 +35,9 @@ final class TimerViewModel: ObservableObject {
         
         self.timerController = timerController
         self.remainingTimeInSeconds = remainingTimeInSeconds
-        initialTimeInSeconds = remainingTimeInSeconds
         
+        initialTimeInSeconds = remainingTimeInSeconds
+        timeIsUp = false
         formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
     }
     
@@ -94,29 +96,30 @@ final class TimerViewModel: ObservableObject {
     }
     
     private func stopTimerIfReachedToZero() {
-        guard remainingTimeInSeconds == 0 else {
-            return
+        if remainingTimeInSeconds == 0 {
+            cancelTimer()
+            timeIsUp = true
         }
-        
-        setTimerState(to: .stopped)
-        remainingTimeInSeconds = initialTimeInSeconds
-        stopTimer()
     }
     
-    private func pauseTimer() {
-        setTimerState(to: .paused)
-        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+    func cancelTimer() {
         stopTimer()
+        setTimerState(to: .stopped)
+        resetTime()
     }
     
     private func stopTimer() {
         timerController.stopTimer()
     }
     
-    func cancelTimer() {
-        setTimerState(to: .stopped)
+    private func resetTime() {
         remainingTimeInSeconds = initialTimeInSeconds
+    }
+    
+    private func pauseTimer() {
         stopTimer()
+        setTimerState(to: .paused)
+        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
     }
     
 }

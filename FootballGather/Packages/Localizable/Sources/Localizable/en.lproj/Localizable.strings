@@ -46,3 +46,5 @@
 "resume" = "Resume";
 "resume.timer.label" = "Resumes your gather timer.";
 "cancel.timer.label" = "Cancels your gather timer";
+"ok" = "OK";
+"time.is.up.title" = "Time's up!";

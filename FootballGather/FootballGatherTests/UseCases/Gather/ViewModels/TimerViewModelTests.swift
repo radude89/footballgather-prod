@@ -41,6 +41,7 @@ final class TimerViewModelTests: XCTestCase {
         sut.onActionTimer()
         
         XCTAssertTrue(timerController.timerStopped)
+        XCTAssertTrue(sut.timeIsUp)
     }
     
     func testCancelTimer_resetsTimeToInitial() {

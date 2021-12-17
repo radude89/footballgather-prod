@@ -19,6 +19,9 @@ struct TimerView: View {
             actionTimerButton
         }
         .padding()
+        .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
+            Button(LocalizedString.ok, role: .cancel) {}
+        }
     }
     
     private var cancelTimerButton: some View {
