@@ -77,53 +77,6 @@ extension GatherUITests {
     
     // MARK: - Helpers
     
-    private var cancelTimerButton: XCUIElement {
-        app.buttons[.cancelButton]
-    }
-    
-    private var actionTimerButton: XCUIElement {
-        app.buttons[.actionTimerButton]
-    }
-    
-    private func assertTime(
-        is formattedTime: String,
-        state: TimerState,
-        line: UInt = #line
-    ) {
-        XCTAssertTrue(app.staticTexts[formattedTime].waitToAppear(), line: line)
-        assertTimerState(is: state, line: line)
-    }
-    
-    private func assertTimerState(is state: TimerState, line: UInt = #line) {
-        switch state {
-        case .started:
-            assertActionTimberButtonTitle(
-                is: LocalizedString.pauseTimerLabel,
-                line: line
-            )
-        case .paused:
-            assertActionTimberButtonTitle(
-                is: LocalizedString.resumeTimerLabel,
-                line: line
-            )
-        case .stopped:
-            assertActionTimberButtonTitle(
-                is: LocalizedString.startTimerLabel,
-                isEnabled: false,
-                line: line
-            )
-        }
-    }
-    
-    private func assertActionTimberButtonTitle(
-        is title: String,
-        isEnabled: Bool = true,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(actionTimerButton.label, title, line: line)
-        XCTAssertEqual(cancelTimerButton.isEnabled, isEnabled, line: line)
-    }
-    
     private func assertTimeIsUp(line: UInt = #line) {
         let alert = app.alerts[LocalizedString.timeIsUpTitle]
         XCTAssertTrue(alert.waitToAppear(), line: line)

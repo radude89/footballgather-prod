@@ -30,6 +30,10 @@ public enum AccessibilityID: String {
     case scoreStepper = "score-stepper"
     case actionTimerButton = "action-timer-button"
     case timerView = "timer-view"
+    case setTimeButton = "set-time-button"
+    case setTimeView = "set-time-view"
+    case minutesPickerView = "minutes-picker-view"
+    case secondsPickerView = "seconds-picker-view"
 }
 
 extension AccessibilityID: CaseIterable {}
