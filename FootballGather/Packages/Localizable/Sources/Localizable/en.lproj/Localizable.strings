@@ -48,3 +48,5 @@
 "cancel.timer.label" = "Cancels your gather timer";
 "ok" = "OK";
 "time.is.up.title" = "Time's up!";
+"minutes" = "Minutes";
+"seconds" = "Seconds";

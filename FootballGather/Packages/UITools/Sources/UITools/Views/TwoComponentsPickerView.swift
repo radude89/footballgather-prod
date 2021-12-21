@@ -69,14 +69,14 @@ struct TwoComponentsPickerView_Previews: PreviewProvider {
     
     private static let minComponent = TwoComponentsPickerViewDataSource.Component(
         values: minutes,
-        name: "Minutes",
+        name: LocalizedString.minutes,
         accessibilityID: .minutesPickerView,
         selectedValue: .constant("0")
     )
     
     private static let secComponent = TwoComponentsPickerViewDataSource.Component(
         values: seconds,
-        name: "Seconds",
+        name: LocalizedString.seconds,
         accessibilityID: .secondsPickerView,
         selectedValue: .constant("0")
     )
