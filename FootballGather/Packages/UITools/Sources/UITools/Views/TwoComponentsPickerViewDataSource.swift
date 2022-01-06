@@ -23,7 +23,7 @@ extension TwoComponentsPickerViewDataSource {
         public let name: String
         public let accessibilityID: AccessibilityID
         
-        @Binding var selectedValue: String
+        @Binding public var selectedValue: String
         
         public init(
             values: [String],

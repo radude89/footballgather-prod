@@ -11,36 +11,44 @@ import Localizable
 
 struct SetTimerView: View {
     
-    @State private var selectedMinutes = "0"
-    @State private var selectedSeconds = "2"
+    @State private var selectedMinutes: String
+    @State private var selectedSeconds: String
     
-    private let minutesInterval = (0...60).map { "\($0)" }
-    private let secondsInterval = (1..<60).map { "\($0)" }
+    let viewModel: SetTimerViewModel
+    
+    init(
+        viewModel: SetTimerViewModel,
+        selectedMinutes: String = "10",
+        selectedSeconds: String = "00"
+    ) {
+        self.viewModel = viewModel
+        self.selectedMinutes = selectedMinutes
+        self.selectedSeconds = selectedSeconds
+    }
     
     var body: some View {
-        TwoComponentsPickerView(
-            dataSource: .init(
-                (
-                    first: .init(
-                        values: minutesInterval,
-                        name: LocalizedString.minutes,
-                        accessibilityID: .minutesPickerView,
-                        selectedValue: $selectedMinutes
-                    ),
-                    second: .init(
-                        values: secondsInterval,
-                        name: LocalizedString.seconds,
-                        accessibilityID: .secondsPickerView,
-                        selectedValue: $selectedSeconds
-                    )
+        NavigationView {
+            TwoComponentsPickerView(
+                dataSource: viewModel.makeDataSource(
+                    selectedMinutes: $selectedMinutes,
+                    selectedSeconds: $selectedSeconds
                 )
             )
-        )
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(LocalizedString.done) {}
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(LocalizedString.cancel) {}
+                    }
+                }
+        }
     }
 }
 
 struct SetTimerView_Previews: PreviewProvider {
     static var previews: some View {
-        SetTimerView()
+        SetTimerView(viewModel: .init())
     }
 }

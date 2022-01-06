@@ -53,4 +53,5 @@ public enum LocalizedString: Localizable {
     public static let timeIsUpTitle = localizedText(key: "time.is.up.title")
     public static let minutes = localizedText(key: "minutes")
     public static let seconds = localizedText(key: "seconds")
+    public static let setTime = localizedText(key: "set.time")
 }

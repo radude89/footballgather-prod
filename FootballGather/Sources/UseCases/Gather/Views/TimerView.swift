@@ -11,14 +11,20 @@ import Localizable
 struct TimerView: View {
     
     @ObservedObject var viewModel: TimerViewModel
+    var setTimeAction: () -> Void
     
     var body: some View {
-        HStack(spacing: 50) {
-            cancelTimerButton
-            timeView
-            actionTimerButton
+        VStack {
+            HStack(spacing: 50) {
+                cancelTimerButton
+                timeView
+                actionTimerButton
+            }
+            .padding()
+            
+            Button("Set Time", action: setTimeAction)
         }
-        .padding()
+        .padding(.bottom)
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
             Button(LocalizedString.ok, role: .cancel) {}
         }
@@ -52,6 +58,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(viewModel: .init(remainingTimeInSeconds: 5))
+        TimerView(viewModel: .init(remainingTimeInSeconds: 5)) {}
     }
 }

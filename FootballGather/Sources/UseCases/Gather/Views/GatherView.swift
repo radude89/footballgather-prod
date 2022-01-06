@@ -13,17 +13,24 @@ struct GatherView: View {
     
     let viewModel: GatherViewModel
     
+    @State private var showingSetTimerView = false
+    
     var body: some View {
         VStack {
             ScoreView(viewModel: .init())
             
-            TimerView(viewModel: .init())
+            TimerView(viewModel: .init()) {
+                showingSetTimerView = true
+            }
             
             GatherPlayersView(
                 viewModel: .init(playersTeams: viewModel.playersTeams)
             )
             
             GatherEndView()
+        }
+        .sheet(isPresented: $showingSetTimerView) {
+            SetTimerView(viewModel: .init())
         }
         .padding(.bottom)
         .navigationBarBackButtonHidden(true)
