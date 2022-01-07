@@ -11,28 +11,12 @@ import Localizable
 
 struct SetTimerView: View {
     
-    @State private var selectedMinutes: String
-    @State private var selectedSeconds: String
-    
     let viewModel: SetTimerViewModel
-    
-    init(
-        viewModel: SetTimerViewModel,
-        selectedMinutes: String = "10",
-        selectedSeconds: String = "00"
-    ) {
-        self.viewModel = viewModel
-        self.selectedMinutes = selectedMinutes
-        self.selectedSeconds = selectedSeconds
-    }
     
     var body: some View {
         NavigationView {
             TwoComponentsPickerView(
-                dataSource: viewModel.makeDataSource(
-                    selectedMinutes: $selectedMinutes,
-                    selectedSeconds: $selectedSeconds
-                )
+                dataSource: viewModel.makeDataSource()
             )
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -45,6 +29,7 @@ struct SetTimerView: View {
                 }
         }
     }
+    
 }
 
 struct SetTimerView_Previews: PreviewProvider {

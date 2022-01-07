@@ -12,33 +12,53 @@ import Localizable
 // MARK: - SetTimerViewModel
 
 struct SetTimerViewModel {
-    private let timeIntervals: TimeIntervals
     
-    init(timeIntervals: TimeIntervals = .init()) {
+    @Binding var selectedMinutes: String
+    @Binding var selectedSeconds: String
+    
+    private let timeIntervals: TimeIntervals
+    private let initialTime: (minutes: String, seconds: String)
+    
+    init(
+        timeIntervals: TimeIntervals = .init(),
+        selectedMinutes: Binding<String> = .constant("10"),
+        selectedSeconds: Binding<String> = .constant("00")
+    ) {
         self.timeIntervals = timeIntervals
+        
+        _selectedMinutes = selectedMinutes
+        _selectedSeconds = selectedSeconds
+        
+        initialTime = (
+            minutes: selectedMinutes.wrappedValue,
+            seconds: selectedSeconds.wrappedValue
+        )
     }
     
-    func makeDataSource(
-        selectedMinutes: Binding<String>,
-        selectedSeconds: Binding<String>
-    ) -> TwoComponentsPickerViewDataSource {
+    var shouldEnableDone: Bool {
+        initialTime.minutes != selectedMinutes ||
+        initialTime.seconds != selectedSeconds
+    }
+    
+    func makeDataSource() -> TwoComponentsPickerViewDataSource {
         .init(
             (
                 first: .init(
                     values: Self.formattedTime(from: timeIntervals.minutes),
                     name: LocalizedString.minutes,
                     accessibilityID: .minutesPickerView,
-                    selectedValue: selectedMinutes
+                    selectedValue: $selectedMinutes
                 ),
                 second: .init(
                     values: Self.formattedTime(from: timeIntervals.seconds),
                     name: LocalizedString.seconds,
                     accessibilityID: .secondsPickerView,
-                    selectedValue: selectedSeconds
+                    selectedValue: $selectedSeconds
                 )
             )
         )
     }
+    
 }
 
 // MARK: - TimeIntervals

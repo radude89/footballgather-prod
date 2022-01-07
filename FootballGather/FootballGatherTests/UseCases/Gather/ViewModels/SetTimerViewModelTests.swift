@@ -9,6 +9,7 @@ import XCTest
 import UITools
 import Localizable
 import SwiftUI
+import Combine
 @testable import FootballGather
 
 final class SetTimerViewModelTests: XCTestCase {
@@ -32,11 +33,11 @@ final class SetTimerViewModelTests: XCTestCase {
     // MARK: - Tests
     
     func testFirstComponent_isMinutesComponent() {
-        let sut = SetTimerViewModel()
-        let dataSource = sut.makeDataSource(
+        let sut = SetTimerViewModel(
             selectedMinutes: .constant("00"),
             selectedSeconds: .constant("01")
         )
+        let dataSource = sut.makeDataSource()
         
         let firstComponent = dataSource.components.first
         XCTAssertEqual(firstComponent.name, minutesComponent.name)
@@ -46,17 +47,48 @@ final class SetTimerViewModelTests: XCTestCase {
     }
     
     func testSecondComponent_isSecondsComponent() {
-        let sut = SetTimerViewModel()
-        let dataSource = sut.makeDataSource(
+        let sut = SetTimerViewModel(
             selectedMinutes: .constant("00"),
             selectedSeconds: .constant("01")
         )
+        let dataSource = sut.makeDataSource()
         
         let secondComponent = dataSource.components.second
         XCTAssertEqual(secondComponent.name, secondsComponent.name)
         XCTAssertEqual(secondComponent.values, secondsComponent.values)
         XCTAssertEqual(secondComponent.accessibilityID, secondsComponent.accessibilityID)
         XCTAssertEqual(secondComponent.selectedValue, secondsComponent.selectedValue)
+    }
+    
+    func testShouldEnableDone_whenNoValueIsChanged_isFalse() {
+        let sut = SetTimerViewModel()
+        XCTAssertFalse(sut.shouldEnableDone)
+    }
+    
+    func testShouldEnableDone_whenMinutesAreChanged_isTrue() {
+        var selectedMinutes = "00"
+        let minutesBinding = Binding(
+            get: { selectedMinutes },
+            set: { selectedMinutes = $0 }
+        )
+        let sut = SetTimerViewModel(selectedMinutes: minutesBinding)
+        
+        selectedMinutes = "01"
+        
+        XCTAssertTrue(sut.shouldEnableDone)
+    }
+    
+    func testShouldEnableDone_whenSecondsAreChanged_isTrue() {
+        var selectedSeconds = "00"
+        let secondsBinding = Binding(
+            get: { selectedSeconds },
+            set: { selectedSeconds = $0 }
+        )
+        let sut = SetTimerViewModel(selectedSeconds: secondsBinding)
+        
+        selectedSeconds = "01"
+        
+        XCTAssertTrue(sut.shouldEnableDone)
     }
     
 }
