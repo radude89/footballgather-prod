@@ -6,89 +6,118 @@
 //
 
 import XCTest
-import UITools
-import Localizable
-import SwiftUI
-import Combine
+import FoundationTools
 @testable import FootballGather
 
 final class SetTimerViewModelTests: XCTestCase {
     
-    // MARK: - Variables
+    func testFormattedMinutes_whenMinutesAreBelowTen_prefixesWithZero() {
+        let minutes = Array(0...9)
+        let sut = makeSUT(minutes: minutes)
+        let formattedMinutes = minutes.map { "0\($0)" }
+        
+        XCTAssertEqual(sut.formattedMinutes, formattedMinutes)
+    }
     
-    private let minutesComponent = TwoComponentsPickerViewDataSource.Component(
-        values: SetTimerViewModel.formattedTime(from: Array(0...90)),
-        name: LocalizedString.minutes,
-        accessibilityID: .minutesPickerView,
-        selectedValue: .constant("00")
-    )
+    func testFormattedMinutes_whenMinutesIsTen_returnsFormattedTime() {
+        let sut = makeSUT(minutes: [10])
+        XCTAssertEqual(sut.formattedMinutes, ["10"])
+    }
     
-    private let secondsComponent = TwoComponentsPickerViewDataSource.Component(
-        values: SetTimerViewModel.formattedTime(from: Array(1..<60)),
-        name: LocalizedString.seconds,
-        accessibilityID: .secondsPickerView,
-        selectedValue: .constant("01")
-    )
+    func testFormattedSeconds_whenSecondsAreBelowTen_prefixesWithZero() {
+        let seconds = Array(0...9)
+        let sut = makeSUT(seconds: seconds)
+        let formattedSeconds = seconds.map { "0\($0)" }
+        
+        XCTAssertEqual(sut.formattedSeconds, formattedSeconds)
+    }
     
-    // MARK: - Tests
+    func testFormattedSeconds_whenSecondsIsTen_returnsFormattedTime() {
+        let sut = makeSUT(seconds: [10])
+        XCTAssertEqual(sut.formattedSeconds, ["10"])
+    }
     
-    func testFirstComponent_isMinutesComponent() {
+    func testDoneButtonIsEnabled_whenTimeIsNotChanged_isFalse() {
+        let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
+        XCTAssertFalse(sut.doneButtonIsEnabled(minutes: "10", seconds: "00"))
+    }
+    
+    func testDoneButtonIsEnabled_whenMinutesAreChanged_isTrue() {
+        let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
+        XCTAssertTrue(sut.doneButtonIsEnabled(minutes: "00", seconds: "00"))
+    }
+    
+    func testDoneButtonIsEnabled_whenSecondsAreChanged_isTrue() {
+        let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
+        XCTAssertTrue(sut.doneButtonIsEnabled(minutes: "10", seconds: "01"))
+    }
+    
+    func testDoneButtonIsEnabled_whenTimeIsChanged_isTrue() {
+        let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
+        XCTAssertTrue(sut.doneButtonIsEnabled(minutes: "01", seconds: "01"))
+    }
+    
+    func testRemainingTimeInSeconds_returnsTotalTimeInSeconds() {
+        let sut = makeSUT()
+        let time = sut.remainingTimeInSeconds(fromMinutes: "10", seconds: "10")
+        
+        XCTAssertEqual(time, 610)
+    }
+    
+    func testRemainingTimeInSeconds_whenMinutesAreNotFormattedAsInt_returnsZero() {
+        let sut = makeSUT()
+        let time = sut.remainingTimeInSeconds(fromMinutes: "", seconds: "00")
+        
+        XCTAssertEqual(time, 0)
+    }
+    
+    func testRemainingTimeInSeconds_whenMinutesAreBelowZero_returnsAbsolutValue() {
+        let sut = makeSUT()
+        let time = sut.remainingTimeInSeconds(fromMinutes: "-10", seconds: "00")
+        
+        XCTAssertEqual(time, 600)
+    }
+    
+    func testRemainingTimeInSeconds_whenSecondsAreNotFormattedAsInt_returnsZero() {
+        let sut = makeSUT()
+        let time = sut.remainingTimeInSeconds(fromMinutes: "00", seconds: "")
+        
+        XCTAssertEqual(time, 0)
+    }
+    
+    func testRemainingTimeInSeconds_whenSecondsAreBelowZero_returnsAbsolutValue() {
+        let sut = makeSUT()
+        let time = sut.remainingTimeInSeconds(fromMinutes: "00", seconds: "-15")
+        
+        XCTAssertEqual(time, 15)
+    }
+    
+    func testRemainingTimeInSeconds_whenTotalTimeIsLessThanMin_returnsMinTime() {
+        let sut = makeSUT()
+        let time = sut.remainingTimeInSeconds(fromMinutes: "00", seconds: "00")
+        
+        XCTAssertEqual(time, GatherDefaultTime.minAllowedTimeInSeconds)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        minutes: [Int] = [],
+        seconds: [Int] = [],
+        selectedMinutes: String = "",
+        selectedSeconds: String = ""
+    ) -> SetTimerViewModel {
+        let timeIntervals = SetTimerViewModel.TimeIntervals(
+            minutes: minutes,
+            seconds: seconds
+        )
         let sut = SetTimerViewModel(
-            selectedMinutes: .constant("00"),
-            selectedSeconds: .constant("01")
+            timeIntervals: timeIntervals,
+            selectedMinutes: selectedMinutes,
+            selectedSeconds: selectedSeconds
         )
-        let dataSource = sut.makeDataSource()
         
-        let firstComponent = dataSource.components.first
-        XCTAssertEqual(firstComponent.name, minutesComponent.name)
-        XCTAssertEqual(firstComponent.values, minutesComponent.values)
-        XCTAssertEqual(firstComponent.accessibilityID, minutesComponent.accessibilityID)
-        XCTAssertEqual(firstComponent.selectedValue, minutesComponent.selectedValue)
-    }
-    
-    func testSecondComponent_isSecondsComponent() {
-        let sut = SetTimerViewModel(
-            selectedMinutes: .constant("00"),
-            selectedSeconds: .constant("01")
-        )
-        let dataSource = sut.makeDataSource()
-        
-        let secondComponent = dataSource.components.second
-        XCTAssertEqual(secondComponent.name, secondsComponent.name)
-        XCTAssertEqual(secondComponent.values, secondsComponent.values)
-        XCTAssertEqual(secondComponent.accessibilityID, secondsComponent.accessibilityID)
-        XCTAssertEqual(secondComponent.selectedValue, secondsComponent.selectedValue)
-    }
-    
-    func testShouldEnableDone_whenNoValueIsChanged_isFalse() {
-        let sut = SetTimerViewModel()
-        XCTAssertFalse(sut.shouldEnableDone)
-    }
-    
-    func testShouldEnableDone_whenMinutesAreChanged_isTrue() {
-        var selectedMinutes = "00"
-        let minutesBinding = Binding(
-            get: { selectedMinutes },
-            set: { selectedMinutes = $0 }
-        )
-        let sut = SetTimerViewModel(selectedMinutes: minutesBinding)
-        
-        selectedMinutes = "01"
-        
-        XCTAssertTrue(sut.shouldEnableDone)
-    }
-    
-    func testShouldEnableDone_whenSecondsAreChanged_isTrue() {
-        var selectedSeconds = "00"
-        let secondsBinding = Binding(
-            get: { selectedSeconds },
-            set: { selectedSeconds = $0 }
-        )
-        let sut = SetTimerViewModel(selectedSeconds: secondsBinding)
-        
-        selectedSeconds = "01"
-        
-        XCTAssertTrue(sut.shouldEnableDone)
+        return sut
     }
     
 }

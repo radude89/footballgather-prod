@@ -68,6 +68,8 @@
 		F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */; };
 		F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */; };
 		F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */; };
+		F76B9F25278D2E9800078F20 /* TimeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F24278D2E9800078F20 /* TimeSettings.swift */; };
+		F76B9F27278D44DD00078F20 /* TimeSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */; };
 		F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */; };
@@ -205,6 +207,8 @@
 		F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModelTests.swift; sourceTree = "<group>"; };
 		F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModelTests.swift; sourceTree = "<group>"; };
+		F76B9F24278D2E9800078F20 /* TimeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettings.swift; sourceTree = "<group>"; };
+		F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingsTests.swift; sourceTree = "<group>"; };
 		F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDetailsViewModel+UIModel.swift"; sourceTree = "<group>"; };
@@ -745,6 +749,7 @@
 				F7A525702757F091006D2CBC /* ScoreHandler.swift */,
 				F72972B42760709200900714 /* TimerController.swift */,
 				F7F25CF127670BD5001B9986 /* GatherTimeFormatter.swift */,
+				F76B9F24278D2E9800078F20 /* TimeSettings.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -768,6 +773,7 @@
 				F7A5256E2757E1FD006D2CBC /* ScoreHandlerTests.swift */,
 				F72972B2275F15B300900714 /* TimerControllerTests.swift */,
 				F7F25CEF2766FD91001B9986 /* GatherTimeFormatterTests.swift */,
+				F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -942,6 +948,7 @@
 				F71E989226ECB53A005A1EA7 /* SkillPickerViewModel.swift in Sources */,
 				F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */,
 				F7A5255F27550B37006D2CBC /* GatherPlayersView.swift in Sources */,
+				F76B9F25278D2E9800078F20 /* TimeSettings.swift in Sources */,
 				F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */,
 				F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
@@ -1014,6 +1021,7 @@
 				F7FEF35F27590928009F60E6 /* ScoreViewModelTests.swift in Sources */,
 				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,
 				F7F25CF02766FD91001B9986 /* GatherTimeFormatterTests.swift in Sources */,
+				F76B9F27278D44DD00078F20 /* TimeSettingsTests.swift in Sources */,
 				F7E05537277308C000385948 /* SetTimerViewModelTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */,
 				F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */,

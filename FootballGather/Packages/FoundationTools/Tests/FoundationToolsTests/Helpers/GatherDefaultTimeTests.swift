@@ -24,4 +24,8 @@ final class GatherDefaultTimeTests: XCTestCase {
         XCTAssertEqual(sut, expectedTimeInSeconds)
     }
     
+    func testMinAllowedTimeInSeconds() {
+        XCTAssertEqual(GatherDefaultTime.minAllowedTimeInSeconds, 1)
+    }
+    
 }

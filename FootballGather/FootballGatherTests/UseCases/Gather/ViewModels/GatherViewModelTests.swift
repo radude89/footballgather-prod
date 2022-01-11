@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import FoundationTools
 @testable import FootballGather
 
 final class GatherViewModelTests: XCTestCase {
@@ -19,6 +20,19 @@ final class GatherViewModelTests: XCTestCase {
         XCTAssertEqual(sut.playersTeams[.teamA], .demoPlayers)
         XCTAssertEqual(sut.playersTeams[.teamB], .demoPlayers)
         XCTAssertNil(sut.playersTeams[.bench])
+    }
+    
+    func testFormattedTime() {
+        let sut = GatherViewModel(playersTeams: [:])
+        let time = sut.formattedTime(from: .init())
+        let expectedTime = GatherTimeFormatter(
+            seconds: GatherDefaultTime.value()
+        )
+            .formattedTime
+            .components(separatedBy: ":")
+        
+        XCTAssertEqual(time.minutes, expectedTime[0])
+        XCTAssertEqual(time.seconds, expectedTime[1])
     }
     
 }

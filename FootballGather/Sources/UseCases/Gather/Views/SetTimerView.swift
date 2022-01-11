@@ -11,29 +11,87 @@ import Localizable
 
 struct SetTimerView: View {
     
-    let viewModel: SetTimerViewModel
+    @State private var selectedMinutes: String
+    @State private var selectedSeconds: String
+    
+    @Environment(\.dismiss) private var dismiss
+    
+    private let viewModel: SetTimerViewModel
+    
+    @EnvironmentObject var timeSettings: TimeSettings
+    
+    init(
+        selectedMinutes: String = "10",
+        selectedSeconds: String = "00"
+    ) {
+        _selectedMinutes = State(initialValue: selectedMinutes)
+        _selectedSeconds = State(initialValue: selectedSeconds)
+        
+        viewModel = .init(
+            selectedMinutes: selectedMinutes,
+            selectedSeconds: selectedSeconds
+        )
+    }
     
     var body: some View {
         NavigationView {
-            TwoComponentsPickerView(
-                dataSource: viewModel.makeDataSource()
-            )
+            TwoComponentsPickerView(dataSource: makeDataSource())
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button(LocalizedString.done) {}
+                        Button(LocalizedString.cancel, action: { dismiss() })
+                            .accessibilityID(.cancelButton)
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(LocalizedString.cancel) {}
+                        Button(LocalizedString.done, action: onSave)
+                            .disabled(!doneButtonIsEnabled)
+                            .accessibilityID(.doneButton)
                     }
                 }
         }
     }
     
+    private func makeDataSource() -> TwoComponentsPickerViewDataSource {
+        .init(
+            (
+                first: .init(
+                    values: viewModel.formattedMinutes,
+                    name: LocalizedString.minutes,
+                    accessibilityID: .minutesPickerView,
+                    selectedValue: $selectedMinutes
+                ),
+                second: .init(
+                    values: viewModel.formattedSeconds,
+                    name: LocalizedString.seconds,
+                    accessibilityID: .secondsPickerView,
+                    selectedValue: $selectedSeconds
+                )
+            )
+        )
+    }
+    
+    private var doneButtonIsEnabled: Bool {
+        viewModel.doneButtonIsEnabled(
+            minutes: selectedMinutes,
+            seconds: selectedSeconds
+        )
+    }
+    
+    private func onSave() {
+        timeSettings.remainingTimeInSeconds = viewModel
+            .remainingTimeInSeconds(
+                fromMinutes: selectedMinutes,
+                seconds: selectedSeconds
+            )
+        dismiss()
+    }
+    
 }
+
+// MARK: - Preview
 
 struct SetTimerView_Previews: PreviewProvider {
     static var previews: some View {
-        SetTimerView(viewModel: .init())
+        SetTimerView()
     }
 }

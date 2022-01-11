@@ -14,12 +14,13 @@ struct GatherView: View {
     let viewModel: GatherViewModel
     
     @State private var showingSetTimerView = false
+    @StateObject private var timeSettings = TimeSettings()
     
     var body: some View {
         VStack {
             ScoreView(viewModel: .init())
             
-            TimerView(viewModel: .init()) {
+            TimerView(viewModel: .init(timeSettings: timeSettings)) {
                 showingSetTimerView = true
             }
             
@@ -30,12 +31,22 @@ struct GatherView: View {
             GatherEndView()
         }
         .sheet(isPresented: $showingSetTimerView) {
-            SetTimerView(viewModel: .init())
+            setTimerView
         }
+        .environmentObject(timeSettings)
         .padding(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private var setTimerView: some View {
+        let time = viewModel.formattedTime(from: timeSettings)
+        
+        return SetTimerView(
+            selectedMinutes: time.minutes,
+            selectedSeconds: time.seconds
+        )
     }
     
 }

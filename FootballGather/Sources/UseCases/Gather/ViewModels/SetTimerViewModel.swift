@@ -5,60 +5,62 @@
 //  Created by Radu Dan on 22.12.2021.
 //
 
-import SwiftUI
 import UITools
-import Localizable
+import FoundationTools
 
 // MARK: - SetTimerViewModel
 
 struct SetTimerViewModel {
-    
-    @Binding var selectedMinutes: String
-    @Binding var selectedSeconds: String
     
     private let timeIntervals: TimeIntervals
     private let initialTime: (minutes: String, seconds: String)
     
     init(
         timeIntervals: TimeIntervals = .init(),
-        selectedMinutes: Binding<String> = .constant("10"),
-        selectedSeconds: Binding<String> = .constant("00")
+        selectedMinutes: String,
+        selectedSeconds: String
     ) {
         self.timeIntervals = timeIntervals
-        
-        _selectedMinutes = selectedMinutes
-        _selectedSeconds = selectedSeconds
-        
         initialTime = (
-            minutes: selectedMinutes.wrappedValue,
-            seconds: selectedSeconds.wrappedValue
+            minutes: selectedMinutes,
+            seconds: selectedSeconds
         )
     }
     
-    var shouldEnableDone: Bool {
-        initialTime.minutes != selectedMinutes ||
-        initialTime.seconds != selectedSeconds
+    var formattedMinutes: [String] {
+        Self.formattedTime(from: timeIntervals.minutes)
     }
     
-    func makeDataSource() -> TwoComponentsPickerViewDataSource {
-        .init(
-            (
-                first: .init(
-                    values: Self.formattedTime(from: timeIntervals.minutes),
-                    name: LocalizedString.minutes,
-                    accessibilityID: .minutesPickerView,
-                    selectedValue: $selectedMinutes
-                ),
-                second: .init(
-                    values: Self.formattedTime(from: timeIntervals.seconds),
-                    name: LocalizedString.seconds,
-                    accessibilityID: .secondsPickerView,
-                    selectedValue: $selectedSeconds
-                )
-            )
-        )
+    var formattedSeconds: [String] {
+        Self.formattedTime(from: timeIntervals.seconds)
     }
     
+    private static func formattedTime(from interval: [Int]) -> [String] {
+        interval.map { $0 < 10 ? "0\($0)" : "\($0)"}
+    }
+    
+    func doneButtonIsEnabled(
+        minutes: String,
+        seconds: String
+    ) -> Bool {
+        initialTime.minutes != minutes ||
+        initialTime.seconds != seconds
+    }
+    
+    func remainingTimeInSeconds(
+        fromMinutes minutes: String,
+        seconds: String
+    ) -> Int {
+        guard let minutesAsInt = Int(minutes),
+              let secondsAsInt = Int(seconds) else {
+                  return 0
+              }
+        
+        let totalTime = 60 * abs(minutesAsInt) + abs(secondsAsInt)
+        
+        return max(totalTime, GatherDefaultTime.minAllowedTimeInSeconds)
+    }
+
 }
 
 // MARK: - TimeIntervals
@@ -70,18 +72,10 @@ extension SetTimerViewModel {
         
         init(
             minutes: [Int] = Array(0...90),
-            seconds: [Int] = Array(1..<60)
+            seconds: [Int] = Array(0..<60)
         ) {
             self.minutes = minutes
             self.seconds = seconds
         }
-    }
-}
-
-// MARK: - Time Formatter
-
-extension SetTimerViewModel {
-    static func formattedTime(from interval: [Int]) -> [String] {
-        interval.map { $0 < 10 ? "0\($0)" : "\($0)"}
     }
 }

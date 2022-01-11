@@ -25,9 +25,9 @@ final class TimerViewModelTests: XCTestCase {
         let timerController = Mocks.TimerController(remainingTimeUnit: 2)
         let sut = TimerViewModel(
             timerController: timerController,
-            remainingTimeInSeconds: 2
+            timeSettings: makeTimeSettings(remainingTimeInSeconds: 2)
         )
-        let spy = ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
+        let spy = Mocks.ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
         
         sut.onActionTimer()
         
@@ -36,7 +36,10 @@ final class TimerViewModelTests: XCTestCase {
     
     func testOnActionTimer_stopsTimerAfterReachingToZero() {
         let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController, remainingTimeInSeconds: 1)
+        let sut = TimerViewModel(
+            timerController: timerController,
+            timeSettings: makeTimeSettings(remainingTimeInSeconds: 1)
+        )
         
         sut.onActionTimer()
         
@@ -48,9 +51,9 @@ final class TimerViewModelTests: XCTestCase {
         let timerController = Mocks.TimerController()
         let sut = TimerViewModel(
             timerController: timerController,
-            remainingTimeInSeconds: 1
+            timeSettings: makeTimeSettings(remainingTimeInSeconds: 1)
         )
-        let spy = ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
+        let spy = Mocks.ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
         
         sut.onActionTimer()
         sut.cancelTimer()
@@ -60,17 +63,12 @@ final class TimerViewModelTests: XCTestCase {
         XCTAssertTrue(timerController.timerStopped)
     }
     
-}
-
-// MARK: - Helpers
-
-private final class ValueSpy<Value> {
-    private(set) var values: [Value] = []
-    private var cancellable: AnyCancellable?
+    // MARK: - Helpers
     
-    init(_ publisher: AnyPublisher<Value, Never>) {
-        cancellable = publisher.sink(receiveValue: { [weak self] value in
-            self?.values.append(value)
-        })
+    private func makeTimeSettings(remainingTimeInSeconds: Int) -> TimeSettings {
+        let settings = TimeSettings()
+        settings.remainingTimeInSeconds = remainingTimeInSeconds
+        return settings
     }
+    
 }

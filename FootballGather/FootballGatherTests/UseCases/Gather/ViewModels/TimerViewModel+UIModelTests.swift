@@ -17,8 +17,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
     }
     
     func testCancelButtonTitle_whenTimerStarted_isEnabled() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT()
         
         sut.onActionTimer()
         
@@ -26,8 +25,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
     }
     
     func testCancelButtonTitle_whenTimerPaused_isEnabled() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT()
         
         sut.onActionTimer()
         sut.onActionTimer()
@@ -36,13 +34,11 @@ final class TimerViewModelUIModelTests: XCTestCase {
     }
     
     func testActionTimerButtonTitle_whenTimerIsStopped_isStart() {
-        let sut = TimerViewModel()
-        XCTAssertEqual(sut.actionButtonTitle, LocalizedString.start)
+        XCTAssertEqual(makeSUT().actionButtonTitle, LocalizedString.start)
     }
     
     func testActionTimerButtonTitle_whenTimerIsStarted_isPause() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT()
         
         sut.onActionTimer()
         
@@ -50,11 +46,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
     }
     
     func testActionTimerButtonTitle_whenTimerIsPaused_isResume() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(
-            timerController: timerController,
-            remainingTimeInSeconds: 2
-        )
+        let sut = makeSUT()
         
         sut.onActionTimer()
         sut.onActionTimer()
@@ -63,17 +55,14 @@ final class TimerViewModelUIModelTests: XCTestCase {
     }
     
     func testActionTimerButtonAccessibilityLabel_whenTimerIsStopped_isStartTimerLabel() {
-        let sut = TimerViewModel()
-        
         XCTAssertEqual(
-            sut.actionButtonAccessibilityLabel,
+            makeSUT().actionButtonAccessibilityLabel,
             LocalizedString.startTimerLabel
         )
     }
     
     func testActionTimerButtonAccessibilityLabel_whenTimerIsStarted_isPauseTimerLabel() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT()
         
         sut.onActionTimer()
         
@@ -84,11 +73,7 @@ final class TimerViewModelUIModelTests: XCTestCase {
     }
     
     func testActionTimerButtonAccessibilityLabel_whenTimerIsPaused_isResumeTimerLabel() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(
-            timerController: timerController,
-            remainingTimeInSeconds: 2
-        )
+        let sut = makeSUT()
         
         sut.onActionTimer()
         sut.onActionTimer()
@@ -96,6 +81,21 @@ final class TimerViewModelUIModelTests: XCTestCase {
         XCTAssertEqual(
             sut.actionButtonAccessibilityLabel,
             LocalizedString.resumeTimerLabel
+        )
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        timerController: TimerControllable = Mocks.TimerController(),
+        remainingTimeInSeconds: Int = 2
+    ) -> TimerViewModel {
+        let settings = TimeSettings()
+        settings.remainingTimeInSeconds = remainingTimeInSeconds
+        
+        return TimerViewModel(
+            timerController: timerController,
+            timeSettings: settings
         )
     }
     

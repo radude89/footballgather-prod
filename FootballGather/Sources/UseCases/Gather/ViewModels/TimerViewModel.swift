@@ -14,6 +14,7 @@ final class TimerViewModel: ObservableObject {
     private var timerController: TimerControllable
     private var timerState = TimerState.stopped
     private let initialTimeInSeconds: Int
+    private var timeSettings: TimeSettings
     
     private var remainingTimeInSeconds: Int {
         didSet {
@@ -26,15 +27,16 @@ final class TimerViewModel: ObservableObject {
     
     init(
         timerController: TimerControllable = TimerController(),
-        remainingTimeInSeconds: Int = GatherDefaultTime.value()
+        timeSettings: TimeSettings = .init()
     ) {
         precondition(
-            remainingTimeInSeconds > 0,
-            "We need at least 1 second to decrease from."
+            timeSettings.remainingTimeInSeconds >= GatherDefaultTime.minAllowedTimeInSeconds,
+            "We need at least \(GatherDefaultTime.minAllowedTimeInSeconds) seconds to decrease from."
         )
         
+        self.timeSettings = timeSettings
         self.timerController = timerController
-        self.remainingTimeInSeconds = remainingTimeInSeconds
+        self.remainingTimeInSeconds = timeSettings.remainingTimeInSeconds
         
         initialTimeInSeconds = remainingTimeInSeconds
         timeIsUp = false

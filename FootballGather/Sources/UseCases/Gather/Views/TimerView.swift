@@ -10,7 +10,9 @@ import Localizable
 
 struct TimerView: View {
     
+    @EnvironmentObject var timeSettings: TimeSettings
     @ObservedObject var viewModel: TimerViewModel
+    
     var setTimeAction: () -> Void
     
     var body: some View {
@@ -22,7 +24,7 @@ struct TimerView: View {
             }
             .padding()
             
-            Button("Set Time", action: setTimeAction)
+            Button(LocalizedString.setTime, action: setTimeAction)
         }
         .padding(.bottom)
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
@@ -56,8 +58,10 @@ struct TimerView: View {
     
 }
 
+// MARK: - Preview
+
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(viewModel: .init(remainingTimeInSeconds: 5)) {}
+        TimerView(viewModel: .init(timeSettings: .init())) {}
     }
 }
