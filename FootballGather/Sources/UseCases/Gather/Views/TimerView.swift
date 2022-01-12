@@ -25,6 +25,7 @@ struct TimerView: View {
             .padding()
             
             Button(LocalizedString.setTime, action: setTimeAction)
+                .accessibilityID(.setTimeButton)
         }
         .padding(.bottom)
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {

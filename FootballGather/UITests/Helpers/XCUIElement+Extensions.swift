@@ -28,6 +28,14 @@ extension XCUIElement {
         
         text.forEach { _ in typeText(XCUIKeyboardKey.delete.rawValue) }
     }
+    
+    var pickerValue: String? {
+        pickerWheels.firstMatch.value as? String
+    }
+    
+    func scroll(toPickerWheelValue value: String) {
+        pickerWheels.element.adjust(toPickerWheelValue: value)
+    }
 }
 
 extension XCUIElementQuery {

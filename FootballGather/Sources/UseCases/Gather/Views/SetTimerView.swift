@@ -49,6 +49,7 @@ struct SetTimerView: View {
                     }
                 }
         }
+        .accessibilityID(.setTimeView)
     }
     
     private func makeDataSource() -> TwoComponentsPickerViewDataSource {

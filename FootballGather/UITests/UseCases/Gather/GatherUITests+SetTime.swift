@@ -35,59 +35,68 @@ extension GatherUITests {
     /// **WHEN** I tap on "Save"
     /// **THEN** the time picker is dismissed
     /// **AND** the time changes are updated
-    ///
-    ///**Scenario 5: Maximum time**
-    ///
-    /// **GIVEN** I am seeing the time picker
-    /// **WHEN** I am scrolling to pick seconds or minutes
-    /// **THEN** the maximum value I can choose is "60"
-    ///
-    /// **Scenario 6: Minimum seconds**
-    /// 
-    /// **GIVEN** I am seeing the time picker
-    /// **WHEN** I am scrolling to pick seconds
-    /// **THEN** the minimum value I can choose is "1"
     func testSetTime() {
-//        assertTime(is: "00:02")
-//        
-//        let setTimeButton = app.buttons[.setTimeButton]
-//        setTimeButton.tap()
-//        
-//        XCTAssertTrue(app.otherElements[.setTimeView].waitToAppear())
-//        
-//        let minutesPickerView = app.pickers[.minutesPickerView]
-//        XCTAssertTrue(minutesPickerView.exists)
-//        // TODO: Check the picker selected value is `00`
-//        
-//        let secondsPickerView = app.pickers[.secondsPickerView]
-//        XCTAssertTrue(secondsPickerView.exists)
-//        // TODO: Check the picker selected value is `02`
-//        
-//        minutesPickerView.adjust(toPickerWheelValue: "10")
-////        minutesPickerView.pickerWheels.element.adjust(toPickerWheelValue: "10")
-//        secondsPickerView.adjust(toPickerWheelValue: "20")
-//        
-//        let cancelSetTimeView = app.buttons[.cancelButton]
-//        cancelSetTimeView.tap()
-//        
-//        assertTime(is: "00:02")
-//        
-//        setTimeButton.tap()
-//        
-//        // TODO: Check the picker selected value is `00`
-//        // TODO: Check the picker selected value is `02`
-//        
-//        minutesPickerView.adjust(toPickerWheelValue: "10")
-//        secondsPickerView.adjust(toPickerWheelValue: "20")
-//        
-//        let saveTimeViewButton = app.buttons[.saveButton]
-//        saveTimeViewButton.tap()
-//        
-//        assertTime(is: "10:20")
+        assertTime(is: "00:02")
+        
+        setTimeButton.tap()
+        
+        assertSetTimeViewIsVisible()
+        assertPickerComponentsExist()
+        assertSelectedPickerTime(is: "00:02")
+
+        minutesPickerView.scroll(toPickerWheelValue: "01")
+        secondsPickerView.scroll(toPickerWheelValue: "01")
+        
+        cancelTimerButton.firstMatch.tap()
+        
+        assertTime(is: "00:02")
+        
+        setTimeButton.tap()
+        
+        assertSelectedPickerTime(is: "00:02")
+        
+        minutesPickerView.scroll(toPickerWheelValue: "01")
+        secondsPickerView.scroll(toPickerWheelValue: "01")
+        
+        doneButton.tap()
+        
+        assertTime(is: "01:01")
     }
     
     private func assertTime(is time: String, line: UInt = #line) {
         assertTime(is: time, state: .stopped, line: line)
+    }
+    
+    private var setTimeButton: XCUIElement {
+        app.buttons[.setTimeButton]
+    }
+    
+    private func assertSetTimeViewIsVisible(line: UInt = #line) {
+        XCTAssertTrue(app.otherElements[.setTimeView].waitToAppear(), line: line)
+    }
+    
+    private func assertPickerComponentsExist(line: UInt = #line) {
+        XCTAssertTrue(minutesPickerView.exists, line: line)
+        XCTAssertTrue(secondsPickerView.exists, line: line)
+    }
+    
+    private var minutesPickerView: XCUIElement {
+        app.pickers[.minutesPickerView]
+    }
+    
+    private var secondsPickerView: XCUIElement {
+        app.pickers[.secondsPickerView]
+    }
+    
+    private func assertSelectedPickerTime(is value: String, line: UInt = #line) {
+        let time = value.components(separatedBy: ":")
+
+        XCTAssertEqual(minutesPickerView.pickerValue, time[0], line: line)
+        XCTAssertEqual(secondsPickerView.pickerValue, time[1], line: line)
+    }
+    
+    private var doneButton: XCUIElement {
+        app.buttons[.doneButton]
     }
     
 }
