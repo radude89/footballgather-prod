@@ -34,6 +34,10 @@ public enum AccessibilityID: String {
     case setTimeView = "set-time-view"
     case minutesPickerView = "minutes-picker-view"
     case secondsPickerView = "seconds-picker-view"
+    case historyTabButton = "history-tab-button"
+    case historyView = "history-view"
+    case historyEmptyView = "history-empty-view"
+    case historyNoEntries = "history-no-entries"
 }
 
 extension AccessibilityID: CaseIterable {}

@@ -63,6 +63,8 @@
 		F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */; };
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6626537FB4002D1CE8 /* PlayersView.swift */; };
+		F75FD85B278E8D0700266527 /* HistoryViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */; };
+		F75FD85F278E934300266527 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85D278E933F00266527 /* HistoryView.swift */; };
 		F761201326EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */; };
 		F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */; };
 		F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */; };
@@ -202,6 +204,8 @@
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75AFA6626537FB4002D1CE8 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewUITests.swift; sourceTree = "<group>"; };
+		F75FD85D278E933F00266527 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSectionViewModelTests.swift; sourceTree = "<group>"; };
 		F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModelTests.swift; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 				F72D3224271854820001CD6F /* Edit */,
 				F7944F952721521A002DAF6D /* Confirmation */,
 				F7E9C8922745F9FA002DC16C /* Gather */,
+				F75FD859278E8CC500266527 /* History */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -547,8 +552,25 @@
 				F7427D7A26E7185700474D18 /* Details */,
 				F7944F94272151FD002DAF6D /* Confirmation */,
 				F7E9C8912745F9D0002DC16C /* Gather */,
+				F75FD85C278E8E0900266527 /* History */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F75FD859278E8CC500266527 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		F75FD85C278E8E0900266527 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				F75FD85D278E933F00266527 /* HistoryView.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		F761201126EDDBB800DB06E0 /* Details */ = {
@@ -921,6 +943,7 @@
 				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
 				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
 				F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */,
+				F75FD85F278E934300266527 /* HistoryView.swift in Sources */,
 				F703EB30274DF38800460551 /* GatherView.swift in Sources */,
 				F73171CB2763819600BC2CCC /* TimerViewModel.swift in Sources */,
 				F7A5256427551931006D2CBC /* ScoreView.swift in Sources */,
@@ -989,6 +1012,7 @@
 				F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */,
 				F72D321C271833D20001CD6F /* EditPlayerUITests.swift in Sources */,
 				F7C47305275A7443007D19F2 /* ScoreHandlerAsserter.swift in Sources */,
+				F75FD85B278E8D0700266527 /* HistoryViewUITests.swift in Sources */,
 				F75AFA6126537BB4002D1CE8 /* XCUIElement+Extensions.swift in Sources */,
 				F7F25CFF276B1A4D001B9986 /* GatherUITests+TimerInteraction.swift in Sources */,
 				F7223BC2274239C100446224 /* PlayersFinder.swift in Sources */,
