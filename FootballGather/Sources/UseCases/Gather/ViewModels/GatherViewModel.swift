@@ -25,4 +25,13 @@ struct GatherViewModel {
         
         return (time[0], time[1])
     }
+    
+    func storeGather(score: String, storage: AppStorage) {
+        let gather = Gather(
+            score: score,
+            teamAPlayers: playersTeams[.teamA] ?? [],
+            teamBPlayers: playersTeams[.teamB] ?? []
+        )
+        storage.addGather(gather)
+    }
 }

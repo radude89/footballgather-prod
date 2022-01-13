@@ -25,6 +25,12 @@ final class ScoreViewModel: ObservableObject {
         team.name.uppercased()
     }
     
+    var formattedScore: String {
+        let teamAScore = formattedScore(for: .teamA)
+        let teamBScore = formattedScore(for: .teamB)
+        return "\(teamAScore):\(teamBScore)"
+    }
+    
     func formattedScore(for team: Team) -> String {
         "\(scoreHandler.score(for: team))"
     }

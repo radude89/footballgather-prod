@@ -35,4 +35,16 @@ final class GatherViewModelTests: XCTestCase {
         XCTAssertEqual(time.seconds, expectedTime[1])
     }
     
+    func testStoreGather() {
+        let storage = Mocks.storage
+        let sut = GatherViewModel(playersTeams: [:])
+        
+        sut.storeGather(score: "1-1", storage: storage)
+        
+        let storedGathers = storage.gathers
+        let gather = storedGathers[0]
+        XCTAssertEqual(storedGathers.count, 1)
+        XCTAssertEqual(gather.score, "1-1")
+    }
+    
 }

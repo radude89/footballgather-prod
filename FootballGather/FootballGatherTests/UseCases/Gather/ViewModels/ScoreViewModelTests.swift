@@ -29,6 +29,12 @@ final class ScoreViewModelTests: XCTestCase {
         XCTAssertEqual(sut.formattedScore(for: .teamB), "0")
     }
     
+    func testFormattedScore() {
+        let sut = ScoreViewModel(scoreHandler: .init())
+        
+        XCTAssertEqual(sut.formattedScore, "0:0")
+    }
+    
     func testIncrementsScore() {
         var scoreHandler = ScoreHandler(
             score: [

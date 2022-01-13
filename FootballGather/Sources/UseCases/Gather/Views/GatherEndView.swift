@@ -14,6 +14,8 @@ struct GatherEndView: View {
     @State private var showConfirmationAlert = false
     @Environment(\.dismiss) private var dismiss
     
+    var completion: () -> Void
+    
     var body: some View {
         endGatherButton
             .confirmationAlert(
@@ -40,6 +42,7 @@ struct GatherEndView: View {
     }
     
     private func endGather() {
+        completion()
         dismiss()
     }
     
@@ -49,6 +52,6 @@ struct GatherEndView: View {
 
 struct GatherEndView_Previews: PreviewProvider {
     static var previews: some View {
-        GatherEndView()
+        GatherEndView {}
     }
 }

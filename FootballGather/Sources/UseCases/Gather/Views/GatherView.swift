@@ -11,14 +11,16 @@ import CoreModels
 
 struct GatherView: View {
     
-    let viewModel: GatherViewModel
-    
     @State private var showingSetTimerView = false
     @StateObject private var timeSettings = TimeSettings()
+    @StateObject private var scoreViewModel = ScoreViewModel()
+    
+    @EnvironmentObject var storage: AppStorage
+    let viewModel: GatherViewModel
     
     var body: some View {
         VStack {
-            ScoreView(viewModel: .init())
+            ScoreView(viewModel: scoreViewModel)
             
             TimerView(viewModel: .init(timeSettings: timeSettings)) {
                 showingSetTimerView = true
@@ -28,7 +30,7 @@ struct GatherView: View {
                 viewModel: .init(playersTeams: viewModel.playersTeams)
             )
             
-            GatherEndView()
+            GatherEndView(completion: onCompleteGather)
         }
         .sheet(isPresented: $showingSetTimerView) {
             setTimerView
@@ -46,6 +48,13 @@ struct GatherView: View {
         return SetTimerView(
             selectedMinutes: time.minutes,
             selectedSeconds: time.seconds
+        )
+    }
+    
+    private func onCompleteGather() {
+        viewModel.storeGather(
+            score: scoreViewModel.formattedScore,
+            storage: storage
         )
     }
     
