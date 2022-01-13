@@ -15,4 +15,5 @@ extension Storage {
 
 struct StoredObject {
     var players: [Player] = []
+    var gathers: [Gather] = []
 }

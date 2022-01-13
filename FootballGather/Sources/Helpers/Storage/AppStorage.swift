@@ -13,10 +13,10 @@ import CoreModels
 
 final class AppStorage: ObservableObject {
     
-    private let storageKey: String
     private let commandLineHandler: CommandRunnable
     
     @Published var storage: AnyStorage<String, StoredObject>
+    let storageKey: String
     
     init(
         storageKey: String = Storage.defaultAppKey,
@@ -47,38 +47,4 @@ final class AppStorage: ObservableObject {
         storage.clear()
     }
     
-}
-
-// MARK: - AppStorage+Players
-
-protocol PlayerStorageHandler {
-    var storedPlayers: [Player] { get }
-    
-    func updatePlayer(_ player: Player)
-}
-
-extension AppStorage: PlayerStorageHandler {
-    var storedPlayers: [Player] {
-        let storedObject = storage.load(forKey: storageKey)
-        return storedObject?.players ?? []
-    }
-    
-    func updatePlayer(_ player: Player) {
-        objectWillChange.send()
-        updateStorage(with: player)
-    }
-    
-    private func updateStorage(with player: Player) {
-        if var players = storage.load(forKey: storageKey)?.players {
-            update(&players, with: player)
-            storage.update(StoredObject(players: players), at: storageKey)
-        } else {
-            storage.store(StoredObject(players: [player]), at: storageKey)
-        }
-    }
-    
-    private func update(_ players: inout [Player], with player: Player) {
-        players.removeAll { $0.id == player.id }
-        players.append(player)
-    }
 }

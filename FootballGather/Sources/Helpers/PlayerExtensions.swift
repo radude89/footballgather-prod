@@ -21,3 +21,15 @@ extension Player {
     static let demoPlayers = Array.demoPlayers
     static let demo = demoPlayers.randomElement()!
 }
+
+extension Array where Element == Gather {
+    static let demoGathers: [Gather] = [
+        Gather(score: "0-0", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers),
+        Gather(score: "2-0", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers),
+        Gather(score: "1-3", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers)
+    ]
+}
+
+extension Gather {
+    static let demoGathers = Array.demoGathers
+}
