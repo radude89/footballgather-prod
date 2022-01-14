@@ -16,12 +16,12 @@ final class HistoryViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func testHasGathers_whenGathersAreEmpty_isTrue() {
-        XCTAssertTrue(makeSUT(gathers: []).hasGathers)
+    func testHasGathers_whenGathersAreEmpty_isFalse() {
+        XCTAssertFalse(makeSUT(gathers: []).hasGathers)
     }
     
-    func testHasGathers_whenGathersAreNotEmpty_isFalse() {
-        XCTAssertFalse(makeSUT().hasGathers)
+    func testHasGathers_whenGathersAreNotEmpty_isTrue() {
+        XCTAssertTrue(makeSUT().hasGathers)
     }
     
     func testScoreDescription_whenHasEntries_returnsGatherScore() {

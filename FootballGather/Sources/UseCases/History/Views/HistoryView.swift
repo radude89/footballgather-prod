@@ -36,9 +36,17 @@ struct HistoryView: View {
     private func row(for gather: Gather) -> some View {
         HStack {
             VStack(alignment: .leading) {
-                makePlayerRowDescription(for: gather, isTeamA: true)
+                makePlayerRowDescription(
+                    for: gather,
+                    teamDescription: TeamARowDescription(viewModel: viewModel)
+                )
+                
                 teamSeparatorView
-                makePlayerRowDescription(for: gather, isTeamA: false)
+                
+                makePlayerRowDescription(
+                    for: gather,
+                    teamDescription: TeamBRowDescription(viewModel: viewModel)
+                )
             }
             
             Spacer()
@@ -50,16 +58,12 @@ struct HistoryView: View {
     
     private func makePlayerRowDescription(
         for gather: Gather,
-        isTeamA: Bool
+        teamDescription: HistoryRowDescriptable
     ) -> some View {
         HStack(spacing: 20) {
-            Text(isTeamA ? "Team A" : "Team B")
+            Text(teamDescription.title)
                 .font(.title2)
-            Text(
-                isTeamA ?
-                viewModel.teamAPlayersDescription(for: gather) :
-                    viewModel.teamBPlayersDescription(for: gather)
-            )
+            Text(teamDescription.playersDescription(for: gather))
         }
     }
     
@@ -78,6 +82,9 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(viewModel: .init(storage: .init()))
+        let storage = AppStorage()
+        Gather.demoGathers.forEach { storage.addGather($0) }
+        
+        return HistoryView(viewModel: .init(storage: storage))
     }
 }

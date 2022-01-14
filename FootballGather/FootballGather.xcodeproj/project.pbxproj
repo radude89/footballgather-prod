@@ -50,6 +50,7 @@
 		F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */; };
 		F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */; };
 		F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AA2791257700B14434 /* HistoryViewModel.swift */; };
+		F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */; };
 		F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */; };
 		F7557EF826E4F7DB00C31A2F /* PlayersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557EF726E4F7DB00C31A2F /* PlayersListViewModelTests.swift */; };
 		F7557EFA26E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557EF926E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift */; };
@@ -113,6 +114,7 @@
 		F7C77DE727310E7600470E4E /* ConfirmPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */; };
 		F7E05537277308C000385948 /* SetTimerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E05536277308C000385948 /* SetTimerViewModelTests.swift */; };
 		F7E0553A27730EA300385948 /* SetTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E0553827730E2100385948 /* SetTimerViewModel.swift */; };
+		F7EE73A3279137A6006BCF0F /* HistoryRowDescriptableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */; };
 		F7F0EC06278FD10E000898A1 /* HistoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0EC05278FD10E000898A1 /* HistoryViewModelTests.swift */; };
 		F7F0EC08278FD221000898A1 /* AppStorage+Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0EC07278FD221000898A1 /* AppStorage+Players.swift */; };
 		F7F0EC0E278FD51C000898A1 /* AppStorage+Gathers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0EC0D278FD51C000898A1 /* AppStorage+Gathers.swift */; };
@@ -191,6 +193,7 @@
 		F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+Move.swift"; sourceTree = "<group>"; };
 		F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerUITests.swift; sourceTree = "<group>"; };
 		F750D0AA2791257700B14434 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptable.swift; sourceTree = "<group>"; };
 		F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModel.swift; sourceTree = "<group>"; };
 		F7557EF726E4F7DB00C31A2F /* PlayersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModelTests.swift; sourceTree = "<group>"; };
 		F7557EF926E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModelTests.swift"; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 		F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewController.swift; sourceTree = "<group>"; };
 		F7E05536277308C000385948 /* SetTimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModelTests.swift; sourceTree = "<group>"; };
 		F7E0553827730E2100385948 /* SetTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModel.swift; sourceTree = "<group>"; };
+		F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptableTests.swift; sourceTree = "<group>"; };
 		F7F0EC05278FD10E000898A1 /* HistoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModelTests.swift; sourceTree = "<group>"; };
 		F7F0EC07278FD221000898A1 /* AppStorage+Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStorage+Players.swift"; sourceTree = "<group>"; };
 		F7F0EC0D278FD51C000898A1 /* AppStorage+Gathers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStorage+Gathers.swift"; sourceTree = "<group>"; };
@@ -789,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				F750D0AA2791257700B14434 /* HistoryViewModel.swift */,
+				F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -797,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				F7F0EC05278FD10E000898A1 /* HistoryViewModelTests.swift */,
+				F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -985,6 +991,7 @@
 				F7A5256427551931006D2CBC /* ScoreView.swift in Sources */,
 				F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */,
 				F705D013265B66390057B63A /* PlayersListView.swift in Sources */,
+				F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */,
 				F7FEF36127591951009F60E6 /* ScoreViewModel.swift in Sources */,
 				F7F0EC08278FD221000898A1 /* AppStorage+Players.swift in Sources */,
 				F791020426E0735100BF79B9 /* PlayersListRowAccessibility.swift in Sources */,
@@ -1081,6 +1088,7 @@
 				F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */,
 				F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */,
 				F7F25CFD276AF7C8001B9986 /* TimerViewModel+UIModelTests.swift in Sources */,
+				F7EE73A3279137A6006BCF0F /* HistoryRowDescriptableTests.swift in Sources */,
 				F7BD16B1265F67C8005D1422 /* StorageTests.swift in Sources */,
 				F7FEF35F27590928009F60E6 /* ScoreViewModelTests.swift in Sources */,
 				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,

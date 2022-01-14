@@ -19,7 +19,7 @@ struct HistoryViewModel {
     }
     
     var hasGathers: Bool {
-        gathers.isEmpty
+        !gathers.isEmpty
     }
     
     func scoreDescription(for gather: Gather) -> String {
