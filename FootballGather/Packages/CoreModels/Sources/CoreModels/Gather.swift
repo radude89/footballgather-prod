@@ -26,3 +26,5 @@ public struct Gather: Equatable {
         self.teamBPlayers = teamBPlayers
     }
 }
+
+extension Gather: Identifiable {}

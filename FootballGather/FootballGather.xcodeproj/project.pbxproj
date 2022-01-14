@@ -49,6 +49,7 @@
 		F73E058627435EC2003E5F4F /* ConfirmPlayersUITests+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */; };
 		F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */; };
 		F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */; };
+		F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AA2791257700B14434 /* HistoryViewModel.swift */; };
 		F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */; };
 		F7557EF826E4F7DB00C31A2F /* PlayersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557EF726E4F7DB00C31A2F /* PlayersListViewModelTests.swift */; };
 		F7557EFA26E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7557EF926E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift */; };
@@ -189,6 +190,7 @@
 		F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+View.swift"; sourceTree = "<group>"; };
 		F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+Move.swift"; sourceTree = "<group>"; };
 		F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerUITests.swift; sourceTree = "<group>"; };
+		F750D0AA2791257700B14434 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModel.swift; sourceTree = "<group>"; };
 		F7557EF726E4F7DB00C31A2F /* PlayersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModelTests.swift; sourceTree = "<group>"; };
 		F7557EF926E4FD9E00C31A2F /* PlayersListViewModel+UIModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModelTests.swift"; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 		F7F0EC03278FD0E7000898A1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F750D0AA2791257700B14434 /* HistoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 				F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */,
 				F72972B9276074FD00900714 /* TimerView.swift in Sources */,
 				F71E989226ECB53A005A1EA7 /* SkillPickerViewModel.swift in Sources */,
+				F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */,
 				F7F0EC0E278FD51C000898A1 /* AppStorage+Gathers.swift in Sources */,
 				F791020B26E09E0C00BF79B9 /* PlayersViewModel.swift in Sources */,
 				F7A5255F27550B37006D2CBC /* GatherPlayersView.swift in Sources */,
