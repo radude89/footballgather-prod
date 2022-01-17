@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModels
+import Localizable
 
 struct HistoryView: View {
     
@@ -28,7 +29,7 @@ struct HistoryView: View {
     }
     
     private var emptyView: some View {
-        Text("No gathers played")
+        Text(LocalizedString.noGathers)
             .multilineTextAlignment(.center)
             .padding()
     }
@@ -70,7 +71,7 @@ struct HistoryView: View {
     private var teamSeparatorView: some View {
         HStack {
             Spacer()
-            Text("vs")
+            Text(LocalizedString.vs)
                 .font(.headline)
             Spacer()
         }

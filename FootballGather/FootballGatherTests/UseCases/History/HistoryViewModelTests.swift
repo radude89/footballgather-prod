@@ -65,13 +65,28 @@ final class HistoryViewModelTests: XCTestCase {
         }
     }
     
+    func testGathers_areOrderedByDate() {
+        let firstGather = makeGather()
+        let secondGather = makeGather()
+        let sut = makeSUT(gathers: [firstGather, secondGather])
+        
+        XCTAssertEqual(sut.gathers, [secondGather, firstGather])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(gathers: [Gather] = .demoGathers) -> HistoryViewModel {
         let storage = Mocks.storage
         gathers.forEach { storage.addGather($0) }
-        
         return HistoryViewModel(storage: storage)
+    }
+    
+    private func makeGather(score: String = "0-0") -> Gather {
+        .init(
+            score: score,
+            teamAPlayers: .demoPlayers,
+            teamBPlayers: .demoPlayers
+        )
     }
     
 }

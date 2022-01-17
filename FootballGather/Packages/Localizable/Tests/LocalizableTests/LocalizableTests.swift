@@ -49,7 +49,9 @@ final class LocalizableTests: XCTestCase {
             "time.is.up.title": LocalizedString.timeIsUpTitle,
             "minutes": LocalizedString.minutes,
             "seconds": LocalizedString.seconds,
-            "set.time": LocalizedString.setTime
+            "set.time": LocalizedString.setTime,
+            "no.gathers": LocalizedString.noGathers,
+            "vs": LocalizedString.vs
         ]
         
         localizedTextDictionary.forEach { key, value in

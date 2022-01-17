@@ -15,7 +15,7 @@ struct HistoryViewModel {
     }
     
     var gathers: [Gather] {
-        storage.gathers
+        storage.gathers.sorted { $0.completedAt > $1.completedAt }
     }
     
     var hasGathers: Bool {

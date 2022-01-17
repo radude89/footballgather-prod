@@ -15,12 +15,14 @@ public struct Gather: Equatable {
     public let teamBPlayers: [Player]
     
     public init(
+        id: UUID = .init(),
+        completedAt: Date = .init(),
         score: String,
         teamAPlayers: [Player],
         teamBPlayers: [Player]
     ) {
-        self.id = .init()
-        self.completedAt = Date()
+        self.id = id
+        self.completedAt = completedAt
         self.score = score
         self.teamAPlayers = teamAPlayers
         self.teamBPlayers = teamBPlayers
