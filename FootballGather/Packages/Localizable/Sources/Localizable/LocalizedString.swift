@@ -56,4 +56,5 @@ public enum LocalizedString: Localizable {
     public static let setTime = localizedText(key: "set.time")
     public static let noGathers = localizedText(key: "no.gathers")
     public static let vs = localizedText(key: "vs")
+    public static let pastGathers = localizedText(key: "past.gathers")
 }

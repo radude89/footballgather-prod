@@ -20,7 +20,7 @@ struct FootballGatherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PlayersView(viewModel: .init(storage: storage))
+            MainView()
                 .environmentObject(storage)
         }
     }
