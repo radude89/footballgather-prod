@@ -99,4 +99,28 @@ final class AppStorageTests: XCTestCase {
         XCTAssertTrue(sut.gathers.isEmpty)
     }
     
+    func testDeletePlayers() {
+        let sut = AppStorage(
+            storageKey: Mocks.storageKey,
+            commandLineHandler: Mocks.CommandRunner()
+        )
+        let player = Player(name: "John Smith")
+        sut.updatePlayer(player)
+        
+        sut.deletePlayer(player)
+        
+        XCTAssertTrue(sut.storedPlayers.isEmpty)
+    }
+    
+    func testDeletePlayers_whenStorageIsEmpty_returns() {
+        let sut = AppStorage(
+            storageKey: Mocks.storageKey,
+            commandLineHandler: Mocks.CommandRunner()
+        )
+        
+        sut.deletePlayer(Player(name: "John Smith"))
+        
+        XCTAssertTrue(sut.storedPlayers.isEmpty)
+    }
+    
 }

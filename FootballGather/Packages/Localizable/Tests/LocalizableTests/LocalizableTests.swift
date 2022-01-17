@@ -15,6 +15,7 @@ final class LocalizableTests: XCTestCase {
             "select.hint": LocalizedString.selectHint,
             "selected.player": LocalizedString.selectedPlayer,
             "tap.select.player": LocalizedString.tapToSelectPlayer,
+            "delete": LocalizedString.delete,
             "selected.count": LocalizedString.selectedCount,
             "player.name.field": LocalizedString.playerNameField,
             "section.player.details.header": LocalizedString.sectionDetailsHeader,

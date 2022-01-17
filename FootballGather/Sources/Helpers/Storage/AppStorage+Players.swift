@@ -11,6 +11,7 @@ protocol PlayerStorageHandler {
     var storedPlayers: [Player] { get }
     
     func updatePlayer(_ player: Player)
+    func deletePlayer(_ player: Player)
 }
 
 extension AppStorage: PlayerStorageHandler {
@@ -43,5 +44,26 @@ extension AppStorage: PlayerStorageHandler {
     private func update(_ players: inout [Player], with player: Player) {
         players.removeAll { $0.id == player.id }
         players.append(player)
+    }
+    
+    func deletePlayer(_ player: Player) {
+        guard let storedObject = storage.load(forKey: storageKey) else {
+            return
+        }
+        
+        let players = playersWithout(player, in: storedObject)
+        
+        let newObjectToStore = StoredObject(
+            players: players,
+            gathers: storedObject.gathers
+        )
+        
+        storage.update(newObjectToStore, at: storageKey)
+    }
+    
+    private func playersWithout(_ player: Player, in storedObject: StoredObject) -> [Player] {
+        var players = storedObject.players
+        players.removeAll { $0.id == player.id }
+        return players
     }
 }

@@ -13,7 +13,7 @@ import Localizable
 
 struct PlayersListView: View {
     
-    let viewModel: PlayersListViewModel
+    @ObservedObject var viewModel: PlayersListViewModel
     
     @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
@@ -40,6 +40,14 @@ struct PlayersListView: View {
                 )
             ) {
                 makeListRow(for: player)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        Button(
+                            role: .destructive,
+                            action: { onDelete(player) }
+                        ) {
+                            Label(LocalizedString.delete, systemImage: "trash")
+                        }
+                    }
             }
         }
         .listStyle(.plain)
@@ -60,6 +68,10 @@ struct PlayersListView: View {
             .accessibilityAddTraits(
                 viewModel.hasSelected(player) ? .isSelected : []
             )
+    }
+    
+    private func onDelete(_ player: Player) {
+        viewModel.delete(player)
     }
     
     private var isEditing: Bool {

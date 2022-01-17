@@ -9,11 +9,11 @@ import CoreModels
 import Localizable
 import SwiftUI
 
-final class PlayersListViewModel {
+final class PlayersListViewModel: ObservableObject {
     
     @Binding var selectedRows: Set<UUID>
     
-    private(set) var players: [Player]
+    @Published private(set) var players: [Player]
     private(set) var storage: AppStorage
     
     init(
@@ -27,6 +27,11 @@ final class PlayersListViewModel {
     
     func hasSelected(_ player: Player) -> Bool {
         selectedRows.contains(player.id)
+    }
+    
+    func delete(_ player: Player) {
+        storage.deletePlayer(player)
+        players = storage.storedPlayers
     }
     
     static func formattedRowTitle(for player: Player) -> String {

@@ -160,4 +160,18 @@ final class PlayersListViewModelTests: XCTestCase {
         XCTAssertTrue(sut.selectedPlayers.isEmpty)
     }
     
+    func testDeletePlayer() {
+        let player = Player(name: "John Doe")
+        Mocks.storage.updatePlayer(player)
+        
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant([])
+        )
+        
+        sut.delete(player)
+        
+        XCTAssertTrue(sut.players.isEmpty)
+    }
+    
 }
