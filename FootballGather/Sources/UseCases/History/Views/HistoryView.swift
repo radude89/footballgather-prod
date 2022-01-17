@@ -11,9 +11,21 @@ import Localizable
 
 struct HistoryView: View {
     
+    @EnvironmentObject var storage: AppStorage
+    
     let viewModel: HistoryViewModel
     
     var body: some View {
+        NavigationView {
+            mainContent
+                .navigationTitle(LocalizedString.pastGathers)
+                .navigationBarTitleDisplayMode(.inline)
+            
+        }
+    }
+    
+    @ViewBuilder
+    private var mainContent: some View {
         if viewModel.hasGathers {
             listView
         } else {
@@ -25,13 +37,15 @@ struct HistoryView: View {
         List(viewModel.gathers) { gather in
             row(for: gather)
         }
-        .listStyle(.plain)
+        .listStyle(.insetGrouped)
+        .accessibilityID(.historyView)
     }
     
     private var emptyView: some View {
         Text(LocalizedString.noGathers)
             .multilineTextAlignment(.center)
             .padding()
+            .accessibilityID(.historyNoEntries)
     }
     
     private func row(for gather: Gather) -> some View {

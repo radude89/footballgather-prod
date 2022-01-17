@@ -17,11 +17,15 @@ final class HistoryViewUITests: UITestCase {
     /// **THEN** I am navigated to the "History" screen
     /// **AND** I can see my previous gathers sorted by date newest first
     func testHistoryViewHasEntries() {
-//        launchApp(populatingStorage: true)
-//        
-//        app.tabBars.buttons[.historyTabButton].tap()
-//        
-//        XCTAssertTrue(app.otherElements[.historyView].waitToAppear())
+        launchApp(populatingStorage: true)
+        
+        historyTabButton.tap()
+        
+        XCTAssertTrue(app.tables[.historyView].waitToAppear())
+    }
+    
+    private var historyTabButton: XCUIElement {
+        app.tabBars.buttons[LocalizedString.pastGathers]
     }
     
     /// **Scenario 2: No previous gathers**
@@ -31,12 +35,11 @@ final class HistoryViewUITests: UITestCase {
     /// **WHEN** the screen is loaded
     /// **THEN** I see a message that I haven't played any gathers
     func testHistoryViewIsEmpty() {
-//        launchApp()
-//
-//        app.tabBars.buttons[.historyTabButton].tap()
-//
-//        XCTAssertTrue(app.otherElements[.historyEmptyView].waitToAppear())
-//        XCTAssertTrue(app.staticTexts[.historyNoEntries].exists)
+        launchApp()
+
+        historyTabButton.tap()
+
+        XCTAssertTrue(app.staticTexts[.historyNoEntries].exists)
     }
     
 }

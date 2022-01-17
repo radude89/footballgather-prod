@@ -14,7 +14,12 @@ struct MainView: View {
     @EnvironmentObject var storage: AppStorage
     
     init() {
+        updateAnimationsIfRunningUITests()
+    }
+    
+    private func updateAnimationsIfRunningUITests() {
         if CommandLineHandler().isRunningUITests {
+            UIView.setAnimationsEnabled(false)
             (UIApplication.shared.connectedScenes.first! as! UIWindowScene).keyWindow?.layer.speed = 100
         }
     }
