@@ -85,6 +85,7 @@ struct PlayersListView: View {
         ) {
             confirmPlayersButton
         }
+        .disabled(!viewModel.shouldConfirmPlayers)
     }
     
     private var confirmView: some View {
@@ -99,7 +100,6 @@ struct PlayersListView: View {
         .accessibilityID(.confirmButton)
         .accessibilityHint(LocalizedString.confirmPlayersButtonHint)
         .padding(.bottom)
-        .disabled(!viewModel.shouldConfirmPlayers)
     }
     
 }
