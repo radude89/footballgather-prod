@@ -66,8 +66,14 @@ final class HistoryViewModelTests: XCTestCase {
     }
     
     func testGathers_areOrderedByDate() {
-        let firstGather = makeGather()
-        let secondGather = makeGather()
+        let firstGatherDate = Date()
+        var components = DateComponents()
+        components.day = 1
+        let secondGatherDate = Calendar.current.date(byAdding: components, to: firstGatherDate)!
+        
+        let firstGather = makeGather(date: firstGatherDate)
+        let secondGather = makeGather(date: secondGatherDate)
+        
         let sut = makeSUT(gathers: [firstGather, secondGather])
         
         XCTAssertEqual(sut.gathers, [secondGather, firstGather])
@@ -81,8 +87,12 @@ final class HistoryViewModelTests: XCTestCase {
         return HistoryViewModel(storage: storage)
     }
     
-    private func makeGather(score: String = "0-0") -> Gather {
+    private func makeGather(
+        score: String = "0-0",
+        date: Date = .init()
+    ) -> Gather {
         .init(
+            completedAt: date,
             score: score,
             teamAPlayers: .demoPlayers,
             teamBPlayers: .demoPlayers
