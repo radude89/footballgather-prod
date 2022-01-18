@@ -20,16 +20,20 @@ struct GatherView: View {
     
     var body: some View {
         VStack {
-            ScoreView(viewModel: scoreViewModel)
-            
-            TimerView(viewModel: .init(timeSettings: timeSettings)) {
-                showingSetTimerView = true
+            ScrollView {
+                VStack {
+                    ScoreView(viewModel: scoreViewModel)
+                    
+                    TimerView(viewModel: .init(timeSettings: timeSettings)) {
+                        showingSetTimerView = true
+                    }
+                    
+                    GatherPlayersView(
+                        viewModel: .init(playersTeams: viewModel.playersTeams)
+                    )
+                        .scaledToFill()
+                }
             }
-            
-            GatherPlayersView(
-                viewModel: .init(playersTeams: viewModel.playersTeams)
-            )
-            
             GatherEndView(completion: onCompleteGather)
         }
         .sheet(isPresented: $showingSetTimerView) {
