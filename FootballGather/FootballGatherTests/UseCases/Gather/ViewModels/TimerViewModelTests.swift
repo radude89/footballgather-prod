@@ -63,6 +63,32 @@ final class TimerViewModelTests: XCTestCase {
         XCTAssertTrue(timerController.timerStopped)
     }
     
+    func testTimerIsRunning_whenStateIsStarted_isTrue() {
+        let timerController = Mocks.TimerController()
+        let sut = TimerViewModel(timerController: timerController)
+        
+        sut.onActionTimer()
+        
+        XCTAssertTrue(sut.timerIsRunning)
+    }
+    
+    func testTimerIsRunning_whenStateIsPaused_isFalse() {
+        let timerController = Mocks.TimerController()
+        let sut = TimerViewModel(timerController: timerController)
+        
+        sut.onActionTimer()
+        sut.onActionTimer()
+        
+        XCTAssertFalse(sut.timerIsRunning)
+    }
+    
+    func testTimerIsRunning_whenStateIsStopped_isFalse() {
+        let timerController = Mocks.TimerController()
+        let sut = TimerViewModel(timerController: timerController)
+        
+        XCTAssertFalse(sut.timerIsRunning)
+    }
+    
     // MARK: - Helpers
     
     private func makeTimeSettings(remainingTimeInSeconds: Int) -> TimeSettings {

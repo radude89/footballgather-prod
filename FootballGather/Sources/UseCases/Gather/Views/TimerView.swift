@@ -25,6 +25,7 @@ struct TimerView: View {
             .padding()
             
             Button(LocalizedString.setTime, action: setTimeAction)
+                .disabled(viewModel.timerIsRunning)
                 .accessibilityID(.setTimeButton)
         }
         .padding(.bottom)

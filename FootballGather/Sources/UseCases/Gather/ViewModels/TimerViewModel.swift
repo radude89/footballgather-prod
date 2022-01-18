@@ -124,4 +124,8 @@ final class TimerViewModel: ObservableObject {
         formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
     }
     
+    var timerIsRunning: Bool {
+        timerState == .started
+    }
+    
 }
