@@ -9,6 +9,7 @@ import XCTest
 import Combine
 import CoreModels
 import Localizable
+import SwiftUI
 @testable import FootballGather
 
 final class PlayerDetailsViewModelTests: XCTestCase {
@@ -209,6 +210,23 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         XCTAssertTrue(
             storedPlayers.contains(sut.selectedPlayer)
         )
+    }
+    
+    func testUpdateBindingToShowListView_setsToTrue() {
+        var showListView = false
+        let showListViewBinding = Binding<Bool>(
+            get: { showListView },
+            set: { showListView = $0 }
+        )
+        let sut = PlayerDetailsViewModel(
+            storage: Mocks.storage,
+            state: .addingPlayers,
+            showListView: showListViewBinding
+        )
+        
+        sut.updateBindingToShowListView()
+        
+        XCTAssertTrue(sut.showListView)
     }
     
     func testIsAddingPlayer_whenStateIsAddingPlayers_isTrue() {

@@ -16,6 +16,7 @@ struct PlayersView: View {
     @ObservedObject var viewModel: PlayersViewModel
     
     @State private var showAddView = false
+    @State private var showListView = false
     
     var body: some View {
         NavigationView {
@@ -23,7 +24,7 @@ struct PlayersView: View {
                 .navigationTitle(viewModel.formattedNavigationTitle)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(
-                    leading: viewModel.hasPlayers ? leadingBarButton : nil,
+                    leading: showListView ? leadingBarButton : nil,
                     trailing: trailingBarButton
                 )
                 .environment(\.editMode, viewModel.editModeBinding)
@@ -31,9 +32,13 @@ struct PlayersView: View {
                     PlayerDetailsView(
                         viewModel: .init(
                             storage: viewModel.storage,
-                            state: .addingPlayers
+                            state: .addingPlayers,
+                            showListView: $showListView
                         )
                     )
+                }
+                .onAppear {
+                    showListView = viewModel.hasPlayers
                 }
         }
         .accessibilityID(viewModel.mainViewAccessibilityID)
@@ -41,13 +46,14 @@ struct PlayersView: View {
     
     @ViewBuilder
     private var mainContent: some View {
-        if !viewModel.hasPlayers {
+        if !showListView {
             PlayersEmptyView()
         } else {
             PlayersListView(
                 viewModel: .init(
                     storage: viewModel.storage,
-                    selectedRows: $viewModel.selectedRows
+                    selectedRows: $viewModel.selectedRows,
+                    showListView: $showListView
                 )
             )
                 .onAppear(perform: viewModel.reloadView)

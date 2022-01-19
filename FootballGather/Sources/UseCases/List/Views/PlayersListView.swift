@@ -35,7 +35,8 @@ struct PlayersListView: View {
                     viewModel: .init(
                         storage: viewModel.storage,
                         state: .viewingDetails,
-                        player: player
+                        player: player,
+                        showListView: viewModel.$showListView
                     )
                 )
             ) {
@@ -111,7 +112,8 @@ struct PlayerListView_Previews: PreviewProvider {
         PlayersListView(
             viewModel: .init(
                 storage: .init(),
-                selectedRows: .constant(.init())
+                selectedRows: .constant(.init()),
+                showListView: .constant(true)
             )
         )
             .previewLayout(.sizeThatFits)

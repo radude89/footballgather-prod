@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import SwiftUI
 @testable import FootballGather
 
 final class PlayersListViewModelTests: XCTestCase {
@@ -164,14 +165,22 @@ final class PlayersListViewModelTests: XCTestCase {
         let player = Player(name: "John Doe")
         Mocks.storage.updatePlayer(player)
         
+        var showListView = false
+        let showListViewBinding = Binding<Bool>(
+            get: { showListView },
+            set: { showListView = $0 }
+        )
+        
         let sut = PlayersListViewModel(
             storage: Mocks.storage,
-            selectedRows: .constant([])
+            selectedRows: .constant([]),
+            showListView: showListViewBinding
         )
         
         sut.delete(player)
         
         XCTAssertTrue(sut.players.isEmpty)
+        XCTAssertFalse(sut.showListView)
     }
     
 }

@@ -15,6 +15,7 @@ import Localizable
 final class PlayerDetailsViewModel: ObservableObject {
     
     @Published var selectedPlayer: Player
+    @Binding var showListView: Bool
     
     private let storage: AppStorage
     private let state: State
@@ -25,11 +26,13 @@ final class PlayerDetailsViewModel: ObservableObject {
     init(
         storage: AppStorage,
         state: State,
-        player: Player = .init(name: "")
+        player: Player = .init(name: ""),
+        showListView: Binding<Bool> = .constant(false)
     ) {
         self.storage = storage
         self.state = state
         selectedPlayer = player
+        _showListView = showListView
     }
     
     var hasEnteredDetails: Bool {
@@ -70,6 +73,10 @@ final class PlayerDetailsViewModel: ObservableObject {
     
     func savePlayer() {
         storage.updatePlayer(selectedPlayer)
+    }
+    
+    func updateBindingToShowListView() {
+        showListView = true
     }
     
 }

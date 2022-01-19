@@ -77,6 +77,7 @@ struct PlayerDetailsView: View {
     
     private func saveAndDismiss() {
         viewModel.savePlayer()
+        viewModel.updateBindingToShowListView()
         dismiss()
     }
     
@@ -87,7 +88,11 @@ struct PlayerDetailsView: View {
 struct PlayerDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerDetailsView(
-            viewModel: .init(storage: .init(), state: .viewingDetails)
+            viewModel: .init(
+                storage: .init(),
+                state: .viewingDetails,
+                showListView: .constant(false)
+            )
         )
     }
 }
