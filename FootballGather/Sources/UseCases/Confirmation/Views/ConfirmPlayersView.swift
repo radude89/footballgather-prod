@@ -10,10 +10,12 @@ import CoreModels
 
 struct ConfirmPlayersView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UIViewController
+    
     let players: [Player]
+    @Binding var gatherEnded: Bool
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let viewController = ConfirmPlayersViewController(players: players)
+        let viewController = ConfirmPlayersViewController(players: players, gatherEnded: $gatherEnded)
         viewController.setEditing(true, animated: true)
         return viewController
     }

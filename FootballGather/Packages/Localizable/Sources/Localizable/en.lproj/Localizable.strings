@@ -55,3 +55,5 @@
 "no.gathers" = "No gathers played";
 "vs" = "vs";
 "past.gathers" = "Past Gathers";
+"gather.complete.title" = "Gather finished";
+"gather.complete.message" = "You can visit your results in the history tab.";

@@ -18,7 +18,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        sut = ConfirmPlayersViewController(players: .demoPlayers)
+        sut = ConfirmPlayersViewController(players: .demoPlayers, gatherEnded: .constant(false))
         sut.loadViewIfNeeded()
     }
     

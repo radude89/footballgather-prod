@@ -15,6 +15,7 @@ struct GatherView: View {
     @StateObject private var timeSettings = TimeSettings()
     @StateObject private var scoreViewModel = ScoreViewModel()
     
+    @Binding var gatherEnded: Bool
     @EnvironmentObject var storage: AppStorage
     let viewModel: GatherViewModel
     
@@ -56,6 +57,7 @@ struct GatherView: View {
     }
     
     private func onCompleteGather() {
+        gatherEnded = true
         viewModel.storeGather(
             score: scoreViewModel.formattedScore,
             storage: storage
@@ -69,6 +71,7 @@ struct GatherView: View {
 struct GatherView_Previews: PreviewProvider {
     static var previews: some View {
         GatherView(
+            gatherEnded: .constant(false),
             viewModel: .init(
                 playersTeams: [
                     .teamA: [.demoPlayers[0], .demoPlayers[2]],

@@ -53,7 +53,9 @@ final class LocalizableTests: XCTestCase {
             "set.time": LocalizedString.setTime,
             "no.gathers": LocalizedString.noGathers,
             "vs": LocalizedString.vs,
-            "past.gathers": LocalizedString.pastGathers
+            "past.gathers": LocalizedString.pastGathers,
+            "gather.complete.title": LocalizedString.gatherCompleteTitle,
+            "gather.complete.message": LocalizedString.gatherCompleteMessage
         ]
         
         localizedTextDictionary.forEach { key, value in

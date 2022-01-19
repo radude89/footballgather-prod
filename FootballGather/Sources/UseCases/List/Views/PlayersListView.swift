@@ -17,12 +17,24 @@ struct PlayersListView: View {
     
     @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
+    @State private var gatherEnded = false
     
     var body: some View {
         VStack {
             playerList
             confirmPlayersNavigationLink
         }
+        .alert(
+            LocalizedString.gatherCompleteTitle,
+            isPresented: $gatherEnded,
+            actions: {
+                Button(LocalizedString.ok, role: .cancel, action: {
+                    isShowingConfirmPlayersView = false
+                })
+            }, message: {
+                Text(LocalizedString.gatherCompleteMessage)
+            }
+        )
     }
     
     private var playerList: some View {
@@ -90,7 +102,10 @@ struct PlayersListView: View {
     }
     
     private var confirmView: some View {
-        ConfirmPlayersView(players: viewModel.selectedPlayers)
+        ConfirmPlayersView(
+            players: viewModel.selectedPlayers,
+            gatherEnded: $gatherEnded
+        )
             .navigationTitle(LocalizedString.confirmPlayersTitle)
     }
     

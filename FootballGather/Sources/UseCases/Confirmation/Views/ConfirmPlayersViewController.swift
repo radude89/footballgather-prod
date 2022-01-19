@@ -17,6 +17,7 @@ final class ConfirmPlayersViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var gatherEnded: Binding<Bool> = .constant(false)
     private var viewModel = ConfirmPlayersViewModel(players: [])
     
     private static let cellID = "ConfirmPlayersCell"
@@ -40,15 +41,19 @@ final class ConfirmPlayersViewController: UIViewController {
     )
     
     @objc private func startGather() {
-        let gatherView = GatherView(viewModel: .init(playersTeams: viewModel.playersTeams))
+        let gatherView = GatherView(
+            gatherEnded: gatherEnded,
+            viewModel: .init(playersTeams: viewModel.playersTeams)
+        )
         let gatherViewController = UIHostingController(rootView: gatherView)
         navigationController?.pushViewController(gatherViewController, animated: true)
     }
     
     // MARK: - Public API
     
-    convenience init(players: [Player]) {
+    convenience init(players: [Player], gatherEnded: Binding<Bool>) {
         self.init()
+        self.gatherEnded = gatherEnded
         viewModel = ConfirmPlayersViewModel(players: players)
     }
     
