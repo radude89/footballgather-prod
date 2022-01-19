@@ -11,13 +11,13 @@ import CoreModels
 
 struct GatherView: View {
     
-    @State private var showingSetTimerView = false
-    @StateObject private var timeSettings = TimeSettings()
-    @StateObject private var scoreViewModel = ScoreViewModel()
-    
     @Binding var gatherEnded: Bool
     @EnvironmentObject var storage: AppStorage
     let viewModel: GatherViewModel
+    
+    @State private var showingSetTimerView = false
+    @StateObject private var timeSettings = TimeSettings()
+    @StateObject private var scoreViewModel = ScoreViewModel()
     
     var body: some View {
         VStack {

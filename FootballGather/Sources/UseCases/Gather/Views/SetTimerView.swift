@@ -11,14 +11,14 @@ import Localizable
 
 struct SetTimerView: View {
     
+    @EnvironmentObject var timeSettings: TimeSettings
+    
     @State private var selectedMinutes: String
     @State private var selectedSeconds: String
     
     @Environment(\.dismiss) private var dismiss
     
     private let viewModel: SetTimerViewModel
-    
-    @EnvironmentObject var timeSettings: TimeSettings
     
     init(
         selectedMinutes: String = "10",

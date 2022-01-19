@@ -11,10 +11,10 @@ import UITools
 
 struct GatherEndView: View {
     
+    var completion: () -> Void
+    
     @State private var showConfirmationAlert = false
     @Environment(\.dismiss) private var dismiss
-    
-    var completion: () -> Void
     
     var body: some View {
         endGatherButton
