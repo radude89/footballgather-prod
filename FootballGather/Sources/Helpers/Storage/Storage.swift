@@ -13,7 +13,7 @@ extension Storage {
     static let defaultAppKey = "com.footballgather.storage"
 }
 
-struct StoredObject {
+struct StoredObject: Codable {
     var players: [Player] = []
     var gathers: [Gather] = []
 }

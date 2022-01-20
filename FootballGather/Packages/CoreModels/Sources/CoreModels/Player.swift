@@ -31,3 +31,5 @@ extension Player: Identifiable {}
 extension Player: Equatable {}
 
 extension Player: Hashable {}
+
+extension Player: Codable {}

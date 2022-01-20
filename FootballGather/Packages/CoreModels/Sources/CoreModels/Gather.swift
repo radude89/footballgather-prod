@@ -30,3 +30,5 @@ public struct Gather: Equatable {
 }
 
 extension Gather: Identifiable {}
+
+extension Gather: Codable {}

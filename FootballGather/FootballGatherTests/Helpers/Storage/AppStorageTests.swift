@@ -12,6 +12,11 @@ import CoreModels
 
 final class AppStorageTests: XCTestCase {
     
+    override func tearDown() {
+        Mocks.storage.clear()
+        super.tearDown()
+    }
+    
     func testAppStorage_whenIsNotRunningUITests_doesNotStorePlayers() {
         let sut = AppStorage(
             storageKey: Mocks.storageKey,

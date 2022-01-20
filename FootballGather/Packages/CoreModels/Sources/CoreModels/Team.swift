@@ -25,3 +25,5 @@ extension Team {
         }
     }
 }
+
+extension Team: Codable {}

@@ -23,6 +23,6 @@ struct AppStorageAssembler: AppStorageFactory {
             return AnyStorage(MemoryStorage<String, StoredObject>())
         }
         
-        return AnyStorage(MemoryStorage<String, StoredObject>())
+        return AnyStorage(FileStorage<String, StoredObject>())
     }
 }

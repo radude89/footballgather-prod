@@ -16,3 +16,5 @@ public extension Player {
 }
 
 extension Player.Skill: CaseIterable {}
+
+extension Player.Skill: Codable {}
