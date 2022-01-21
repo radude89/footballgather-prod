@@ -26,6 +26,10 @@ struct HistoryViewModel {
         gather.score
     }
     
+    func accessibilityLabel(for gather: Gather) -> String {
+        AccessibilityHandler(gather: gather).accessibilityLabel
+    }
+    
     func teamAPlayersDescription(for gather: Gather) -> String {
         formattedTeamDescription(for: gather.teamAPlayers)
     }

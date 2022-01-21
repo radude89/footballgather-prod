@@ -33,6 +33,16 @@ final class HistoryViewModelTests: XCTestCase {
         }
     }
     
+    func testAccessibilityLabel_isNotEmpty() {
+        let gathers = Gather.demoGathers
+        let sut = makeSUT(gathers: gathers)
+
+        gathers.forEach { gather in
+            let accessibilityLabel = sut.accessibilityLabel(for: gather)
+            XCTAssertFalse(accessibilityLabel.isEmpty)
+        }
+    }
+    
     func testTeamAPlayersDescription_whenHasEntries_isPlayerNamesJoinedByComma() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)

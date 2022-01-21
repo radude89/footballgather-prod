@@ -41,11 +41,11 @@
 "yes" = "Yes";
 "no" = "No";
 "start" = "Start";
-"start.timer.label" = "Starts your gather timer.";
+"start.timer.label" = "Starts your gather timer";
 "pause" = "Pause";
-"pause.timer.label" = "Pauses your gather timer.";
+"pause.timer.label" = "Pauses your gather timer";
 "resume" = "Resume";
-"resume.timer.label" = "Resumes your gather timer.";
+"resume.timer.label" = "Resumes your gather timer";
 "cancel.timer.label" = "Cancels your gather timer";
 "ok" = "OK";
 "time.is.up.title" = "Time's up!";
@@ -57,3 +57,8 @@
 "past.gathers" = "Past Gathers";
 "gather.complete.title" = "Gather finished";
 "gather.complete.message" = "You can visit your results in the history tab.";
+"gather.score.accessibility.label" = "%@ score is %@";
+"gather.all.accessibility.label" = "For the gather completed in %@, %@. %@. %@.";
+"gather.winning.team" = "%@ won the match";
+"gather.draw" = "matched ended in a draw";
+"gather.players.in.team" = "Players in %@: %@";

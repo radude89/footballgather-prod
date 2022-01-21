@@ -49,6 +49,8 @@
 		F73E058627435EC2003E5F4F /* ConfirmPlayersUITests+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */; };
 		F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */; };
 		F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */; };
+		F742FFCC279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742FFCB279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift */; };
+		F742FFCE279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742FFCD279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift */; };
 		F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AA2791257700B14434 /* HistoryViewModel.swift */; };
 		F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */; };
 		F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */; };
@@ -193,6 +195,8 @@
 		F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+View.swift"; sourceTree = "<group>"; };
 		F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+Move.swift"; sourceTree = "<group>"; };
 		F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerUITests.swift; sourceTree = "<group>"; };
+		F742FFCB279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel+Accessibility.swift"; sourceTree = "<group>"; };
+		F742FFCD279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel+AccessibilityTests.swift"; sourceTree = "<group>"; };
 		F750D0AA2791257700B14434 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptable.swift; sourceTree = "<group>"; };
 		F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModel.swift; sourceTree = "<group>"; };
@@ -804,6 +808,7 @@
 			isa = PBXGroup;
 			children = (
 				F750D0AA2791257700B14434 /* HistoryViewModel.swift */,
+				F742FFCB279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift */,
 				F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */,
 			);
 			path = ViewModels;
@@ -813,6 +818,7 @@
 			isa = PBXGroup;
 			children = (
 				F7F0EC05278FD10E000898A1 /* HistoryViewModelTests.swift */,
+				F742FFCD279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift */,
 				F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */,
 			);
 			path = History;
@@ -1021,6 +1027,7 @@
 				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
 				F7F25CFB276AF750001B9986 /* TimerViewModel+UIModel.swift in Sources */,
 				F7E0553A27730EA300385948 /* SetTimerViewModel.swift in Sources */,
+				F742FFCC279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift in Sources */,
 				F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */,
 				F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */,
 				F72972B9276074FD00900714 /* TimerView.swift in Sources */,
@@ -1108,6 +1115,7 @@
 				F76B9F27278D44DD00078F20 /* TimeSettingsTests.swift in Sources */,
 				F7E05537277308C000385948 /* SetTimerViewModelTests.swift in Sources */,
 				F791020826E0757700BF79B9 /* PlayersListRowAccessibilityTests.swift in Sources */,
+				F742FFCE279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift in Sources */,
 				F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */,
 				F703EB33274DF3AC00460551 /* GatherPlayersViewModelTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,

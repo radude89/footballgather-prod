@@ -35,6 +35,20 @@ final class ScoreViewModelTests: XCTestCase {
         XCTAssertEqual(sut.formattedScore, "0:0")
     }
     
+    func testScoreViewAccessibilityLabel_containsScoreAndTeam() {
+        let sut = ScoreViewModel()
+        
+        [Team.teamA, Team.teamB].forEach { team in
+            let accessibilityLabel = sut.scoreViewAccessibilityLabel(
+                for: team
+            )
+            
+            let score = sut.formattedScore(for: team)
+            XCTAssertTrue(accessibilityLabel.contains(score))
+            XCTAssertTrue(accessibilityLabel.contains(team.name))
+        }
+    }
+    
     func testIncrementsScore() {
         var scoreHandler = ScoreHandler(
             score: [

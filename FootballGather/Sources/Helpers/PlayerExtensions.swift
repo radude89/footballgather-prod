@@ -24,9 +24,9 @@ extension Player {
 
 extension Array where Element == Gather {
     static let demoGathers: [Gather] = [
-        Gather(score: "0-0", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers),
-        Gather(score: "2-0", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers),
-        Gather(score: "1-3", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers)
+        Gather(score: "0:0", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers),
+        Gather(score: "2:0", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers),
+        Gather(score: "1:3", teamAPlayers: .demoPlayers, teamBPlayers: .demoPlayers)
     ]
 }
 

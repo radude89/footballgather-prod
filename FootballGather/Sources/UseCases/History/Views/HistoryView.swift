@@ -69,6 +69,8 @@ struct HistoryView: View {
             Text(viewModel.scoreDescription(for: gather))
         }
         .padding([.top, .bottom])
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(viewModel.accessibilityLabel(for: gather))
     }
     
     private func makePlayerRowDescription(

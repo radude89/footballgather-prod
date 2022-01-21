@@ -55,7 +55,11 @@ final class LocalizableTests: XCTestCase {
             "vs": LocalizedString.vs,
             "past.gathers": LocalizedString.pastGathers,
             "gather.complete.title": LocalizedString.gatherCompleteTitle,
-            "gather.complete.message": LocalizedString.gatherCompleteMessage
+            "gather.complete.message": LocalizedString.gatherCompleteMessage,
+            "gather.score.accessibility.label": LocalizedString.gatherScoreAccessibilityLabel,
+            "gather.all.accessibility.label": LocalizedString.gatherAllAccessibilityLabel,
+            "gather.draw": LocalizedString.gatherDraw,
+            "gather.players.in.team": LocalizedString.gatherPlayersInTeam
         ]
         
         localizedTextDictionary.forEach { key, value in

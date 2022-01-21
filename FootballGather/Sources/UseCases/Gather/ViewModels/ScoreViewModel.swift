@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreModels
+import Localizable
 
 final class ScoreViewModel: ObservableObject {
     
@@ -29,6 +30,14 @@ final class ScoreViewModel: ObservableObject {
         let teamAScore = formattedScore(for: .teamA)
         let teamBScore = formattedScore(for: .teamB)
         return "\(teamAScore):\(teamBScore)"
+    }
+    
+    func scoreViewAccessibilityLabel(for team: Team) -> String {
+        String(
+            format: LocalizedString.gatherScoreAccessibilityLabel,
+            team.name,
+            formattedScore(for: team)
+        )
     }
     
     func formattedScore(for team: Team) -> String {

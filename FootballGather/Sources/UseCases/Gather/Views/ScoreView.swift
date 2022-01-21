@@ -27,8 +27,15 @@ struct ScoreView: View {
     
     private func scoreView(for team: Team) -> some View {
         VStack(spacing: ViewConstants.defaultSpacing) {
-            headerView(for: team)
-            scoreLabel(for: team)
+            VStack {
+                headerView(for: team)
+                scoreLabel(for: team)
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(
+                viewModel.scoreViewAccessibilityLabel(for: team)
+            )
+            
             stepperView(for: team)
         }
     }

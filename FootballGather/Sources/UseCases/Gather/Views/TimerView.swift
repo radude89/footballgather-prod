@@ -47,6 +47,7 @@ struct TimerView: View {
     private var timeView: some View {
         Text("\(viewModel.formattedTime)")
             .accessibilityID(.timerView)
+            .accessibilityAddTraits(.updatesFrequently)
     }
     
     private var actionTimerButton: some View {

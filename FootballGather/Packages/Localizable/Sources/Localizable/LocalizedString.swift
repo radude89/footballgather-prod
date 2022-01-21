@@ -60,4 +60,9 @@ public enum LocalizedString: Localizable {
     public static let pastGathers = localizedText(key: "past.gathers")
     public static let gatherCompleteTitle = localizedText(key: "gather.complete.title")
     public static let gatherCompleteMessage = localizedText(key: "gather.complete.message")
+    public static let gatherScoreAccessibilityLabel = localizedText(key: "gather.score.accessibility.label")
+    public static let gatherAllAccessibilityLabel = localizedText(key: "gather.all.accessibility.label")
+    public static let gatherWinningTeam = localizedText(key: "gather.winning.team")
+    public static let gatherDraw = localizedText(key: "gather.draw")
+    public static let gatherPlayersInTeam = localizedText(key: "gather.players.in.team")
 }
