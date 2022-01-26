@@ -28,4 +28,16 @@ platform :ios do
       devices: SIMULATORS
     )
   end
+
+  desc "Take screenshots"
+  lane :screenshots do
+    capture_ios_screenshots(
+      clear_previous_screenshots: true
+    )
+
+    capture_ios_screenshots(
+      dark_mode: true
+    )
+  end
+
 end

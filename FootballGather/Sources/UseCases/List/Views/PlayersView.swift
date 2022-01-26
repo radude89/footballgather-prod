@@ -42,6 +42,7 @@ struct PlayersView: View {
                 }
         }
         .accessibilityID(viewModel.mainViewAccessibilityID)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     @ViewBuilder

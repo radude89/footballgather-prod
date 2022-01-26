@@ -1,0 +1,18 @@
+devices([
+  "iPhone 8",
+  "iPad (9th generation)"
+])
+
+languages([
+  "en-US"
+])
+
+scheme("Snapshots")
+output_directory("./screenshots")
+clean(true)
+erase_simulator(true)
+stop_after_first_error(true)
+concurrent_simulators(true)
+skip_open_summary(true)
+skip_helper_version_check(true)
+override_status_bar(true)

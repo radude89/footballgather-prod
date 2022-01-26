@@ -22,6 +22,7 @@ struct HistoryView: View {
                 .navigationBarTitleDisplayMode(.inline)
             
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     @ViewBuilder
