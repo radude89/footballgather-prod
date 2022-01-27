@@ -2,7 +2,8 @@ name: Development Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   run-tests:
