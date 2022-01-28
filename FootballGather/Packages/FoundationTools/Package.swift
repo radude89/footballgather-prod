@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "FoundationTools",
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "FoundationTools",
