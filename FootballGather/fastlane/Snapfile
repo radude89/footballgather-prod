@@ -1,6 +1,11 @@
 devices([
   "iPhone 8",
-  "iPad (9th generation)"
+  "iPhone 13 Pro Max",
+  "iPhone 11 Pro",
+  "iPhone 8 Plus"
+  "iPad Pro (9.7-inch)",
+  "iPad Pro (11-inch) (3rd generation)",
+  "iPad Pro (12.9-inch) (5th generation)"
 ])
 
 languages([

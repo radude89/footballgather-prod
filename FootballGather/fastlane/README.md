@@ -37,7 +37,7 @@ Runs the UI tests of FootballGather
 [bundle exec] fastlane ios screenshots
 ```
 
-Makes screenshots
+Take screenshots
 
 ----
 
