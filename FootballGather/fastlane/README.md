@@ -37,7 +37,23 @@ Runs the UI tests of FootballGather
 [bundle exec] fastlane ios screenshots
 ```
 
-Take screenshots
+Takes screenshots
+
+### ios build_release_app
+
+```sh
+[bundle exec] fastlane ios build_release_app
+```
+
+Creates the release build
+
+### ios distribute_release_app
+
+```sh
+[bundle exec] fastlane ios distribute_release_app
+```
+
+Distributes IPA to AppStore
 
 ----
 

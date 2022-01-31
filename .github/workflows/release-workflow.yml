@@ -34,3 +34,12 @@ jobs:
 
       - name: Run UI tests
         run: bundle exec fastlane ui
+
+      - name: Release app
+        run: bundle exec fastlane distribute_release_app
+        env:
+          KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}'
+          ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+          KEY_CONTENT: '${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}'
+          DURATION: '${{ secrets.APP_STORE_CONNECT_API_KEY_DURATION }}'
+          IS_KEY_ENCODED: '${{ secrets.APP_STORE_CONNECT_API_KEY_ENCODED }}'
