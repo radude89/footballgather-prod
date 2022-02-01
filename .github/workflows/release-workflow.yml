@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  run-tests:
+  release-app:
     runs-on: macos-11
     defaults:
       run:
@@ -35,7 +35,7 @@ jobs:
       - name: Run UI tests
         run: bundle exec fastlane ui
 
-      - name: Release app
+      - name: Distribute app
         run: bundle exec fastlane distribute_release_app
         env:
           KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}'
