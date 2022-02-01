@@ -39,14 +39,6 @@ Runs the UI tests of FootballGather
 
 Takes screenshots
 
-### ios build_release_app
-
-```sh
-[bundle exec] fastlane ios build_release_app
-```
-
-Creates the release build
-
 ### ios distribute_release_app
 
 ```sh
