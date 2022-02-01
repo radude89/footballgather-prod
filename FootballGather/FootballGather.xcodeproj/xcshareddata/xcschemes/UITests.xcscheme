@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1320"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -36,16 +36,6 @@
                BlueprintIdentifier = "F756F951260C40BB00A36040"
                BuildableName = "UITests.xctest"
                BlueprintName = "UITests"
-               ReferencedContainer = "container:FootballGather.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F2A135279FA7F90094D9B0"
-               BuildableName = "Snapshots.xctest"
-               BlueprintName = "Snapshots"
                ReferencedContainer = "container:FootballGather.xcodeproj">
             </BuildableReference>
          </TestableReference>

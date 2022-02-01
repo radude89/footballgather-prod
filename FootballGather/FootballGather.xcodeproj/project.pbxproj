@@ -988,7 +988,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					F756F8DE260C3D6600A36040 = {
 						CreatedOnToolsVersion = 12.4;
@@ -1390,7 +1390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.fg;
 				PRODUCT_NAME = FootballGather;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
