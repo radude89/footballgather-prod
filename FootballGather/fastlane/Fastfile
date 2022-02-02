@@ -9,6 +9,9 @@ SIMULATORS = [
   'iPhone 8'
 ]
 
+TEMP_KEYCHAIN_USER = ENV["KEYCHAIN_NAME"]
+TEMP_KEYCHAIN_PASSWORD = ENV["KEYCHAIN_PASSWORD"]
+
 platform :ios do
   desc "Runs the unit tests of FootballGather"
   lane :ut do
@@ -43,33 +46,34 @@ platform :ios do
   desc "Distributes IPA to AppStore"
   lane :distribute_release_app do
     update_keychain
-    sync_device_info
     connect_to_appstore
-    sync_certs
+    sync_device_info
+    sync_certs(type: "appstore")
     bump_versions
     build_release_app
     upload_app_to_testflight
-    delete_keychain
+    nuke_keychain
   end
 
   private_lane :update_keychain do
-    delete_keychain
-    create_keychain
+    nuke_keychain
+    init_keychain
   end
 
-  private_lane :delete_keychain do
+  private_lane :nuke_keychain do
     delete_keychain(
-      name: "#{ENV["KEYCHAIN_NAME"]}",
-    ) if File.exist? File.expand_path("~/Library/Keychains/#{ENV["KEYCHAIN_NAME"]}-db")
+      name: "#{TEMP_KEYCHAIN_USER}",
+    ) if File.exist? File.expand_path("~/Library/Keychains/#{TEMP_KEYCHAIN_USER}-db")
   end
 
-  private_lane :create_keychain do
+  private_lane :init_keychain do
     create_keychain(
-      name: "#{ENV["KEYCHAIN_NAME"]}",
-      password: "#{ENV["KEYCHAIN_PASSWORD"]}",
+      name: "#{TEMP_KEYCHAIN_USER}",
+      password: "#{TEMP_KEYCHAIN_PASSWORD}",
       default_keychain: true,
       unlock: true,
       timeout: 3600,
+      add_to_search_list: true,
       lock_when_sleeps: true,
       lock_after_timeout: true
     )
@@ -81,13 +85,14 @@ platform :ios do
     )
   end
 
-  private_lane :sync_certs do
+  private_lane :sync_certs do |options|
+    selectedType = options[:type]
     match(
-      type: "appstore",
+      type: selectedType,
       force_for_new_devices: true,
       git_basic_authorization: "#{ENV["MATCH_GIT_BASIC_AUTHORIZATION"]}",
-      keychain_name: "#{ENV["KEYCHAIN_NAME"]}",
-      keychain_password: "#{ENV["KEYCHAIN_PASSWORD"]}",
+      keychain_name: "#{TEMP_KEYCHAIN_USER}",
+      keychain_password: "#{TEMP_KEYCHAIN_PASSWORD}",
       readonly: true
     )
   end
