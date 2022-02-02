@@ -1,0 +1,2 @@
+git_url("git@github.com:radude89/fg-certs.git")
+storage_mode("git")

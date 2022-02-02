@@ -42,22 +42,65 @@ platform :ios do
 
   desc "Distributes IPA to AppStore"
   lane :distribute_release_app do
+    update_keychain
+    sync_device_info
+    connect_to_appstore
+    sync_certs
+    bump_versions
     build_release_app
-    app_store_connect
-    pilot(
-      distribute_external: false,
-      notify_external_testers: false,
-      skip_waiting_for_build_processing: true,
-      skip_submission: true
+    upload_app_to_testflight
+    delete_keychain
+  end
+
+  private_lane :update_keychain do
+    delete_keychain
+    create_keychain
+  end
+
+  private_lane :delete_keychain do
+    delete_keychain(
+      name: "#{ENV["KEYCHAIN_NAME"]}",
+    ) if File.exist? File.expand_path("~/Library/Keychains/#{ENV["KEYCHAIN_NAME"]}-db")
+  end
+
+  private_lane :create_keychain do
+    create_keychain(
+      name: "#{ENV["KEYCHAIN_NAME"]}",
+      password: "#{ENV["KEYCHAIN_PASSWORD"]}",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true,
+      lock_after_timeout: true
     )
   end
 
-  private_lane :build_release_app do
+  private_lane :sync_device_info do
+    register_devices(
+      devices_file: "fastlane/Devicefile"
+    )
+  end
+
+  private_lane :sync_certs do
+    match(
+      type: "appstore",
+      force_for_new_devices: true,
+      git_basic_authorization: "#{ENV["MATCH_GIT_BASIC_AUTHORIZATION"]}",
+      keychain_name: "#{ENV["KEYCHAIN_NAME"]}",
+      keychain_password: "#{ENV["KEYCHAIN_PASSWORD"]}",
+      readonly: true
+    )
+  end
+
+  private_lane :bump_versions do
     version_number = sh("git describe --tags --abbrev=0")
     increment_build_number
     increment_version_number(
       version_number: version_number
     )
+  end
+
+  private_lane :build_release_app do
     gym(
       scheme: "FootballGather",
       clean: true,
@@ -66,14 +109,23 @@ platform :ios do
     )
   end
 
-  private_lane :app_store_connect do
+  private_lane :connect_to_appstore do
     app_store_connect_api_key(
-        key_id: "#{ENV["KEY_ID"]}",
-        issuer_id: "#{ENV["ISSUER_ID"]}",
-        key_content: "#{ENV["KEY_CONTENT"]}",
-        duration: "#{ENV["DURATION"]}",
-        is_key_content_base64: "#{ENV["IS_KEY_ENCODED"]}",
-        in_house: false
+      key_id: "#{ENV["KEY_ID"]}",
+      issuer_id: "#{ENV["ISSUER_ID"]}",
+      key_content: "#{ENV["KEY_CONTENT"]}",
+      duration: "#{ENV["DURATION"]}",
+      is_key_content_base64: "#{ENV["IS_KEY_ENCODED"]}",
+      in_house: false
+    )
+  end
+
+  private_lane :upload_app_to_testflight do
+    pilot(
+      distribute_external: false,
+      notify_external_testers: false,
+      skip_waiting_for_build_processing: true,
+      skip_submission: true
     )
   end
 

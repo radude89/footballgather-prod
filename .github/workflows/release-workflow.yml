@@ -43,3 +43,6 @@ jobs:
           KEY_CONTENT: '${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}'
           DURATION: '${{ secrets.APP_STORE_CONNECT_API_KEY_DURATION }}'
           IS_KEY_ENCODED: '${{ secrets.APP_STORE_CONNECT_API_KEY_ENCODED }}'
+          KEYCHAIN_NAME: '${{ secrets.KEYCHAIN_NAME }}'
+          KEYCHAIN_PASSWORD: '${{ secrets.KEYCHAIN_PASSWORD }}'
+          MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
