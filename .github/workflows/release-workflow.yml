@@ -38,11 +38,10 @@ jobs:
       - name: Distribute app
         run: bundle exec fastlane distribute_release_app
         env:
-          KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}'
-          ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
-          KEY_CONTENT: '${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}'
-          DURATION: '${{ secrets.APP_STORE_CONNECT_API_KEY_DURATION }}'
-          IS_KEY_ENCODED: '${{ secrets.APP_STORE_CONNECT_API_KEY_ENCODED }}'
           KEYCHAIN_NAME: '${{ secrets.KEYCHAIN_NAME }}'
           KEYCHAIN_PASSWORD: '${{ secrets.KEYCHAIN_PASSWORD }}'
+          APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}'
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+          APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}'
           MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
+          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
