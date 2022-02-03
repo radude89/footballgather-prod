@@ -60,16 +60,6 @@
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F756F951260C40BB00A36040"
-               BuildableName = "UITests.xctest"
-               BlueprintName = "UITests"
-               ReferencedContainer = "container:FootballGather.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
             skipped = "NO"
             parallelizable = "YES"
             testExecutionOrdering = "random">
@@ -123,16 +113,6 @@
                BuildableName = "UIToolsTests"
                BlueprintName = "UIToolsTests"
                ReferencedContainer = "container:Packages/UITools">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F2A135279FA7F90094D9B0"
-               BuildableName = "Snapshots.xctest"
-               BlueprintName = "Snapshots"
-               ReferencedContainer = "container:FootballGather.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

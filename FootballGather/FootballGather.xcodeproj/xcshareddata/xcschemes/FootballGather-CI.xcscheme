@@ -101,16 +101,6 @@
                ReferencedContainer = "container:Packages/UITools">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F7F2A135279FA7F90094D9B0"
-               BuildableName = "Snapshots.xctest"
-               BlueprintName = "Snapshots"
-               ReferencedContainer = "container:FootballGather.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
