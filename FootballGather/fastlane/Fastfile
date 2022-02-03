@@ -9,9 +9,6 @@ SIMULATORS = [
   'iPhone 8'
 ]
 
-TEMP_KEYCHAIN_USER = ENV["KEYCHAIN_NAME"]
-TEMP_KEYCHAIN_PASSWORD = ENV["KEYCHAIN_PASSWORD"]
-
 platform :ios do
   desc "Runs the unit tests of FootballGather"
   lane :ut do
@@ -45,37 +42,20 @@ platform :ios do
 
   desc "Distributes IPA to AppStore"
   lane :distribute_release_app do
-    update_keychain
+    setup_ci
     connect_to_appstore
     sync_device_info
     sync_certs(type: "appstore")
     bump_versions
     build_release_app
     upload_app_to_testflight
-    nuke_keychain
   end
 
-  private_lane :update_keychain do
-    nuke_keychain
-    init_keychain
-  end
-
-  private_lane :nuke_keychain do
-    delete_keychain(
-      name: "#{TEMP_KEYCHAIN_USER}",
-    ) if File.exist? File.expand_path("~/Library/Keychains/#{TEMP_KEYCHAIN_USER}-db")
-  end
-
-  private_lane :init_keychain do
-    create_keychain(
-      name: "#{TEMP_KEYCHAIN_USER}",
-      password: "#{TEMP_KEYCHAIN_PASSWORD}",
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      add_to_search_list: true,
-      lock_when_sleeps: true,
-      lock_after_timeout: true
+  private_lane :connect_to_appstore do
+    app_store_connect_api_key(
+      duration: 200,
+      is_key_content_base64: true,
+      in_house: false
     )
   end
 
@@ -90,14 +70,12 @@ platform :ios do
     match(
       type: selectedType,
       force_for_new_devices: true,
-      keychain_name: "#{TEMP_KEYCHAIN_USER}",
-      keychain_password: "#{TEMP_KEYCHAIN_PASSWORD}",
       readonly: true
     )
   end
 
   private_lane :bump_versions do
-    version_number = sh("git describe --tags --abbrev=0")
+    version_number = sh("git describe --tags $(git rev-list --tags --max-count=1) | tr -d '\n'")
     increment_build_number
     increment_version_number(
       version_number: version_number
@@ -110,14 +88,6 @@ platform :ios do
       clean: true,
       output_directory: "./build-store",
       export_method: "app-store"
-    )
-  end
-
-  private_lane :connect_to_appstore do
-    app_store_connect_api_key(
-      duration: 300,
-      is_key_content_base64: true,
-      in_house: false
     )
   end
 
