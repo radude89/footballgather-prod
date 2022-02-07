@@ -78,6 +78,8 @@
 		F76AD5E8279FBB7A00B18633 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E7279FBB7A00B18633 /* Localizable */; };
 		F76B9F25278D2E9800078F20 /* TimeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F24278D2E9800078F20 /* TimeSettings.swift */; };
 		F76B9F27278D44DD00078F20 /* TimeSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */; };
+		F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316727B0CA660067B3F8 /* MainTabView.swift */; };
+		F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */; };
 		F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */; };
@@ -238,6 +240,8 @@
 		F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModelTests.swift; sourceTree = "<group>"; };
 		F76B9F24278D2E9800078F20 /* TimeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettings.swift; sourceTree = "<group>"; };
 		F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingsTests.swift; sourceTree = "<group>"; };
+		F777316727B0CA660067B3F8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewProvider.swift; sourceTree = "<group>"; };
 		F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDetailsViewModel+UIModel.swift"; sourceTree = "<group>"; };
@@ -723,6 +727,8 @@
 			isa = PBXGroup;
 			children = (
 				F7B1FB6027951C8500A31659 /* MainView.swift */,
+				F777316727B0CA660067B3F8 /* MainTabView.swift */,
+				F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1070,6 +1076,7 @@
 				F72972B62760709400900714 /* TimerController.swift in Sources */,
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
 				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
+				F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */,
 				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
 				F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */,
 				F75FD85F278E934300266527 /* HistoryView.swift in Sources */,
@@ -1098,6 +1105,7 @@
 				F7F25CFB276AF750001B9986 /* TimerViewModel+UIModel.swift in Sources */,
 				F7E0553A27730EA300385948 /* SetTimerViewModel.swift in Sources */,
 				F742FFCC279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift in Sources */,
+				F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */,
 				F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */,
 				F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */,
 				F72972B9276074FD00900714 /* TimerView.swift in Sources */,

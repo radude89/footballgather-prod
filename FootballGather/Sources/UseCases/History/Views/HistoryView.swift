@@ -102,7 +102,6 @@ struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
         let storage = AppStorage()
         Gather.demoGathers.forEach { storage.addGather($0) }
-        
         return HistoryView(viewModel: .init(storage: storage))
     }
 }
