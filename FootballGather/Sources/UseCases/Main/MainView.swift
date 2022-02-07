@@ -26,33 +26,9 @@ struct MainView: View {
     
     var body: some View {
         MainTabView(tabProviders: [
-            playersTabViewProvider,
-            historyTabViewProvider
+            PlayersTabView(storage: storage).provider,
+            HistoryTabView(storage: storage).provider
         ])
-    }
-    
-    private var playersTabViewProvider: MainTabViewProvider {
-        .init(
-            icon: "person.3.sequence",
-            title: LocalizedString.players,
-            view: {
-                AnyView(
-                    PlayersView(viewModel: .init(storage: storage))
-                )
-            }
-        )
-    }
-    
-    private var historyTabViewProvider: MainTabViewProvider {
-        .init(
-            icon: "clock",
-            title: LocalizedString.pastGathers,
-            view: {
-                AnyView(
-                    HistoryView(viewModel: .init(storage: storage))
-                )
-            }
-        )
     }
     
 }

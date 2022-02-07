@@ -80,6 +80,10 @@
 		F76B9F27278D44DD00078F20 /* TimeSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */; };
 		F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316727B0CA660067B3F8 /* MainTabView.swift */; };
 		F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */; };
+		F777316E27B0DCF70067B3F8 /* PlayersTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316D27B0DCF70067B3F8 /* PlayersTabView.swift */; };
+		F777317427B0DF430067B3F8 /* AddPlayerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */; };
+		F777317627B0DFD70067B3F8 /* PlayerDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */; };
+		F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317927B0E1D60067B3F8 /* HistoryTabView.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F78BAAA126E4F058005B1D43 /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */; };
 		F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */; };
@@ -242,6 +246,10 @@
 		F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingsTests.swift; sourceTree = "<group>"; };
 		F777316727B0CA660067B3F8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewProvider.swift; sourceTree = "<group>"; };
+		F777316D27B0DCF70067B3F8 /* PlayersTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTabView.swift; sourceTree = "<group>"; };
+		F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerContainerView.swift; sourceTree = "<group>"; };
+		F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsContainerView.swift; sourceTree = "<group>"; };
+		F777317927B0E1D60067B3F8 /* HistoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTabView.swift; sourceTree = "<group>"; };
 		F78BAAA026E4F058005B1D43 /* PlayersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		F78BAAA226E4F412005B1D43 /* PlayersListViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayersListViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDetailsViewModel+UIModel.swift"; sourceTree = "<group>"; };
@@ -637,6 +645,24 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		F777317727B0E16D0067B3F8 /* PlayersTab */ = {
+			isa = PBXGroup;
+			children = (
+				F777316D27B0DCF70067B3F8 /* PlayersTabView.swift */,
+				F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */,
+				F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */,
+			);
+			path = PlayersTab;
+			sourceTree = "<group>";
+		};
+		F777317827B0E1C50067B3F8 /* HistoryTab */ = {
+			isa = PBXGroup;
+			children = (
+				F777317927B0E1D60067B3F8 /* HistoryTabView.swift */,
+			);
+			path = HistoryTab;
+			sourceTree = "<group>";
+		};
 		F78BA6A1260C530F00083142 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +753,8 @@
 			isa = PBXGroup;
 			children = (
 				F7B1FB6027951C8500A31659 /* MainView.swift */,
+				F777317727B0E16D0067B3F8 /* PlayersTab */,
+				F777317827B0E1C50067B3F8 /* HistoryTab */,
 				F777316727B0CA660067B3F8 /* MainTabView.swift */,
 				F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */,
 			);
@@ -1077,6 +1105,7 @@
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,
 				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
 				F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */,
+				F777317427B0DF430067B3F8 /* AddPlayerContainerView.swift in Sources */,
 				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
 				F78BAAA326E4F412005B1D43 /* PlayersListViewModel+UIModel.swift in Sources */,
 				F75FD85F278E934300266527 /* HistoryView.swift in Sources */,
@@ -1087,6 +1116,7 @@
 				F705D013265B66390057B63A /* PlayersListView.swift in Sources */,
 				F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */,
 				F7FEF36127591951009F60E6 /* ScoreViewModel.swift in Sources */,
+				F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */,
 				F7F0EC08278FD221000898A1 /* AppStorage+Players.swift in Sources */,
 				F791020426E0735100BF79B9 /* PlayersListRowAccessibility.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
@@ -1103,6 +1133,7 @@
 				F7A5255D27550AFF006D2CBC /* GatherViewModel.swift in Sources */,
 				F75AFA6826537FDD002D1CE8 /* PlayersView.swift in Sources */,
 				F7F25CFB276AF750001B9986 /* TimerViewModel+UIModel.swift in Sources */,
+				F777317627B0DFD70067B3F8 /* PlayerDetailsContainerView.swift in Sources */,
 				F7E0553A27730EA300385948 /* SetTimerViewModel.swift in Sources */,
 				F742FFCC279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift in Sources */,
 				F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */,
@@ -1117,6 +1148,7 @@
 				F76B9F25278D2E9800078F20 /* TimeSettings.swift in Sources */,
 				F705D016265B66A60057B63A /* PlayerExtensions.swift in Sources */,
 				F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */,
+				F777316E27B0DCF70067B3F8 /* PlayersTabView.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
 				F72D32162717E0440001CD6F /* PlayerDetailsDuplicateVerifier.swift in Sources */,
 				F7A525712757F091006D2CBC /* ScoreHandler.swift in Sources */,

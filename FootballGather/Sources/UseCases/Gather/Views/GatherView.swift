@@ -22,18 +22,7 @@ struct GatherView: View {
     var body: some View {
         VStack {
             ScrollView {
-                VStack {
-                    ScoreView(viewModel: scoreViewModel)
-                    
-                    TimerView(viewModel: .init(timeSettings: timeSettings)) {
-                        showingSetTimerView = true
-                    }
-                    
-                    GatherPlayersView(
-                        viewModel: .init(playersTeams: viewModel.playersTeams)
-                    )
-                        .scaledToFill()
-                }
+                gatherViewContent
             }
             GatherEndView(completion: onCompleteGather)
         }
@@ -45,6 +34,21 @@ struct GatherView: View {
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private var gatherViewContent: some View {
+        VStack {
+            ScoreView(viewModel: scoreViewModel)
+            
+            TimerView(viewModel: .init(timeSettings: timeSettings)) {
+                showingSetTimerView = true
+            }
+            
+            GatherPlayersView(
+                viewModel: .init(playersTeams: viewModel.playersTeams)
+            )
+                .scaledToFill()
+        }
     }
     
     private var setTimerView: some View {

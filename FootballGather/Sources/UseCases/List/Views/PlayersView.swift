@@ -11,9 +11,16 @@ import CoreModels
 
 // MARK: - PlayersView
 
-struct PlayersView: View {
+struct PlayersView<AddView: View, DetailsView: View>: View {
     
     @ObservedObject var viewModel: PlayersViewModel
+    
+    var addViewProvider: (_ showListView: Binding<Bool>) -> AddView
+    
+    var detailsViewProvider: (
+        _ showListView: Binding<Bool>,
+        _ player: Player
+    ) -> DetailsView
     
     @State private var showAddView = false
     @State private var showListView = false
@@ -29,13 +36,7 @@ struct PlayersView: View {
                 )
                 .environment(\.editMode, viewModel.editModeBinding)
                 .sheet(isPresented: $showAddView) {
-                    PlayerDetailsView(
-                        viewModel: .init(
-                            storage: viewModel.storage,
-                            state: .addingPlayers,
-                            showListView: $showListView
-                        )
-                    )
+                    addViewProvider($showListView)
                 }
                 .onAppear {
                     showListView = viewModel.hasPlayers
@@ -55,7 +56,10 @@ struct PlayersView: View {
                     storage: viewModel.storage,
                     selectedRows: $viewModel.selectedRows,
                     showListView: $showListView
-                )
+                ),
+                detailsViewProvider: { showListView, player in
+                    detailsViewProvider(showListView, player)
+                }
             )
                 .onAppear(perform: viewModel.reloadView)
         }
@@ -94,6 +98,10 @@ struct PlayersView: View {
 
 struct PlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersView(viewModel: .init(storage: AppStorage()))
+        PlayersView(
+            viewModel: .init(storage: AppStorage()),
+            addViewProvider: { _ in AnyView(Text("Add View")) },
+            detailsViewProvider: { _,_ in AnyView(Text("Details View")) }
+        )
     }
 }

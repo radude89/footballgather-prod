@@ -11,9 +11,14 @@ import Localizable
 
 // MARK: - PlayerListView
 
-struct PlayersListView: View {
+struct PlayersListView<DetailsView: View>: View {
     
     @ObservedObject var viewModel: PlayersListViewModel
+    
+    var detailsViewProvider: (
+        _ showListView: Binding<Bool>,
+        _ player: Player
+    ) -> DetailsView
     
     @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
@@ -43,13 +48,9 @@ struct PlayersListView: View {
             selection: viewModel.$selectedRows
         ) { player in
             NavigationLink(
-                destination: PlayerDetailsView(
-                    viewModel: .init(
-                        storage: viewModel.storage,
-                        state: .viewingDetails,
-                        player: player,
-                        showListView: viewModel.$showListView
-                    )
+                destination: detailsViewProvider(
+                    viewModel.$showListView,
+                    player
                 )
             ) {
                 makeListRow(for: player)
@@ -129,7 +130,8 @@ struct PlayerListView_Previews: PreviewProvider {
                 storage: .init(),
                 selectedRows: .constant(.init()),
                 showListView: .constant(true)
-            )
+            ),
+            detailsViewProvider: { _,_ in AnyView(Text("View")) }
         )
             .previewLayout(.sizeThatFits)
     }
