@@ -125,6 +125,8 @@
 		F7C77DE727310E7600470E4E /* ConfirmPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */; };
 		F7CAFE6B27B21C8000B39B22 /* PlayersViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAFE6A27B21C8000B39B22 /* PlayersViewProvider.swift */; };
 		F7CAFE6D27B21F0900B39B22 /* ConfirmPlayersContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */; };
+		F7CAFE7127B22B8700B39B22 /* GatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */; };
+		F7CAFE7327B22BED00B39B22 /* GatherCoordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAFE7227B22BED00B39B22 /* GatherCoordinatable.swift */; };
 		F7E05537277308C000385948 /* SetTimerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E05536277308C000385948 /* SetTimerViewModelTests.swift */; };
 		F7E0553A27730EA300385948 /* SetTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E0553827730E2100385948 /* SetTimerViewModel.swift */; };
 		F7EE73A3279137A6006BCF0F /* HistoryRowDescriptableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */; };
@@ -294,6 +296,8 @@
 		F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewController.swift; sourceTree = "<group>"; };
 		F7CAFE6A27B21C8000B39B22 /* PlayersViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewProvider.swift; sourceTree = "<group>"; };
 		F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersContainerView.swift; sourceTree = "<group>"; };
+		F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinator.swift; sourceTree = "<group>"; };
+		F7CAFE7227B22BED00B39B22 /* GatherCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinatable.swift; sourceTree = "<group>"; };
 		F7E05536277308C000385948 /* SetTimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModelTests.swift; sourceTree = "<group>"; };
 		F7E0553827730E2100385948 /* SetTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModel.swift; sourceTree = "<group>"; };
 		F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptableTests.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 			children = (
 				F7BD16A8265F6691005D1422 /* Storage */,
 				F705D015265B66A60057B63A /* PlayerExtensions.swift */,
+				F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -901,6 +906,7 @@
 		F7F25CF327670BDB001B9986 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F7CAFE7227B22BED00B39B22 /* GatherCoordinatable.swift */,
 				F7A525702757F091006D2CBC /* ScoreHandler.swift */,
 				F72972B42760709200900714 /* TimerController.swift */,
 				F7F25CF127670BD5001B9986 /* GatherTimeFormatter.swift */,
@@ -1133,6 +1139,7 @@
 				F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */,
 				F7F0EC08278FD221000898A1 /* AppStorage+Players.swift in Sources */,
 				F791020426E0735100BF79B9 /* PlayersListRowAccessibility.swift in Sources */,
+				F7CAFE7127B22B8700B39B22 /* GatherCoordinator.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F7B1FB6127951C8500A31659 /* MainView.swift in Sources */,
 				F78C2C8F27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift in Sources */,
@@ -1150,6 +1157,7 @@
 				F777317627B0DFD70067B3F8 /* PlayerDetailsContainerView.swift in Sources */,
 				F7E0553A27730EA300385948 /* SetTimerViewModel.swift in Sources */,
 				F742FFCC279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift in Sources */,
+				F7CAFE7327B22BED00B39B22 /* GatherCoordinatable.swift in Sources */,
 				F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */,
 				F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */,
 				F7B2209826E342CC00BC7DD3 /* PlayersViewModel+UIModel.swift in Sources */,

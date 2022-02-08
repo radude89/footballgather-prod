@@ -14,16 +14,20 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     
     private var sut: ConfirmPlayersViewController!
     private let playersCount = Player.demoPlayers.count
+    private var gatherCoordinator: MockGatherCoordinator!
     
     override func setUp() {
         super.setUp()
         
-        sut = ConfirmPlayersViewController(players: .demoPlayers, gatherEnded: .constant(false))
+        gatherCoordinator = MockGatherCoordinator()
+        sut = ConfirmPlayersViewController(players: .demoPlayers, gatherCoordinator: gatherCoordinator)
         sut.loadViewIfNeeded()
     }
     
     override func tearDown() {
+        gatherCoordinator = nil
         sut = nil
+        
         super.tearDown()
     }
     
@@ -210,6 +214,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         
         startGatherButton.sendActions(for: .touchUpInside)
         
+        XCTAssertTrue(gatherCoordinator.gatherStarted)
         XCTAssertTrue(navController.viewControllerPushed)
         XCTAssertTrue(navController.pushedViewControllerIsConfirmPlayersViewController)
     }
@@ -290,6 +295,14 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         override func pushViewController(_ viewController: UIViewController, animated: Bool) {
             viewControllerPushed = true
             pushedViewControllerIsConfirmPlayersViewController = viewController is ConfirmPlayersViewController
+        }
+    }
+    
+    private final class MockGatherCoordinator: GatherCoordinatable {
+        private(set) var gatherStarted = false
+        
+        func startGather(from parent: UIViewController, playersTeams: [Team : [Player]], animated: Bool) {
+            gatherStarted = true
         }
     }
     

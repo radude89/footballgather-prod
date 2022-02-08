@@ -10,8 +10,7 @@ import SwiftUI
 struct AddPlayerContainerView: View {
     
     private let storage: AppStorage
-    
-    var showListView: Binding<Bool>
+    private let showListView: Binding<Bool>
     
     init(storage: AppStorage, showListView: Binding<Bool>) {
         self.storage = storage

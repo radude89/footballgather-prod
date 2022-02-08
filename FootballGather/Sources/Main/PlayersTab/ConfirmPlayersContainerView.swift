@@ -11,8 +11,7 @@ import CoreModels
 struct ConfirmPlayersContainerView: View {
     
     private let players: [Player]
-    
-    var gatherEnded: Binding<Bool>
+    private let gatherEnded: Binding<Bool>
     
     init(players: [Player], gatherEnded: Binding<Bool>) {
         self.players = players
@@ -22,7 +21,7 @@ struct ConfirmPlayersContainerView: View {
     var body: some View {
         ConfirmPlayersView(
             players: players,
-            gatherEnded: gatherEnded
+            gatherCoordinator: GatherCoordinator(gatherEnded: gatherEnded)
         )
     }
     

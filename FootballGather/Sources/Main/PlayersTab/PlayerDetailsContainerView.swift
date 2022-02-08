@@ -12,8 +12,7 @@ struct PlayerDetailsContainerView: View {
     
     private let storage: AppStorage
     private let player: Player
-    
-    var showListView: Binding<Bool>
+    private let showListView: Binding<Bool>
     
     init(storage: AppStorage, player: Player, showListView: Binding<Bool>) {
         self.storage = storage
