@@ -26,14 +26,15 @@ struct PlayersTabView {
     }
     
     private var playersView: some View {
-        PlayersView(
+        let viewProvider = PlayersViewProvider(
+            addView: addPlayerContainerView,
+            detailsView: playerDetailsContainerView,
+            confirmPlayersView: confirmPlayersContainerView
+        )
+        
+        return PlayersView(
             viewModel: .init(storage: storage),
-            addViewProvider: { showListView in
-                addPlayerContainerView(showListBinding: showListView)
-            },
-            detailsViewProvider: { showListView, player in
-                playerDetailsContainerView(player: player, showListBinding: showListView)
-            }
+            viewProvider: viewProvider
         )
     }
     
@@ -47,13 +48,23 @@ struct PlayersTabView {
     }
     
     private func playerDetailsContainerView(
-        player: Player,
-        showListBinding: Binding<Bool>
+        showListBinding: Binding<Bool>,
+        player: Player
     ) -> PlayerDetailsContainerView {
         .init(
             storage: storage,
             player: player,
             showListView: showListBinding
+        )
+    }
+    
+    private func confirmPlayersContainerView(
+        players: [Player],
+        gatherEnded: Binding<Bool>
+    ) -> ConfirmPlayersContainerView {
+        .init(
+            players: players,
+            gatherEnded: gatherEnded
         )
     }
     

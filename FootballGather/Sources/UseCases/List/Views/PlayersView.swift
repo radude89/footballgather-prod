@@ -11,16 +11,11 @@ import CoreModels
 
 // MARK: - PlayersView
 
-struct PlayersView<AddView: View, DetailsView: View>: View {
+struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: View {
     
     @ObservedObject var viewModel: PlayersViewModel
     
-    var addViewProvider: (_ showListView: Binding<Bool>) -> AddView
-    
-    var detailsViewProvider: (
-        _ showListView: Binding<Bool>,
-        _ player: Player
-    ) -> DetailsView
+    let viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
     
     @State private var showAddView = false
     @State private var showListView = false
@@ -36,7 +31,7 @@ struct PlayersView<AddView: View, DetailsView: View>: View {
                 )
                 .environment(\.editMode, viewModel.editModeBinding)
                 .sheet(isPresented: $showAddView) {
-                    addViewProvider($showListView)
+                    viewProvider.addView($showListView)
                 }
                 .onAppear {
                     showListView = viewModel.hasPlayers
@@ -57,9 +52,8 @@ struct PlayersView<AddView: View, DetailsView: View>: View {
                     selectedRows: $viewModel.selectedRows,
                     showListView: $showListView
                 ),
-                detailsViewProvider: { showListView, player in
-                    detailsViewProvider(showListView, player)
-                }
+                detailsViewProvider: viewProvider.detailsView,
+                confirmPlayersViewProvider: viewProvider.confirmPlayersView
             )
                 .onAppear(perform: viewModel.reloadView)
         }
@@ -98,10 +92,15 @@ struct PlayersView<AddView: View, DetailsView: View>: View {
 
 struct PlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersView(
+        let viewProvider = PlayersViewProvider(
+            addView: { _ in AnyView(Text("Add View")) },
+            detailsView: { _,_ in AnyView(Text("Details View")) },
+            confirmPlayersView: { _,_ in AnyView(Text("Confirm view")) }
+        )
+        
+        return PlayersView(
             viewModel: .init(storage: AppStorage()),
-            addViewProvider: { _ in AnyView(Text("Add View")) },
-            detailsViewProvider: { _,_ in AnyView(Text("Details View")) }
+            viewProvider: viewProvider
         )
     }
 }

@@ -11,14 +11,19 @@ import Localizable
 
 // MARK: - PlayerListView
 
-struct PlayersListView<DetailsView: View>: View {
+struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
     @ObservedObject var viewModel: PlayersListViewModel
     
-    var detailsViewProvider: (
+    let detailsViewProvider: (
         _ showListView: Binding<Bool>,
         _ player: Player
     ) -> DetailsView
+    
+    let confirmPlayersViewProvider: (
+        _ players: [Player],
+        _ gatherEnded: Binding<Bool>
+    ) -> ConfirmView
     
     @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
@@ -103,10 +108,7 @@ struct PlayersListView<DetailsView: View>: View {
     }
     
     private var confirmView: some View {
-        ConfirmPlayersView(
-            players: viewModel.selectedPlayers,
-            gatherEnded: $gatherEnded
-        )
+        confirmPlayersViewProvider(viewModel.selectedPlayers, $gatherEnded)
             .navigationTitle(LocalizedString.confirmPlayersTitle)
     }
     
@@ -131,7 +133,8 @@ struct PlayerListView_Previews: PreviewProvider {
                 selectedRows: .constant(.init()),
                 showListView: .constant(true)
             ),
-            detailsViewProvider: { _,_ in AnyView(Text("View")) }
+            detailsViewProvider: { _,_ in AnyView(Text("View")) },
+            confirmPlayersViewProvider: { _, _ in AnyView(Text("Confirm View")) }
         )
             .previewLayout(.sizeThatFits)
     }
