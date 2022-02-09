@@ -15,15 +15,7 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
     @ObservedObject var viewModel: PlayersListViewModel
     
-    let detailsViewProvider: (
-        _ showListView: Binding<Bool>,
-        _ player: Player
-    ) -> DetailsView
-    
-    let confirmPlayersViewProvider: (
-        _ players: [Player],
-        _ gatherEnded: Binding<Bool>
-    ) -> ConfirmView
+    let viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>
     
     @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
@@ -53,7 +45,7 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
             selection: viewModel.$selectedRows
         ) { player in
             NavigationLink(
-                destination: detailsViewProvider(
+                destination: viewProvider.detailsView(
                     viewModel.$showListView,
                     player
                 )
@@ -108,7 +100,10 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     }
     
     private var confirmView: some View {
-        confirmPlayersViewProvider(viewModel.selectedPlayers, $gatherEnded)
+        viewProvider.confirmPlayersView(
+            viewModel.selectedPlayers,
+            $gatherEnded
+        )
             .navigationTitle(LocalizedString.confirmPlayersTitle)
     }
     
@@ -127,14 +122,18 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
 
 struct PlayerListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersListView(
+        let viewProvider = PlayersListViewProvider(
+            detailsView: { _,_ in AnyView(Text("Details View")) },
+            confirmPlayersView: { _,_ in AnyView(Text("Confirm view")) }
+        )
+        
+        return PlayersListView(
             viewModel: .init(
                 storage: .init(),
                 selectedRows: .constant(.init()),
                 showListView: .constant(true)
             ),
-            detailsViewProvider: { _,_ in AnyView(Text("View")) },
-            confirmPlayersViewProvider: { _, _ in AnyView(Text("Confirm View")) }
+            viewProvider: viewProvider
         )
             .previewLayout(.sizeThatFits)
     }

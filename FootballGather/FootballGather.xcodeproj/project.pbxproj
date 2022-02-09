@@ -52,6 +52,7 @@
 		F742FFCC279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742FFCB279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift */; };
 		F742FFCE279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742FFCD279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift */; };
 		F74DCA5D27B3694800217FDB /* GatherCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */; };
+		F74DCA6027B36EE200217FDB /* PlayersListViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DCA5E27B36E7E00217FDB /* PlayersListViewProvider.swift */; };
 		F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AA2791257700B14434 /* HistoryViewModel.swift */; };
 		F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */; };
 		F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */; };
@@ -221,6 +222,7 @@
 		F742FFCB279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel+Accessibility.swift"; sourceTree = "<group>"; };
 		F742FFCD279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel+AccessibilityTests.swift"; sourceTree = "<group>"; };
 		F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinatorTests.swift; sourceTree = "<group>"; };
+		F74DCA5E27B36E7E00217FDB /* PlayersListViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewProvider.swift; sourceTree = "<group>"; };
 		F750D0AA2791257700B14434 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptable.swift; sourceTree = "<group>"; };
 		F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModel.swift; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 			children = (
 				F7CAFE6A27B21C8000B39B22 /* PlayersViewProvider.swift */,
 				F75AFA6626537FB4002D1CE8 /* PlayersView.swift */,
+				F74DCA5E27B36E7E00217FDB /* PlayersListViewProvider.swift */,
 				F705D012265B66390057B63A /* PlayersListView.swift */,
 				F705D017265B67560057B63A /* PlayersEmptyView.swift */,
 			);
@@ -1123,6 +1126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */,
+				F74DCA6027B36EE200217FDB /* PlayersListViewProvider.swift in Sources */,
 				F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */,
 				F72972B62760709400900714 /* TimerController.swift in Sources */,
 				F7A11D6E265CC4BC00AAD926 /* AppStorage.swift in Sources */,

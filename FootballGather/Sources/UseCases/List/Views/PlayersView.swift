@@ -52,8 +52,10 @@ struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: View {
                     selectedRows: $viewModel.selectedRows,
                     showListView: $showListView
                 ),
-                detailsViewProvider: viewProvider.detailsView,
-                confirmPlayersViewProvider: viewProvider.confirmPlayersView
+                viewProvider: PlayersListViewProvider(
+                    detailsView: viewProvider.detailsView,
+                    confirmPlayersView: viewProvider.confirmPlayersView
+                )
             )
                 .onAppear(perform: viewModel.reloadView)
         }
