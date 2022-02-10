@@ -11,7 +11,7 @@ import FoundationTools
 
 struct MainView: View {
     
-    @EnvironmentObject var storage: AppStorage
+    @EnvironmentObject var storage: FoundationTools.AppStorage
     
     init() {
         updateAnimationsIfRunningUITests()

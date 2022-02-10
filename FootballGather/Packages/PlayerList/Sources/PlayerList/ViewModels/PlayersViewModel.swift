@@ -8,17 +8,18 @@
 import SwiftUI
 import Localizable
 import CoreModels
+import FoundationTools
 
 // MARK: - PlayersViewModel
 
-final class PlayersViewModel: ObservableObject {
+public final class PlayersViewModel: ObservableObject {
     
     @Published var isSelectingPlayers = false
     @Published var selectedRows = Set<UUID>()
     
-    private(set) var storage: AppStorage
+    private(set) var storage: FoundationTools.AppStorage
 
-    init(storage: AppStorage) {
+    public init(storage: FoundationTools.AppStorage) {
         self.storage = storage
     }
     

@@ -45,22 +45,6 @@ extension Mocks {
             self.shouldPopulateStorage = shouldPopulateStorage
         }
     }
-
-}
-
-// MARK: - PlayersViewModel
-
-extension Mocks {
-    static func makeButtonModel(
-        title: String = "Button",
-        accessibility: PlayersViewModel.AccessibilityModel = .init(
-            id: .doneButton,
-            hint: "Hint",
-            label: "Label"
-        )
-    ) -> PlayersViewModel.ButtonModel {
-        PlayersViewModel.ButtonModel(title: title, accessibility: accessibility)
-    }
 }
 
 // MARK: - Timer

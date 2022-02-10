@@ -15,12 +15,12 @@ protocol PlayerStorageHandler {
 }
 
 extension AppStorage: PlayerStorageHandler {
-    var storedPlayers: [Player] {
+    public var storedPlayers: [Player] {
         let storedObject = storage.load(forKey: storageKey)
         return storedObject?.players ?? []
     }
     
-    func updatePlayer(_ player: Player) {
+    public func updatePlayer(_ player: Player) {
         objectWillChange.send()
         updateStorage(with: player)
     }
@@ -46,7 +46,7 @@ extension AppStorage: PlayerStorageHandler {
         players.append(player)
     }
     
-    func deletePlayer(_ player: Player) {
+    public func deletePlayer(_ player: Player) {
         guard let storedObject = storage.load(forKey: storageKey) else {
             return
         }

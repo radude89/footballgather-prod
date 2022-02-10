@@ -8,11 +8,12 @@
 import SwiftUI
 import Localizable
 import CoreModels
+import FoundationTools
 
 struct GatherView: View {
     
     @Binding var gatherEnded: Bool
-    @EnvironmentObject var storage: AppStorage
+    @EnvironmentObject var storage: FoundationTools.AppStorage
     let viewModel: GatherViewModel
     
     @State private var showingSetTimerView = false

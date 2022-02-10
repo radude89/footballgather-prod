@@ -8,6 +8,7 @@
 import CoreModels
 import Localizable
 import SwiftUI
+import FoundationTools
 
 final class PlayersListViewModel: ObservableObject {
     
@@ -15,10 +16,10 @@ final class PlayersListViewModel: ObservableObject {
     @Binding var showListView: Bool
     
     @Published private(set) var players: [Player]
-    private(set) var storage: AppStorage
+    private(set) var storage: FoundationTools.AppStorage
     
     init(
-        storage: AppStorage,
+        storage: FoundationTools.AppStorage,
         selectedRows: Binding<Set<UUID>>,
         showListView: Binding<Bool> = .constant(false)
     ) {

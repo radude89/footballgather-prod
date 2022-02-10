@@ -7,14 +7,19 @@
 
 import SwiftUI
 import CoreModels
+import FoundationTools
 
 struct PlayerDetailsContainerView: View {
     
-    private let storage: AppStorage
+    private let storage: FoundationTools.AppStorage
     private let player: Player
     private let showListView: Binding<Bool>
     
-    init(storage: AppStorage, player: Player, showListView: Binding<Bool>) {
+    init(
+        storage: FoundationTools.AppStorage,
+        player: Player,
+        showListView: Binding<Bool>
+    ) {
         self.storage = storage
         self.player = player
         self.showListView = showListView

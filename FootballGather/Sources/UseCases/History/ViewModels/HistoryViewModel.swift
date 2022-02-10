@@ -6,6 +6,7 @@
 //
 
 import CoreModels
+import FoundationTools
 
 struct HistoryViewModel {
     private let storage: AppStorage

@@ -14,12 +14,12 @@ protocol GatherStorageHandler {
 }
 
 extension AppStorage: GatherStorageHandler {
-    var gathers: [Gather] {
+    public var gathers: [Gather] {
         let storedObject = storage.load(forKey: storageKey)
         return storedObject?.gathers ?? []
     }
     
-    func addGather(_ gather: Gather) {
+    public func addGather(_ gather: Gather) {
         let storedObject = storage.load(forKey: storageKey)
         var storedGathers = storedObject?.gathers ?? []
         storedGathers.removeAll { $0.id == gather.id }

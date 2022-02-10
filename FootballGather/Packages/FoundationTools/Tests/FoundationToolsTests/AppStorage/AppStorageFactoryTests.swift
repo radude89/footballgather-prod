@@ -7,8 +7,7 @@
 
 import XCTest
 import CoreModels
-import FoundationTools
-@testable import FootballGather
+@testable import FoundationTools
 
 final class AppStorageFactoryTests: XCTestCase {
     

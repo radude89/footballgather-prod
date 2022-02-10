@@ -8,19 +8,28 @@
 import SwiftUI
 import Localizable
 import CoreModels
+import FoundationTools
 
 // MARK: - PlayersView
 
-struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: View {
+public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: View {
     
     @ObservedObject var viewModel: PlayersViewModel
     
-    let viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
+    private let viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
     
     @State private var showAddView = false
     @State private var showListView = false
     
-    var body: some View {
+    public init(
+        viewModel: PlayersViewModel,
+        viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
+    ) {
+        self.viewModel = viewModel
+        self.viewProvider = viewProvider
+    }
+    
+    public var body: some View {
         NavigationView {
             mainContent
                 .navigationTitle(viewModel.formattedNavigationTitle)
@@ -101,7 +110,7 @@ struct PlayersView_Previews: PreviewProvider {
         )
         
         return PlayersView(
-            viewModel: .init(storage: AppStorage()),
+            viewModel: .init(storage: FoundationTools.AppStorage()),
             viewProvider: viewProvider
         )
     }

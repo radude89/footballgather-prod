@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import FoundationTools
 import CoreModels
 
 // MARK: - AppStorage
 
-final class AppStorage: ObservableObject {
+public final class AppStorage: ObservableObject {
     
     private let commandLineHandler: CommandRunnable
     
     @Published var storage: AnyStorage<String, StoredObject>
     let storageKey: String
     
-    init(
+    public init(
         storageKey: String = Storage.defaultAppKey,
         storageFactory: AppStorageFactory = AppStorageAssembler(),
         commandLineHandler: CommandRunnable = CommandLineHandler()
@@ -43,7 +42,7 @@ final class AppStorage: ObservableObject {
         )
     }
     
-    func clear() {
+    public func clear() {
         storage.clear()
     }
     

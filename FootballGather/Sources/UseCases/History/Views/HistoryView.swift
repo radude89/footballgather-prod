@@ -8,10 +8,11 @@
 import SwiftUI
 import CoreModels
 import Localizable
+import FoundationTools
 
 struct HistoryView: View {
     
-    @EnvironmentObject var storage: AppStorage
+    @EnvironmentObject var storage: FoundationTools.AppStorage
     
     let viewModel: HistoryViewModel
     

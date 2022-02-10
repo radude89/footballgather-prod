@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import CoreModels
 import Localizable
-@testable import FootballGather
+@testable import PlayerList
 
 final class PlayersListRowAccessibilityTests: XCTestCase {
     

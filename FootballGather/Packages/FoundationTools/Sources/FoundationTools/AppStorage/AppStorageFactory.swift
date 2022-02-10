@@ -5,20 +5,20 @@
 //  Created by Radu Dan on 27.05.2021.
 //
 
-import FoundationTools
+import Foundation
 
-protocol AppStorageFactory {
+public protocol AppStorageFactory {
     func makeAppStorage() -> AnyStorage<String, StoredObject>
 }
 
-struct AppStorageAssembler: AppStorageFactory {
+public struct AppStorageAssembler: AppStorageFactory {
     private let commandLineHandler: CommandRunnable
     
-    init(commandLineHandler: CommandRunnable = CommandLineHandler()) {
+    public init(commandLineHandler: CommandRunnable = CommandLineHandler()) {
         self.commandLineHandler = commandLineHandler
     }
     
-    func makeAppStorage() -> AnyStorage<String, StoredObject> {
+    public func makeAppStorage() -> AnyStorage<String, StoredObject> {
         if commandLineHandler.isRunningUITests {
             return AnyStorage(MemoryStorage<String, StoredObject>())
         }

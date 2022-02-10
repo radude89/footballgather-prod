@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import FoundationTools
 
 struct AddPlayerContainerView: View {
     
-    private let storage: AppStorage
+    private let storage: FoundationTools.AppStorage
     private let showListView: Binding<Bool>
     
-    init(storage: AppStorage, showListView: Binding<Bool>) {
+    init(storage: FoundationTools.AppStorage, showListView: Binding<Bool>) {
         self.storage = storage
         self.showListView = showListView
     }

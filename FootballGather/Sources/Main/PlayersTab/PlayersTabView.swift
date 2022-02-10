@@ -8,12 +8,14 @@
 import SwiftUI
 import Localizable
 import CoreModels
+import FoundationTools
+import PlayerList
 
 struct PlayersTabView {
     
-    private let storage: AppStorage
+    private let storage: FoundationTools.AppStorage
     
-    init(storage: AppStorage) {
+    init(storage: FoundationTools.AppStorage) {
         self.storage = storage
     }
     

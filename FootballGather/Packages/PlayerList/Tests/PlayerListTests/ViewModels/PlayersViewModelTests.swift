@@ -8,7 +8,7 @@
 import XCTest
 import CoreModels
 import Combine
-@testable import FootballGather
+@testable import PlayerList
 
 final class PlayersViewModelTests: XCTestCase {
     

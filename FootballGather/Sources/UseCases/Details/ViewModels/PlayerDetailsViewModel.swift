@@ -17,14 +17,14 @@ final class PlayerDetailsViewModel: ObservableObject {
     @Published var selectedPlayer: Player
     @Binding var showListView: Bool
     
-    private let storage: AppStorage
+    private let storage: FoundationTools.AppStorage
     private let state: State
     private lazy var playerDetails = PlayerDetailsUIModelFactory.makeDetailsModel(
         for: selectedPlayer, state: state
     )
     
     init(
-        storage: AppStorage,
+        storage: FoundationTools.AppStorage,
         state: State,
         player: Player = .init(name: ""),
         showListView: Binding<Bool> = .constant(false)

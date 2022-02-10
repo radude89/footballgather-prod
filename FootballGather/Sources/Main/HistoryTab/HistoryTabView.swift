@@ -7,12 +7,13 @@
 
 import SwiftUI
 import Localizable
+import FoundationTools
 
 struct HistoryTabView {
     
-    private let storage: AppStorage
+    private let storage: FoundationTools.AppStorage
     
-    init(storage: AppStorage) {
+    init(storage: FoundationTools.AppStorage) {
         self.storage = storage
     }
     

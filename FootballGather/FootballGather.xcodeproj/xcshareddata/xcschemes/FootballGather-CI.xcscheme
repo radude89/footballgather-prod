@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Packages/UITools">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListTests"
+               BuildableName = "PlayerListTests"
+               BlueprintName = "PlayerListTests"
+               ReferencedContainer = "container:Packages/PlayerList">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -101,6 +115,17 @@
                ReferencedContainer = "container:Packages/UITools">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListTests"
+               BuildableName = "PlayerListTests"
+               BlueprintName = "PlayerListTests"
+               ReferencedContainer = "container:Packages/PlayerList">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -130,15 +155,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F756F8DE260C3D6600A36040"
-            BuildableName = "FootballGather.app"
-            BlueprintName = "FootballGather (iOS)"
-            ReferencedContainer = "container:FootballGather.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
