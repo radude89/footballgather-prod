@@ -19,14 +19,14 @@ struct SkillAndPositionSection: View {
                 PositionPickerView(viewModel: .init(position: viewModel.$position))
             },
             header:  {
-                Text(LocalizedString.sectionSkillsetHeader)
+                Text(LocalizedString.skillsetAndPositionHeader)
             },
             footer: { footerViewContent }
         )
     }
     
     private var footerViewContent: some View {
-        viewModel.isAddingPlayer ? Text(LocalizedString.sectionSkillsetFooter) : nil
+        viewModel.isAddingPlayer ? Text(LocalizedString.skillsetAndPositionFooter) : nil
     }
     
 }

@@ -25,14 +25,14 @@ struct NameDetailsSection: View {
                     .accessibilityID(.enterNameTextfield)
             },
             header: {
-                Text(LocalizedString.sectionDetailsHeader)
+                Text(LocalizedString.sectionPlayerDetailsHeader)
             },
             footer: { footerViewContent }
         )
     }
     
     private var footerViewContent: some View {
-        viewModel.isAddingPlayer ? Text(LocalizedString.sectionDetailsFooter) : nil
+        viewModel.isAddingPlayer ? Text(LocalizedString.sectionPlayerDetailsFooter) : nil
     }
 }
 

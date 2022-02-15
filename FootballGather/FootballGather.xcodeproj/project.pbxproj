@@ -251,6 +251,7 @@
 		F7B4A3B3276CDBE100079203 /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
 		F7C47302275A740B007D19F2 /* ScoreViewAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewAsserter.swift; sourceTree = "<group>"; };
 		F7C47304275A7443007D19F2 /* ScoreHandlerAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHandlerAsserter.swift; sourceTree = "<group>"; };
+		F7C756D727B4C35200D4204F /* PlayerListAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerListAssets; sourceTree = "<group>"; };
 		F7C77DE427310E4E00470E4E /* ConfirmPlayersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewControllerTests.swift; sourceTree = "<group>"; };
 		F7C77DE627310E7600470E4E /* ConfirmPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewController.swift; sourceTree = "<group>"; };
 		F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersContainerView.swift; sourceTree = "<group>"; };
@@ -508,6 +509,7 @@
 		F756F993260C486400A36040 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				F7C756D727B4C35200D4204F /* PlayerListAssets */,
 				F74DCA6127B3768400217FDB /* PlayerList */,
 				F71D37AC26FF48FD002DC14E /* UITools */,
 				F705D008265B59A10057B63A /* FoundationTools */,
@@ -859,6 +861,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F756F909260C3D6700A36040 /* Build configuration list for PBXNativeTarget "FootballGather (iOS)" */;
 			buildPhases = (
+				F79BCCD627BB85D600BBB572 /* Generate Localizable strings */,
 				F756F8DB260C3D6600A36040 /* Sources */,
 				F756F8DC260C3D6600A36040 /* Frameworks */,
 				F756F8DD260C3D6600A36040 /* Resources */,
@@ -1017,6 +1020,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F79BCCD627BB85D600BBB572 /* Generate Localizable strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Packages/Localizable/Sources/Localizable/en.lproj/Localizable.strings",
+				"$(SRCROOT)/Packages/Localizable/Sources/Localizable/Strings.swift",
+			);
+			name = "Generate Localizable strings";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $output_file\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t\\t%s\\n\" \"${rows[@]}\" >> $2\n  echo \"}\" >> $2\n}\n\ninput_file=$SCRIPT_INPUT_FILE_0\noutput_file=$SCRIPT_INPUT_FILE_1\n\ngenerate_strings $input_file $output_file\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F756F8DB260C3D6600A36040 /* Sources */ = {

@@ -11,7 +11,7 @@ let package = Package(
             targets: ["PlayerList"]),
     ],
     dependencies: [
-        .package(name: "Localizable", path: "../Localizable"),
+        .package(name: "PlayerListAssets", path: "../PlayerListAssets"),
         .package(name: "CoreModels", path: "../CoreModels"),
         .package(name: "UITools", path: "../UITools"),
         .package(name: "FoundationTools", path: "../FoundationTools")
@@ -19,7 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "PlayerList",
-            dependencies: ["Localizable", "CoreModels", "UITools", "FoundationTools"]),
+            dependencies: ["PlayerListAssets", "CoreModels", "UITools", "FoundationTools"]),
         .testTarget(
             name: "PlayerListTests",
             dependencies: ["PlayerList"]),

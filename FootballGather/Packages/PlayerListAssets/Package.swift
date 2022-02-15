@@ -1,0 +1,23 @@
+// swift-tools-version:5.5
+
+import PackageDescription
+
+let package = Package(
+    name: "PlayerListAssets",
+    platforms: [.iOS(.v15)],
+    products: [
+        .library(
+            name: "PlayerListAssets",
+            targets: ["PlayerListAssets"]),
+    ],
+    dependencies: [
+    ],
+    targets: [
+        .target(
+            name: "PlayerListAssets",
+            dependencies: []),
+        .testTarget(
+            name: "PlayerListAssetsTests",
+            dependencies: ["PlayerListAssets"]),
+    ]
+)

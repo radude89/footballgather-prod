@@ -36,7 +36,7 @@ final class PlayersListRowAccessibilityTests: XCTestCase {
             sut,
             PlayersListRowAccessibility(
                 label: Text(
-                    String(format: LocalizedString.tapToSelectPlayer, "\(player.name)")
+                    String(format: LocalizedString.tapSelectPlayer, "\(player.name)")
                 ),
                 id: .unselectedRow
             )
