@@ -12,8 +12,8 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "PlayerListAssets", path: "../PlayerListAssets"),
-        .package(name: "UITools", path: "../UITools"),
-        .package(name: "FoundationTools", path: "../FoundationTools")
+        .package(name: "UITools", path: "../../Core/UITools"),
+        .package(name: "FoundationTools", path: "../../Core/FoundationTools")
     ],
     targets: [
         .target(

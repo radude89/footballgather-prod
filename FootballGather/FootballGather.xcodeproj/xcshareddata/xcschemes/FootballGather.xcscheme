@@ -31,7 +31,35 @@
                BlueprintIdentifier = "UIToolsTests"
                BuildableName = "UIToolsTests"
                BlueprintName = "UIToolsTests"
-               ReferencedContainer = "container:Packages/UITools">
+               ReferencedContainer = "container:Packages/Core/UITools">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsTests"
+               BuildableName = "PlayerDetailsTests"
+               BlueprintName = "PlayerDetailsTests"
+               ReferencedContainer = "container:Packages/Details/PlayerDetails">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsTests"
+               BuildableName = "FoundationToolsTests"
+               BlueprintName = "FoundationToolsTests"
+               ReferencedContainer = "container:Packages/Core/FoundationTools">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -45,7 +73,49 @@
                BlueprintIdentifier = "PlayerListTests"
                BuildableName = "PlayerListTests"
                BlueprintName = "PlayerListTests"
-               ReferencedContainer = "container:Packages/PlayerList">
+               ReferencedContainer = "container:Packages/List/PlayerList">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "LocalizableTests"
+               BuildableName = "LocalizableTests"
+               BlueprintName = "LocalizableTests"
+               ReferencedContainer = "container:Packages/Core/Localizable">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListAssetsTests"
+               BuildableName = "PlayerListAssetsTests"
+               BlueprintName = "PlayerListAssetsTests"
+               ReferencedContainer = "container:Packages/List/PlayerListAssets">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:Packages/Core/CoreModels">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,18 +145,6 @@
       <Testables>
          <TestableReference
             skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "LocalizableTests"
-               BuildableName = "LocalizableTests"
-               BlueprintName = "LocalizableTests"
-               ReferencedContainer = "container:Packages/Localizable">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -104,7 +162,7 @@
                BlueprintIdentifier = "CoreModelsTests"
                BuildableName = "CoreModelsTests"
                BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:Packages/CoreModels">
+               ReferencedContainer = "container:Packages/Core/CoreModels">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -115,7 +173,7 @@
                BlueprintIdentifier = "FoundationToolsTests"
                BuildableName = "FoundationToolsTests"
                BlueprintName = "FoundationToolsTests"
-               ReferencedContainer = "container:Packages/FoundationTools">
+               ReferencedContainer = "container:Packages/Core/FoundationTools">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -123,10 +181,21 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "UIToolsTests"
-               BuildableName = "UIToolsTests"
-               BlueprintName = "UIToolsTests"
-               ReferencedContainer = "container:Packages/UITools">
+               BlueprintIdentifier = "LocalizableTests"
+               BuildableName = "LocalizableTests"
+               BlueprintName = "LocalizableTests"
+               ReferencedContainer = "container:Packages/Core/Localizable">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsTests"
+               BuildableName = "PlayerDetailsTests"
+               BlueprintName = "PlayerDetailsTests"
+               ReferencedContainer = "container:Packages/Details/PlayerDetails">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -137,7 +206,29 @@
                BlueprintIdentifier = "PlayerListTests"
                BuildableName = "PlayerListTests"
                BlueprintName = "PlayerListTests"
-               ReferencedContainer = "container:Packages/PlayerList">
+               ReferencedContainer = "container:Packages/List/PlayerList">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListAssetsTests"
+               BuildableName = "PlayerListAssetsTests"
+               BlueprintName = "PlayerListAssetsTests"
+               ReferencedContainer = "container:Packages/List/PlayerListAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:Packages/Core/UITools">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -152,15 +243,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <PreActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "#!/bin/sh&#10;set -Eeuo pipefail&#10;&#10;input_file=$SCRIPT_INPUT_FILE_0&#10;output_file=$SCRIPT_INPUT_FILE_1&#10;&#10;generate_strings() {&#10;  rows=()&#10;&#10;  while IFS=&apos;=&apos; read -r key value&#10;  do&#10;    if [[ $key == \&quot;* ]]; then&#10;      key_without_quotes=$(echo $key | tr -d &apos;&quot;&apos;)&#10;      key_with_spaces=$(echo $key_without_quotes | sed -r &apos;s/\./ /g&apos; | awk &apos;{for (i=1;i&lt;=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1&apos; | sed -r &apos;s/ //g&apos;)&#10;      key_camel_cased=$(echo &quot;$key_with_spaces&quot; | awk &apos;{ print tolower(substr($0,1,1)) substr($0,2); }&apos;)&#10;&#10;      rows+=(&quot;public static let $key_camel_cased = NSLocalizedString(\&quot;$key_without_quotes\&quot;, bundle: .module, comment: \&quot;\&quot;)&quot;)&#10;    fi&#10;  done &lt; $1&#10;&#10;  &gt; $output_file&#10;  echo &quot;import Foundation\n\npublic enum LocalizedString {&quot; &gt;&gt; $2&#10;  printf &quot;\t\t%s\n&quot; &quot;${rows[@]}&quot; &gt;&gt; $2&#10;  echo &quot;}&quot; &gt;&gt; $2&#10;}&#10;&#10;generate_strings $input_file $output_file&#10;">
-            </ActionContent>
-         </ExecutionAction>
-      </PreActions>
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference

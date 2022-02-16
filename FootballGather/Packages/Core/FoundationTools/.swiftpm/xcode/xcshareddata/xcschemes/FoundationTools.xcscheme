@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerList"
-               BuildableName = "PlayerList"
-               BlueprintName = "PlayerList"
+               BlueprintIdentifier = "FoundationTools"
+               BuildableName = "FoundationTools"
+               BlueprintName = "FoundationTools"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,9 +34,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerListTests"
-               BuildableName = "PlayerListTests"
-               BlueprintName = "PlayerListTests"
+               BlueprintIdentifier = "FoundationToolsTests"
+               BuildableName = "FoundationToolsTests"
+               BlueprintName = "FoundationToolsTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -48,7 +48,7 @@
                BlueprintIdentifier = "CoreModelsTests"
                BuildableName = "CoreModelsTests"
                BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:../../Core/CoreModels">
+               ReferencedContainer = "container:../CoreModels">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -56,32 +56,10 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FoundationToolsTests"
-               BuildableName = "FoundationToolsTests"
-               BlueprintName = "FoundationToolsTests"
-               ReferencedContainer = "container:../../Core/FoundationTools">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "UIToolsTests"
-               BuildableName = "UIToolsTests"
-               BlueprintName = "UIToolsTests"
-               ReferencedContainer = "container:../../Core/UITools">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerListAssetsTests"
-               BuildableName = "PlayerListAssetsTests"
-               BlueprintName = "PlayerListAssetsTests"
-               ReferencedContainer = "container:../PlayerListAssets">
+               BlueprintIdentifier = "LocalizableTests"
+               BuildableName = "LocalizableTests"
+               BlueprintName = "LocalizableTests"
+               ReferencedContainer = "container:../Localizable">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -106,9 +84,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "PlayerList"
-            BuildableName = "PlayerList"
-            BlueprintName = "PlayerList"
+            BlueprintIdentifier = "FoundationTools"
+            BuildableName = "FoundationTools"
+            BlueprintName = "FoundationTools"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
