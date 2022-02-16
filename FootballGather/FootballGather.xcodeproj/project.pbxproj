@@ -195,7 +195,6 @@
 		F742FFCB279A5D2200B8F5CE /* HistoryViewModel+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel+Accessibility.swift"; sourceTree = "<group>"; };
 		F742FFCD279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel+AccessibilityTests.swift"; sourceTree = "<group>"; };
 		F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinatorTests.swift; sourceTree = "<group>"; };
-		F74DCA6127B3768400217FDB /* PlayerList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerList; sourceTree = "<group>"; };
 		F750D0AA2791257700B14434 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptable.swift; sourceTree = "<group>"; };
 		F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModel.swift; sourceTree = "<group>"; };
@@ -260,6 +259,7 @@
 		F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerDetails; sourceTree = "<group>"; };
 		F7E05536277308C000385948 /* SetTimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModelTests.swift; sourceTree = "<group>"; };
 		F7E0553827730E2100385948 /* SetTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModel.swift; sourceTree = "<group>"; };
+		F7EE5A0E27BCB7D700EB62A0 /* PlayerList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerList; sourceTree = "<group>"; };
 		F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptableTests.swift; sourceTree = "<group>"; };
 		F7F0EC05278FD10E000898A1 /* HistoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModelTests.swift; sourceTree = "<group>"; };
 		F7F25CEF2766FD91001B9986 /* GatherTimeFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherTimeFormatterTests.swift; sourceTree = "<group>"; };
@@ -503,9 +503,8 @@
 		F756F993260C486400A36040 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */,
-				F7C756D727B4C35200D4204F /* PlayerListAssets */,
-				F74DCA6127B3768400217FDB /* PlayerList */,
+				F7F50C0F27BCB860000556BC /* Details */,
+				F7CB5B4927BCB78B004FD1E5 /* List */,
 				F71D37AC26FF48FD002DC14E /* UITools */,
 				F705D008265B59A10057B63A /* FoundationTools */,
 				F73C1386265B55780001704B /* CoreModels */,
@@ -742,6 +741,15 @@
 			path = Score;
 			sourceTree = "<group>";
 		};
+		F7CB5B4927BCB78B004FD1E5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				F7EE5A0E27BCB7D700EB62A0 /* PlayerList */,
+				F7C756D727B4C35200D4204F /* PlayerListAssets */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		F7E9C8902745F9B1002DC16C /* Gather */ = {
 			isa = PBXGroup;
 			children = (
@@ -846,6 +854,14 @@
 				F711B3B927A105F3008A3752 /* Info.plist */,
 			);
 			path = Snapshots;
+			sourceTree = "<group>";
+		};
+		F7F50C0F27BCB860000556BC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1026,8 +1042,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Packages/Localizable/Sources/Localizable/en.lproj/Localizable.strings",
 				"$(SRCROOT)/Packages/Localizable/Sources/Localizable/Strings.swift",
-				"$(SRCROOT)/Packages/PlayerListAssets/Sources/PlayerListAssets/en.lproj/Localizable.strings",
-				"$(SRCROOT)/Packages/PlayerListAssets/Sources/PlayerListAssets/Strings.swift",
+				"$(SRCROOT)/Packages/List/PlayerListAssets/Sources/PlayerListAssets/en.lproj/Localizable.strings",
+				"$(SRCROOT)/Packages/List/PlayerListAssets/Sources/PlayerListAssets/Strings.swift",
 			);
 			name = "Generate Localizable strings";
 			outputFileListPaths = (
