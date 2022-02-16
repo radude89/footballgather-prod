@@ -8,7 +8,7 @@
 import XCTest
 import SwiftUI
 import CoreModels
-@testable import FootballGather
+@testable import PlayerDetails
 
 final class PlayerDetailsFormViewModelTests: XCTestCase {
     

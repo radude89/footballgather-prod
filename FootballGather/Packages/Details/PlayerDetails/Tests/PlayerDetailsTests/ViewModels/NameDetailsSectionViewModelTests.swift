@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-@testable import FootballGather
+@testable import PlayerDetails
 
 final class NameDetailsSectionViewModelTests: XCTestCase {
     

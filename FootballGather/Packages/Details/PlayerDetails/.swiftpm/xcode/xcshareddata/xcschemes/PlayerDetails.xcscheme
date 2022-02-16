@@ -26,16 +26,73 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "PlayerDetailsTests"
                BuildableName = "PlayerDetailsTests"
                BlueprintName = "PlayerDetailsTests"
                ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsAssetsTests"
+               BuildableName = "PlayerDetailsAssetsTests"
+               BlueprintName = "PlayerDetailsAssetsTests"
+               ReferencedContainer = "container:../PlayerDetailsAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:../../Core/CoreModels">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsTests"
+               BuildableName = "FoundationToolsTests"
+               BlueprintName = "FoundationToolsTests"
+               ReferencedContainer = "container:../../Core/FoundationTools">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "LocalizableTests"
+               BuildableName = "LocalizableTests"
+               BlueprintName = "LocalizableTests"
+               ReferencedContainer = "container:../../Core/Localizable">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:../../Core/UITools">
             </BuildableReference>
          </TestableReference>
       </Testables>

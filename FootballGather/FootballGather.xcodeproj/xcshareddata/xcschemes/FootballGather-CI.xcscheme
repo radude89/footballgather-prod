@@ -14,10 +14,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerDetailsTests"
-               BuildableName = "PlayerDetailsTests"
-               BlueprintName = "PlayerDetailsTests"
-               ReferencedContainer = "container:Packages/Details/PlayerDetails">
+               BlueprintIdentifier = "FoundationToolsTests"
+               BuildableName = "FoundationToolsTests"
+               BlueprintName = "FoundationToolsTests"
+               ReferencedContainer = "container:Packages/Core/FoundationTools">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FoundationToolsTests"
-               BuildableName = "FoundationToolsTests"
-               BlueprintName = "FoundationToolsTests"
-               ReferencedContainer = "container:Packages/Core/FoundationTools">
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:Packages/Core/CoreModels">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -98,10 +98,24 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CoreModelsTests"
-               BuildableName = "CoreModelsTests"
-               BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:Packages/Core/CoreModels">
+               BlueprintIdentifier = "PlayerDetailsTests"
+               BuildableName = "PlayerDetailsTests"
+               BlueprintName = "PlayerDetailsTests"
+               ReferencedContainer = "container:Packages/Details/PlayerDetails">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsAssetsTests"
+               BuildableName = "PlayerDetailsAssetsTests"
+               BlueprintName = "PlayerDetailsAssetsTests"
+               ReferencedContainer = "container:Packages/Details/PlayerDetailsAssets">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -247,15 +261,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F756F8DE260C3D6600A36040"
-            BuildableName = "FootballGather.app"
-            BlueprintName = "FootballGather (iOS)"
-            ReferencedContainer = "container:FootballGather.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

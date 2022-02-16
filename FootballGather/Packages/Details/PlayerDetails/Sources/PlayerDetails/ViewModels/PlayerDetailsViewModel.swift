@@ -12,7 +12,7 @@ import Localizable
 
 // MARK: - PlayerDetailsViewModel
 
-final class PlayerDetailsViewModel: ObservableObject {
+public final class PlayerDetailsViewModel: ObservableObject {
     
     @Published var selectedPlayer: Player
     @Binding var showListView: Bool
@@ -23,7 +23,7 @@ final class PlayerDetailsViewModel: ObservableObject {
         for: selectedPlayer, state: state
     )
     
-    init(
+    public init(
         storage: FoundationTools.AppStorage,
         state: State,
         player: Player = .init(name: ""),
@@ -84,7 +84,7 @@ final class PlayerDetailsViewModel: ObservableObject {
 // MARK: - State
 
 extension PlayerDetailsViewModel {
-    enum State: CaseIterable {
+    public enum State: CaseIterable {
         case viewingDetails
         case addingPlayers
     }

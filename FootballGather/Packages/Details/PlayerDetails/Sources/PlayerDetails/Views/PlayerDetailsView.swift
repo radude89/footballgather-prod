@@ -9,14 +9,18 @@ import SwiftUI
 import UITools
 import Localizable
 
-struct PlayerDetailsView: View {
+public struct PlayerDetailsView: View {
     
     @ObservedObject var viewModel: PlayerDetailsViewModel
     
     @Environment(\.dismiss) private var dismiss
     @State private var showConfirmationAlert = false
+    
+    public init(viewModel: PlayerDetailsViewModel) {
+        self.viewModel = viewModel
+    }
         
-    var body: some View {
+    public var body: some View {
         detailsView
             .accessibilityID(viewModel.viewAccessibilityID)
     }

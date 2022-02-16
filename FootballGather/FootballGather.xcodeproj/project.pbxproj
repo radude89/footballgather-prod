@@ -13,16 +13,6 @@
 		F71648E3265F4C6C008D52FE /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F71648E2265F4C6C008D52FE /* FoundationTools */; };
 		F71D37B027001D46002DC14E /* AddPlayerUITests+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */; };
 		F71D37B227002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */; };
-		F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */; };
-		F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988326ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift */; };
-		F71E988626ECB382005A1EA7 /* NameDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */; };
-		F71E988826ECB421005A1EA7 /* NameDetailsSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988726ECB421005A1EA7 /* NameDetailsSectionViewModel.swift */; };
-		F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */; };
-		F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */; };
-		F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E988F26ECB50E005A1EA7 /* SkillPickerView.swift */; };
-		F71E989226ECB53A005A1EA7 /* SkillPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */; };
-		F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989326ECB5CC005A1EA7 /* PositionPickerView.swift */; };
-		F71E989626ECB5F2005A1EA7 /* PositionPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */; };
 		F71F5CCB271855D500C31944 /* EditPlayerUITests+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F5CCA271855D500C31944 /* EditPlayerUITests+Save.swift */; };
 		F7223BC2274239C100446224 /* PlayersFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7223BC1274239C100446224 /* PlayersFinder.swift */; };
 		F72972B3275F15B300900714 /* TimerControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72972B2275F15B300900714 /* TimerControllerTests.swift */; };
@@ -30,8 +20,6 @@
 		F72972B9276074FD00900714 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72972B72760720300900714 /* TimerView.swift */; };
 		F72D321127171E360001CD6F /* PlayerDetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D321027171E360001CD6F /* PlayerDetailsUITests.swift */; };
 		F72D32132717D7CF0001CD6F /* EditPlayerUITests+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32122717D7CF0001CD6F /* EditPlayerUITests+Position.swift */; };
-		F72D32162717E0440001CD6F /* PlayerDetailsDuplicateVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32142717E0220001CD6F /* PlayerDetailsDuplicateVerifier.swift */; };
-		F72D32182717E1060001CD6F /* PlayerDetailsDuplicateVerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32172717E1060001CD6F /* PlayerDetailsDuplicateVerifierTests.swift */; };
 		F72D321A2717F68D0001CD6F /* PlayerDetailsSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D32192717F68D0001CD6F /* PlayerDetailsSelection.swift */; };
 		F72D321C271833D20001CD6F /* EditPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D321B271833D20001CD6F /* EditPlayerUITests.swift */; };
 		F72D321E2718343F0001CD6F /* EditPlayerUITests+Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D321D2718343F0001CD6F /* EditPlayerUITests+Skill.swift */; };
@@ -49,7 +37,6 @@
 		F74DCA5D27B3694800217FDB /* GatherCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */; };
 		F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AA2791257700B14434 /* HistoryViewModel.swift */; };
 		F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */; };
-		F752D67927BCBF0E000F57F2 /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F752D67827BCBF0E000F57F2 /* FoundationTools */; };
 		F752D67B27BCBF0E000F57F2 /* PlayerDetails in Frameworks */ = {isa = PBXBuildFile; productRef = F752D67A27BCBF0E000F57F2 /* PlayerDetails */; };
 		F752D67D27BCBF0E000F57F2 /* PlayerList in Frameworks */ = {isa = PBXBuildFile; productRef = F752D67C27BCBF0E000F57F2 /* PlayerList */; };
 		F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */; };
@@ -65,11 +52,6 @@
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75FD85B278E8D0700266527 /* HistoryViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */; };
 		F75FD85F278E934300266527 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85D278E933F00266527 /* HistoryView.swift */; };
-		F761201326EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */; };
-		F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */; };
-		F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */; };
-		F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */; };
-		F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */; };
 		F76AD5E6279FBB7A00B18633 /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E5279FBB7A00B18633 /* FoundationTools */; };
 		F76AD5E8279FBB7A00B18633 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E7279FBB7A00B18633 /* Localizable */; };
 		F76B9F25278D2E9800078F20 /* TimeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B9F24278D2E9800078F20 /* TimeSettings.swift */; };
@@ -81,11 +63,9 @@
 		F777317627B0DFD70067B3F8 /* PlayerDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */; };
 		F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317927B0E1D60067B3F8 /* HistoryTabView.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
-		F78C2C8F27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */; };
 		F792CFEF2727BD040060314D /* ConfirmPlayersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F792CFEE2727BD040060314D /* ConfirmPlayersViewModelTests.swift */; };
 		F7944F97272152B3002DAF6D /* ConfirmPlayersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7944F96272152B3002DAF6D /* ConfirmPlayersUITests.swift */; };
 		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
-		F79F6A9626E7196600E4E587 /* PlayerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79F6A9526E7196600E4E587 /* PlayerDetailsView.swift */; };
 		F7A5255D27550AFF006D2CBC /* GatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5255C27550AFF006D2CBC /* GatherViewModel.swift */; };
 		F7A5255F27550B37006D2CBC /* GatherPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5255E27550B37006D2CBC /* GatherPlayersView.swift */; };
 		F7A5256127550CBF006D2CBC /* GatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5256027550CBF006D2CBC /* GatherViewModelTests.swift */; };
@@ -119,8 +99,6 @@
 		F7F2A139279FA7F90094D9B0 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2A138279FA7F90094D9B0 /* Snapshots.swift */; };
 		F7F2A144279FA9430094D9B0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2A143279FA9430094D9B0 /* SnapshotHelper.swift */; };
 		F7F492902733AA2900231D8D /* ConfirmPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */; };
-		F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */; };
-		F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */; };
 		F7FCEA7E2761C5820058DB26 /* TimerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FCEA7D2761C5820058DB26 /* TimerViewModelTests.swift */; };
 		F7FEF35F27590928009F60E6 /* ScoreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FEF35E27590928009F60E6 /* ScoreViewModelTests.swift */; };
 		F7FEF36127591951009F60E6 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FEF36027591951009F60E6 /* ScoreViewModel.swift */; };
@@ -157,16 +135,6 @@
 		F711B3B927A105F3008A3752 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F71D37AF27001D46002DC14E /* AddPlayerUITests+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+Validation.swift"; sourceTree = "<group>"; };
 		F71D37B127002A94002DC14E /* AddPlayerUITests+DiscardConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPlayerUITests+DiscardConfirmation.swift"; sourceTree = "<group>"; };
-		F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormView.swift; sourceTree = "<group>"; };
-		F71E988326ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModel.swift; sourceTree = "<group>"; };
-		F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSection.swift; sourceTree = "<group>"; };
-		F71E988726ECB421005A1EA7 /* NameDetailsSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSectionViewModel.swift; sourceTree = "<group>"; };
-		F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSection.swift; sourceTree = "<group>"; };
-		F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModel.swift; sourceTree = "<group>"; };
-		F71E988F26ECB50E005A1EA7 /* SkillPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerView.swift; sourceTree = "<group>"; };
-		F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModel.swift; sourceTree = "<group>"; };
-		F71E989326ECB5CC005A1EA7 /* PositionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerView.swift; sourceTree = "<group>"; };
-		F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModel.swift; sourceTree = "<group>"; };
 		F71F5CCA271855D500C31944 /* EditPlayerUITests+Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditPlayerUITests+Save.swift"; sourceTree = "<group>"; };
 		F7223BC1274239C100446224 /* PlayersFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersFinder.swift; sourceTree = "<group>"; };
 		F72972B2275F15B300900714 /* TimerControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControllerTests.swift; sourceTree = "<group>"; };
@@ -174,8 +142,6 @@
 		F72972B72760720300900714 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F72D321027171E360001CD6F /* PlayerDetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsUITests.swift; sourceTree = "<group>"; };
 		F72D32122717D7CF0001CD6F /* EditPlayerUITests+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditPlayerUITests+Position.swift"; sourceTree = "<group>"; };
-		F72D32142717E0220001CD6F /* PlayerDetailsDuplicateVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsDuplicateVerifier.swift; sourceTree = "<group>"; };
-		F72D32172717E1060001CD6F /* PlayerDetailsDuplicateVerifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsDuplicateVerifierTests.swift; sourceTree = "<group>"; };
 		F72D32192717F68D0001CD6F /* PlayerDetailsSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsSelection.swift; sourceTree = "<group>"; };
 		F72D321B271833D20001CD6F /* EditPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayerUITests.swift; sourceTree = "<group>"; };
 		F72D321D2718343F0001CD6F /* EditPlayerUITests+Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditPlayerUITests+Skill.swift"; sourceTree = "<group>"; };
@@ -193,6 +159,7 @@
 		F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinatorTests.swift; sourceTree = "<group>"; };
 		F750D0AA2791257700B14434 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F750D0AC2791303800B14434 /* HistoryRowDescriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptable.swift; sourceTree = "<group>"; };
+		F752D67E27BCCCC0000F57F2 /* PlayerDetailsAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerDetailsAssets; sourceTree = "<group>"; };
 		F7532F792727B04300C55078 /* ConfirmPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModel.swift; sourceTree = "<group>"; };
 		F75698A92771B70200A3E0E1 /* GatherUITests+SetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+SetTime.swift"; sourceTree = "<group>"; };
 		F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherApp.swift; sourceTree = "<group>"; };
@@ -210,11 +177,6 @@
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewUITests.swift; sourceTree = "<group>"; };
 		F75FD85D278E933F00266527 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModelTests.swift; sourceTree = "<group>"; };
-		F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDetailsSectionViewModelTests.swift; sourceTree = "<group>"; };
-		F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillAndPositionSectionViewModelTests.swift; sourceTree = "<group>"; };
-		F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerViewModelTests.swift; sourceTree = "<group>"; };
-		F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionPickerViewModelTests.swift; sourceTree = "<group>"; };
 		F76B9F24278D2E9800078F20 /* TimeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettings.swift; sourceTree = "<group>"; };
 		F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingsTests.swift; sourceTree = "<group>"; };
 		F777316727B0CA660067B3F8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -223,7 +185,6 @@
 		F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerContainerView.swift; sourceTree = "<group>"; };
 		F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsContainerView.swift; sourceTree = "<group>"; };
 		F777317927B0E1D60067B3F8 /* HistoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTabView.swift; sourceTree = "<group>"; };
-		F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerDetailsViewModel+UIModel.swift"; sourceTree = "<group>"; };
 		F792CFEE2727BD040060314D /* ConfirmPlayersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersViewModelTests.swift; sourceTree = "<group>"; };
 		F7944F96272152B3002DAF6D /* ConfirmPlayersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersUITests.swift; sourceTree = "<group>"; };
 		F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballGatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,7 +194,6 @@
 		F7986A4727BCB92E000AA9F2 /* Localizable */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Localizable; sourceTree = "<group>"; };
 		F7986A4827BCB941000AA9F2 /* UITools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UITools; sourceTree = "<group>"; };
 		F798950126DC987200898B24 /* PlayerSelectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectionUITests.swift; sourceTree = "<group>"; };
-		F79F6A9526E7196600E4E587 /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
 		F7A5255C27550AFF006D2CBC /* GatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherViewModel.swift; sourceTree = "<group>"; };
 		F7A5255E27550B37006D2CBC /* GatherPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherPlayersView.swift; sourceTree = "<group>"; };
 		F7A5256027550CBF006D2CBC /* GatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherViewModelTests.swift; sourceTree = "<group>"; };
@@ -271,8 +231,6 @@
 		F7F2A138279FA7F90094D9B0 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
 		F7F2A143279FA9430094D9B0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		F7F4928F2733AA2900231D8D /* ConfirmPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersView.swift; sourceTree = "<group>"; };
-		F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
-		F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsFormViewModelTests.swift; sourceTree = "<group>"; };
 		F7FCEA7D2761C5820058DB26 /* TimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelTests.swift; sourceTree = "<group>"; };
 		F7FEF35E27590928009F60E6 /* ScoreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModelTests.swift; sourceTree = "<group>"; };
 		F7FEF36027591951009F60E6 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
@@ -285,7 +243,6 @@
 			files = (
 				F752D67B27BCBF0E000F57F2 /* PlayerDetails in Frameworks */,
 				F752D67D27BCBF0E000F57F2 /* PlayerList in Frameworks */,
-				F752D67927BCBF0E000F57F2 /* FoundationTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,24 +308,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		F71E989B26ECB70A005A1EA7 /* Sections */ = {
-			isa = PBXGroup;
-			children = (
-				F71E988526ECB382005A1EA7 /* NameDetailsSection.swift */,
-				F71E988B26ECB491005A1EA7 /* SkillAndPositionSection.swift */,
-			);
-			path = Sections;
-			sourceTree = "<group>";
-		};
-		F71E989C26ECB711005A1EA7 /* Pickers */ = {
-			isa = PBXGroup;
-			children = (
-				F71E988F26ECB50E005A1EA7 /* SkillPickerView.swift */,
-				F71E989326ECB5CC005A1EA7 /* PositionPickerView.swift */,
-			);
-			path = Pickers;
-			sourceTree = "<group>";
-		};
 		F72D3221271854510001CD6F /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,26 +345,6 @@
 				F71F5CCA271855D500C31944 /* EditPlayerUITests+Save.swift */,
 			);
 			path = Edit;
-			sourceTree = "<group>";
-		};
-		F7427D7A26E7185700474D18 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				F7427D7B26E7186100474D18 /* Views */,
-				F790923126EB0ED0002C9FDF /* ViewModels */,
-			);
-			path = Details;
-			sourceTree = "<group>";
-		};
-		F7427D7B26E7186100474D18 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F79F6A9526E7196600E4E587 /* PlayerDetailsView.swift */,
-				F71E988126ECB296005A1EA7 /* PlayerDetailsFormView.swift */,
-				F71E989B26ECB70A005A1EA7 /* Sections */,
-				F71E989C26ECB711005A1EA7 /* Pickers */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F7532F772727B02E00C55078 /* Views */ = {
@@ -561,7 +480,6 @@
 		F75AFA6526537F93002D1CE8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F7427D7A26E7185700474D18 /* Details */,
 				F7944F94272151FD002DAF6D /* Confirmation */,
 				F7E9C8912745F9D0002DC16C /* Gather */,
 				F75FD85C278E8E0900266527 /* History */,
@@ -584,20 +502,6 @@
 				F7F0EC03278FD0E7000898A1 /* ViewModels */,
 			);
 			path = History;
-			sourceTree = "<group>";
-		};
-		F761201126EDDBB800DB06E0 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				F761201226EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift */,
-				F72D32172717E1060001CD6F /* PlayerDetailsDuplicateVerifierTests.swift */,
-				F7FC6F6126F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift */,
-				F761201426EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift */,
-				F761201626EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift */,
-				F761201826EE2DB300DB06E0 /* SkillPickerViewModelTests.swift */,
-				F761201A26EE301D00DB06E0 /* PositionPickerViewModelTests.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		F777317727B0E16D0067B3F8 /* PlayersTab */ = {
@@ -636,33 +540,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F790923126EB0ED0002C9FDF /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				F7FC6F5F26F9C48E008583E6 /* PlayerDetailsViewModel.swift */,
-				F72D32142717E0220001CD6F /* PlayerDetailsDuplicateVerifier.swift */,
-				F78C2C8E27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift */,
-				F71E988326ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift */,
-				F71E988726ECB421005A1EA7 /* NameDetailsSectionViewModel.swift */,
-				F71E988D26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift */,
-				F71E989126ECB53A005A1EA7 /* SkillPickerViewModel.swift */,
-				F71E989526ECB5F2005A1EA7 /* PositionPickerViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		F791020526E0753600BF79B9 /* List */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
 		F791020626E0754600BF79B9 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F791020526E0753600BF79B9 /* List */,
-				F761201126EDDBB800DB06E0 /* Details */,
 				F792CFED2727BCED0060314D /* Confirmation */,
 				F7E9C8902745F9B1002DC16C /* Gather */,
 				F7F0EC04278FD0F9000898A1 /* History */,
@@ -856,6 +736,7 @@
 		F7F50C0F27BCB860000556BC /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				F752D67E27BCCCC0000F57F2 /* PlayerDetailsAssets */,
 				F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */,
 			);
 			path = Details;
@@ -890,7 +771,6 @@
 			);
 			name = "FootballGather (iOS)";
 			packageProductDependencies = (
-				F752D67827BCBF0E000F57F2 /* FoundationTools */,
 				F752D67A27BCBF0E000F57F2 /* PlayerDetails */,
 				F752D67C27BCBF0E000F57F2 /* PlayerList */,
 			);
@@ -1069,10 +949,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F71E989026ECB50E005A1EA7 /* SkillPickerView.swift in Sources */,
-				F71E989426ECB5CC005A1EA7 /* PositionPickerView.swift in Sources */,
 				F72972B62760709400900714 /* TimerController.swift in Sources */,
-				F71E988426ECB333005A1EA7 /* PlayerDetailsFormViewModel.swift in Sources */,
 				F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */,
 				F777317427B0DF430067B3F8 /* AddPlayerContainerView.swift in Sources */,
 				F7A5256B275620BC006D2CBC /* GatherEndView.swift in Sources */,
@@ -1080,16 +957,13 @@
 				F703EB30274DF38800460551 /* GatherView.swift in Sources */,
 				F73171CB2763819600BC2CCC /* TimerViewModel.swift in Sources */,
 				F7A5256427551931006D2CBC /* ScoreView.swift in Sources */,
-				F71E988E26ECB4C8005A1EA7 /* SkillAndPositionSectionViewModel.swift in Sources */,
 				F750D0AD2791303800B14434 /* HistoryRowDescriptable.swift in Sources */,
 				F7FEF36127591951009F60E6 /* ScoreViewModel.swift in Sources */,
 				F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */,
 				F7CAFE7127B22B8700B39B22 /* GatherCoordinator.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
 				F7B1FB6127951C8500A31659 /* MainView.swift in Sources */,
-				F78C2C8F27169FD200E04184 /* PlayerDetailsViewModel+UIModel.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
-				F71E989626ECB5F2005A1EA7 /* PositionPickerViewModel.swift in Sources */,
 				F7F492902733AA2900231D8D /* ConfirmPlayersView.swift in Sources */,
 				F7C77DE727310E7600470E4E /* ConfirmPlayersViewController.swift in Sources */,
 				F7A5255D27550AFF006D2CBC /* GatherViewModel.swift in Sources */,
@@ -1101,24 +975,16 @@
 				F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */,
 				F7532F7A2727B04300C55078 /* ConfirmPlayersViewModel.swift in Sources */,
 				F72972B9276074FD00900714 /* TimerView.swift in Sources */,
-				F71E989226ECB53A005A1EA7 /* SkillPickerViewModel.swift in Sources */,
 				F750D0AB2791257700B14434 /* HistoryViewModel.swift in Sources */,
 				F7A5255F27550B37006D2CBC /* GatherPlayersView.swift in Sources */,
 				F76B9F25278D2E9800078F20 /* TimeSettings.swift in Sources */,
-				F71E988226ECB296005A1EA7 /* PlayerDetailsFormView.swift in Sources */,
 				F777316E27B0DCF70067B3F8 /* PlayersTabView.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
-				F72D32162717E0440001CD6F /* PlayerDetailsDuplicateVerifier.swift in Sources */,
 				F7A525712757F091006D2CBC /* ScoreHandler.swift in Sources */,
-				F71E988626ECB382005A1EA7 /* NameDetailsSection.swift in Sources */,
 				F703EB35274DF4E800460551 /* GatherPlayersViewModel.swift in Sources */,
 				F7CAFE6D27B21F0900B39B22 /* ConfirmPlayersContainerView.swift in Sources */,
 				F7F25CF227670BD6001B9986 /* GatherTimeFormatter.swift in Sources */,
-				F71E988C26ECB491005A1EA7 /* SkillAndPositionSection.swift in Sources */,
 				F7B4A3B4276CDBE100079203 /* SetTimerView.swift in Sources */,
-				F79F6A9626E7196600E4E587 /* PlayerDetailsView.swift in Sources */,
-				F7FC6F6026F9C48E008583E6 /* PlayerDetailsViewModel.swift in Sources */,
-				F71E988826ECB421005A1EA7 /* NameDetailsSectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,30 +1030,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7B29352265F474B00E76DF0 /* DemoModelsTests.swift in Sources */,
-				F761201326EDDBD200DB06E0 /* PlayerDetailsViewModelTests.swift in Sources */,
 				F792CFEF2727BD040060314D /* ConfirmPlayersViewModelTests.swift in Sources */,
 				F74DCA5D27B3694800217FDB /* GatherCoordinatorTests.swift in Sources */,
 				F7FCEA7E2761C5820058DB26 /* TimerViewModelTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F7F0EC06278FD10E000898A1 /* HistoryViewModelTests.swift in Sources */,
-				F761201926EE2DB300DB06E0 /* SkillPickerViewModelTests.swift in Sources */,
-				F761201526EE23EE00DB06E0 /* NameDetailsSectionViewModelTests.swift in Sources */,
 				F7F25CFD276AF7C8001B9986 /* TimerViewModel+UIModelTests.swift in Sources */,
 				F7EE73A3279137A6006BCF0F /* HistoryRowDescriptableTests.swift in Sources */,
 				F7FEF35F27590928009F60E6 /* ScoreViewModelTests.swift in Sources */,
-				F761201B26EE301D00DB06E0 /* PositionPickerViewModelTests.swift in Sources */,
 				F7F25CF02766FD91001B9986 /* GatherTimeFormatterTests.swift in Sources */,
 				F76B9F27278D44DD00078F20 /* TimeSettingsTests.swift in Sources */,
 				F7E05537277308C000385948 /* SetTimerViewModelTests.swift in Sources */,
 				F742FFCE279A612800B8F5CE /* HistoryViewModel+AccessibilityTests.swift in Sources */,
-				F761201726EE2BC200DB06E0 /* SkillAndPositionSectionViewModelTests.swift in Sources */,
 				F703EB33274DF3AC00460551 /* GatherPlayersViewModelTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
 				F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */,
 				F7A5256F2757E1FD006D2CBC /* ScoreHandlerTests.swift in Sources */,
 				F7C77DE527310E4E00470E4E /* ConfirmPlayersViewControllerTests.swift in Sources */,
-				F7FC6F6226F9CBCA008583E6 /* PlayerDetailsFormViewModelTests.swift in Sources */,
-				F72D32182717E1060001CD6F /* PlayerDetailsDuplicateVerifierTests.swift in Sources */,
 				F72972B3275F15B300900714 /* TimerControllerTests.swift in Sources */,
 				F7A5256127550CBF006D2CBC /* GatherViewModelTests.swift in Sources */,
 			);
@@ -1579,10 +1438,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		F71648E2265F4C6C008D52FE /* FoundationTools */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FoundationTools;
-		};
-		F752D67827BCBF0E000F57F2 /* FoundationTools */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FoundationTools;
 		};

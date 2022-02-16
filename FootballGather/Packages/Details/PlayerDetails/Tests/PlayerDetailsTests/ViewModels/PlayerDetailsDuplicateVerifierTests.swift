@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-@testable import FootballGather
+@testable import PlayerDetails
 
 final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     

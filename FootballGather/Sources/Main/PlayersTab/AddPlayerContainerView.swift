@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FoundationTools
+import PlayerDetails
 
 struct AddPlayerContainerView: View {
     

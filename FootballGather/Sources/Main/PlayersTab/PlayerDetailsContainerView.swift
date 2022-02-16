@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModels
 import FoundationTools
+import PlayerDetails
 
 struct PlayerDetailsContainerView: View {
     
