@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import PlayerListAssets
 @testable import PlayerList
 
 final class PlayersViewModelUIModelTests: XCTestCase {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccessibilityViewModifier: ViewModifier {
     let id: String
+    
     func body(content: Content) -> some View {
         content
             .accessibilityIdentifier(id)

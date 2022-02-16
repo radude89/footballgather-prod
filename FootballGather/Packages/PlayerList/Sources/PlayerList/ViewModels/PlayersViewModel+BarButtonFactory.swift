@@ -6,7 +6,7 @@
 //
 
 import UITools
-import Localizable
+import PlayerListAssets
 
 extension PlayersViewModel {
     enum BarButtonFactory {

@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "PlayerListAssets",
+    defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [
         .library(

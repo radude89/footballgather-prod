@@ -1,0 +1,17 @@
+"selected.player" = "%@ selected";
+"tap.select.player" = "Tap to select %@ or swipe to delete";
+"cancel.hint" = "If you want to unselect your players, tap on cancel.";
+"cancel" = "Cancel";
+"add.players.hint" = "Tap to add players";
+"add.player.label" = "Add player";
+"select" = "Select";
+"select.hint" = "You can select your players for the gather or delete one of the players by swipping left the row the player is associated with.";
+"selected.count" = "%d selected";
+"players" = "Players";
+"no.players" = "We could not find any players.\nPlease create one.";
+"gather.complete.title" = "Gather finished";
+"gather.complete.message" = "You can visit your results in the history tab.";
+"ok" = "OK";
+"delete" = "Delete";
+"confirm.players.title" = "Confirm Players";
+"confirm.players.button.hint" = "Becomes enabled when you select at least two players";

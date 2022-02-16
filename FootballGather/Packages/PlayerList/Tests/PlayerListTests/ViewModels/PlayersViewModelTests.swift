@@ -6,8 +6,8 @@
 //
 
 import XCTest
-import CoreModels
 import Combine
+import CoreModels
 @testable import PlayerList
 
 final class PlayersViewModelTests: XCTestCase {

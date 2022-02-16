@@ -5,9 +5,9 @@
 //  Created by Radu Dan on 04.09.2021.
 //
 
-import FoundationTools
-import Localizable
 import SwiftUI
+import FoundationTools
+import PlayerListAssets
 
 // MARK: - UI Models
 
@@ -71,7 +71,7 @@ extension PlayersViewModel {
         )
     }
     
-    var mainViewAccessibilityID: Localizable.AccessibilityID {
+    var mainViewAccessibilityID: AccessibilityID {
         hasPlayers ? .playerList : .emptyView
     }
     

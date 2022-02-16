@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-import Localizable
 import CoreModels
 import FoundationTools
+import UITools
 
 // MARK: - PlayersView
 
@@ -46,7 +46,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                     showListView = viewModel.hasPlayers
                 }
         }
-        .accessibilityID(viewModel.mainViewAccessibilityID)
+        .accessibilityID2(viewModel.mainViewAccessibilityID)
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -74,7 +74,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
         Button(action: viewModel.toggleSelection) {
             Text(viewModel.leadingBarButton.title)
         }
-        .accessibilityID(viewModel.leadingBarButton.accessibilityID)
+        .accessibilityID2(viewModel.leadingBarButton.accessibilityID)
         .accessibilityHint(
             Text(viewModel.leadingBarButton.accessibilityHint)
         )
@@ -88,7 +88,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
             Image(systemName: "plus")
                 .accessibility(removeTraits: .isImage)
         }
-        .accessibilityID(viewModel.trailingBarButton.accessibilityID)
+        .accessibilityID2(viewModel.trailingBarButton.accessibilityID)
         .accessibilityHint(
             Text(viewModel.trailingBarButton.accessibilityHint)
         )

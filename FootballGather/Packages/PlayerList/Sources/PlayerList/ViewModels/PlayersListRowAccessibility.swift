@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import Localizable
 import CoreModels
+import PlayerListAssets
 
 struct PlayersListRowAccessibility {
     let label: Text

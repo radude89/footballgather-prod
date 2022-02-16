@@ -51,7 +51,7 @@ extension Mocks {
     static func makeButtonModel(
         title: String = "Button",
         accessibility: PlayersViewModel.AccessibilityModel = .init(
-            id: .doneButton,
+            id: .addButton,
             hint: "Hint",
             label: "Label"
         )

@@ -8,7 +8,7 @@
 import XCTest
 import SwiftUI
 import CoreModels
-import Localizable
+import PlayerListAssets
 @testable import PlayerList
 
 final class PlayersListRowAccessibilityTests: XCTestCase {

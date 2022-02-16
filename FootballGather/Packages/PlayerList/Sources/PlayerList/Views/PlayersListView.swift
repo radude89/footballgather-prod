@@ -7,7 +7,8 @@
 
 import SwiftUI
 import CoreModels
-import Localizable
+import PlayerListAssets
+import UITools
 
 // MARK: - PlayerListView
 
@@ -66,7 +67,7 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
     private func makeListRow(for player: Player) -> some View {
         Text(PlayersListViewModel.formattedRowTitle(for: player))
-            .accessibilityID(
+            .accessibilityID2(
                 viewModel.accessibilityID(
                     for: player, isEditing: isEditing
                 )

@@ -12,14 +12,13 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "PlayerListAssets", path: "../PlayerListAssets"),
-        .package(name: "CoreModels", path: "../CoreModels"),
         .package(name: "UITools", path: "../UITools"),
         .package(name: "FoundationTools", path: "../FoundationTools")
     ],
     targets: [
         .target(
             name: "PlayerList",
-            dependencies: ["PlayerListAssets", "CoreModels", "UITools", "FoundationTools"]),
+            dependencies: ["PlayerListAssets", "UITools", "FoundationTools"]),
         .testTarget(
             name: "PlayerListTests",
             dependencies: ["PlayerList"]),

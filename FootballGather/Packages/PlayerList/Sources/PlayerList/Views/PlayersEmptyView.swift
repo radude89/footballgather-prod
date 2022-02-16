@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import PlayerListAssets
 
 struct PlayersEmptyView: View {
     var body: some View {

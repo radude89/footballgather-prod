@@ -5,9 +5,9 @@
 //  Created by Radu Dan on 05.09.2021.
 //
 
-import CoreModels
-import Localizable
 import SwiftUI
+import CoreModels
+import PlayerListAssets
 
 extension PlayersListViewModel {
     

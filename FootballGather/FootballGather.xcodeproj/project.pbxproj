@@ -257,6 +257,7 @@
 		F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersContainerView.swift; sourceTree = "<group>"; };
 		F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinator.swift; sourceTree = "<group>"; };
 		F7CAFE7227B22BED00B39B22 /* GatherCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinatable.swift; sourceTree = "<group>"; };
+		F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerDetails; sourceTree = "<group>"; };
 		F7E05536277308C000385948 /* SetTimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModelTests.swift; sourceTree = "<group>"; };
 		F7E0553827730E2100385948 /* SetTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerViewModel.swift; sourceTree = "<group>"; };
 		F7EE73A2279137A6006BCF0F /* HistoryRowDescriptableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRowDescriptableTests.swift; sourceTree = "<group>"; };
@@ -340,13 +341,6 @@
 				F7E0553827730E2100385948 /* SetTimerViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		F705D011265B65A40057B63A /* List */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = List;
 			sourceTree = "<group>";
 		};
 		F705D014265B66870057B63A /* Helpers */ = {
@@ -509,6 +503,7 @@
 		F756F993260C486400A36040 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */,
 				F7C756D727B4C35200D4204F /* PlayerListAssets */,
 				F74DCA6127B3768400217FDB /* PlayerList */,
 				F71D37AC26FF48FD002DC14E /* UITools */,
@@ -570,7 +565,6 @@
 		F75AFA6526537F93002D1CE8 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				F705D011265B65A40057B63A /* List */,
 				F7427D7A26E7185700474D18 /* Details */,
 				F7944F94272151FD002DAF6D /* Confirmation */,
 				F7E9C8912745F9D0002DC16C /* Gather */,
@@ -1032,6 +1026,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Packages/Localizable/Sources/Localizable/en.lproj/Localizable.strings",
 				"$(SRCROOT)/Packages/Localizable/Sources/Localizable/Strings.swift",
+				"$(SRCROOT)/Packages/PlayerListAssets/Sources/PlayerListAssets/en.lproj/Localizable.strings",
+				"$(SRCROOT)/Packages/PlayerListAssets/Sources/PlayerListAssets/Strings.swift",
 			);
 			name = "Generate Localizable strings";
 			outputFileListPaths = (
@@ -1040,7 +1036,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $output_file\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t\\t%s\\n\" \"${rows[@]}\" >> $2\n  echo \"}\" >> $2\n}\n\ninput_file=$SCRIPT_INPUT_FILE_0\noutput_file=$SCRIPT_INPUT_FILE_1\n\ngenerate_strings $input_file $output_file\n";
+			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
