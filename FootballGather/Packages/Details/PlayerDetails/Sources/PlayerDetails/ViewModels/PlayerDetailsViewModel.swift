@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreModels
 import FoundationTools
-import Localizable
+import PlayerDetailsAssets
 
 // MARK: - PlayerDetailsViewModel
 

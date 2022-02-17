@@ -5,8 +5,8 @@
 //  Created by Radu Dan on 13.10.2021.
 //
 
-import Localizable
 import CoreModels
+import PlayerDetailsAssets
 
 // MARK: - PlayerDetailsUIModel
 

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import PlayerDetailsAssets
 import CoreModels
 
 struct SkillPickerView: View {

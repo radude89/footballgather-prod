@@ -1,0 +1,13 @@
+"add.player" = "Add Player";
+"position" = "Position";
+"skill" = "Skill";
+"player.name.field" = "*Name of the player";
+"section.player.details.header" = "Name Details";
+"section.player.details.footer" = "Choose a name for your player so that you recognize him/her later on. Please note you can have players with the same name.\n*This field is mandatory.";
+"skillset.and.position.header" = "Skillset & position";
+"skillset.and.position.footer" = "Make sure you balance your teams based on the skillset and position of your players.";
+"discard.confirmation" = "Do you want to discard your changes?";
+"discard.changes.lost" = "Your changes will be lost.";
+"discard" = "Discard";
+"cancel" = "Cancel";
+"save" = "Save";

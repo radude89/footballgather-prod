@@ -15,6 +15,5 @@ public enum AccessibilityID: String {
     case cancelButton = "cancel-button"
     case playerList = "player-list"
     case emptyView = "empty-view"
+    case confirmButton = "confirm-button"
 }
-
-extension AccessibilityID: CaseIterable {}

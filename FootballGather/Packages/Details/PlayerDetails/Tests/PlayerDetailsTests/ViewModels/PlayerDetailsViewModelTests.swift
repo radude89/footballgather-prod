@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import Combine
 import CoreModels
-import Localizable
+import PlayerDetailsAssets
 @testable import PlayerDetails
 
 final class PlayerDetailsViewModelTests: XCTestCase {
@@ -285,7 +285,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
             state: .viewingDetails
         )
         
-        XCTAssertEqual(sut.viewAccessibilityID, Localizable.AccessibilityID.detailsView)
+        XCTAssertEqual(sut.viewAccessibilityID, .detailsView)
     }
     
 }

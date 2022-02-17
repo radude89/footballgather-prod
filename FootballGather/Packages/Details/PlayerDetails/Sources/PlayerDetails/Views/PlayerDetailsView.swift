@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UITools
-import Localizable
+import PlayerDetailsAssets
 
 public struct PlayerDetailsView: View {
     
@@ -22,7 +22,7 @@ public struct PlayerDetailsView: View {
         
     public var body: some View {
         detailsView
-            .accessibilityID(viewModel.viewAccessibilityID)
+            .accessibilityID2(viewModel.viewAccessibilityID)
     }
     
     @ViewBuilder
@@ -76,7 +76,7 @@ public struct PlayerDetailsView: View {
     private var saveButton: some View {
         Button(LocalizedString.save, action: saveAndDismiss)
             .disabled(!viewModel.playerIsValid)
-            .accessibilityID(.saveButton)
+            .accessibilityID2(AccessibilityID.saveButton)
     }
     
     private func saveAndDismiss() {

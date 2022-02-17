@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import PlayerDetailsAssets
 
 struct SkillAndPositionSection: View {
     
@@ -15,8 +15,12 @@ struct SkillAndPositionSection: View {
     var body: some View {
         Section(
             content: {
-                SkillPickerView(viewModel: .init(skill: viewModel.$skill))
-                PositionPickerView(viewModel: .init(position: viewModel.$position))
+                SkillPickerView(
+                    viewModel: .init(skill: viewModel.$skill)
+                )
+                PositionPickerView(
+                    viewModel: .init(position: viewModel.$position)
+                )
             },
             header:  {
                 Text(LocalizedString.skillsetAndPositionHeader)

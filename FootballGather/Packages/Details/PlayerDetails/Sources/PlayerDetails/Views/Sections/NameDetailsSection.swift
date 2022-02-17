@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import PlayerDetailsAssets
 
 struct NameDetailsSection: View {
     
@@ -22,7 +22,7 @@ struct NameDetailsSection: View {
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.words)
                     .submitLabel(.done)
-                    .accessibilityID(.enterNameTextfield)
+                    .accessibilityID2(AccessibilityID.enterNameTextfield)
             },
             header: {
                 Text(LocalizedString.sectionPlayerDetailsHeader)

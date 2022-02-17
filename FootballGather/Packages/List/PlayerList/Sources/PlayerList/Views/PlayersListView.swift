@@ -112,7 +112,7 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
         Button(LocalizedString.confirmPlayersTitle) {
             isShowingConfirmPlayersView = true
         }
-        .accessibilityID(.confirmButton)
+        .accessibilityID2(AccessibilityID.confirmButton)
         .accessibilityHint(LocalizedString.confirmPlayersButtonHint)
         .padding(.bottom)
     }
