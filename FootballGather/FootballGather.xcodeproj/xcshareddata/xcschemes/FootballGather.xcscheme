@@ -56,20 +56,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "LocalizableTests"
-               BuildableName = "LocalizableTests"
-               BlueprintName = "LocalizableTests"
-               ReferencedContainer = "container:Packages/Core/Localizable">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CoreModelsTests"
                BuildableName = "CoreModelsTests"
                BlueprintName = "CoreModelsTests"
@@ -116,6 +102,20 @@
                BuildableName = "PlayerDetailsTests"
                BlueprintName = "PlayerDetailsTests"
                ReferencedContainer = "container:Packages/Details/PlayerDetails">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "TeamSelectionTests"
+               BuildableName = "TeamSelectionTests"
+               BlueprintName = "TeamSelectionTests"
+               ReferencedContainer = "container:Packages/TeamSelection/TeamSelection">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -181,17 +181,6 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "LocalizableTests"
-               BuildableName = "LocalizableTests"
-               BlueprintName = "LocalizableTests"
-               ReferencedContainer = "container:Packages/Core/Localizable">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "PlayerDetailsTests"
                BuildableName = "PlayerDetailsTests"
                BlueprintName = "PlayerDetailsTests"
@@ -240,6 +229,17 @@
                BuildableName = "PlayerDetailsAssetsTests"
                BlueprintName = "PlayerDetailsAssetsTests"
                ReferencedContainer = "container:Packages/Details/PlayerDetailsAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "TeamSelectionTests"
+               BuildableName = "TeamSelectionTests"
+               BlueprintName = "TeamSelectionTests"
+               ReferencedContainer = "container:Packages/TeamSelection/TeamSelection">
             </BuildableReference>
          </TestableReference>
       </Testables>

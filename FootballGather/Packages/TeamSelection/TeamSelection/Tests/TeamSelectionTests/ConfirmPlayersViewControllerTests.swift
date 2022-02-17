@@ -8,7 +8,7 @@
 import XCTest
 import CoreModels
 import Localizable
-@testable import FootballGather
+@testable import TeamSelection
 
 final class ConfirmPlayersViewControllerTests: XCTestCase {
     
@@ -209,16 +209,6 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         XCTAssertFalse(tableView.isEditing)
     }
     
-    func testStartGather() {
-        let navController = MockNavController(rootViewController: sut)
-        
-        startGatherButton.sendActions(for: .touchUpInside)
-        
-        XCTAssertTrue(gatherCoordinator.gatherStarted)
-        XCTAssertTrue(navController.viewControllerPushed)
-        XCTAssertTrue(navController.pushedViewControllerIsConfirmPlayersViewController)
-    }
-    
     // MARK: - Helpers
     
     private var startGatherButton: UIButton {
@@ -288,21 +278,8 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         return (cell.contentConfiguration as? UIListContentConfiguration)?.text
     }
     
-    private final class MockNavController: UINavigationController {
-        private(set) var viewControllerPushed = false
-        private(set) var pushedViewControllerIsConfirmPlayersViewController = false
-        
-        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-            viewControllerPushed = true
-            pushedViewControllerIsConfirmPlayersViewController = viewController is ConfirmPlayersViewController
-        }
-    }
-    
     private final class MockGatherCoordinator: GatherCoordinatable {
-        private(set) var gatherStarted = false
-        
         func startGather(from parent: UIViewController, playersTeams: [Team : [Player]], animated: Bool) {
-            gatherStarted = true
         }
     }
     

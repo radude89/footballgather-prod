@@ -12,6 +12,11 @@ import FoundationTools
 
 final class GatherViewModelTests: XCTestCase {
     
+    override func tearDown() {
+        Mocks.storage.clear()
+        super.tearDown()
+    }
+    
     func testInit() {
         let sut = GatherViewModel(
             playersTeams: [.teamA: .demoPlayers, .teamB: .demoPlayers]

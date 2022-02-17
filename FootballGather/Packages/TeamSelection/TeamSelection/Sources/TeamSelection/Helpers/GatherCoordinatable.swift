@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import CoreModels
 
-protocol GatherCoordinatable {
+public protocol GatherCoordinatable {
     func startGather(
         from parent: UIViewController,
         playersTeams: [Team: [Player]],

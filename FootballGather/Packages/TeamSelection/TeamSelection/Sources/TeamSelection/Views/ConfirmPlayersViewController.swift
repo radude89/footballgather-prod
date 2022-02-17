@@ -5,11 +5,11 @@
 //  Created by Radu Dan on 02.11.2021.
 //
 
-import UITools
 import UIKit
+import SwiftUI
+import UITools
 import CoreModels
 import Localizable
-import SwiftUI
 
 // MARK: - ConfirmPlayersViewController
 

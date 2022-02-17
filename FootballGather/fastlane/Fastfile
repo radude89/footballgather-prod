@@ -13,7 +13,7 @@ platform :ios do
   desc "Runs the unit tests of FootballGather"
   lane :ut do
     scan(
-      scheme: "FootballGather-CI",
+      scheme: "FootballGather",
       clean: true,
       reset_simulator: true
     )

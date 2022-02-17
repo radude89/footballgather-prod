@@ -51,17 +51,6 @@
                ReferencedContainer = "container:../CoreModels">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "LocalizableTests"
-               BuildableName = "LocalizableTests"
-               BlueprintName = "LocalizableTests"
-               ReferencedContainer = "container:../Localizable">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

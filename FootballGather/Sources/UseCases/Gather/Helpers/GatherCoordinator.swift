@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import CoreModels
+import TeamSelection
 
 struct GatherCoordinator: GatherCoordinatable {
     private let gatherEnded: Binding<Bool>
