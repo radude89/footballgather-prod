@@ -35,7 +35,7 @@ final class ConfirmPlayersViewController: UIViewController {
     private let startGatherButton = ButtonFactory.makeSystemButton(
         title: LocalizedString.startGather,
         isEnabled: false,
-        accessibilityID: .startGatherButton,
+        accessibilityID: AccessibilityID.startGatherButton.rawValue,
         accessibilityHint: LocalizedString.startGatherHint,
         selector: #selector(startGather)
     )

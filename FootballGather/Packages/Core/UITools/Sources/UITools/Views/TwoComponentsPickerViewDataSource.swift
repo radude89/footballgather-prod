@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Localizable
 
 public struct TwoComponentsPickerViewDataSource {
     public let components: (first: Component, second: Component)
@@ -21,14 +20,14 @@ extension TwoComponentsPickerViewDataSource {
         public let id = UUID()
         public let values: [String]
         public let name: String
-        public let accessibilityID: AccessibilityID
+        public let accessibilityID: String
         
         @Binding public var selectedValue: String
         
         public init(
             values: [String],
             name: String,
-            accessibilityID: AccessibilityID,
+            accessibilityID: String,
             selectedValue: Binding<String>
         ) {
             self.values = values

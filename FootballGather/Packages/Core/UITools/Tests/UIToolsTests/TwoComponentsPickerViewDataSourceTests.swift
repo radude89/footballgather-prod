@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import Localizable
 @testable import UITools
 
 final class TwoComponentsPickerViewDataSourceTests: XCTestCase {
@@ -14,14 +13,14 @@ final class TwoComponentsPickerViewDataSourceTests: XCTestCase {
     private let firstComponent = TwoComponentsPickerViewDataSource.Component(
         values: (0...60).map { "\($0)"},
         name: "First Component",
-        accessibilityID: .minutesPickerView,
+        accessibilityID: "minutes-picker-view",
         selectedValue: .constant("0")
     )
     
     private let secondComponent = TwoComponentsPickerViewDataSource.Component(
         values: (0...60).map { "\($0)"},
         name: "Second Component",
-        accessibilityID: .secondsPickerView,
+        accessibilityID: "seconds-picker-view",
         selectedValue: .constant("1")
     )
     

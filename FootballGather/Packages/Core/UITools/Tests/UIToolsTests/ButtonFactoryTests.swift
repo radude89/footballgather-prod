@@ -13,7 +13,7 @@ final class ButtonFactoryTests: XCTestCase {
     
     func testMakeSystemButton() {
         let buttonTitle = "Title"
-        let accessibilityID = AccessibilityID.startGatherButton
+        let accessibilityID = AccessibilityID.startGatherButton.rawValue
         let accessibilityLabel = "Accessibility Label"
         let accessibilityHint = "Accessibility Hint"
         
@@ -30,7 +30,7 @@ final class ButtonFactoryTests: XCTestCase {
         XCTAssertFalse(sut.translatesAutoresizingMaskIntoConstraints)
         XCTAssertEqual(sut.title(for: .normal), buttonTitle)
         XCTAssertFalse(sut.isEnabled)
-        XCTAssertEqual(sut.accessibilityIdentifier, accessibilityID.rawValue)
+        XCTAssertEqual(sut.accessibilityIdentifier, accessibilityID)
         XCTAssertEqual(sut.accessibilityLabel, accessibilityLabel)
         XCTAssertEqual(sut.accessibilityHint, accessibilityHint)
         

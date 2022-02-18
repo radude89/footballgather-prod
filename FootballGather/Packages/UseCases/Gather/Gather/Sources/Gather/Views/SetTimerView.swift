@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UITools
-import Localizable
+import GatherAssets
 
 struct SetTimerView: View {
     
@@ -39,17 +39,17 @@ struct SetTimerView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(LocalizedString.cancel, action: { dismiss() })
-                            .accessibilityID(.cancelButton)
+                            .accessibilityID2(AccessibilityID.cancelButton)
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(LocalizedString.done, action: onSave)
                             .disabled(!doneButtonIsEnabled)
-                            .accessibilityID(.doneButton)
+                            .accessibilityID2(AccessibilityID.doneButton)
                     }
                 }
         }
-        .accessibilityID(.setTimeView)
+        .accessibilityID2(AccessibilityID.setTimeView)
     }
     
     private func makeDataSource() -> TwoComponentsPickerViewDataSource {
@@ -58,13 +58,13 @@ struct SetTimerView: View {
                 first: .init(
                     values: viewModel.formattedMinutes,
                     name: LocalizedString.minutes,
-                    accessibilityID: .minutesPickerView,
+                    accessibilityID: AccessibilityID.minutesPickerView.rawValue,
                     selectedValue: $selectedMinutes
                 ),
                 second: .init(
                     values: viewModel.formattedSeconds,
                     name: LocalizedString.seconds,
-                    accessibilityID: .secondsPickerView,
+                    accessibilityID: AccessibilityID.secondsPickerView.rawValue,
                     selectedValue: $selectedSeconds
                 )
             )

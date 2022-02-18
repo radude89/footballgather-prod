@@ -5,7 +5,7 @@
 //  Created by Radu Dan on 16.12.2021.
 //
 
-import Localizable
+import GatherAssets
 import FoundationTools
 
 protocol ActionTimerButtonModel {

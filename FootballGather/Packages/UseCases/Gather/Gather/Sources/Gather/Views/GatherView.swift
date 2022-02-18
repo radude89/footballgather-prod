@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import GatherAssets
 import CoreModels
 import FoundationTools
 

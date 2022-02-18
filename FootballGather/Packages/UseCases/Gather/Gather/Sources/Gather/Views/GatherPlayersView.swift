@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-import Localizable
+import GatherAssets
 import CoreModels
+import UITools
 
 struct GatherPlayersView: View {
     
@@ -19,7 +20,7 @@ struct GatherPlayersView: View {
             section(for: .teamB)
         }
         .listStyle(.grouped)
-        .accessibilityID(.gatherPlayersList)
+        .accessibilityID2(AccessibilityID.gatherPlayersList)
     }
     
     private func section(for team: Team) -> some View {

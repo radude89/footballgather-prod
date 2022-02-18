@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreModels
-import Localizable
+import GatherAssets
 
 final class ScoreViewModel: ObservableObject {
     

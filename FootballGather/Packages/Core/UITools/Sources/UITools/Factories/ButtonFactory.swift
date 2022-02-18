@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import Localizable
 
 public enum ButtonFactory {
     public static func makeSystemButton(
         title: String,
         isEnabled: Bool = true,
-        accessibilityID: AccessibilityID,
+        accessibilityID: String,
         accessibilityLabel: String? = nil,
         accessibilityHint: String? = nil,
         selector: Selector
@@ -22,7 +21,7 @@ public enum ButtonFactory {
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .body)
         button.isEnabled = isEnabled
-        button.accessibilityIdentifier = accessibilityID.rawValue
+        button.accessibilityIdentifier = accessibilityID
         button.accessibilityLabel = accessibilityLabel
         button.accessibilityHint = accessibilityHint
         button.addTarget(self, action: selector, for: .touchUpInside)

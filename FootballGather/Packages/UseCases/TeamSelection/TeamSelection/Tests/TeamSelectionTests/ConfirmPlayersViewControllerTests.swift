@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import TeamSelectionAssets
 @testable import TeamSelection
 
 final class ConfirmPlayersViewControllerTests: XCTestCase {

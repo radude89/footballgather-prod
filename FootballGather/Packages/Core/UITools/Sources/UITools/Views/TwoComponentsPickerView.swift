@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Localizable
 
 public struct TwoComponentsPickerView: View {
     
@@ -26,7 +25,7 @@ public struct TwoComponentsPickerView: View {
                         values: component.values,
                         width: geometry.size.width / CGFloat(components.count)
                     )
-                        .accessibilityID(component.accessibilityID)
+                        .accessibilityIdentifier(component.accessibilityID)
                 }
             }
         }
@@ -69,15 +68,15 @@ struct TwoComponentsPickerView_Previews: PreviewProvider {
     
     private static let minComponent = TwoComponentsPickerViewDataSource.Component(
         values: minutes,
-        name: LocalizedString.minutes,
-        accessibilityID: .minutesPickerView,
+        name: "Minutes",
+        accessibilityID: "minutes-picker-view",
         selectedValue: .constant("0")
     )
     
     private static let secComponent = TwoComponentsPickerViewDataSource.Component(
         values: seconds,
-        name: LocalizedString.seconds,
-        accessibilityID: .secondsPickerView,
+        name: "Seconds",
+        accessibilityID: "seconds-picker-view",
         selectedValue: .constant("0")
     )
 

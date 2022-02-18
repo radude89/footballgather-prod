@@ -9,4 +9,5 @@ import SwiftUI
 
 public enum AccessibilityID: String {
     case confirmPlayersView = "confirm-players-view"
+    case startGatherButton = "start-gather-button"
 }

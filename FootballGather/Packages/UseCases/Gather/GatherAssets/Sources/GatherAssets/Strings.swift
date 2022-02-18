@@ -1,0 +1,25 @@
+import Foundation
+
+public enum LocalizedString {
+	public static let endGather = NSLocalizedString("end.gather", bundle: .module, comment: "")
+	public static let endGatherConfirmation = NSLocalizedString("end.gather.confirmation", bundle: .module, comment: "")
+	public static let endGatherMessage = NSLocalizedString("end.gather.message", bundle: .module, comment: "")
+	public static let yes = NSLocalizedString("yes", bundle: .module, comment: "")
+	public static let no = NSLocalizedString("no", bundle: .module, comment: "")
+	public static let minutes = NSLocalizedString("minutes", bundle: .module, comment: "")
+	public static let seconds = NSLocalizedString("seconds", bundle: .module, comment: "")
+	public static let gatherScoreAccessibilityLabel = NSLocalizedString("gather.score.accessibility.label", bundle: .module, comment: "")
+	public static let start = NSLocalizedString("start", bundle: .module, comment: "")
+	public static let startTimerLabel = NSLocalizedString("start.timer.label", bundle: .module, comment: "")
+	public static let pause = NSLocalizedString("pause", bundle: .module, comment: "")
+	public static let pauseTimerLabel = NSLocalizedString("pause.timer.label", bundle: .module, comment: "")
+	public static let resume = NSLocalizedString("resume", bundle: .module, comment: "")
+	public static let resumeTimerLabel = NSLocalizedString("resume.timer.label", bundle: .module, comment: "")
+	public static let cancelTimerLabel = NSLocalizedString("cancel.timer.label", bundle: .module, comment: "")
+	public static let gatherInProgress = NSLocalizedString("gather.in.progress", bundle: .module, comment: "")
+	public static let cancel = NSLocalizedString("cancel", bundle: .module, comment: "")
+	public static let done = NSLocalizedString("done", bundle: .module, comment: "")
+	public static let setTime = NSLocalizedString("set.time", bundle: .module, comment: "")
+	public static let timeIsUpTitle = NSLocalizedString("time.is.up.title", bundle: .module, comment: "")
+	public static let ok = NSLocalizedString("ok", bundle: .module, comment: "")
+}

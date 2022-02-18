@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import GatherAssets
 import UITools
 
 struct GatherEndView: View {
@@ -34,7 +34,7 @@ struct GatherEndView: View {
             role: .cancel,
             action: presentEndGatherConfirmationAlert
         )
-            .accessibilityID(.endGatherButton)
+            .accessibilityID2(AccessibilityID.endGatherButton)
     }
     
     private func presentEndGatherConfirmationAlert() {

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Localizable
+import GatherAssets
 @testable import Gather
 
 final class TimerViewModelUIModelTests: XCTestCase {

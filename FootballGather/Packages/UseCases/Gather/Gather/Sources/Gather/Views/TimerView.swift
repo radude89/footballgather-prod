@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import GatherAssets
 
 struct TimerView: View {
     
@@ -26,7 +26,7 @@ struct TimerView: View {
             
             Button(LocalizedString.setTime, action: setTimeAction)
                 .disabled(viewModel.timerIsRunning)
-                .accessibilityID(.setTimeButton)
+                .accessibilityID2(AccessibilityID.setTimeButton)
         }
         .padding(.bottom)
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
@@ -40,13 +40,13 @@ struct TimerView: View {
             action: viewModel.cancelTimer
         )
             .disabled(!viewModel.cancelButtonIsEnabled)
-            .accessibilityID(.cancelButton)
+            .accessibilityID2(AccessibilityID.cancelButton)
             .accessibilityLabel(LocalizedString.cancelTimerLabel)
     }
     
     private var timeView: some View {
         Text("\(viewModel.formattedTime)")
-            .accessibilityID(.timerView)
+            .accessibilityID2(AccessibilityID.timerView)
             .accessibilityAddTraits(.updatesFrequently)
     }
     
@@ -55,7 +55,7 @@ struct TimerView: View {
             viewModel.actionButtonTitle,
             action: viewModel.onActionTimer
         )
-            .accessibilityID(.actionTimerButton)
+            .accessibilityID2(AccessibilityID.actionTimerButton)
             .accessibilityLabel(viewModel.actionButtonAccessibilityLabel)
     }
     
