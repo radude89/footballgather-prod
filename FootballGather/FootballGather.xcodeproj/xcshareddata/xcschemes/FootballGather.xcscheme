@@ -73,7 +73,7 @@
                BlueprintIdentifier = "PlayerListTests"
                BuildableName = "PlayerListTests"
                BlueprintName = "PlayerListTests"
-               ReferencedContainer = "container:Packages/List/PlayerList">
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerList">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -87,7 +87,7 @@
                BlueprintIdentifier = "PlayerListAssetsTests"
                BuildableName = "PlayerListAssetsTests"
                BlueprintName = "PlayerListAssetsTests"
-               ReferencedContainer = "container:Packages/List/PlayerListAssets">
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerListAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -101,7 +101,7 @@
                BlueprintIdentifier = "PlayerDetailsTests"
                BuildableName = "PlayerDetailsTests"
                BlueprintName = "PlayerDetailsTests"
-               ReferencedContainer = "container:Packages/Details/PlayerDetails">
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetails">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -112,10 +112,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TeamSelectionTests"
-               BuildableName = "TeamSelectionTests"
-               BlueprintName = "TeamSelectionTests"
-               ReferencedContainer = "container:Packages/TeamSelection/TeamSelection">
+               BlueprintIdentifier = "PlayerDetailsAssetsTests"
+               BuildableName = "PlayerDetailsAssetsTests"
+               BlueprintName = "PlayerDetailsAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetailsAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -129,7 +129,35 @@
                BlueprintIdentifier = "TeamSelectionAssetsTests"
                BuildableName = "TeamSelectionAssetsTests"
                BlueprintName = "TeamSelectionAssetsTests"
-               ReferencedContainer = "container:Packages/TeamSelection/TeamSelectionAssets">
+               ReferencedContainer = "container:Packages/UseCases/TeamSelection/TeamSelectionAssets">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "TeamSelectionTests"
+               BuildableName = "TeamSelectionTests"
+               BlueprintName = "TeamSelectionTests"
+               ReferencedContainer = "container:Packages/UseCases/TeamSelection/TeamSelection">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherTests"
+               BuildableName = "GatherTests"
+               BlueprintName = "GatherTests"
+               ReferencedContainer = "container:Packages/UseCases/Gather/Gather">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -195,39 +223,6 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerDetailsTests"
-               BuildableName = "PlayerDetailsTests"
-               BlueprintName = "PlayerDetailsTests"
-               ReferencedContainer = "container:Packages/Details/PlayerDetails">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerListTests"
-               BuildableName = "PlayerListTests"
-               BlueprintName = "PlayerListTests"
-               ReferencedContainer = "container:Packages/List/PlayerList">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerListAssetsTests"
-               BuildableName = "PlayerListAssetsTests"
-               BlueprintName = "PlayerListAssetsTests"
-               ReferencedContainer = "container:Packages/List/PlayerListAssets">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "UIToolsTests"
                BuildableName = "UIToolsTests"
                BlueprintName = "UIToolsTests"
@@ -239,10 +234,54 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherTests"
+               BuildableName = "GatherTests"
+               BlueprintName = "GatherTests"
+               ReferencedContainer = "container:Packages/UseCases/Gather/Gather">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsTests"
+               BuildableName = "PlayerDetailsTests"
+               BlueprintName = "PlayerDetailsTests"
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetails">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "PlayerDetailsAssetsTests"
                BuildableName = "PlayerDetailsAssetsTests"
                BlueprintName = "PlayerDetailsAssetsTests"
-               ReferencedContainer = "container:Packages/Details/PlayerDetailsAssets">
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetailsAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListTests"
+               BuildableName = "PlayerListTests"
+               BlueprintName = "PlayerListTests"
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerList">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListAssetsTests"
+               BuildableName = "PlayerListAssetsTests"
+               BlueprintName = "PlayerListAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerListAssets">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -253,7 +292,7 @@
                BlueprintIdentifier = "TeamSelectionTests"
                BuildableName = "TeamSelectionTests"
                BlueprintName = "TeamSelectionTests"
-               ReferencedContainer = "container:Packages/TeamSelection/TeamSelection">
+               ReferencedContainer = "container:Packages/UseCases/TeamSelection/TeamSelection">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -264,7 +303,7 @@
                BlueprintIdentifier = "TeamSelectionAssetsTests"
                BuildableName = "TeamSelectionAssetsTests"
                BlueprintName = "TeamSelectionAssetsTests"
-               ReferencedContainer = "container:Packages/TeamSelection/TeamSelectionAssets">
+               ReferencedContainer = "container:Packages/UseCases/TeamSelection/TeamSelectionAssets">
             </BuildableReference>
          </TestableReference>
       </Testables>
