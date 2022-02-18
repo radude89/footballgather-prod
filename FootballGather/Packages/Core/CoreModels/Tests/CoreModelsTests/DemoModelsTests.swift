@@ -6,8 +6,7 @@
 //
 
 import XCTest
-import CoreModels
-@testable import FootballGather
+@testable import CoreModels
 
 final class DemoModelsTests: XCTestCase {
     

@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import UITools
 import CoreModels
-import Localizable
+import TeamSelectionAssets
 
 // MARK: - ConfirmPlayersViewController
 

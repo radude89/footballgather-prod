@@ -76,7 +76,6 @@
 		F7A525712757F091006D2CBC /* ScoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A525702757F091006D2CBC /* ScoreHandler.swift */; };
 		F7B1FB6127951C8500A31659 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1FB6027951C8500A31659 /* MainView.swift */; };
 		F7B29350265F44E400E76DF0 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B2934F265F44E400E76DF0 /* Mocks.swift */; };
-		F7B29352265F474B00E76DF0 /* DemoModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B29351265F474B00E76DF0 /* DemoModelsTests.swift */; };
 		F7B4A3B4276CDBE100079203 /* SetTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4A3B3276CDBE100079203 /* SetTimerView.swift */; };
 		F7BB973B27BE25490052F6C9 /* TeamSelection in Frameworks */ = {isa = PBXBuildFile; productRef = F7BB973A27BE25490052F6C9 /* TeamSelection */; };
 		F7C47303275A740B007D19F2 /* ScoreViewAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C47302275A740B007D19F2 /* ScoreViewAsserter.swift */; };
@@ -199,7 +198,6 @@
 		F7A525702757F091006D2CBC /* ScoreHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHandler.swift; sourceTree = "<group>"; };
 		F7B1FB6027951C8500A31659 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F7B2934F265F44E400E76DF0 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
-		F7B29351265F474B00E76DF0 /* DemoModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModelsTests.swift; sourceTree = "<group>"; };
 		F7B4A3B3276CDBE100079203 /* SetTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerView.swift; sourceTree = "<group>"; };
 		F7BB973927BE23560052F6C9 /* TeamSelection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TeamSelection; sourceTree = "<group>"; };
 		F7C47302275A740B007D19F2 /* ScoreViewAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewAsserter.swift; sourceTree = "<group>"; };
@@ -221,6 +219,7 @@
 		F7F2A136279FA7F90094D9B0 /* Snapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F2A138279FA7F90094D9B0 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
 		F7F2A143279FA9430094D9B0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		F7FC053827BF47BE00B59A0A /* TeamSelectionAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TeamSelectionAssets; sourceTree = "<group>"; };
 		F7FCEA7D2761C5820058DB26 /* TimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelTests.swift; sourceTree = "<group>"; };
 		F7FEF35E27590928009F60E6 /* ScoreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModelTests.swift; sourceTree = "<group>"; };
 		F7FEF36027591951009F60E6 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
@@ -529,7 +528,6 @@
 			children = (
 				F7B2934F265F44E400E76DF0 /* Mocks.swift */,
 				F75AFA5426536945002D1CE8 /* App */,
-				F7B2934C265F441A00E76DF0 /* Helpers */,
 				F791020626E0754600BF79B9 /* UseCases */,
 				F795CCFF264A4F8D00D8FC3C /* Info.plist */,
 			);
@@ -546,18 +544,10 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		F7B2934C265F441A00E76DF0 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F7B29351265F474B00E76DF0 /* DemoModelsTests.swift */,
-				F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		F7BB973827BE23400052F6C9 /* TeamSelection */ = {
 			isa = PBXGroup;
 			children = (
+				F7FC053827BF47BE00B59A0A /* TeamSelectionAssets */,
 				F7BB973927BE23560052F6C9 /* TeamSelection */,
 			);
 			path = TeamSelection;
@@ -672,6 +662,7 @@
 				F7A5256E2757E1FD006D2CBC /* ScoreHandlerTests.swift */,
 				F72972B2275F15B300900714 /* TimerControllerTests.swift */,
 				F7F25CEF2766FD91001B9986 /* GatherTimeFormatterTests.swift */,
+				F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */,
 				F76B9F26278D44DD00078F20 /* TimeSettingsTests.swift */,
 			);
 			path = Helpers;
@@ -889,6 +880,8 @@
 				"$(SRCROOT)/Packages/List/PlayerListAssets/Sources/PlayerListAssets/Strings.swift",
 				"$(SRCROOT)/Packages/Details/PlayerDetailsAssets/Sources/PlayerDetailsAssets/en.lproj/Localizable.strings",
 				"$(SRCROOT)/Packages/Details/PlayerDetailsAssets/Sources/PlayerDetailsAssets/Strings.swift",
+				"$(SRCROOT)/Packages/TeamSelection/TeamSelectionAssets/Sources/TeamSelectionAssets/en.lproj/Localizable.strings",
+				"$(SRCROOT)/Packages/TeamSelection/TeamSelectionAssets/Sources/TeamSelectionAssets/Strings.swift",
 			);
 			name = "Generate Localizable strings";
 			outputFileListPaths = (
@@ -897,7 +890,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\ngenerate_strings $SCRIPT_INPUT_FILE_4 $SCRIPT_INPUT_FILE_5\n";
+			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\ngenerate_strings $SCRIPT_INPUT_FILE_4 $SCRIPT_INPUT_FILE_5\ngenerate_strings $SCRIPT_INPUT_FILE_6 $SCRIPT_INPUT_FILE_7\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -982,7 +975,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7B29352265F474B00E76DF0 /* DemoModelsTests.swift in Sources */,
 				F74DCA5D27B3694800217FDB /* GatherCoordinatorTests.swift in Sources */,
 				F7FCEA7E2761C5820058DB26 /* TimerViewModelTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
