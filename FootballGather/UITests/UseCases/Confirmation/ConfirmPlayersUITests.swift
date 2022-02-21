@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import Localizable
 import CoreModels
 
 final class ConfirmPlayersUITests: UITestCase {

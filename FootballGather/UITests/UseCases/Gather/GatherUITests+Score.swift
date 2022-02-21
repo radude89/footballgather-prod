@@ -8,7 +8,6 @@
 import XCTest
 import CoreModels
 import FoundationTools
-import Localizable
 
 extension GatherUITests {
     

@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import GatherAssets
 import FoundationTools
 
 struct ScoreViewAsserter {
@@ -32,7 +32,7 @@ struct ScoreViewAsserter {
         line: UInt = #line
     ) {
         assertView(
-            havingID: .scoreHeader,
+            havingID: GatherAssets.AccessibilityID.scoreHeader.rawValue,
             existsForTeam: team,
             elementsToSearchIn: app.staticTexts,
             file: file,
@@ -41,14 +41,16 @@ struct ScoreViewAsserter {
     }
     
     private func assertView(
-        havingID id: AccessibilityID,
+        havingID id: String,
         existsForTeam team: Team,
         elementsToSearchIn elements: XCUIElementQuery,
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        let accessibilityID = ScoreAccessibility
-            .viewID(for: team, accessibilityID: id)
+        let accessibilityID = ScoreAccessibility.viewID(
+            for: team,
+            accessibilityID: id
+        )
         XCTAssertTrue(elements[accessibilityID].exists, file: file, line: line)
     }
     
@@ -57,7 +59,7 @@ struct ScoreViewAsserter {
         line: UInt = #line
     ) {
         assertView(
-            havingID: .scoreLabel,
+            havingID: GatherAssets.AccessibilityID.scoreLabel.rawValue,
             existsForTeam: team,
             elementsToSearchIn: app.staticTexts,
             file: file,
@@ -70,7 +72,7 @@ struct ScoreViewAsserter {
         line: UInt = #line
     ) {
         assertView(
-            havingID: .scoreStepper,
+            havingID: GatherAssets.AccessibilityID.scoreStepper.rawValue,
             existsForTeam: team,
             elementsToSearchIn: app.steppers,
             file: file,

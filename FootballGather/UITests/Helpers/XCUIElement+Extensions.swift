@@ -6,7 +6,11 @@
 //
 
 import XCTest
-import Localizable
+import HistoryAssets
+import PlayerListAssets
+import PlayerDetailsAssets
+import TeamSelectionAssets
+import GatherAssets
 
 extension XCUIElement {
     func waitToAppear(timeout: TimeInterval = 2) -> Bool {
@@ -39,7 +43,23 @@ extension XCUIElement {
 }
 
 extension XCUIElementQuery {
-    subscript(key: AccessibilityID) -> XCUIElement {
+    subscript(key: TeamSelectionAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: PlayerDetailsAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: GatherAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: PlayerListAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: HistoryAssets.AccessibilityID) -> XCUIElement {
         self[key.rawValue]
     }
 }
@@ -54,7 +74,7 @@ extension UITestCase {
     }
     
     var confirmTable: XCUIElement {
-        app.tables[.confirmPlayersView]
+        app.tables[AccessibilityID.confirmPlayersView.rawValue]
     }
     
     func assertNavigationTitle(is title: String, file: StaticString = #file, line: UInt = #line) {

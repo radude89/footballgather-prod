@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import GatherAssets
 import FoundationTools
 
 final class GatherUITests: UITestCase {
@@ -84,7 +84,7 @@ final class GatherUITests: UITestCase {
     }
     
     var cancelTimerButton: XCUIElement {
-        app.buttons[.cancelButton]
+        app.buttons[GatherAssets.AccessibilityID.cancelButton]
     }
     
     var actionTimerButton: XCUIElement {

@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import PlayerDetailsAssets
 
 struct PlayerDetailsSelection {
     private let app: XCUIApplication

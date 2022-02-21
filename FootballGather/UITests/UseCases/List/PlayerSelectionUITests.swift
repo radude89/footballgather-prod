@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Localizable
+import PlayerListAssets
 
 final class PlayerSelectionUITests: UITestCase {
     
@@ -49,13 +49,17 @@ final class PlayerSelectionUITests: UITestCase {
     /// **AND** the checkbox is unticked
     func testSelectingPlayers() {
         app.buttons[.selectButton].tap()
-        XCTAssertTrue(app.buttons[.cancelButton].waitToAppear())
+        XCTAssertTrue(cancelButton.waitToAppear())
         
         cells.forEach { cell in
             XCTAssertTrue(cell.staticTexts[.unselectedRow].waitToAppear())
             cell.tap()
             XCTAssertTrue(cell.staticTexts[.selectedRow].waitToAppear())
         }
+    }
+    
+    private var cancelButton: XCUIElement {
+        app.buttons[PlayerListAssets.AccessibilityID.cancelButton]
     }
     
     /// **Scenario 4: Number of selected players**
@@ -66,7 +70,7 @@ final class PlayerSelectionUITests: UITestCase {
     /// **THEN** the title displays the number of selected players
     func testNumberOfSelectedPlayersUpdatesTitle() {
         app.buttons[.selectButton].tap()
-        XCTAssertTrue(app.buttons[.cancelButton].waitToAppear())
+        XCTAssertTrue(cancelButton.waitToAppear())
         
         XCTAssertFalse(app.buttons[.confirmButton].isEnabled)
         
@@ -79,13 +83,13 @@ final class PlayerSelectionUITests: UITestCase {
         
         // unselecting the rows
         tapCells(havingIndexes: 0, 1)
-        app.buttons[.cancelButton].tap()
+        cancelButton.tap()
         
         assertNavigationTitle(is: LocalizedString.players)
         
         // tap edit and then done should not select any players
         app.buttons[.selectButton].tap()
-        app.buttons[.cancelButton].tap()
+        cancelButton.tap()
         
         assertNavigationTitle(is: LocalizedString.players)
     }

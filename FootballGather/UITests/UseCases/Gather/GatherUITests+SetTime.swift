@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import Localizable
 
 extension GatherUITests {
     

@@ -6,8 +6,9 @@
 //
 
 import XCTest
-import Localizable
 import CoreModels
+import PlayerListAssets
+import GatherAssets
 
 struct AppNavigator {
     

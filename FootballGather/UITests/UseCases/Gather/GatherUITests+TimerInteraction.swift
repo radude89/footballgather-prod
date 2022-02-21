@@ -6,8 +6,8 @@
 //
 
 import XCTest
-import Localizable
 import FoundationTools
+import GatherAssets
 
 extension GatherUITests {
     

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Localizable
+import PlayerDetailsAssets
 
 // MARK: - Scenarios for discard confirmation alert
 
@@ -46,7 +46,7 @@ extension AddPlayerUITests {
     }
     
     private func tapCancel() {
-        let cancelButton = app.buttons[.cancelButton]
+        let cancelButton = app.buttons[PlayerDetailsAssets.AccessibilityID.cancelButton]
         XCTAssertTrue(cancelButton.waitToAppear())
         cancelButton.tap()
     }

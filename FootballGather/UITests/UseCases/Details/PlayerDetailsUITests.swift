@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import PlayerDetailsAssets
 
 final class PlayerDetailsUITests: UITestCase {
     

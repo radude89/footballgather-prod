@@ -8,6 +8,7 @@
 import XCTest
 import CoreModels
 import FoundationTools
+import GatherAssets
 
 struct ScoreHandlerAsserter {
     private let team: Team
@@ -33,7 +34,10 @@ struct ScoreHandlerAsserter {
     // MARK: - Private methods
     
     private var stepper: XCUIElement {
-        let stepperID = ScoreAccessibility.scoreStepperID(for: team)
+        let stepperID = ScoreAccessibility.scoreStepperID(
+            for: team,
+            accessibilityID: GatherAssets.AccessibilityID.scoreStepper.rawValue
+        )
         return app.steppers[stepperID]
     }
     
@@ -46,7 +50,10 @@ struct ScoreHandlerAsserter {
     }
     
     private var score: XCUIElement {
-        let scoreLabelID = ScoreAccessibility.scoreLabelID(for: team)
+        let scoreLabelID = ScoreAccessibility.scoreLabelID(
+            for: team,
+            accessibilityID: GatherAssets.AccessibilityID.scoreLabel.rawValue
+        )
         return app.staticTexts[scoreLabelID]
     }
     
