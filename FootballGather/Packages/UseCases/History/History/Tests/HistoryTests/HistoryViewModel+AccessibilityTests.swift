@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreModels
-import Localizable
+import HistoryAssets
 @testable import History
 
 final class HistoryViewModelAccessibilityTests: XCTestCase {

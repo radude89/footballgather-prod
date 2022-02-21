@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreModels
-import Localizable
+import HistoryAssets
 
 extension HistoryViewModel {
     

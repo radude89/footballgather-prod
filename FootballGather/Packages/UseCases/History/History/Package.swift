@@ -11,13 +11,14 @@ let package = Package(
             targets: ["History"]),
     ],
     dependencies: [
+        .package(name: "HistoryAssets", path: "../HistoryAssets"),
         .package(name: "UITools", path: "../../../Core/UITools"),
         .package(name: "FoundationTools", path: "../../../Core/FoundationTools")
     ],
     targets: [
         .target(
             name: "History",
-            dependencies: ["UITools", "FoundationTools"]),
+            dependencies: ["HistoryAssets", "UITools", "FoundationTools"]),
         .testTarget(
             name: "HistoryTests",
             dependencies: ["History"]),

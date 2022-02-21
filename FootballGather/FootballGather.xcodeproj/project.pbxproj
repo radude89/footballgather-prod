@@ -160,6 +160,7 @@
 		F7FC053B27BF4C2500B59A0A /* Gather */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Gather; sourceTree = "<group>"; };
 		F7FC053E27BF51F200B59A0A /* GatherAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GatherAssets; sourceTree = "<group>"; };
 		F7FC054127C33EB600B59A0A /* History */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = History; sourceTree = "<group>"; };
+		F7FC054427C3415600B59A0A /* HistoryAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HistoryAssets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				F7FC054127C33EB600B59A0A /* History */,
+				F7FC054427C3415600B59A0A /* HistoryAssets */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -714,6 +716,8 @@
 				"$(SRCROOT)/Packages/UseCases/TeamSelection/TeamSelectionAssets/Sources/TeamSelectionAssets/Strings.swift",
 				"$(SRCROOT)/Packages/UseCases/Gather/GatherAssets/Sources/GatherAssets/en.lproj/Localizable.strings",
 				"$(SRCROOT)/Packages/UseCases/Gather/GatherAssets/Sources/GatherAssets/Strings.swift",
+				"$(SRCROOT)/Packages/UseCases/History/HistoryAssets/Sources/HistoryAssets/en.lproj/Localizable.strings",
+				"$(SRCROOT)/Packages/UseCases/History/HistoryAssets/Sources/HistoryAssets/Strings.swift",
 			);
 			name = "Generate Localizable strings";
 			outputFileListPaths = (
@@ -722,7 +726,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\ngenerate_strings $SCRIPT_INPUT_FILE_4 $SCRIPT_INPUT_FILE_5\ngenerate_strings $SCRIPT_INPUT_FILE_6 $SCRIPT_INPUT_FILE_7\ngenerate_strings $SCRIPT_INPUT_FILE_8 $SCRIPT_INPUT_FILE_9\n";
+			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\ngenerate_strings $SCRIPT_INPUT_FILE_4 $SCRIPT_INPUT_FILE_5\ngenerate_strings $SCRIPT_INPUT_FILE_6 $SCRIPT_INPUT_FILE_7\ngenerate_strings $SCRIPT_INPUT_FILE_8 $SCRIPT_INPUT_FILE_9\ngenerate_strings $SCRIPT_INPUT_FILE_10 $SCRIPT_INPUT_FILE_11\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

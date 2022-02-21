@@ -1,0 +1,7 @@
+"gather.draw" = "matched ended in a draw";
+"gather.winning.team" = "%@ won the match";
+"gather.players.in.team" = "Players in %@: %@";
+"gather.all.accessibility.label" = "For the gather completed in %@, %@. %@. %@.";
+"past.gathers" = "Past Gathers";
+"no.gathers" = "No gathers played";
+"vs" = "vs";

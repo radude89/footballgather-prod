@@ -7,8 +7,9 @@
 
 import SwiftUI
 import CoreModels
-import Localizable
+import HistoryAssets
 import FoundationTools
+import UITools
 
 public struct HistoryView: View {
     
@@ -44,14 +45,14 @@ public struct HistoryView: View {
             row(for: gather)
         }
         .listStyle(.insetGrouped)
-        .accessibilityID(.historyView)
+        .accessibilityID2(AccessibilityID.historyView)
     }
     
     private var emptyView: some View {
         Text(LocalizedString.noGathers)
             .multilineTextAlignment(.center)
             .padding()
-            .accessibilityID(.historyNoEntries)
+            .accessibilityID2(AccessibilityID.historyNoEntries)
     }
     
     private func row(for gather: Gather) -> some View {
