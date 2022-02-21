@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import Localizable
 import CoreModels
 import FoundationTools
 import PlayerList
+import HomeAssets
 
 struct PlayersTabView {
     
@@ -21,7 +21,7 @@ struct PlayersTabView {
     
     var provider: MainTabViewProvider {
         .init(
-            icon: "person.3.sequence",
+            icon: Images.players.icon,
             title: LocalizedString.players,
             view: { AnyView(playersView) }
         )

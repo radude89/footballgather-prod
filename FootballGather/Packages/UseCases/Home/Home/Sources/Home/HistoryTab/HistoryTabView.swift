@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import HomeAssets
 import FoundationTools
 import History
 
@@ -20,7 +20,7 @@ struct HistoryTabView {
     
     var provider: MainTabViewProvider {
         .init(
-            icon: "clock",
+            icon: Images.history.icon,
             title: LocalizedString.pastGathers,
             view: {
                 AnyView(

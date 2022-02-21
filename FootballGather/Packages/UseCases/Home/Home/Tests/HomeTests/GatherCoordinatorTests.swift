@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FootballGather
+@testable import Home
 
 final class GatherCoordinatorTests: XCTestCase {
     

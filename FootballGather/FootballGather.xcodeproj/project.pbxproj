@@ -25,9 +25,6 @@
 		F73E058627435EC2003E5F4F /* ConfirmPlayersUITests+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */; };
 		F73E058827435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */; };
 		F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */; };
-		F74DCA5D27B3694800217FDB /* GatherCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */; };
-		F752D67B27BCBF0E000F57F2 /* PlayerDetails in Frameworks */ = {isa = PBXBuildFile; productRef = F752D67A27BCBF0E000F57F2 /* PlayerDetails */; };
-		F752D67D27BCBF0E000F57F2 /* PlayerList in Frameworks */ = {isa = PBXBuildFile; productRef = F752D67C27BCBF0E000F57F2 /* PlayerList */; };
 		F75698AA2771B70200A3E0E1 /* GatherUITests+SetTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75698A92771B70200A3E0E1 /* GatherUITests+SetTime.swift */; };
 		F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */; };
 		F756F905260C3D6700A36040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F756F8DA260C3D6600A36040 /* Assets.xcassets */; };
@@ -41,29 +38,18 @@
 		F75FD85B278E8D0700266527 /* HistoryViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */; };
 		F76AD5E6279FBB7A00B18633 /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E5279FBB7A00B18633 /* FoundationTools */; };
 		F76AD5E8279FBB7A00B18633 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E7279FBB7A00B18633 /* Localizable */; };
-		F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316727B0CA660067B3F8 /* MainTabView.swift */; };
-		F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */; };
-		F777316E27B0DCF70067B3F8 /* PlayersTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777316D27B0DCF70067B3F8 /* PlayersTabView.swift */; };
-		F777317427B0DF430067B3F8 /* AddPlayerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */; };
-		F777317627B0DFD70067B3F8 /* PlayerDetailsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */; };
-		F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777317927B0E1D60067B3F8 /* HistoryTabView.swift */; };
 		F78BA6AA260C54CE00083142 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F78BA6A9260C54CE00083142 /* Localizable */; };
 		F7944F97272152B3002DAF6D /* ConfirmPlayersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7944F96272152B3002DAF6D /* ConfirmPlayersUITests.swift */; };
 		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
 		F7A525662755FC51006D2CBC /* TeamsTableAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */; };
 		F7A52568275606C5006D2CBC /* GatherUITests+EndConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */; };
 		F7A5256D275750D6006D2CBC /* GatherUITests+Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5256C275750D6006D2CBC /* GatherUITests+Score.swift */; };
-		F7B1FB6127951C8500A31659 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1FB6027951C8500A31659 /* MainView.swift */; };
-		F7BB973B27BE25490052F6C9 /* TeamSelection in Frameworks */ = {isa = PBXBuildFile; productRef = F7BB973A27BE25490052F6C9 /* TeamSelection */; };
 		F7C47303275A740B007D19F2 /* ScoreViewAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C47302275A740B007D19F2 /* ScoreViewAsserter.swift */; };
 		F7C47305275A7443007D19F2 /* ScoreHandlerAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C47304275A7443007D19F2 /* ScoreHandlerAsserter.swift */; };
-		F7CAFE6D27B21F0900B39B22 /* ConfirmPlayersContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */; };
-		F7CAFE7127B22B8700B39B22 /* GatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */; };
 		F7F25CFF276B1A4D001B9986 /* GatherUITests+TimerInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F25CFE276B1A4D001B9986 /* GatherUITests+TimerInteraction.swift */; };
 		F7F2A139279FA7F90094D9B0 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2A138279FA7F90094D9B0 /* Snapshots.swift */; };
 		F7F2A144279FA9430094D9B0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2A143279FA9430094D9B0 /* SnapshotHelper.swift */; };
-		F7FC053D27BF4D3C00B59A0A /* Gather in Frameworks */ = {isa = PBXBuildFile; productRef = F7FC053C27BF4D3C00B59A0A /* Gather */; };
-		F7FC054327C33F6800B59A0A /* History in Frameworks */ = {isa = PBXBuildFile; productRef = F7FC054227C33F6800B59A0A /* History */; };
+		F7FC054927C3475900B59A0A /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = F7FC054827C3475900B59A0A /* Home */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +95,6 @@
 		F73E058527435EC2003E5F4F /* ConfirmPlayersUITests+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+View.swift"; sourceTree = "<group>"; };
 		F73E058727435F2B003E5F4F /* ConfirmPlayersUITests+Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfirmPlayersUITests+Move.swift"; sourceTree = "<group>"; };
 		F7427D7826E7155B00474D18 /* AddPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerUITests.swift; sourceTree = "<group>"; };
-		F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinatorTests.swift; sourceTree = "<group>"; };
 		F752D67E27BCCCC0000F57F2 /* PlayerDetailsAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerDetailsAssets; sourceTree = "<group>"; };
 		F75698A92771B70200A3E0E1 /* GatherUITests+SetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+SetTime.swift"; sourceTree = "<group>"; };
 		F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherApp.swift; sourceTree = "<group>"; };
@@ -126,12 +111,6 @@
 		F75AFA6026537BB4002D1CE8 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListUITests.swift; sourceTree = "<group>"; };
 		F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewUITests.swift; sourceTree = "<group>"; };
-		F777316727B0CA660067B3F8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewProvider.swift; sourceTree = "<group>"; };
-		F777316D27B0DCF70067B3F8 /* PlayersTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTabView.swift; sourceTree = "<group>"; };
-		F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerContainerView.swift; sourceTree = "<group>"; };
-		F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsContainerView.swift; sourceTree = "<group>"; };
-		F777317927B0E1D60067B3F8 /* HistoryTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTabView.swift; sourceTree = "<group>"; };
 		F7944F96272152B3002DAF6D /* ConfirmPlayersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersUITests.swift; sourceTree = "<group>"; };
 		F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballGatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F795CCFF264A4F8D00D8FC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,13 +122,10 @@
 		F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsTableAsserter.swift; sourceTree = "<group>"; };
 		F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+EndConfirmation.swift"; sourceTree = "<group>"; };
 		F7A5256C275750D6006D2CBC /* GatherUITests+Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+Score.swift"; sourceTree = "<group>"; };
-		F7B1FB6027951C8500A31659 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F7BB973927BE23560052F6C9 /* TeamSelection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TeamSelection; sourceTree = "<group>"; };
 		F7C47302275A740B007D19F2 /* ScoreViewAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewAsserter.swift; sourceTree = "<group>"; };
 		F7C47304275A7443007D19F2 /* ScoreHandlerAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHandlerAsserter.swift; sourceTree = "<group>"; };
 		F7C756D727B4C35200D4204F /* PlayerListAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerListAssets; sourceTree = "<group>"; };
-		F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPlayersContainerView.swift; sourceTree = "<group>"; };
-		F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherCoordinator.swift; sourceTree = "<group>"; };
 		F7CB5B4827BCB6AD004FD1E5 /* PlayerDetails */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerDetails; sourceTree = "<group>"; };
 		F7EE5A0E27BCB7D700EB62A0 /* PlayerList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PlayerList; sourceTree = "<group>"; };
 		F7F25CFE276B1A4D001B9986 /* GatherUITests+TimerInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+TimerInteraction.swift"; sourceTree = "<group>"; };
@@ -161,6 +137,8 @@
 		F7FC053E27BF51F200B59A0A /* GatherAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GatherAssets; sourceTree = "<group>"; };
 		F7FC054127C33EB600B59A0A /* History */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = History; sourceTree = "<group>"; };
 		F7FC054427C3415600B59A0A /* HistoryAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HistoryAssets; sourceTree = "<group>"; };
+		F7FC054727C3458D00B59A0A /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Home; sourceTree = "<group>"; };
+		F7FC054A27C349B100B59A0A /* HomeAssets */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HomeAssets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,11 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7BB973B27BE25490052F6C9 /* TeamSelection in Frameworks */,
-				F7FC054327C33F6800B59A0A /* History in Frameworks */,
-				F7FC053D27BF4D3C00B59A0A /* Gather in Frameworks */,
-				F752D67B27BCBF0E000F57F2 /* PlayerDetails in Frameworks */,
-				F752D67D27BCBF0E000F57F2 /* PlayerList in Frameworks */,
+				F7FC054927C3475900B59A0A /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				F75AFA5326536916002D1CE8 /* App */,
-				F7B1FB5F27951C6500A31659 /* Main */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -320,7 +293,6 @@
 			children = (
 				F75AFA5B26537318002D1CE8 /* AppLauncherTests.swift */,
 				F75AFA57265369E2002D1CE8 /* TestAppTests.swift */,
-				F74DCA5C27B3694800217FDB /* GatherCoordinatorTests.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -362,35 +334,6 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		F777317727B0E16D0067B3F8 /* PlayersTab */ = {
-			isa = PBXGroup;
-			children = (
-				F777316D27B0DCF70067B3F8 /* PlayersTabView.swift */,
-				F777317327B0DF430067B3F8 /* AddPlayerContainerView.swift */,
-				F777317527B0DFD70067B3F8 /* PlayerDetailsContainerView.swift */,
-				F7CAFE6C27B21F0900B39B22 /* ConfirmPlayersContainerView.swift */,
-			);
-			path = PlayersTab;
-			sourceTree = "<group>";
-		};
-		F777317827B0E1C50067B3F8 /* HistoryTab */ = {
-			isa = PBXGroup;
-			children = (
-				F777317927B0E1D60067B3F8 /* HistoryTabView.swift */,
-			);
-			path = HistoryTab;
-			sourceTree = "<group>";
-		};
-		F777317B27B0E4720067B3F8 /* TabView */ = {
-			isa = PBXGroup;
-			children = (
-				F7B1FB6027951C8500A31659 /* MainView.swift */,
-				F777316727B0CA660067B3F8 /* MainTabView.swift */,
-				F777316927B0CC1C0067B3F8 /* MainTabViewProvider.swift */,
-			);
-			path = TabView;
-			sourceTree = "<group>";
-		};
 		F78BA6A1260C530F00083142 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,17 +358,6 @@
 				F795CCFF264A4F8D00D8FC3C /* Info.plist */,
 			);
 			path = FootballGatherTests;
-			sourceTree = "<group>";
-		};
-		F7B1FB5F27951C6500A31659 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				F7CAFE7027B22B8700B39B22 /* GatherCoordinator.swift */,
-				F777317B27B0E4720067B3F8 /* TabView */,
-				F777317727B0E16D0067B3F8 /* PlayersTab */,
-				F777317827B0E1C50067B3F8 /* HistoryTab */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		F7BB973827BE23400052F6C9 /* TeamSelection */ = {
@@ -510,6 +442,7 @@
 		F7FC053A27BF4B2E00B59A0A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				F7FC054527C344CE00B59A0A /* Home */,
 				F7FC053F27C33E6500B59A0A /* History */,
 				F7CB5B4927BCB78B004FD1E5 /* List */,
 				F7F50C0F27BCB860000556BC /* Details */,
@@ -526,6 +459,15 @@
 				F7FC054427C3415600B59A0A /* HistoryAssets */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		F7FC054527C344CE00B59A0A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC054727C3458D00B59A0A /* Home */,
+				F7FC054A27C349B100B59A0A /* HomeAssets */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,11 +488,7 @@
 			);
 			name = "FootballGather (iOS)";
 			packageProductDependencies = (
-				F752D67A27BCBF0E000F57F2 /* PlayerDetails */,
-				F752D67C27BCBF0E000F57F2 /* PlayerList */,
-				F7BB973A27BE25490052F6C9 /* TeamSelection */,
-				F7FC053C27BF4D3C00B59A0A /* Gather */,
-				F7FC054227C33F6800B59A0A /* History */,
+				F7FC054827C3475900B59A0A /* Home */,
 			);
 			productName = "Football Gather (iOS)";
 			productReference = F756F8DF260C3D6600A36040 /* FootballGather.app */;
@@ -718,6 +656,8 @@
 				"$(SRCROOT)/Packages/UseCases/Gather/GatherAssets/Sources/GatherAssets/Strings.swift",
 				"$(SRCROOT)/Packages/UseCases/History/HistoryAssets/Sources/HistoryAssets/en.lproj/Localizable.strings",
 				"$(SRCROOT)/Packages/UseCases/History/HistoryAssets/Sources/HistoryAssets/Strings.swift",
+				"$(SRCROOT)/Packages/UseCases/Home/HomeAssets/Sources/HomeAssets/en.lproj/Localizable.strings",
+				"$(SRCROOT)/Packages/UseCases/Home/HomeAssets/Sources/HomeAssets/Strings.swift",
 			);
 			name = "Generate Localizable strings";
 			outputFileListPaths = (
@@ -726,7 +666,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\ngenerate_strings $SCRIPT_INPUT_FILE_4 $SCRIPT_INPUT_FILE_5\ngenerate_strings $SCRIPT_INPUT_FILE_6 $SCRIPT_INPUT_FILE_7\ngenerate_strings $SCRIPT_INPUT_FILE_8 $SCRIPT_INPUT_FILE_9\ngenerate_strings $SCRIPT_INPUT_FILE_10 $SCRIPT_INPUT_FILE_11\n";
+			shellScript = "#!/bin/sh\nset -Eeuo pipefail\n\ngenerate_strings() {\n  rows=()\n\n  while IFS='=' read -r key value\n  do\n    if [[ $key == \\\"* ]]; then\n      key_without_quotes=$(echo $key | tr -d '\"')\n      key_with_spaces=$(echo $key_without_quotes | sed -r 's/\\./ /g' | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1' | sed -r 's/ //g')\n      key_camel_cased=$(echo \"$key_with_spaces\" | awk '{ print tolower(substr($0,1,1)) substr($0,2); }')\n\n      rows+=(\"public static let $key_camel_cased = NSLocalizedString(\\\"$key_without_quotes\\\", bundle: .module, comment: \\\"\\\")\")\n    fi\n  done < $1\n\n  > $2\n  echo \"import Foundation\\n\\npublic enum LocalizedString {\" >> $2\n  printf \"\\t%s\\n\" \"${rows[@]-}\" >> $2\n  echo \"}\" >> $2\n}\n\ngenerate_strings $SCRIPT_INPUT_FILE_0 $SCRIPT_INPUT_FILE_1\ngenerate_strings $SCRIPT_INPUT_FILE_2 $SCRIPT_INPUT_FILE_3\ngenerate_strings $SCRIPT_INPUT_FILE_4 $SCRIPT_INPUT_FILE_5\ngenerate_strings $SCRIPT_INPUT_FILE_6 $SCRIPT_INPUT_FILE_7\ngenerate_strings $SCRIPT_INPUT_FILE_8 $SCRIPT_INPUT_FILE_9\ngenerate_strings $SCRIPT_INPUT_FILE_10 $SCRIPT_INPUT_FILE_11\ngenerate_strings $SCRIPT_INPUT_FILE_12 $SCRIPT_INPUT_FILE_13\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -735,18 +675,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F777316827B0CA660067B3F8 /* MainTabView.swift in Sources */,
-				F777317427B0DF430067B3F8 /* AddPlayerContainerView.swift in Sources */,
-				F777317A27B0E1D60067B3F8 /* HistoryTabView.swift in Sources */,
-				F7CAFE7127B22B8700B39B22 /* GatherCoordinator.swift in Sources */,
 				F756F901260C3D6700A36040 /* FootballGatherApp.swift in Sources */,
-				F7B1FB6127951C8500A31659 /* MainView.swift in Sources */,
 				F75AFA51265368FB002D1CE8 /* TestApp.swift in Sources */,
-				F777317627B0DFD70067B3F8 /* PlayerDetailsContainerView.swift in Sources */,
-				F777316A27B0CC1C0067B3F8 /* MainTabViewProvider.swift in Sources */,
-				F777316E27B0DCF70067B3F8 /* PlayersTabView.swift in Sources */,
 				F75AFA4D265368B6002D1CE8 /* AppLauncher.swift in Sources */,
-				F7CAFE6D27B21F0900B39B22 /* ConfirmPlayersContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,7 +722,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F74DCA5D27B3694800217FDB /* GatherCoordinatorTests.swift in Sources */,
 				F75AFA58265369E2002D1CE8 /* TestAppTests.swift in Sources */,
 				F75AFA5C26537318002D1CE8 /* AppLauncherTests.swift in Sources */,
 			);
@@ -1186,14 +1116,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FoundationTools;
 		};
-		F752D67A27BCBF0E000F57F2 /* PlayerDetails */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PlayerDetails;
-		};
-		F752D67C27BCBF0E000F57F2 /* PlayerList */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PlayerList;
-		};
 		F76AD5E5279FBB7A00B18633 /* FoundationTools */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FoundationTools;
@@ -1206,17 +1128,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Localizable;
 		};
-		F7BB973A27BE25490052F6C9 /* TeamSelection */ = {
+		F7FC054827C3475900B59A0A /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = TeamSelection;
-		};
-		F7FC053C27BF4D3C00B59A0A /* Gather */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Gather;
-		};
-		F7FC054227C33F6800B59A0A /* History */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = History;
+			productName = Home;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Localizable
+import HomeAssets
 
 struct MainTabView: View {
     
@@ -46,12 +46,12 @@ struct ContentView_Previews: PreviewProvider {
         MainTabView(
             tabProviders: [
                 .init(
-                    icon: "person.3.sequence",
+                    icon: Images.players.icon,
                     title: LocalizedString.players,
                     view: { AnyView(Text("First Tab")) }
                 ),
                 .init(
-                    icon: "clock",
+                    icon: Images.history.icon,
                     title: LocalizedString.pastGathers,
                     view: { AnyView(Text("Second Tab")) }
                 )

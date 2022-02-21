@@ -202,6 +202,34 @@
                ReferencedContainer = "container:Packages/UseCases/History/HistoryAssets">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HomeTests"
+               BuildableName = "HomeTests"
+               BlueprintName = "HomeTests"
+               ReferencedContainer = "container:Packages/UseCases/Home/Home">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HomeAssetsTests"
+               BuildableName = "HomeAssetsTests"
+               BlueprintName = "HomeAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/Home/HomeAssets">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -379,6 +407,28 @@
                BuildableName = "HistoryAssetsTests"
                BlueprintName = "HistoryAssetsTests"
                ReferencedContainer = "container:Packages/UseCases/History/HistoryAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HomeTests"
+               BuildableName = "HomeTests"
+               BlueprintName = "HomeTests"
+               ReferencedContainer = "container:Packages/UseCases/Home/Home">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HomeAssetsTests"
+               BuildableName = "HomeAssetsTests"
+               BlueprintName = "HomeAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/Home/HomeAssets">
             </BuildableReference>
          </TestableReference>
       </Testables>

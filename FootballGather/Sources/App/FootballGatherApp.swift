@@ -6,16 +6,26 @@
 //
 
 import SwiftUI
+import Home
 import FoundationTools
 
 struct FootballGatherApp: App {
     
-    @StateObject private var storage = AppStorage()
+    @StateObject private var storage = FoundationTools.AppStorage()
 
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(storage)
+            MainView {
+                updateAnimationsIfRunningUITests()
+            }
+            .environmentObject(storage)
+        }
+    }
+    
+    private func updateAnimationsIfRunningUITests() {
+        if CommandLineHandler().isRunningUITests {
+            UIView.setAnimationsEnabled(false)
+            (UIApplication.shared.connectedScenes.first! as! UIWindowScene).keyWindow?.layer.speed = 100
         }
     }
     
