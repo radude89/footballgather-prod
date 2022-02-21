@@ -37,7 +37,6 @@
 		F75AFA6426537C62002D1CE8 /* PlayerListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */; };
 		F75FD85B278E8D0700266527 /* HistoryViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */; };
 		F76AD5E6279FBB7A00B18633 /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E5279FBB7A00B18633 /* FoundationTools */; };
-		F76AD5E8279FBB7A00B18633 /* Localizable in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E7279FBB7A00B18633 /* Localizable */; };
 		F7944F97272152B3002DAF6D /* ConfirmPlayersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7944F96272152B3002DAF6D /* ConfirmPlayersUITests.swift */; };
 		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
 		F7A525662755FC51006D2CBC /* TeamsTableAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */; };
@@ -50,6 +49,10 @@
 		F7C5FF9A27C36F330002497C /* HistoryAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FF9927C36F330002497C /* HistoryAssets */; };
 		F7C5FF9C27C36F330002497C /* PlayerDetailsAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FF9B27C36F330002497C /* PlayerDetailsAssets */; };
 		F7C5FF9E27C36F330002497C /* PlayerListAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FF9D27C36F330002497C /* PlayerListAssets */; };
+		F7C5FFA027C372820002497C /* HistoryAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FF9F27C372820002497C /* HistoryAssets */; };
+		F7C5FFA227C372870002497C /* PlayerListAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FFA127C372870002497C /* PlayerListAssets */; };
+		F7C5FFA427C3728D0002497C /* TeamSelectionAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FFA327C3728D0002497C /* TeamSelectionAssets */; };
+		F7C5FFA627C372930002497C /* GatherAssets in Frameworks */ = {isa = PBXBuildFile; productRef = F7C5FFA527C372930002497C /* GatherAssets */; };
 		F7F25CFF276B1A4D001B9986 /* GatherUITests+TimerInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F25CFE276B1A4D001B9986 /* GatherUITests+TimerInteraction.swift */; };
 		F7F2A139279FA7F90094D9B0 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2A138279FA7F90094D9B0 /* Snapshots.swift */; };
 		F7F2A144279FA9430094D9B0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F2A143279FA9430094D9B0 /* SnapshotHelper.swift */; };
@@ -178,8 +181,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C5FFA027C372820002497C /* HistoryAssets in Frameworks */,
+				F7C5FFA227C372870002497C /* PlayerListAssets in Frameworks */,
 				F76AD5E6279FBB7A00B18633 /* FoundationTools in Frameworks */,
-				F76AD5E8279FBB7A00B18633 /* Localizable in Frameworks */,
+				F7C5FFA627C372930002497C /* GatherAssets in Frameworks */,
+				F7C5FFA427C3728D0002497C /* TeamSelectionAssets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +568,10 @@
 			name = Snapshots;
 			packageProductDependencies = (
 				F76AD5E5279FBB7A00B18633 /* FoundationTools */,
-				F76AD5E7279FBB7A00B18633 /* Localizable */,
+				F7C5FF9F27C372820002497C /* HistoryAssets */,
+				F7C5FFA127C372870002497C /* PlayerListAssets */,
+				F7C5FFA327C3728D0002497C /* TeamSelectionAssets */,
+				F7C5FFA527C372930002497C /* GatherAssets */,
 			);
 			productName = Snapshots;
 			productReference = F7F2A136279FA7F90094D9B0 /* Snapshots.xctest */;
@@ -1132,10 +1141,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FoundationTools;
 		};
-		F76AD5E7279FBB7A00B18633 /* Localizable */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Localizable;
-		};
 		F7C5FF9527C36CC00002497C /* TeamSelectionAssets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TeamSelectionAssets;
@@ -1155,6 +1160,22 @@
 		F7C5FF9D27C36F330002497C /* PlayerListAssets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PlayerListAssets;
+		};
+		F7C5FF9F27C372820002497C /* HistoryAssets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HistoryAssets;
+		};
+		F7C5FFA127C372870002497C /* PlayerListAssets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlayerListAssets;
+		};
+		F7C5FFA327C3728D0002497C /* TeamSelectionAssets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeamSelectionAssets;
+		};
+		F7C5FFA527C372930002497C /* GatherAssets */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GatherAssets;
 		};
 		F7FC054827C3475900B59A0A /* Home */ = {
 			isa = XCSwiftPackageProductDependency;

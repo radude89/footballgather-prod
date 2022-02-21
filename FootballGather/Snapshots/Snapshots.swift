@@ -6,8 +6,11 @@
 //
 
 import XCTest
-import Localizable
 import FoundationTools
+import HistoryAssets
+import PlayerListAssets
+import TeamSelectionAssets
+import GatherAssets
 
 final class Snapshots: XCTestCase {
     
@@ -48,7 +51,7 @@ final class Snapshots: XCTestCase {
         // Add screen
         app.buttons[.addButton].tap()
         takeSnapshot(named: "02-player-add")
-        app.buttons[.cancelButton].tap()
+        app.buttons[PlayerListAssets.AccessibilityID.cancelButton.rawValue].tap()
         
         selectPlayers()
         
@@ -118,8 +121,22 @@ final class Snapshots: XCTestCase {
     
 }
 
+// MARK: - Helpers
+
 extension XCUIElementQuery {
-    subscript(key: AccessibilityID) -> XCUIElement {
+    subscript(key: HistoryAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: PlayerListAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: TeamSelectionAssets.AccessibilityID) -> XCUIElement {
+        self[key.rawValue]
+    }
+    
+    subscript(key: GatherAssets.AccessibilityID) -> XCUIElement {
         self[key.rawValue]
     }
 }
