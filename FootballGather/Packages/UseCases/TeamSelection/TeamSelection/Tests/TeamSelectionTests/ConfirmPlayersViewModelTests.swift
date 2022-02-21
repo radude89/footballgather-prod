@@ -7,7 +7,6 @@
 
 import XCTest
 import CoreModels
-import Localizable
 @testable import TeamSelection
 
 final class ConfirmPlayersViewModelTests: XCTestCase {

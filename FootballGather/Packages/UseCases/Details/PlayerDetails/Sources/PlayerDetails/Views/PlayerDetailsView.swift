@@ -51,6 +51,7 @@ public struct PlayerDetailsView: View {
                 isPresented: $showConfirmationAlert,
                 title: LocalizedString.discardConfirmation,
                 message: LocalizedString.discardChangesLost,
+                cancelTitle: LocalizedString.cancel,
                 confirmActionTitle: LocalizedString.discard,
                 confirmAction: { dismiss() }
             )
@@ -62,7 +63,7 @@ public struct PlayerDetailsView: View {
             role: .cancel,
             action: handleDismiss
         )
-            .accessibilityID(.cancelButton)
+            .accessibilityID2(AccessibilityID.cancelButton)
     }
     
     private func handleDismiss() {

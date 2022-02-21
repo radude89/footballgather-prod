@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Localizable
 
 public struct AlertConfirmViewModifier: ViewModifier {
     
@@ -23,7 +22,7 @@ public struct AlertConfirmViewModifier: ViewModifier {
         isPresented: Binding<Bool>,
         title: String,
         message: String,
-        cancelTitle: String = LocalizedString.cancel,
+        cancelTitle: String,
         confirmActionTitle: String,
         confirmRole: ButtonRole? = .destructive,
         confirmAction: @escaping () -> Void
@@ -56,7 +55,7 @@ public extension View {
         isPresented: Binding<Bool>,
         title: String,
         message: String,
-        cancelTitle: String = LocalizedString.cancel,
+        cancelTitle: String,
         confirmActionTitle: String,
         confirmRole: ButtonRole? = .destructive,
         confirmAction: @escaping () -> Void

@@ -11,12 +11,11 @@ let package = Package(
             targets: ["UITools"]),
     ],
     dependencies: [
-        .package(name: "Localizable", path: "../Localizable")
     ],
     targets: [
         .target(
             name: "UITools",
-            dependencies: ["Localizable"]),
+            dependencies: []),
         .testTarget(
             name: "UIToolsTests",
             dependencies: ["UITools"]),

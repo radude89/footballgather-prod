@@ -6,14 +6,13 @@
 //
 
 import XCTest
-import Localizable
 @testable import UITools
 
 final class ButtonFactoryTests: XCTestCase {
     
     func testMakeSystemButton() {
         let buttonTitle = "Title"
-        let accessibilityID = AccessibilityID.startGatherButton.rawValue
+        let accessibilityID = "start-gather-button"
         let accessibilityLabel = "Accessibility Label"
         let accessibilityHint = "Accessibility Hint"
         
