@@ -6,34 +6,33 @@
 //
 
 import CoreModels
-import Localizable
 
 public enum ScoreAccessibility {
     public static func viewID(
         for team: Team,
-        accessibilityID: AccessibilityID
+        accessibilityID: String
     ) -> String {
         makeAccessibilityID(for: team, accessibilityID: accessibilityID)
     }
     
-    public static func scoreLabelID(for team: Team) -> String {
-        makeAccessibilityID(for: team, accessibilityID: .scoreLabel)
+    public static func scoreLabelID(for team: Team, accessibilityID: String) -> String {
+        makeAccessibilityID(for: team, accessibilityID: accessibilityID)
     }
     
-    public static func scoreHeaderID(for team: Team) -> String {
-        makeAccessibilityID(for: team, accessibilityID: .scoreHeader)
+    public static func scoreHeaderID(for team: Team, accessibilityID: String) -> String {
+        makeAccessibilityID(for: team, accessibilityID: accessibilityID)
     }
     
-    public static func scoreStepperID(for team: Team) -> String {
-        makeAccessibilityID(for: team, accessibilityID: .scoreStepper)
+    public static func scoreStepperID(for team: Team, accessibilityID: String) -> String {
+        makeAccessibilityID(for: team, accessibilityID: accessibilityID)
     }
     
     private static let separator = "-"
     
     internal static func makeAccessibilityID(
         for team: Team,
-        accessibilityID: AccessibilityID
+        accessibilityID: String
     ) -> String {
-        accessibilityID.rawValue + separator + team.name
+        accessibilityID + separator + team.name
     }
 }

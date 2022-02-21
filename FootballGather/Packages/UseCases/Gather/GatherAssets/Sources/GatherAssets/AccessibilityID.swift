@@ -18,4 +18,7 @@ public enum AccessibilityID: String {
     case gatherPlayersList = "gather-players-list"
     case endGatherButton = "end-gather-button"
     case setTimeButton = "set-time-button"
+    case scoreHeader = "score-header"
+    case scoreLabel = "score-label"
+    case scoreStepper = "score-stepper"
 }

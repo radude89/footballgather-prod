@@ -7,10 +7,15 @@
 
 import XCTest
 import CoreModels
-import Localizable
 @testable import FoundationTools
 
 final class AccessibilityTests: XCTestCase {
+    
+    private enum AccessibilityID: String {
+        case scoreLabel = "score.label"
+        case scoreHeader = "score.header"
+        case scoreStepper = "score.stepper"
+    }
     
     func testViewID() {
         Team.allCases.forEach { team in
@@ -19,10 +24,10 @@ final class AccessibilityTests: XCTestCase {
             ]
             accessibilityIDs.forEach { accessibilityID in
                 let viewAccessibilityID = ScoreAccessibility
-                    .viewID(for: team, accessibilityID: accessibilityID)
+                    .viewID(for: team, accessibilityID: accessibilityID.rawValue)
                 let expectedID = ScoreAccessibility
                     .makeAccessibilityID(
-                        for: team, accessibilityID: accessibilityID
+                        for: team, accessibilityID: accessibilityID.rawValue
                     )
                 
                 XCTAssertEqual(viewAccessibilityID, expectedID)
@@ -33,9 +38,9 @@ final class AccessibilityTests: XCTestCase {
     func testScoreLabelID() {
         Team.allCases.forEach { team in
             let accessibilityID = ScoreAccessibility
-                .scoreLabelID(for: team)
+                .scoreLabelID(for: team, accessibilityID: AccessibilityID.scoreLabel.rawValue)
             let expectedID = ScoreAccessibility
-                .makeAccessibilityID(for: team, accessibilityID: .scoreLabel)
+                .makeAccessibilityID(for: team, accessibilityID: AccessibilityID.scoreLabel.rawValue)
             
             XCTAssertEqual(accessibilityID, expectedID)
         }
@@ -44,9 +49,9 @@ final class AccessibilityTests: XCTestCase {
     func testScoreHeaderID() {
         Team.allCases.forEach { team in
             let accessibilityID = ScoreAccessibility
-                .scoreHeaderID(for: team)
+                .scoreHeaderID(for: team, accessibilityID: AccessibilityID.scoreHeader.rawValue)
             let expectedID = ScoreAccessibility
-                .makeAccessibilityID(for: team, accessibilityID: .scoreHeader)
+                .makeAccessibilityID(for: team, accessibilityID: AccessibilityID.scoreHeader.rawValue)
             
             XCTAssertEqual(accessibilityID, expectedID)
         }
@@ -55,9 +60,9 @@ final class AccessibilityTests: XCTestCase {
     func testScoreStepperID() {
         Team.allCases.forEach { team in
             let accessibilityID = ScoreAccessibility
-                .scoreStepperID(for: team)
+                .scoreStepperID(for: team, accessibilityID: AccessibilityID.scoreStepper.rawValue)
             let expectedID = ScoreAccessibility
-                .makeAccessibilityID(for: team, accessibilityID: .scoreStepper)
+                .makeAccessibilityID(for: team, accessibilityID: AccessibilityID.scoreStepper.rawValue)
             
             XCTAssertEqual(accessibilityID, expectedID)
         }

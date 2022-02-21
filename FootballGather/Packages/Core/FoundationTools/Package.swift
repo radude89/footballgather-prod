@@ -11,13 +11,12 @@ let package = Package(
             targets: ["FoundationTools"]),
     ],
     dependencies: [
-        .package(name: "CoreModels", path: "../CoreModels"),
-        .package(name: "Localizable", path: "../Localizable")
+        .package(name: "CoreModels", path: "../CoreModels")
     ],
     targets: [
         .target(
             name: "FoundationTools",
-            dependencies: ["CoreModels", "Localizable"]),
+            dependencies: ["CoreModels"]),
         .testTarget(
             name: "FoundationToolsTests",
             dependencies: ["FoundationTools"]),

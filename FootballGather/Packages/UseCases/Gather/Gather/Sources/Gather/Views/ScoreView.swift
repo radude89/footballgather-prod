@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModels
 import FoundationTools
+import GatherAssets
 
 struct ScoreView: View {
     
@@ -42,7 +43,12 @@ struct ScoreView: View {
     
     private func headerView(for team: Team) -> some View {
         Text(viewModel.headerTitle(for: team))
-            .accessibilityIdentifier(ScoreAccessibility.scoreHeaderID(for: team))
+            .accessibilityIdentifier(
+                ScoreAccessibility.scoreHeaderID(
+                    for: team,
+                    accessibilityID: AccessibilityID.scoreHeader.rawValue
+                )
+            )
     }
     
     private func scoreLabel(for team: Team) -> some View {
@@ -53,7 +59,12 @@ struct ScoreView: View {
                 Circle()
                     .stroke(.black, lineWidth: 2)
             )
-            .accessibilityIdentifier(ScoreAccessibility.scoreLabelID(for: team))
+            .accessibilityIdentifier(
+                ScoreAccessibility.scoreLabelID(
+                    for: team,
+                    accessibilityID: AccessibilityID.scoreLabel.rawValue
+                )
+            )
     }
     
     private func stepperView(for team: Team) -> some View {
@@ -63,7 +74,12 @@ struct ScoreView: View {
             viewModel.onDecrementScore(for: team)
         }
         .labelsHidden()
-        .accessibilityIdentifier(ScoreAccessibility.scoreStepperID(for: team))
+        .accessibilityIdentifier(
+            ScoreAccessibility.scoreStepperID(
+                for: team,
+                accessibilityID: AccessibilityID.scoreStepper.rawValue
+            )
+        )
     }
     
 }
