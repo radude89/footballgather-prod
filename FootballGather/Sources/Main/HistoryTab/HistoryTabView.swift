@@ -8,6 +8,7 @@
 import SwiftUI
 import Localizable
 import FoundationTools
+import History
 
 struct HistoryTabView {
     

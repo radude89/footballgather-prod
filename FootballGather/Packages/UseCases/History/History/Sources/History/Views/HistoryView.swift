@@ -10,13 +10,17 @@ import CoreModels
 import Localizable
 import FoundationTools
 
-struct HistoryView: View {
+public struct HistoryView: View {
     
     @EnvironmentObject var storage: FoundationTools.AppStorage
     
     let viewModel: HistoryViewModel
     
-    var body: some View {
+    public init(viewModel: HistoryViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    public var body: some View {
         NavigationView {
             mainContent
                 .navigationTitle(LocalizedString.pastGathers)

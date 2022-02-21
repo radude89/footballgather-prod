@@ -8,10 +8,10 @@
 import CoreModels
 import FoundationTools
 
-struct HistoryViewModel {
+public struct HistoryViewModel {
     private let storage: AppStorage
     
-    init(storage: AppStorage) {
+    public init(storage: AppStorage) {
         self.storage = storage
     }
     

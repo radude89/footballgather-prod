@@ -1,15 +1,11 @@
 //
 //  Mocks.swift
-//  FootballGatherTests
+//  
 //
-//  Created by Radu Dan on 27.05.2021.
+//  Created by Radu Dan on 21.02.2022.
 //
 
 import FoundationTools
-import CoreModels
-import SwiftUI
-import Combine
-@testable import FootballGather
 
 enum Mocks {}
 

@@ -8,7 +8,7 @@
 import XCTest
 import CoreModels
 import Localizable
-@testable import FootballGather
+@testable import History
 
 final class HistoryViewModelAccessibilityTests: XCTestCase {
     

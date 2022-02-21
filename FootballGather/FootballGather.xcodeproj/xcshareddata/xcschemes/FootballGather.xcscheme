@@ -174,6 +174,20 @@
                ReferencedContainer = "container:Packages/UseCases/Gather/GatherAssets">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HistoryTests"
+               BuildableName = "HistoryTests"
+               BlueprintName = "HistoryTests"
+               ReferencedContainer = "container:Packages/UseCases/History/History">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -329,6 +343,17 @@
                BuildableName = "GatherAssetsTests"
                BlueprintName = "GatherAssetsTests"
                ReferencedContainer = "container:Packages/UseCases/Gather/GatherAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HistoryTests"
+               BuildableName = "HistoryTests"
+               BlueprintName = "HistoryTests"
+               ReferencedContainer = "container:Packages/UseCases/History/History">
             </BuildableReference>
          </TestableReference>
       </Testables>
