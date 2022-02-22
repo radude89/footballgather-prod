@@ -55,10 +55,6 @@ struct ScoreView: View {
         Text("\(viewModel.formattedScore(for: team))")
             .padding()
             .font(.system(.largeTitle, design: .monospaced))
-            .background(
-                Circle()
-                    .stroke(.black, lineWidth: 2)
-            )
             .accessibilityIdentifier(
                 ScoreAccessibility.scoreLabelID(
                     for: team,
