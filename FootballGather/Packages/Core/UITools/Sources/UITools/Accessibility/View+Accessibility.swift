@@ -17,7 +17,7 @@ struct AccessibilityViewModifier: ViewModifier {
 }
 
 public extension View {
-    func accessibilityID2<ID: RawRepresentable>(
+    func accessibilityID<ID: RawRepresentable>(
         _ id: ID
     ) -> some View where ID.RawValue == String {
         modifier(AccessibilityViewModifier(id: id.rawValue))

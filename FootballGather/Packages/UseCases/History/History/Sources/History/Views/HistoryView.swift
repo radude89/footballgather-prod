@@ -45,14 +45,14 @@ public struct HistoryView: View {
             row(for: gather)
         }
         .listStyle(.insetGrouped)
-        .accessibilityID2(AccessibilityID.historyView)
+        .accessibilityID(AccessibilityID.historyView)
     }
     
     private var emptyView: some View {
         Text(LocalizedString.noGathers)
             .multilineTextAlignment(.center)
             .padding()
-            .accessibilityID2(AccessibilityID.historyNoEntries)
+            .accessibilityID(AccessibilityID.historyNoEntries)
     }
     
     private func row(for gather: Gather) -> some View {

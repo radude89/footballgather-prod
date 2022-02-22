@@ -39,17 +39,17 @@ struct SetTimerView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(LocalizedString.cancel, action: { dismiss() })
-                            .accessibilityID2(AccessibilityID.cancelButton)
+                            .accessibilityID(AccessibilityID.cancelButton)
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(LocalizedString.done, action: onSave)
                             .disabled(!doneButtonIsEnabled)
-                            .accessibilityID2(AccessibilityID.doneButton)
+                            .accessibilityID(AccessibilityID.doneButton)
                     }
                 }
         }
-        .accessibilityID2(AccessibilityID.setTimeView)
+        .accessibilityID(AccessibilityID.setTimeView)
     }
     
     private func makeDataSource() -> TwoComponentsPickerViewDataSource {

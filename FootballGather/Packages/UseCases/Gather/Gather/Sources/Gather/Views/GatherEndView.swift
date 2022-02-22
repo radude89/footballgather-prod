@@ -34,7 +34,7 @@ struct GatherEndView: View {
             role: .cancel,
             action: presentEndGatherConfirmationAlert
         )
-            .accessibilityID2(AccessibilityID.endGatherButton)
+            .accessibilityID(AccessibilityID.endGatherButton)
     }
     
     private func presentEndGatherConfirmationAlert() {

@@ -26,7 +26,7 @@ struct TimerView: View {
             
             Button(LocalizedString.setTime, action: setTimeAction)
                 .disabled(viewModel.timerIsRunning)
-                .accessibilityID2(AccessibilityID.setTimeButton)
+                .accessibilityID(AccessibilityID.setTimeButton)
         }
         .padding(.bottom)
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
@@ -40,13 +40,13 @@ struct TimerView: View {
             action: viewModel.cancelTimer
         )
             .disabled(!viewModel.cancelButtonIsEnabled)
-            .accessibilityID2(AccessibilityID.cancelButton)
+            .accessibilityID(AccessibilityID.cancelButton)
             .accessibilityLabel(LocalizedString.cancelTimerLabel)
     }
     
     private var timeView: some View {
         Text("\(viewModel.formattedTime)")
-            .accessibilityID2(AccessibilityID.timerView)
+            .accessibilityID(AccessibilityID.timerView)
             .accessibilityAddTraits(.updatesFrequently)
     }
     
@@ -55,7 +55,7 @@ struct TimerView: View {
             viewModel.actionButtonTitle,
             action: viewModel.onActionTimer
         )
-            .accessibilityID2(AccessibilityID.actionTimerButton)
+            .accessibilityID(AccessibilityID.actionTimerButton)
             .accessibilityLabel(viewModel.actionButtonAccessibilityLabel)
     }
     

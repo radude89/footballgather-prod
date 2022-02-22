@@ -46,7 +46,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                     showListView = viewModel.hasPlayers
                 }
         }
-        .accessibilityID2(viewModel.mainViewAccessibilityID)
+        .accessibilityID(viewModel.mainViewAccessibilityID)
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -74,7 +74,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
         Button(action: viewModel.toggleSelection) {
             Text(viewModel.leadingBarButton.title)
         }
-        .accessibilityID2(viewModel.leadingBarButton.accessibilityID)
+        .accessibilityID(viewModel.leadingBarButton.accessibilityID)
         .accessibilityHint(
             Text(viewModel.leadingBarButton.accessibilityHint)
         )
@@ -88,7 +88,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
             Image(systemName: "plus")
                 .accessibility(removeTraits: .isImage)
         }
-        .accessibilityID2(viewModel.trailingBarButton.accessibilityID)
+        .accessibilityID(viewModel.trailingBarButton.accessibilityID)
         .accessibilityHint(
             Text(viewModel.trailingBarButton.accessibilityHint)
         )

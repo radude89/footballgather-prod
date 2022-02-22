@@ -67,7 +67,7 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
     private func makeListRow(for player: Player) -> some View {
         Text(PlayersListViewModel.formattedRowTitle(for: player))
-            .accessibilityID2(
+            .accessibilityID(
                 viewModel.accessibilityID(
                     for: player, isEditing: isEditing
                 )
@@ -112,7 +112,7 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
         Button(LocalizedString.confirmPlayersTitle) {
             isShowingConfirmPlayersView = true
         }
-        .accessibilityID2(AccessibilityID.confirmButton)
+        .accessibilityID(AccessibilityID.confirmButton)
         .accessibilityHint(LocalizedString.confirmPlayersButtonHint)
         .padding(.bottom)
     }

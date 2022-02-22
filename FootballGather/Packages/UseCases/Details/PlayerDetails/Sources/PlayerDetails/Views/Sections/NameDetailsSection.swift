@@ -22,7 +22,7 @@ struct NameDetailsSection: View {
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.words)
                     .submitLabel(.done)
-                    .accessibilityID2(AccessibilityID.enterNameTextfield)
+                    .accessibilityID(AccessibilityID.enterNameTextfield)
             },
             header: {
                 Text(LocalizedString.sectionPlayerDetailsHeader)

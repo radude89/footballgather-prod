@@ -20,7 +20,7 @@ struct GatherPlayersView: View {
             section(for: .teamB)
         }
         .listStyle(.grouped)
-        .accessibilityID2(AccessibilityID.gatherPlayersList)
+        .accessibilityID(AccessibilityID.gatherPlayersList)
     }
     
     private func section(for team: Team) -> some View {

@@ -22,7 +22,7 @@ public struct PlayerDetailsView: View {
         
     public var body: some View {
         detailsView
-            .accessibilityID2(viewModel.viewAccessibilityID)
+            .accessibilityID(viewModel.viewAccessibilityID)
     }
     
     @ViewBuilder
@@ -63,7 +63,7 @@ public struct PlayerDetailsView: View {
             role: .cancel,
             action: handleDismiss
         )
-            .accessibilityID2(AccessibilityID.cancelButton)
+            .accessibilityID(AccessibilityID.cancelButton)
     }
     
     private func handleDismiss() {
@@ -77,7 +77,7 @@ public struct PlayerDetailsView: View {
     private var saveButton: some View {
         Button(LocalizedString.save, action: saveAndDismiss)
             .disabled(!viewModel.playerIsValid)
-            .accessibilityID2(AccessibilityID.saveButton)
+            .accessibilityID(AccessibilityID.saveButton)
     }
     
     private func saveAndDismiss() {
