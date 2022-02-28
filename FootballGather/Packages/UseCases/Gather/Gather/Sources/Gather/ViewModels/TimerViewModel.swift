@@ -67,6 +67,24 @@ final class TimerViewModel: ObservableObject {
     
     // MARK: - Timer interaction
     
+    private var dateHasTransitionToBackground: Date?
+    
+    func onScenePhaseChanged(to newState: ScenePhase) {
+        switch newState {
+        case .inactive, .background:
+            if dateHasTransitionToBackground == nil {
+                print("Started to measure time in background")
+                dateHasTransitionToBackground = Date()
+            }
+        case .active:
+            let accumulatedRunningTime = Date().timeIntervalSince(dateHasTransitionToBackground!)
+            dateHasTransitionToBackground = nil
+            print(accumulatedRunningTime)
+        default:
+            break
+        }
+    }
+    
     func onActionTimer() {
         switch timerState {
         case .paused, .stopped:

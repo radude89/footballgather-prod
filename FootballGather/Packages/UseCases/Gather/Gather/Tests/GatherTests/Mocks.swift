@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import FoundationTools
+import NotificationCenter
 @testable import Gather
 
 enum Mocks {}
@@ -92,6 +93,25 @@ extension Mocks {
             cancellable = publisher.sink(receiveValue: { [weak self] value in
                 self?.values.append(value)
             })
+        }
+    }
+}
+
+// MARK: - Notifications
+
+extension Mocks {
+    struct NotificationCenter: Gather.NotificationCenter {
+        private(set) var authorizationStatus: UNAuthorizationStatus
+        
+        init(authorizationStatus: UNAuthorizationStatus) {
+            self.authorizationStatus = authorizationStatus
+        }
+        
+        func requestAuthorization(options: UNAuthorizationOptions) async throws -> Bool {
+            true
+        }
+        
+        func add(_ request: UNNotificationRequest) async throws {
         }
     }
 }
