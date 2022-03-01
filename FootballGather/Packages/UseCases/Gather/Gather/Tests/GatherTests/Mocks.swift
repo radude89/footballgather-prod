@@ -102,16 +102,31 @@ extension Mocks {
 extension Mocks {
     struct NotificationCenter: Gather.NotificationCenter {
         private(set) var authorizationStatus: UNAuthorizationStatus
+        private let authError: Error?
+        private let addRequestError: Error?
         
-        init(authorizationStatus: UNAuthorizationStatus) {
+        init(
+            authorizationStatus: UNAuthorizationStatus,
+            authError: Error? = nil,
+            addRequestError: Error? = nil
+        ) {
             self.authorizationStatus = authorizationStatus
+            self.authError = authError
+            self.addRequestError = addRequestError
         }
         
         func requestAuthorization(options: UNAuthorizationOptions) async throws -> Bool {
-            true
+            if let error = authError {
+                throw error
+            }
+            
+            return authorizationStatus == .authorized || authorizationStatus == .notDetermined
         }
         
         func add(_ request: UNNotificationRequest) async throws {
+            if let error = addRequestError {
+                throw error
+            }
         }
     }
 }

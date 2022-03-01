@@ -14,3 +14,5 @@ enum NotificationRequestError: Error {
     case notGranted
     case unableToAddRequest
 }
+
+extension NotificationRequestError: CaseIterable {}

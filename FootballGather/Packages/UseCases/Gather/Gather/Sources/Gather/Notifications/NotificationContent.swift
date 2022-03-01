@@ -19,7 +19,7 @@ struct NotificationContent: Identifiable {
         id: UUID = .init(),
         title: String,
         message: String,
-        triggerInterval: TimeInterval = 5,
+        triggerInterval: TimeInterval,
         repeats: Bool = false,
         sound: UNNotificationSound = .default
     ) {

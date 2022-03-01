@@ -16,12 +16,7 @@ struct NotificationAuthorizationResolver {
     
     func resolveAuthStatus() async -> NotificationRequestError? {
         let status = await statusReader.authorizationStatus
-        
-        if let error = checkNotificationStatus(status) {
-            return error
-        }
-        
-        return nil
+        return checkNotificationStatus(status)
     }
     
     private func checkNotificationStatus(
