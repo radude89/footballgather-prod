@@ -33,42 +33,8 @@ struct TimerView: View {
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
             Button(LocalizedString.ok, role: .cancel) {}
         }
-        .onChange(of: scenePhase, perform: viewModel.onScenePhaseChanged)
-        .onAppear {
-            let notificationCenter = UNUserNotificationCenter.current()
-            
-            notificationCenter.getNotificationSettings(completionHandler: { (settings) in
-                if settings.authorizationStatus == .notDetermined {
-                    print("Notification permission has not been asked yet, go for it!")
-                } else if settings.authorizationStatus == .denied {
-                    print("Notification permission was previously denied, go to settings & privacy to re-enable")
-                } else if settings.authorizationStatus == .authorized {
-                    print("Notification permission was already granted")
-                }
-            })
-            
-            notificationCenter.requestAuthorization(options: [.alert, .sound]) { [notificationCenter] success, error in
-                if success {
-                    print("All set!")
-                    let content = UNMutableNotificationContent()
-                    content.title = "Feed the cat"
-                    content.subtitle = "It looks hungry"
-                    content.sound = .default
-
-                    // show this notification five seconds from now
-                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-                    // choose a random identifier
-                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-                    // add our notification request
-                    notificationCenter.add(request)
-//                    notificationCenter.removeAllPendingNotificationRequests()
-                } else if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        .onChange(of: scenePhase, perform: onScheneChanged)
+        .task { await viewModel.askForNotificationPermissions() }
     }
     
     private var cancelTimerButton: some View {
@@ -94,6 +60,10 @@ struct TimerView: View {
         )
             .accessibilityID(AccessibilityID.actionTimerButton)
             .accessibilityLabel(viewModel.actionButtonAccessibilityLabel)
+    }
+    
+    private func onScheneChanged(to newValue: ScenePhase) {
+        Task { await viewModel.onScenePhaseChanged(to: newValue) }
     }
     
 }

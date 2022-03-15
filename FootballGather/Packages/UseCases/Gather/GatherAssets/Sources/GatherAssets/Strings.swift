@@ -21,5 +21,6 @@ public enum LocalizedString {
 	public static let done = NSLocalizedString("done", bundle: .module, comment: "")
 	public static let setTime = NSLocalizedString("set.time", bundle: .module, comment: "")
 	public static let timeIsUpTitle = NSLocalizedString("time.is.up.title", bundle: .module, comment: "")
+	public static let timeIsUpMessage = NSLocalizedString("time.is.up.message", bundle: .module, comment: "")
 	public static let ok = NSLocalizedString("ok", bundle: .module, comment: "")
 }

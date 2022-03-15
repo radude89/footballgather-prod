@@ -14,7 +14,7 @@ final class TimerViewModelTests: XCTestCase {
     
     func testOnActionTimer_timerStarted() {
         let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT(timerController: timerController)
         
         sut.onActionTimer()
         
@@ -23,7 +23,7 @@ final class TimerViewModelTests: XCTestCase {
     
     func testOnActionTimer_decrementsRemainingTime() {
         let timerController = Mocks.TimerController(remainingTimeUnit: 2)
-        let sut = TimerViewModel(
+        let sut = makeSUT(
             timerController: timerController,
             timeSettings: makeTimeSettings(remainingTimeInSeconds: 2)
         )
@@ -36,7 +36,7 @@ final class TimerViewModelTests: XCTestCase {
     
     func testOnActionTimer_stopsTimerAfterReachingToZero() {
         let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(
+        let sut = makeSUT(
             timerController: timerController,
             timeSettings: makeTimeSettings(remainingTimeInSeconds: 1)
         )
@@ -49,7 +49,7 @@ final class TimerViewModelTests: XCTestCase {
     
     func testCancelTimer_resetsTimeToInitial() {
         let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(
+        let sut = makeSUT(
             timerController: timerController,
             timeSettings: makeTimeSettings(remainingTimeInSeconds: 1)
         )
@@ -64,8 +64,7 @@ final class TimerViewModelTests: XCTestCase {
     }
     
     func testTimerIsRunning_whenStateIsStarted_isTrue() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT()
         
         sut.onActionTimer()
         
@@ -73,8 +72,7 @@ final class TimerViewModelTests: XCTestCase {
     }
     
     func testTimerIsRunning_whenStateIsPaused_isFalse() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
+        let sut = makeSUT()
         
         sut.onActionTimer()
         sut.onActionTimer()
@@ -83,13 +81,30 @@ final class TimerViewModelTests: XCTestCase {
     }
     
     func testTimerIsRunning_whenStateIsStopped_isFalse() {
-        let timerController = Mocks.TimerController()
-        let sut = TimerViewModel(timerController: timerController)
-        
-        XCTAssertFalse(sut.timerIsRunning)
+        XCTAssertFalse(makeSUT().timerIsRunning)
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT(
+        timerController: Mocks.TimerController = .init(),
+        timeSettings: TimeSettings = .init()
+    ) -> TimerViewModel {
+        let center = Mocks.NotificationCenter(
+            authorizationStatus: .authorized
+        )
+        let scheduler = NotificationScheduler(center: center)
+        let granter = Mocks.NotificationPermissionGranter(
+            hasGrantedPermissions: true
+        )
+        
+        return TimerViewModel(
+            timerController: timerController,
+            timeSettings: timeSettings,
+            notificationPermissionGranter: granter,
+            notificationScheduler: scheduler
+        )
+    }
     
     private func makeTimeSettings(remainingTimeInSeconds: Int) -> TimeSettings {
         let settings = TimeSettings()

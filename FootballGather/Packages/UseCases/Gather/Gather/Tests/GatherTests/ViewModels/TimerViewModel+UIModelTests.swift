@@ -12,7 +12,7 @@ import GatherAssets
 final class TimerViewModelUIModelTests: XCTestCase {
     
     func testCancelButtonTitle_whenTimerIsStopped_isDisabled() {
-        let sut = TimerViewModel()
+        let sut = makeSUT()
         XCTAssertFalse(sut.cancelButtonIsEnabled)
     }
     
@@ -93,9 +93,17 @@ final class TimerViewModelUIModelTests: XCTestCase {
         let settings = TimeSettings()
         settings.remainingTimeInSeconds = remainingTimeInSeconds
         
+        let center = Mocks.NotificationCenter(authorizationStatus: .authorized)
+        let scheduler = NotificationScheduler(center: center)
+        let granter = Mocks.NotificationPermissionGranter(
+            hasGrantedPermissions: true
+        )
+        
         return TimerViewModel(
             timerController: timerController,
-            timeSettings: settings
+            timeSettings: settings,
+            notificationPermissionGranter: granter,
+            notificationScheduler: scheduler
         )
     }
     

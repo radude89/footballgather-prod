@@ -18,4 +18,5 @@
 "done" = "Done";
 "set.time" = "Set Time";
 "time.is.up.title" = "Time's up!";
+"time.is.up.message" = "Your gather ran out of time.";
 "ok" = "OK";

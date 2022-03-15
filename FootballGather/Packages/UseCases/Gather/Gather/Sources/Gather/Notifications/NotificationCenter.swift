@@ -15,6 +15,7 @@ protocol NotificationCenter {
     ) async throws -> Bool
     
     func add(_ request: UNNotificationRequest) async throws
+    func removeAllPendingNotificationRequests()
 }
 
 extension UNUserNotificationCenter: NotificationCenter {

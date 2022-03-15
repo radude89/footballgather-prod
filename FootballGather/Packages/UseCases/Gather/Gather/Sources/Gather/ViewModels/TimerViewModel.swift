@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FoundationTools
+import GatherAssets
 
 final class TimerViewModel: ObservableObject {
     
@@ -15,7 +16,11 @@ final class TimerViewModel: ObservableObject {
     private let initialTimeInSeconds: Int
     private var timeSettings: TimeSettings
     
-    private var remainingTimeInSeconds: Int {
+    let notificationScheduler: NotificationScheduler
+    var notificationPermissionGranter: NotificationPermissionGrantable
+    lazy var sceneChangeHandler = TimerSceneChangeHandler(delegate: self)
+    
+    var remainingTimeInSeconds: Int {
         didSet {
             formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
         }
@@ -26,7 +31,9 @@ final class TimerViewModel: ObservableObject {
     
     init(
         timerController: TimerControllable = TimerController(),
-        timeSettings: TimeSettings = .init()
+        timeSettings: TimeSettings = .init(),
+        notificationPermissionGranter: NotificationPermissionGrantable = NotificationPermissionGranter(),
+        notificationScheduler: NotificationScheduler = .init()
     ) {
         precondition(
             timeSettings.remainingTimeInSeconds >= GatherDefaultTime.minAllowedTimeInSeconds,
@@ -36,6 +43,8 @@ final class TimerViewModel: ObservableObject {
         self.timeSettings = timeSettings
         self.timerController = timerController
         self.remainingTimeInSeconds = timeSettings.remainingTimeInSeconds
+        self.notificationPermissionGranter = notificationPermissionGranter
+        self.notificationScheduler = notificationScheduler
         
         initialTimeInSeconds = remainingTimeInSeconds
         timeIsUp = false
@@ -67,24 +76,6 @@ final class TimerViewModel: ObservableObject {
     
     // MARK: - Timer interaction
     
-    private var dateHasTransitionToBackground: Date?
-    
-    func onScenePhaseChanged(to newState: ScenePhase) {
-        switch newState {
-        case .inactive, .background:
-            if dateHasTransitionToBackground == nil {
-                print("Started to measure time in background")
-                dateHasTransitionToBackground = Date()
-            }
-        case .active:
-            let accumulatedRunningTime = Date().timeIntervalSince(dateHasTransitionToBackground!)
-            dateHasTransitionToBackground = nil
-            print(accumulatedRunningTime)
-        default:
-            break
-        }
-    }
-    
     func onActionTimer() {
         switch timerState {
         case .paused, .stopped:
@@ -94,7 +85,7 @@ final class TimerViewModel: ObservableObject {
         }
     }
     
-    private func startTimer() {
+    func startTimer() {
         setTimerState(to: .started)
         timerController.startTimer { [weak self] _ in
             self?.onUpdateTime()
@@ -116,9 +107,13 @@ final class TimerViewModel: ObservableObject {
     
     private func stopTimerIfReachedToZero() {
         if remainingTimeInSeconds == 0 {
-            cancelTimer()
-            timeIsUp = true
+            timerReachedZero()
         }
+    }
+    
+    func timerReachedZero() {
+        cancelTimer()
+        timeIsUp = true
     }
     
     func cancelTimer() {
@@ -135,10 +130,13 @@ final class TimerViewModel: ObservableObject {
         remainingTimeInSeconds = initialTimeInSeconds
     }
     
-    private func pauseTimer() {
+    func pauseTimer() {
         stopTimer()
         setTimerState(to: .paused)
-        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+        
+        DispatchQueue.main.async { [self] in
+            formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+        }
     }
     
     var timerIsRunning: Bool {

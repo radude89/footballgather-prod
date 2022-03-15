@@ -10,7 +10,7 @@ import UserNotifications
 struct NotificationAuthorizationResolver {
     private let statusReader: NotificationAuthorizationStatusReader
     
-    init(statusReader: NotificationAuthorizationStatusReader) {
+    init(statusReader: NotificationAuthorizationStatusReader = .init()) {
         self.statusReader = statusReader
     }
     

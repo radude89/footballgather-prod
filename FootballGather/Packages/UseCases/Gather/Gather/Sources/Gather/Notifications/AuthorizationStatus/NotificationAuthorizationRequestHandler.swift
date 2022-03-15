@@ -13,7 +13,7 @@ struct NotificationAuthorizationRequestHandler {
     
     init(
         center: Gather.NotificationCenter = UNUserNotificationCenter.current(),
-        options: UNAuthorizationOptions = [.alert, .sound, .provisional]
+        options: UNAuthorizationOptions = [.alert, .sound]
     ) {
         self.center = center
         self.options = options
