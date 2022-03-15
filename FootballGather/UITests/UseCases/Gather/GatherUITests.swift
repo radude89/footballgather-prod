@@ -17,10 +17,35 @@ final class GatherUITests: UITestCase {
     override func setUp() {
         super.setUp()
         
-        navigator = .init(app: app, testCase: self)
+        addUIInterruptionMonitor()
         
         launchApp(populatingStorage: true)
+        app.tap()
+        
+        navigator = .init(app: app, testCase: self)
         navigator.presentGatherView()
+    }
+    
+    private func addUIInterruptionMonitor() {
+        addUIInterruptionMonitor(
+            withDescription: "Notification alert") { [weak self] alert in
+                return self?.handleAlertPermissions(alert) ?? false
+            }
+    }
+    
+    private func handleAlertPermissions(_ alert: XCUIElement) -> Bool {
+        let notifPermission = "Would Like to Send You Notifications"
+        guard alert.labelContains(text: notifPermission) else {
+            return false
+        }
+        
+        let allowButton = alert.buttons.element(boundBy: 1)
+        if allowButton.exists {
+            allowButton.tap()
+            return true
+        }
+        
+        return false
     }
     
     func assertTime(

@@ -85,3 +85,10 @@ extension UITestCase {
         app.navigationBars.buttons.element(boundBy: 0).tap()
     }
 }
+
+extension XCUIElement {
+    func labelContains(text: String) -> Bool {
+        let predicate = NSPredicate(format: "label CONTAINS %@", text)
+        return staticTexts.matching(predicate).firstMatch.exists
+    }
+}
