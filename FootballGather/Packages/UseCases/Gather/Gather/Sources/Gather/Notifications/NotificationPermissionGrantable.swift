@@ -25,8 +25,11 @@ struct NotificationPermissionGranter: NotificationPermissionGrantable {
     }
     
     mutating func askForPermissions() async {
-        if await resolver.resolveAuthStatus() == .notDetermined {
+        let authStatus = await resolver.resolveAuthStatus()
+        if authStatus == .notDetermined {
             requestError = await requestHandler.requestAuthorization()
+        } else {
+            requestError = authStatus
         }
     }
     

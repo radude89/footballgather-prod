@@ -9,14 +9,14 @@ import SwiftUI
 
 public struct AlertConfirmViewModifier: ViewModifier {
     
-    @Binding public var isPresented: Bool
-    
     private let title: String
     private let message: String
     private let cancelTitle: String
     private let confirmActionTitle: String
     private let confirmAction: () -> Void
     private let confirmRole: ButtonRole?
+    
+    @Binding public var isPresented: Bool
     
     public init(
         isPresented: Binding<Bool>,
