@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CoreModels
 @testable import FoundationTools
 
 final class AppStorageIntegrationTests: XCTestCase {
@@ -25,6 +26,42 @@ final class AppStorageIntegrationTests: XCTestCase {
             sut.storage.load(forKey: storageKey)
         )
         sut.clear()
+    }
+    
+    func testAddPlayersToStorage_whenHasGathers_updatesStorage() {
+        let sut = makeSUT()
+        sut.addGather(.demoGathers[0])
+        
+        XCTAssertFalse(sut.gathers.isEmpty)
+        XCTAssertTrue(sut.storedPlayers.isEmpty)
+        
+        sut.updatePlayer(.demo)
+        
+        XCTAssertFalse(sut.gathers.isEmpty)
+        XCTAssertFalse(sut.storedPlayers.isEmpty)
+        
+        sut.clear()
+        
+        XCTAssertTrue(sut.gathers.isEmpty)
+        XCTAssertTrue(sut.storedPlayers.isEmpty)
+    }
+    
+    func testAddGathersToStorage_whenHasPlayers_updatesStorage() {
+        let sut = makeSUT()
+        sut.updatePlayer(.demo)
+        
+        XCTAssertFalse(sut.storedPlayers.isEmpty)
+        XCTAssertTrue(sut.gathers.isEmpty)
+        
+        sut.addGather(.demoGathers[0])
+        
+        XCTAssertFalse(sut.storedPlayers.isEmpty)
+        XCTAssertFalse(sut.gathers.isEmpty)
+        
+        sut.clear()
+        
+        XCTAssertTrue(sut.storedPlayers.isEmpty)
+        XCTAssertTrue(sut.gathers.isEmpty)
     }
     
     // MARK: - Helpers
