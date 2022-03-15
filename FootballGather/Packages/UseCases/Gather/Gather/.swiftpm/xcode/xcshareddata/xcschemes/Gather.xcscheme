@@ -39,7 +39,7 @@
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FoundationToolsTests"
@@ -53,7 +53,21 @@
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:../../../Core/FoundationTools">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CoreModelsTests"
@@ -138,6 +152,17 @@
                BuildableName = "GatherAssetsTests"
                BlueprintName = "GatherAssetsTests"
                ReferencedContainer = "container:../GatherAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:../../../Core/FoundationTools">
             </BuildableReference>
          </TestableReference>
       </Testables>

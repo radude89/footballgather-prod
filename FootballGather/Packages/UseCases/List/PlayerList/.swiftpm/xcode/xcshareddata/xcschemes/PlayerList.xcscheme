@@ -126,6 +126,17 @@
                ReferencedContainer = "container:../../../Core/UITools">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:../../../Core/FoundationTools">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -16,9 +16,15 @@ let package = Package(
     targets: [
         .target(
             name: "FoundationTools",
-            dependencies: ["CoreModels"]),
+            dependencies: ["CoreModels"]
+        ),
         .testTarget(
             name: "FoundationToolsTests",
-            dependencies: ["FoundationTools"]),
+            dependencies: ["FoundationTools"]
+        ),
+        .testTarget(
+            name: "FoundationToolsIntegrationTests",
+            dependencies: ["FoundationTools"]
+        )
     ]
 )

@@ -56,6 +56,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:Packages/Core/FoundationTools">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CoreModelsTests"
                BuildableName = "CoreModelsTests"
                BlueprintName = "CoreModelsTests"
@@ -429,6 +443,17 @@
                BuildableName = "HomeAssetsTests"
                BlueprintName = "HomeAssetsTests"
                ReferencedContainer = "container:Packages/UseCases/Home/HomeAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:Packages/Core/FoundationTools">
             </BuildableReference>
          </TestableReference>
       </Testables>

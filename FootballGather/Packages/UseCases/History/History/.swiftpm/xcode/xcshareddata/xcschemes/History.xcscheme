@@ -56,6 +56,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:../../../Core/FoundationTools">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "UIToolsTests"
                BuildableName = "UIToolsTests"
                BlueprintName = "UIToolsTests"
@@ -138,6 +152,17 @@
                BuildableName = "HistoryAssetsTests"
                BlueprintName = "HistoryAssetsTests"
                ReferencedContainer = "container:../HistoryAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FoundationToolsIntegrationTests"
+               BuildableName = "FoundationToolsIntegrationTests"
+               BlueprintName = "FoundationToolsIntegrationTests"
+               ReferencedContainer = "container:../../../Core/FoundationTools">
             </BuildableReference>
          </TestableReference>
       </Testables>
