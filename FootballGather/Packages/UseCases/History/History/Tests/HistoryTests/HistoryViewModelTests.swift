@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import FoundationMocks
 @testable import History
 
 final class HistoryViewModelTests: XCTestCase {

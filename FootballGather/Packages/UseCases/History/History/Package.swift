@@ -22,11 +22,17 @@ let package = Package(
         ),
         .testTarget(
             name: "HistoryTests",
-            dependencies: ["History"]
+            dependencies: [
+                "History",
+                .product(name: "FoundationMocks", package: "FoundationTools")
+            ]
         ),
         .testTarget(
             name: "HistoryIntegrationTests",
-            dependencies: ["History"]
+            dependencies: [
+                "History",
+                .product(name: "FoundationMocks", package: "FoundationTools")
+            ]
         )
     ]
 )

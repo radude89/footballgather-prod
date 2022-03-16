@@ -126,6 +126,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HistoryIntegrationTests"
+               BuildableName = "HistoryIntegrationTests"
+               BlueprintName = "HistoryIntegrationTests"
+               ReferencedContainer = "container:../../History/History">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "PlayerDetailsTests"
                BuildableName = "PlayerDetailsTests"
                BlueprintName = "PlayerDetailsTests"
@@ -288,6 +302,17 @@
                BuildableName = "FoundationToolsIntegrationTests"
                BlueprintName = "FoundationToolsIntegrationTests"
                ReferencedContainer = "container:../../../Core/FoundationTools">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HistoryIntegrationTests"
+               BuildableName = "HistoryIntegrationTests"
+               BlueprintName = "HistoryIntegrationTests"
+               ReferencedContainer = "container:../../History/History">
             </BuildableReference>
          </TestableReference>
       </Testables>
