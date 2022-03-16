@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 import CoreModels
 import PlayerDetailsAssets
+import FoundationMocks
 @testable import PlayerDetails
 
 final class PlayerDetailsViewModelTests: XCTestCase {

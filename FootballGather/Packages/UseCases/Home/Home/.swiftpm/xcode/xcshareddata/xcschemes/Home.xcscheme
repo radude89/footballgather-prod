@@ -28,10 +28,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "HomeAssetsTests"
-               BuildableName = "HomeAssetsTests"
-               BlueprintName = "HomeAssetsTests"
-               ReferencedContainer = "container:../HomeAssets">
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:../../../Core/CoreModels">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -70,10 +70,108 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GatherTests"
-               BuildableName = "GatherTests"
-               BlueprintName = "GatherTests"
-               ReferencedContainer = "container:../../Gather/Gather">
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:../../../Core/UITools">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListAssetsTests"
+               BuildableName = "PlayerListAssetsTests"
+               BlueprintName = "PlayerListAssetsTests"
+               ReferencedContainer = "container:../../List/PlayerListAssets">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListTests"
+               BuildableName = "PlayerListTests"
+               BlueprintName = "PlayerListTests"
+               ReferencedContainer = "container:../../List/PlayerList">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListIntegrationTests"
+               BuildableName = "PlayerListIntegrationTests"
+               BlueprintName = "PlayerListIntegrationTests"
+               ReferencedContainer = "container:../../List/PlayerList">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsAssetsTests"
+               BuildableName = "PlayerDetailsAssetsTests"
+               BlueprintName = "PlayerDetailsAssetsTests"
+               ReferencedContainer = "container:../../Details/PlayerDetailsAssets">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsTests"
+               BuildableName = "PlayerDetailsTests"
+               BlueprintName = "PlayerDetailsTests"
+               ReferencedContainer = "container:../../Details/PlayerDetails">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsIntegrationTests"
+               BuildableName = "PlayerDetailsIntegrationTests"
+               BlueprintName = "PlayerDetailsIntegrationTests"
+               ReferencedContainer = "container:../../Details/PlayerDetails">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "TeamSelectionAssetsTests"
+               BuildableName = "TeamSelectionAssetsTests"
+               BlueprintName = "TeamSelectionAssetsTests"
+               ReferencedContainer = "container:../../TeamSelection/TeamSelectionAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -98,10 +196,38 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "UIToolsTests"
-               BuildableName = "UIToolsTests"
-               BlueprintName = "UIToolsTests"
-               ReferencedContainer = "container:../../../Core/UITools">
+               BlueprintIdentifier = "GatherAssetsTests"
+               BuildableName = "GatherAssetsTests"
+               BlueprintName = "GatherAssetsTests"
+               ReferencedContainer = "container:../../Gather/GatherAssets">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherTests"
+               BuildableName = "GatherTests"
+               BlueprintName = "GatherTests"
+               ReferencedContainer = "container:../../Gather/Gather">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HistoryAssetsTests"
+               BuildableName = "HistoryAssetsTests"
+               BlueprintName = "HistoryAssetsTests"
+               ReferencedContainer = "container:../../History/HistoryAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -140,38 +266,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerDetailsTests"
-               BuildableName = "PlayerDetailsTests"
-               BlueprintName = "PlayerDetailsTests"
-               ReferencedContainer = "container:../../Details/PlayerDetails">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CoreModelsTests"
-               BuildableName = "CoreModelsTests"
-               BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:../../../Core/CoreModels">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerListTests"
-               BuildableName = "PlayerListTests"
-               BlueprintName = "PlayerListTests"
-               ReferencedContainer = "container:../../List/PlayerList">
+               BlueprintIdentifier = "HomeAssetsTests"
+               BuildableName = "HomeAssetsTests"
+               BlueprintName = "HomeAssetsTests"
+               ReferencedContainer = "container:../HomeAssets">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -313,6 +411,83 @@
                BuildableName = "HistoryIntegrationTests"
                BlueprintName = "HistoryIntegrationTests"
                ReferencedContainer = "container:../../History/History">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsIntegrationTests"
+               BuildableName = "PlayerDetailsIntegrationTests"
+               BlueprintName = "PlayerDetailsIntegrationTests"
+               ReferencedContainer = "container:../../Details/PlayerDetails">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListIntegrationTests"
+               BuildableName = "PlayerListIntegrationTests"
+               BlueprintName = "PlayerListIntegrationTests"
+               ReferencedContainer = "container:../../List/PlayerList">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherAssetsTests"
+               BuildableName = "GatherAssetsTests"
+               BlueprintName = "GatherAssetsTests"
+               ReferencedContainer = "container:../../Gather/GatherAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HistoryAssetsTests"
+               BuildableName = "HistoryAssetsTests"
+               BlueprintName = "HistoryAssetsTests"
+               ReferencedContainer = "container:../../History/HistoryAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsAssetsTests"
+               BuildableName = "PlayerDetailsAssetsTests"
+               BlueprintName = "PlayerDetailsAssetsTests"
+               ReferencedContainer = "container:../../Details/PlayerDetailsAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListAssetsTests"
+               BuildableName = "PlayerListAssetsTests"
+               BlueprintName = "PlayerListAssetsTests"
+               ReferencedContainer = "container:../../List/PlayerListAssets">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "TeamSelectionAssetsTests"
+               BuildableName = "TeamSelectionAssetsTests"
+               BlueprintName = "TeamSelectionAssetsTests"
+               ReferencedContainer = "container:../../TeamSelection/TeamSelectionAssets">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -28,10 +28,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GatherAssetsTests"
-               BuildableName = "GatherAssetsTests"
-               BlueprintName = "GatherAssetsTests"
-               ReferencedContainer = "container:../GatherAssets">
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:../../../Core/CoreModels">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -70,10 +70,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CoreModelsTests"
-               BuildableName = "CoreModelsTests"
-               BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:../../../Core/CoreModels">
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:../../../Core/UITools">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -84,10 +84,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "UIToolsTests"
-               BuildableName = "UIToolsTests"
-               BlueprintName = "UIToolsTests"
-               ReferencedContainer = "container:../../../Core/UITools">
+               BlueprintIdentifier = "GatherAssetsTests"
+               BuildableName = "GatherAssetsTests"
+               BlueprintName = "GatherAssetsTests"
+               ReferencedContainer = "container:../GatherAssets">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

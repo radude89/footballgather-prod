@@ -28,10 +28,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "TeamSelectionAssetsTests"
-               BuildableName = "TeamSelectionAssetsTests"
-               BlueprintName = "TeamSelectionAssetsTests"
-               ReferencedContainer = "container:../TeamSelectionAssets">
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:../../../Core/CoreModels">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -84,10 +84,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CoreModelsTests"
-               BuildableName = "CoreModelsTests"
-               BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:../../../Core/CoreModels">
+               BlueprintIdentifier = "TeamSelectionAssetsTests"
+               BuildableName = "TeamSelectionAssetsTests"
+               BlueprintName = "TeamSelectionAssetsTests"
+               ReferencedContainer = "container:../TeamSelectionAssets">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

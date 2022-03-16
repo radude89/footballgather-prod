@@ -28,10 +28,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "UIToolsTests"
-               BuildableName = "UIToolsTests"
-               BlueprintName = "UIToolsTests"
-               ReferencedContainer = "container:Packages/Core/UITools">
+               BlueprintIdentifier = "CoreModelsTests"
+               BuildableName = "CoreModelsTests"
+               BlueprintName = "CoreModelsTests"
+               ReferencedContainer = "container:Packages/Core/CoreModels">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -70,10 +70,24 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CoreModelsTests"
-               BuildableName = "CoreModelsTests"
-               BlueprintName = "CoreModelsTests"
-               ReferencedContainer = "container:Packages/Core/CoreModels">
+               BlueprintIdentifier = "UIToolsTests"
+               BuildableName = "UIToolsTests"
+               BlueprintName = "UIToolsTests"
+               ReferencedContainer = "container:Packages/Core/UITools">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListAssetsTests"
+               BuildableName = "PlayerListAssetsTests"
+               BlueprintName = "PlayerListAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerListAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -112,10 +126,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerListAssetsTests"
-               BuildableName = "PlayerListAssetsTests"
-               BlueprintName = "PlayerListAssetsTests"
-               ReferencedContainer = "container:Packages/UseCases/List/PlayerListAssets">
+               BlueprintIdentifier = "PlayerDetailsAssetsTests"
+               BuildableName = "PlayerDetailsAssetsTests"
+               BlueprintName = "PlayerDetailsAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetailsAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -140,10 +154,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PlayerDetailsAssetsTests"
-               BuildableName = "PlayerDetailsAssetsTests"
-               BlueprintName = "PlayerDetailsAssetsTests"
-               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetailsAssets">
+               BlueprintIdentifier = "PlayerDetailsIntegrationTests"
+               BuildableName = "PlayerDetailsIntegrationTests"
+               BlueprintName = "PlayerDetailsIntegrationTests"
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetails">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -182,6 +196,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherAssetsTests"
+               BuildableName = "GatherAssetsTests"
+               BlueprintName = "GatherAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/Gather/GatherAssets">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "GatherTests"
                BuildableName = "GatherTests"
                BlueprintName = "GatherTests"
@@ -196,10 +224,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GatherAssetsTests"
-               BuildableName = "GatherAssetsTests"
-               BlueprintName = "GatherAssetsTests"
-               ReferencedContainer = "container:Packages/UseCases/Gather/GatherAssets">
+               BlueprintIdentifier = "HistoryAssetsTests"
+               BuildableName = "HistoryAssetsTests"
+               BlueprintName = "HistoryAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/History/HistoryAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -238,10 +266,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "HistoryAssetsTests"
-               BuildableName = "HistoryAssetsTests"
-               BlueprintName = "HistoryAssetsTests"
-               ReferencedContainer = "container:Packages/UseCases/History/HistoryAssets">
+               BlueprintIdentifier = "HomeAssetsTests"
+               BuildableName = "HomeAssetsTests"
+               BlueprintName = "HomeAssetsTests"
+               ReferencedContainer = "container:Packages/UseCases/Home/HomeAssets">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -256,20 +284,6 @@
                BuildableName = "HomeTests"
                BlueprintName = "HomeTests"
                ReferencedContainer = "container:Packages/UseCases/Home/Home">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "HomeAssetsTests"
-               BuildableName = "HomeAssetsTests"
-               BlueprintName = "HomeAssetsTests"
-               ReferencedContainer = "container:Packages/UseCases/Home/HomeAssets">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -504,6 +518,17 @@
                BuildableName = "PlayerListIntegrationTests"
                BlueprintName = "PlayerListIntegrationTests"
                ReferencedContainer = "container:Packages/UseCases/List/PlayerList">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerDetailsIntegrationTests"
+               BuildableName = "PlayerDetailsIntegrationTests"
+               BlueprintName = "PlayerDetailsIntegrationTests"
+               ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetails">
             </BuildableReference>
          </TestableReference>
       </Testables>
