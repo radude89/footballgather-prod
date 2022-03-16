@@ -21,6 +21,10 @@ let package = Package(
             dependencies: ["PlayerListAssets", "UITools", "FoundationTools"]),
         .testTarget(
             name: "PlayerListTests",
-            dependencies: ["PlayerList"]),
+            dependencies: [
+                "PlayerList",
+                .product(name: "FoundationMocks", package: "FoundationTools")
+            ]
+        )
     ]
 )

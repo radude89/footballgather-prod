@@ -8,6 +8,7 @@
 import XCTest
 import SwiftUI
 import CoreModels
+import FoundationMocks
 @testable import PlayerList
 
 final class PlayersListViewModelTests: XCTestCase {

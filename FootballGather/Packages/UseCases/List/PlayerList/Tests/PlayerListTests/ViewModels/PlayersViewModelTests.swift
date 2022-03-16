@@ -8,6 +8,7 @@
 import XCTest
 import Combine
 import CoreModels
+import FoundationMocks
 @testable import PlayerList
 
 final class PlayersViewModelTests: XCTestCase {

@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import FoundationMocks
 import PlayerListAssets
 @testable import PlayerList
 
@@ -20,12 +21,12 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     }
     
     override func tearDown() {
-        super.tearDown()
         Mocks.storage.clear()
+        super.tearDown()
     }
     
     func testButtonModelAccessibility() {
-        let sut = Mocks.makeButtonModel()
+        let sut = makeButtonModel()
         XCTAssertEqual(sut.accessibilityID, sut.accessibility.id)
         XCTAssertEqual(sut.accessibilityHint, sut.accessibility.hint)
         XCTAssertEqual(sut.accessibilityLabel, sut.accessibility.label)
@@ -134,6 +135,19 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     
     func testEditModeBinding_whenIsNotSelectingPlayers_isInactive() {
         XCTAssertEqual(sut.editModeBinding.wrappedValue, .inactive)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeButtonModel(
+        title: String = "Button",
+        accessibility: PlayersViewModel.AccessibilityModel = .init(
+            id: .addButton,
+            hint: "Hint",
+            label: "Label"
+        )
+    ) -> PlayersViewModel.ButtonModel {
+        .init(title: title, accessibility: accessibility)
     }
     
 }
