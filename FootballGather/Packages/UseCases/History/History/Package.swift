@@ -18,9 +18,15 @@ let package = Package(
     targets: [
         .target(
             name: "History",
-            dependencies: ["HistoryAssets", "UITools", "FoundationTools"]),
+            dependencies: ["HistoryAssets", "UITools", "FoundationTools"]
+        ),
         .testTarget(
             name: "HistoryTests",
-            dependencies: ["History"]),
+            dependencies: ["History"]
+        ),
+        .testTarget(
+            name: "HistoryIntegrationTests",
+            dependencies: ["History"]
+        )
     ]
 )

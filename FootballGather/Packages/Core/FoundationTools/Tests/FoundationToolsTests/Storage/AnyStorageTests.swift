@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import FoundationMocks
 @testable import FoundationTools
 
 final class AnyStorageTests: XCTestCase {

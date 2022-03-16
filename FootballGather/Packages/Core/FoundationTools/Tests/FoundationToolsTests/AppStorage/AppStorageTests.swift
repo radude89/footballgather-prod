@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import FoundationMocks
 @testable import FoundationTools
 
 final class AppStorageTests: XCTestCase {
@@ -17,53 +18,31 @@ final class AppStorageTests: XCTestCase {
     }
     
     func testAppStorage_whenIsNotRunningUITests_doesNotStorePlayers() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
-        XCTAssertTrue(sut.storedPlayers.isEmpty)
+        XCTAssertTrue(makeSUT().storedPlayers.isEmpty)
     }
     
     func testAppStorage_whenIsRunningUITests_doesNotStorePlayers() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner(isRunningUITests: true)
-        )
-        XCTAssertTrue(sut.storedPlayers.isEmpty)
+        XCTAssertTrue(makeSUT(isRunningUITests: true).storedPlayers.isEmpty)
     }
     
     func testAppStorage_whenIsNotRunningUITests_doesNotStoreGathers() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
-        XCTAssertTrue(sut.gathers.isEmpty)
+        XCTAssertTrue(makeSUT().gathers.isEmpty)
     }
     
     func testAppStorage_whenIsRunningUITests_doesNotStoreGathers() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner(isRunningUITests: true)
-        )
-        XCTAssertTrue(sut.gathers.isEmpty)
+        XCTAssertTrue(makeSUT(isRunningUITests: true).gathers.isEmpty)
     }
     
     func testAppStorage_whenIsRunningUITestsAndShouldPopulateStorage_storesPlayers() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner(
-                isRunningUITests: true,
-                shouldPopulateStorage: true
-            )
-        )
+        let sut = makeSUT(isRunningUITests: true, shouldPopulateStorage: true)
+
         XCTAssertFalse(sut.storedPlayers.isEmpty)
+        sut.clear()
     }
     
     func testAppStorage_addPlayer_updatesStorage() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
+        let sut = makeSUT()
+
         let players = [
             Player(name: "John Smith"),
             Player(name: "Jane Smith")
@@ -72,27 +51,23 @@ final class AppStorageTests: XCTestCase {
         players.forEach { sut.updatePlayer($0) }
         
         XCTAssertEqual(sut.storedPlayers, players)
+        sut.clear()
     }
     
     func testAppStorage_addGather_updatesStorage() {
+        let sut = makeSUT()
         let gathers = Gather.demoGathers
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
         
         gathers.forEach { sut.addGather($0) }
         
         XCTAssertEqual(sut.gathers, gathers)
+        sut.clear()
     }
     
     func testClear() {
+        let sut = makeSUT()
         let gathers = Gather.demoGathers
         let players = Player.demoPlayers
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
         
         gathers.forEach { sut.addGather($0) }
         players.forEach { sut.updatePlayer($0) }
@@ -104,10 +79,7 @@ final class AppStorageTests: XCTestCase {
     }
     
     func testDeletePlayers() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
+        let sut = makeSUT()
         let player = Player(name: "John Smith")
         sut.updatePlayer(player)
         
@@ -117,14 +89,30 @@ final class AppStorageTests: XCTestCase {
     }
     
     func testDeletePlayers_whenStorageIsEmpty_returns() {
-        let sut = AppStorage(
-            storageKey: Mocks.storageKey,
-            commandLineHandler: Mocks.CommandRunner()
-        )
+        let sut = makeSUT()
         
         sut.deletePlayer(Player(name: "John Smith"))
         
         XCTAssertTrue(sut.storedPlayers.isEmpty)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        isRunningUITests: Bool = false,
+        shouldPopulateStorage: Bool = false
+    ) -> AppStorage {
+        let commandLineHandler = Mocks.CommandRunner(isRunningUITests: true)
+        let assembler = AppStorageAssembler(commandLineHandler: commandLineHandler)
+        
+        return AppStorage(
+            storageKey: Mocks.storageKey,
+            storageFactory: assembler,
+            commandLineHandler: Mocks.CommandRunner(
+                isRunningUITests: isRunningUITests,
+                shouldPopulateStorage: shouldPopulateStorage
+            )
+        )
     }
     
 }

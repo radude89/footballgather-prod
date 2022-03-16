@@ -7,29 +7,28 @@
 
 import XCTest
 import CoreModels
+import FoundationMocks
 @testable import FoundationTools
 
 final class AppStorageIntegrationTests: XCTestCase {
     
-    private let storageKey = "test_int_storage_key"
-    
     func testMakeAppStorage_isEmpty() {
-        XCTAssertNil(
-            makeSUT().storage.load(forKey: storageKey)
-        )
+        let sut = Mocks.makeAppStorage().storage
+        
+        XCTAssertNil(sut.load(forKey: Mocks.storageKey))
     }
     
     func testMakeAppStorage_whenHasData_isNotNil() {
-        let sut = makeSUT(populateStorage: true)
+        let sut = Mocks.makeAppStorage(populated: true)
         
         XCTAssertNotNil(
-            sut.storage.load(forKey: storageKey)
+            sut.storage.load(forKey: Mocks.storageKey)
         )
         sut.clear()
     }
     
     func testAddPlayersToStorage_whenHasGathers_updatesStorage() {
-        let sut = makeSUT()
+        let sut = Mocks.makeAppStorage()
         sut.addGather(.demoGathers[0])
         
         XCTAssertFalse(sut.gathers.isEmpty)
@@ -47,7 +46,7 @@ final class AppStorageIntegrationTests: XCTestCase {
     }
     
     func testAddGathersToStorage_whenHasPlayers_updatesStorage() {
-        let sut = makeSUT()
+        let sut = Mocks.makeAppStorage()
         sut.updatePlayer(.demo)
         
         XCTAssertFalse(sut.storedPlayers.isEmpty)
@@ -62,40 +61,6 @@ final class AppStorageIntegrationTests: XCTestCase {
         
         XCTAssertTrue(sut.storedPlayers.isEmpty)
         XCTAssertTrue(sut.gathers.isEmpty)
-    }
-    
-    // MARK: - Helpers
-    
-    private func makeSUT(
-        populateStorage: Bool = false
-    ) -> AppStorage {
-        let commandLineHandler = makeCommandLineHandler(
-            populateStorage: populateStorage
-        )
-        let assembler = AppStorageAssembler(
-            commandLineHandler: commandLineHandler
-        )
-        
-        return AppStorage(
-            storageKey: storageKey,
-            storageFactory: assembler,
-            commandLineHandler: commandLineHandler
-        )
-    }
-    
-    private func makeCommandLineHandler(
-        populateStorage: Bool = false
-    ) -> CommandLineHandler {
-        var commands = [Command.runUITests.rawValue]
-        if populateStorage {
-            commands.append(
-                Command.populateStorage.rawValue
-            )
-        }
-        
-        return CommandLineHandler(
-            commandLineArguments: commands
-        )
     }
     
 }

@@ -8,7 +8,12 @@ let package = Package(
     products: [
         .library(
             name: "FoundationTools",
-            targets: ["FoundationTools"]),
+            targets: ["FoundationTools"]
+        ),
+        .library(
+            name: "FoundationMocks",
+            targets: ["FoundationMocks"]
+        ),
     ],
     dependencies: [
         .package(name: "CoreModels", path: "../CoreModels")
@@ -18,13 +23,17 @@ let package = Package(
             name: "FoundationTools",
             dependencies: ["CoreModels"]
         ),
+        .target(
+            name: "FoundationMocks",
+            dependencies: ["CoreModels", "FoundationTools"]
+        ),
         .testTarget(
             name: "FoundationToolsTests",
-            dependencies: ["FoundationTools"]
+            dependencies: ["FoundationTools", "FoundationMocks"]
         ),
         .testTarget(
             name: "FoundationToolsIntegrationTests",
-            dependencies: ["FoundationTools"]
+            dependencies: ["FoundationTools", "FoundationMocks"]
         )
     ]
 )
