@@ -10,9 +10,10 @@ import GatherAssets
 
 struct TimerView: View {
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     @EnvironmentObject var timeSettings: TimeSettings
     @ObservedObject var viewModel: TimerViewModel
-    @Environment(\.scenePhase) private var scenePhase
     
     var setTimeAction: () -> Void
     

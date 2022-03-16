@@ -12,11 +12,11 @@ import GatherAssets
 
 struct ScoreView: View {
     
-    @ObservedObject var viewModel: ScoreViewModel
-    
     private enum ViewConstants {
         static let defaultSpacing: CGFloat = 25
     }
+    
+    @ObservedObject var viewModel: ScoreViewModel
     
     var body: some View {
         HStack(spacing: 2 * ViewConstants.defaultSpacing) {

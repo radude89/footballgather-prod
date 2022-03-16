@@ -11,12 +11,12 @@ import GatherAssets
 
 struct SetTimerView: View {
     
-    @EnvironmentObject var timeSettings: TimeSettings
-    
     @State private var selectedMinutes: String
     @State private var selectedSeconds: String
     
     @Environment(\.dismiss) private var dismiss
+    
+    @EnvironmentObject var timeSettings: TimeSettings
     
     private let viewModel: SetTimerViewModel
     
