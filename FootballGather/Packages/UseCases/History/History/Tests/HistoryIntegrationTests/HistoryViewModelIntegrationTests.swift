@@ -12,6 +12,11 @@ import FoundationMocks
 @testable import History
 
 final class HistoryViewModelIntegrationTests: XCTestCase {
+    
+    override func tearDown() {
+        Mocks.storage.clear()
+        super.tearDown()
+    }
         
     func testSortGathers() {
         let storage = makePopulatedStorage()
@@ -20,7 +25,13 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         let gathers = sut.gathers
         
         XCTAssertTrue(gathers[0].completedAt > gathers[1].completedAt)
-        storage.clear()
+    }
+    
+    func testHasGathers_whenStorageIsNotEmpty_hasGathers() {
+        let storage = makePopulatedStorage()
+        let sut = HistoryViewModel(storage: storage)
+        
+        XCTAssertTrue(sut.hasGathers)
     }
     
     // MARK: - Helpers
@@ -42,8 +53,8 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         Gather(
             completedAt: completedAt,
             score: score,
-            teamAPlayers: .demoPlayers,
-            teamBPlayers: .demoPlayers
+            teamAPlayers: [],
+            teamBPlayers: []
         )
     }
     
