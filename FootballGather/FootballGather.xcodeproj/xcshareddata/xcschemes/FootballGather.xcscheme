@@ -98,6 +98,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListIntegrationTests"
+               BuildableName = "PlayerListIntegrationTests"
+               BlueprintName = "PlayerListIntegrationTests"
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerList">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "PlayerListAssetsTests"
                BuildableName = "PlayerListAssetsTests"
                BlueprintName = "PlayerListAssetsTests"
@@ -479,6 +493,17 @@
                BuildableName = "HistoryIntegrationTests"
                BlueprintName = "HistoryIntegrationTests"
                ReferencedContainer = "container:Packages/UseCases/History/History">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "PlayerListIntegrationTests"
+               BuildableName = "PlayerListIntegrationTests"
+               BlueprintName = "PlayerListIntegrationTests"
+               ReferencedContainer = "container:Packages/UseCases/List/PlayerList">
             </BuildableReference>
          </TestableReference>
       </Testables>
