@@ -7,15 +7,10 @@
 
 import XCTest
 import CoreModels
-import FoundationMocks
+import FoundationTools
 @testable import History
 
 final class HistoryViewModelTests: XCTestCase {
-    
-    override func tearDown() {
-        Mocks.storage.clear()
-        super.tearDown()
-    }
     
     func testHasGathers_whenGathersAreEmpty_isFalse() {
         XCTAssertFalse(makeSUT(gathers: []).hasGathers)
@@ -92,10 +87,23 @@ final class HistoryViewModelTests: XCTestCase {
     
     // MARK: - Helpers
     
+    private final class MockGatherStorageHandler: GatherStorageHandler {
+        
+        private(set) var gathers: [Gather]
+        private(set) var addGatherCalled = false
+        
+        init(gathers: [Gather] = []) {
+            self.gathers = gathers
+        }
+        
+        func addGather(_ gather: Gather) {
+            addGatherCalled = true
+        }
+        
+    }
+    
     private func makeSUT(gathers: [Gather] = .demoGathers) -> HistoryViewModel {
-        let storage = Mocks.storage
-        gathers.forEach { storage.addGather($0) }
-        return HistoryViewModel(storage: storage)
+        .init(storage: MockGatherStorageHandler(gathers: gathers))
     }
     
     private func makeGather(

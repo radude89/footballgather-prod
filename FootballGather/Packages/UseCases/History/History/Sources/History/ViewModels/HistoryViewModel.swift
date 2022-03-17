@@ -9,9 +9,9 @@ import CoreModels
 import FoundationTools
 
 public struct HistoryViewModel {
-    private let storage: AppStorage
+    private let storage: GatherStorageHandler
     
-    public init(storage: AppStorage) {
+    public init(storage: GatherStorageHandler = AppStorage()) {
         self.storage = storage
     }
     

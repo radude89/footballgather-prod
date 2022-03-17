@@ -9,9 +9,9 @@ import CoreModels
 import FoundationTools
 
 struct PlayerDetailsDuplicateVerifier {
-    private let storage: AppStorage
+    private let storage: PlayerStorageHandler
     
-    init(storage: AppStorage) {
+    init(storage: PlayerStorageHandler = AppStorage()) {
         self.storage = storage
     }
     

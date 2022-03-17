@@ -7,7 +7,7 @@
 
 import CoreModels
 
-protocol GatherStorageHandler {
+public protocol GatherStorageHandler {
     var gathers: [Gather] { get }
     
     func addGather(_ gather: Gather)

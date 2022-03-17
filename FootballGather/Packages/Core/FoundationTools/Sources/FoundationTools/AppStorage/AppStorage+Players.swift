@@ -7,7 +7,7 @@
 
 import CoreModels
 
-protocol PlayerStorageHandler {
+public protocol PlayerStorageHandler {
     var storedPlayers: [Player] { get }
     
     func updatePlayer(_ player: Player)

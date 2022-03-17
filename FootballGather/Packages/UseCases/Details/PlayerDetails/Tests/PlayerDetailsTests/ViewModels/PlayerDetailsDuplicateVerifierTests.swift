@@ -7,24 +7,13 @@
 
 import XCTest
 import CoreModels
-import FoundationMocks
+import FoundationTools
 @testable import PlayerDetails
 
 final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     
-    private var sut: PlayerDetailsDuplicateVerifier!
     private let allPositions = Player.Position.allCases
     private let allSkills = Player.Skill.allCases
-    
-    override func setUp() {
-        super.setUp()
-        sut = PlayerDetailsDuplicateVerifier(storage: Mocks.storage)
-    }
-    
-    override func tearDown() {
-        Mocks.storage.clear()
-        super.tearDown()
-    }
     
     func testSameDetailsEntered_isTrue() {
         let player = Player(
@@ -32,25 +21,27 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
             position: allPositions.randomElement(),
             skill: allSkills.randomElement()
         )
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         XCTAssertTrue(sut.sameDetailsEntered(for: player))
     }
     
     func testSameDetailsEntered_whenStoredPlayerIsDifferent_isFalse() {
         let player = Player(name: "Jane")
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         XCTAssertFalse(sut.sameDetailsEntered(for: Player(name: "Jane")))
     }
     
     func testSameDetailsEntered_whenStorageIsEmpty_isFalse() {
-        XCTAssertFalse(sut.sameDetailsEntered(for: Player(name: "Jerome")))
+        XCTAssertFalse(
+            makeSUT().sameDetailsEntered(for: Player(name: "Jerome"))
+        )
     }
     
     func testSameDetailsEntered_whenNameIsDifferent_isFalse() {
         var player = Player(name: "Jane")
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         player.name = "Jane2"
         
@@ -59,7 +50,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     
     func testSameDetailsEntered_whenNameIsTheSame_isTrue() {
         var player = Player(name: "Jane")
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         player.name = "Jane"
         
@@ -69,7 +60,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     func testSameDetailsEntered_whenPositionIsDifferent_isFalse() {
         let initialPosition = allPositions.randomElement()
         var player = Player(name: "Jane", position: initialPosition)
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         let remainingPositions = allPositions.filter { $0 != initialPosition }
         
@@ -81,7 +72,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     
     func testSameDetailsEntered_whenPositionIsInitiallyNil_isFalse() {
         var player = Player(name: "Goblin")
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         allPositions.forEach { position in
             player.position = position
@@ -94,7 +85,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
             name: "Tim",
             position: allPositions.randomElement()
         )
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         player.position = nil
         
@@ -107,7 +98,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
             name: "Thomas",
             position: position
         )
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         player.position = position
         
@@ -117,7 +108,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     func testSameDetailsEntered_whenSkillIsDifferent_isFalse() {
         let initialSkill = allSkills.randomElement()
         var player = Player(name: "Jane", skill: initialSkill)
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         let remainingSkills = allSkills.filter { $0 != initialSkill }
         
@@ -129,7 +120,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     
     func testSameDetailsEntered_whenSkillIsInitiallyNil_isFalse() {
         var player = Player(name: "Goblin")
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         allSkills.forEach { skill in
             player.skill = skill
@@ -142,7 +133,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
             name: "Tim",
             skill: allSkills.randomElement()
         )
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         player.skill = nil
         
@@ -155,11 +146,39 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
             name: "Thomas",
             skill: skill
         )
-        Mocks.storage.updatePlayer(player)
+        let sut = makeSUT(players: [player])
         
         player.skill = skill
         
         XCTAssertTrue(sut.sameDetailsEntered(for: player))
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        players: [Player] = []
+    ) -> PlayerDetailsDuplicateVerifier {
+        .init(storage: MockPlayerStorageHandler(storedPlayers: players))
+    }
+    
+    private final class MockPlayerStorageHandler: PlayerStorageHandler {
+        
+        private(set) var storedPlayers: [Player]
+        private(set) var updatePlayerCalled = false
+        private(set) var deletePlayerCalled = false
+        
+        init(storedPlayers: [Player] = []) {
+            self.storedPlayers = storedPlayers
+        }
+        
+        func updatePlayer(_ player: Player) {
+            updatePlayerCalled = true
+        }
+        
+        func deletePlayer(_ player: Player) {
+            deletePlayerCalled = true
+        }
+        
     }
     
 }
