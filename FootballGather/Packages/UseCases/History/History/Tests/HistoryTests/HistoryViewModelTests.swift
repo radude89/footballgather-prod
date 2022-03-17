@@ -8,6 +8,7 @@
 import XCTest
 import CoreModels
 import FoundationTools
+import FoundationMocks
 @testable import History
 
 final class HistoryViewModelTests: XCTestCase {
@@ -87,23 +88,8 @@ final class HistoryViewModelTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private final class MockGatherStorageHandler: GatherStorageHandler {
-        
-        private(set) var gathers: [Gather]
-        private(set) var addGatherCalled = false
-        
-        init(gathers: [Gather] = []) {
-            self.gathers = gathers
-        }
-        
-        func addGather(_ gather: Gather) {
-            addGatherCalled = true
-        }
-        
-    }
-    
     private func makeSUT(gathers: [Gather] = .demoGathers) -> HistoryViewModel {
-        .init(storage: MockGatherStorageHandler(gathers: gathers))
+        .init(storage: Mocks.GatherStorageHandler(gathers: gathers))
     }
     
     private func makeGather(

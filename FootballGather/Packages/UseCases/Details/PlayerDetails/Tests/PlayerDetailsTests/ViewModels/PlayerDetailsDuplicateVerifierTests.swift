@@ -8,6 +8,7 @@
 import XCTest
 import CoreModels
 import FoundationTools
+import FoundationMocks
 @testable import PlayerDetails
 
 final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
@@ -158,27 +159,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     private func makeSUT(
         players: [Player] = []
     ) -> PlayerDetailsDuplicateVerifier {
-        .init(storage: MockPlayerStorageHandler(storedPlayers: players))
-    }
-    
-    private final class MockPlayerStorageHandler: PlayerStorageHandler {
-        
-        private(set) var storedPlayers: [Player]
-        private(set) var updatePlayerCalled = false
-        private(set) var deletePlayerCalled = false
-        
-        init(storedPlayers: [Player] = []) {
-            self.storedPlayers = storedPlayers
-        }
-        
-        func updatePlayer(_ player: Player) {
-            updatePlayerCalled = true
-        }
-        
-        func deletePlayer(_ player: Player) {
-            deletePlayerCalled = true
-        }
-        
+        .init(storage: Mocks.PlayerStorageHandler(storedPlayers: players))
     }
     
 }

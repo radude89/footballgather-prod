@@ -6,6 +6,7 @@
 //
 
 import FoundationTools
+import CoreModels
 
 // MARK: - StoredObject
 
@@ -71,6 +72,53 @@ extension Mocks {
         
         public func clear() {
             storedValues.removeAll()
+        }
+        
+    }
+    
+}
+
+// MARK: - PlayerStorageHandler
+
+extension Mocks {
+    
+    public final class PlayerStorageHandler: FoundationTools.PlayerStorageHandler {
+        
+        public private(set) var storedPlayers: [Player]
+        public private(set) var updatePlayerCalled = false
+        public private(set) var deletePlayerCalled = false
+        
+        public init(storedPlayers: [Player] = []) {
+            self.storedPlayers = storedPlayers
+        }
+        
+        public func updatePlayer(_ player: Player) {
+            updatePlayerCalled = true
+        }
+        
+        public func deletePlayer(_ player: Player) {
+            deletePlayerCalled = true
+        }
+        
+    }
+    
+}
+
+// MARK: - GatherStorageHandler
+
+extension Mocks {
+    
+    public final class GatherStorageHandler: FoundationTools.GatherStorageHandler {
+        
+        public private(set) var gathers: [Gather]
+        public private(set) var addGatherCalled = false
+        
+        public init(gathers: [Gather] = []) {
+            self.gathers = gathers
+        }
+        
+        public func addGather(_ gather: Gather) {
+            addGatherCalled = true
         }
         
     }
