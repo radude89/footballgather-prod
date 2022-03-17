@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UITools
+import FoundationTools
 import PlayerDetailsAssets
 
 public struct PlayerDetailsView: View {
@@ -94,7 +95,7 @@ struct PlayerDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerDetailsView(
             viewModel: .init(
-                storage: .init(),
+                storage: FoundationTools.AppStorage(),
                 state: .viewingDetails,
                 showListView: .constant(false)
             )

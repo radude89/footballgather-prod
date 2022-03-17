@@ -16,31 +16,23 @@ import FoundationMocks
 final class PlayerDetailsViewModelTests: XCTestCase {
     
     private var cancellables: Set<AnyCancellable>!
-    private var sut: PlayerDetailsViewModel!
     private let allSkills = Player.Skill.allCases
     private let allPositions = Player.Position.allCases
     
     override func setUp() {
         super.setUp()
-        
         cancellables = []
-        
-        sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .addingPlayers
-        )
     }
     
     override func tearDown() {
         cancellables = []
-        Mocks.storage.clear()
-        
         super.tearDown()
     }
     
     func testSelectedPlayer() throws {
         var expectedPlayerNames = ["", "John"]
         let receivedAllExpectation = expectation(description: "Adding player expectation")
+        let sut = makeSUT()
                 
         sut.$selectedPlayer
             .sink { player in
@@ -70,10 +62,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenNameIsNotEmpty_isTrue() {
         PlayerDetailsViewModel.State.allCases.forEach { state in
-            let sut = PlayerDetailsViewModel(
-                storage: Mocks.storage,
-                state: state
-            )
+            let sut = makeSUT(state: state)
             
             sut.selectedPlayer.name = "Jane"
             
@@ -83,21 +72,13 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenNameIsEmpty_isFalse() {
         PlayerDetailsViewModel.State.allCases.forEach { state in
-            let sut = PlayerDetailsViewModel(
-                storage: Mocks.storage,
-                state: state
-            )
-            
-            XCTAssertFalse(sut.playerIsValid)
+            XCTAssertFalse(makeSUT(state: state).playerIsValid)
         }
     }
     
     func testPlayerIsValid_whenNameStartsWithSpace_isFalse() {
         PlayerDetailsViewModel.State.allCases.forEach { state in
-            let sut = PlayerDetailsViewModel(
-                storage: Mocks.storage,
-                state: state
-            )
+            let sut = makeSUT(state: state)
             
             sut.selectedPlayer.name = " Thomas"
             
@@ -107,10 +88,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenNameIsAllSpaces_isFalse() {
         PlayerDetailsViewModel.State.allCases.forEach { state in
-            let sut = PlayerDetailsViewModel(
-                storage: Mocks.storage,
-                state: state
-            )
+            let sut = makeSUT(state: state)
             
             (0...10).forEach { index in
                 sut.selectedPlayer.name = String(repeating: " ", count: index)
@@ -121,13 +99,8 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenStateIsViewingDetailsAndHasEnteredTheSameName_isFalse() {
         let player = Player(name: "Mike")
-        Mocks.storage.updatePlayer(player)
-        
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails,
-            player: player
-        )
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
+        let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
         sut.selectedPlayer.name = "Mike"
         
@@ -136,13 +109,8 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenStateIsViewingDetailsAndHasEnteredDifferentNames_isTrue() {
         let player = Player(name: "Mike")
-        Mocks.storage.updatePlayer(player)
-        
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails,
-            player: player
-        )
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
+        let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
         sut.selectedPlayer.name = "Mike2"
         
@@ -151,13 +119,8 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenEnteringDifferentPositions_isTrue() {
         let player = Player(name: "Mike")
-        Mocks.storage.updatePlayer(player)
-        
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails,
-            player: player
-        )
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
+        let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
         sut.selectedPlayer.position = allPositions.randomElement()
         
@@ -166,13 +129,8 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testPlayerIsValid_whenEnteringDifferentSkills_isTrue() {
         let player = Player(name: "Andrew")
-        Mocks.storage.updatePlayer(player)
-        
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails,
-            player: player
-        )
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
+        let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
         sut.selectedPlayer.skill = allSkills.randomElement()
         
@@ -180,37 +138,44 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     }
     
     func testHasEnteredDetails_whenNameIsNotEmpty_isTrue() {
+        let sut = makeSUT()
+        
         sut.selectedPlayer.name = "Perry"
+        
         XCTAssertTrue(sut.hasEnteredDetails)
     }
     
     func testHasEnteredDetails_whenSkillIsNotEmpty_isTrue() {
         allSkills.forEach { skill in
+            let sut = makeSUT()
+            
             sut.selectedPlayer.skill = skill
+            
             XCTAssertTrue(sut.hasEnteredDetails)
         }
     }
     
     func testHasEnteredDetails_whenPositionIsNotEmpty_isTrue() {
         allPositions.forEach { position in
+            let sut = makeSUT()
+            
             sut.selectedPlayer.position = position
+            
             XCTAssertTrue(sut.hasEnteredDetails)
         }
     }
     
     func testHasEnteredDetails_isFalse() {
-        XCTAssertFalse(sut.hasEnteredDetails)
+        XCTAssertFalse(makeSUT().hasEnteredDetails)
     }
     
     func testSavePlayer_addsToStorage() {
-        sut.selectedPlayer.name = "Doe"
+        let storage = Mocks.PlayerStorageHandler()
+        let sut = makeSUT(storage: storage, player: Player(name: "Doe"))
+        
         sut.savePlayer()
         
-        let storedPlayers = Mocks.storage.storedPlayers
-        XCTAssertEqual(storedPlayers.count, 1)
-        XCTAssertTrue(
-            storedPlayers.contains(sut.selectedPlayer)
-        )
+        XCTAssertTrue(storage.updatePlayerCalled)
     }
     
     func testUpdateBindingToShowListView_setsToTrue() {
@@ -219,11 +184,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
             get: { showListView },
             set: { showListView = $0 }
         )
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .addingPlayers,
-            showListView: showListViewBinding
-        )
+        let sut = makeSUT(showListView: showListViewBinding)
         
         sut.updateBindingToShowListView()
         
@@ -231,27 +192,20 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     }
     
     func testIsAddingPlayer_whenStateIsAddingPlayers_isTrue() {
-        XCTAssertTrue(sut.isAddingPlayer)
+        XCTAssertTrue(makeSUT().isAddingPlayer)
     }
     
     func testIsAddingPlayer_whenStateIsViewingDetails_isFalse() {
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails
-        )
-        
-        XCTAssertFalse(sut.isAddingPlayer)
+        XCTAssertFalse(makeSUT(state: .viewingDetails).isAddingPlayer)
     }
     
     func testFormattedNavigationBarTitle_whenStateIsViewingDetails_isPlayerName() {
-        let playerName = "Jerry"
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails
+        let sut = makeSUT(
+            state: .viewingDetails,
+            player: Player(name: "Jerry")
         )
-        sut.selectedPlayer.name = playerName
         
-        XCTAssertEqual(sut.formattedNavigationBarTitle, playerName)
+        XCTAssertEqual(sut.formattedNavigationBarTitle, "Jerry")
     }
     
     func testFormattedNavigationBarTitle_whenStateIsAddingPlayers_isPlayerDetailsModelNavigationTitle() {
@@ -259,34 +213,47 @@ final class PlayerDetailsViewModelTests: XCTestCase {
             for: .demo, state: .addingPlayers
         )
         
-        
-        XCTAssertEqual(sut.formattedNavigationBarTitle, detailsModel.navigationTitle)
+        XCTAssertEqual(makeSUT().formattedNavigationBarTitle, detailsModel.navigationTitle)
     }
     
     func testShowLeadingBarItem_whenStateIsAddingPlayers_isTrue() {
-        XCTAssertTrue(sut.showLeadingBarItem)
+        XCTAssertTrue(makeSUT().showLeadingBarItem)
     }
     
     func testShowLeadingBarItem_whenStateIsViewingDetails_isFalse() {
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails
-        )
-        
-        XCTAssertFalse(sut.showLeadingBarItem)
+        XCTAssertFalse(makeSUT(state: .viewingDetails).showLeadingBarItem)
     }
     
     func testViewAccessibilityID_whenStateIsAddingPlayers_isAddView() {
-        XCTAssertEqual(sut.viewAccessibilityID, .addView)
+        XCTAssertEqual(makeSUT().viewAccessibilityID, .addView)
     }
     
     func testViewAccessibilityID_whenStateIsViewingPlayers_isDetailsView() {
-        let sut = PlayerDetailsViewModel(
-            storage: Mocks.storage,
-            state: .viewingDetails
+        XCTAssertEqual(
+            makeSUT(state: .viewingDetails).viewAccessibilityID, .detailsView
         )
-        
-        XCTAssertEqual(sut.viewAccessibilityID, .detailsView)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeStorage(
+        players: [Player] = []
+    ) -> Mocks.PlayerStorageHandler {
+        .init(storedPlayers: players)
+    }
+    
+    private func makeSUT(
+        storage: Mocks.PlayerStorageHandler = .init(),
+        state: PlayerDetailsViewModel.State = .addingPlayers,
+        player: Player = .init(name: ""),
+        showListView: Binding<Bool> = .constant(false)
+    ) -> PlayerDetailsViewModel {
+        .init(
+            storage: storage,
+            state: state,
+            player: player,
+            showListView: showListView
+        )
     }
     
 }
