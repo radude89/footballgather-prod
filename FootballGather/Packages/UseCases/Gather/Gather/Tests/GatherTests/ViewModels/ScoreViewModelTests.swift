@@ -67,9 +67,6 @@ final class ScoreViewModelTests: XCTestCase {
                 "\(scoreHandler.score(for: team))"
             )
         }
-        
-        XCTAssertEqual(sut.teamAScore, scoreHandler.score(for: .teamA))
-        XCTAssertEqual(sut.teamBScore, scoreHandler.score(for: .teamB))
     }
     
     func testIncrementsScore_forBench_breaks() {
