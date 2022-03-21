@@ -7,49 +7,36 @@
 
 import XCTest
 import CoreModels
+import FoundationTools
 import FoundationMocks
 import PlayerListAssets
 @testable import PlayerList
 
 final class PlayersViewModelUIModelTests: XCTestCase {
     
-    private var sut: PlayersViewModel!
-    
-    override func setUp() {
-        super.setUp()
-        sut = PlayersViewModel(storage: Mocks.storage)
-    }
-    
-    override func tearDown() {
-        Mocks.storage.clear()
-        super.tearDown()
-    }
-    
     func testButtonModelAccessibility() {
         let sut = makeButtonModel()
+        
         XCTAssertEqual(sut.accessibilityID, sut.accessibility.id)
         XCTAssertEqual(sut.accessibilityHint, sut.accessibility.hint)
         XCTAssertEqual(sut.accessibilityLabel, sut.accessibility.label)
     }
     
     func testFormattedNavigationTitle_whenIsNotSelectingPlayers_returnsLocalizedStringPlayers() {
-        sut.isSelectingPlayers = false
-        
         XCTAssertEqual(
-            sut.formattedNavigationTitle, LocalizedString.players
+            makeSUT().formattedNavigationTitle, LocalizedString.players
         )
     }
     
     func testFormattedNavigationTitle_whenNumberOfSelectedPlayersIsLessThanZero_returnsLocalizedStringPlayers() {
-        sut.isSelectingPlayers = false
         XCTAssertEqual(
-            sut.formattedNavigationTitle, LocalizedString.players
+            makeSUT().formattedNavigationTitle, LocalizedString.players
         )
     }
     
     func testFormattedNavigationTitle_whenHasPlayersAndNoSelectedRows_returnsLocalizedStringPlayers() {
-        Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
-        sut.isSelectingPlayers = false
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: .demoPlayers)
+        let sut = makeSUT(storage: storage)
         
         XCTAssertEqual(
             sut.formattedNavigationTitle, LocalizedString.players
@@ -57,9 +44,11 @@ final class PlayersViewModelUIModelTests: XCTestCase {
     }
     
     func testFormattedNavigationTitle_whenHasPlayersAndHasSelectedRows_returnsLocalizedSelectedCount() {
-        Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
+        let players = Player.demoPlayers
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: players)
+        let sut = makeSUT(storage: storage)
         
-        Player.demoPlayers.forEach { player in
+        players.forEach { player in
             sut.selectedRows.insert(player.id)
         }
         
@@ -83,13 +72,13 @@ final class PlayersViewModelUIModelTests: XCTestCase {
                 label: LocalizedString.select
             )
         )
-        let leadingBarButton = sut.leadingBarButton
+        let leadingBarButton = makeSUT().leadingBarButton
         
         XCTAssertEqual(leadingBarButton, expectedButton)
     }
     
     func testLeadingBarButton_whenSelectingPlayers_returnsCorrectButton() {
-        sut.isSelectingPlayers = true
+        let sut = makeSUT(isSelectingPlayers: true)
         
         let expectedButton = PlayersViewModel.ButtonModel(
             title: LocalizedString.cancel,
@@ -113,31 +102,40 @@ final class PlayersViewModelUIModelTests: XCTestCase {
                 label: LocalizedString.addPlayerLabel
             )
         )
-        let trailingBarButton = sut.trailingBarButton
+        let trailingBarButton = makeSUT().trailingBarButton
         
         XCTAssertEqual(trailingBarButton, expectedButton)
     }
     
     func testMainViewAccessibilityID_whenHasPlayers_isEmptyView() {
-        Player.demoPlayers.forEach { Mocks.storage.updatePlayer($0) }
+        let sut = makeSUT(storage: Mocks.PlayerStorageHandler(storedPlayers: .demoPlayers))
         
         XCTAssertEqual(sut.mainViewAccessibilityID, .playerList)
     }
     
     func testMainViewAccessibilityID_whenHasNotPlayers_isPlayerList() {
-        XCTAssertEqual(sut.mainViewAccessibilityID, .emptyView)
+        XCTAssertEqual(makeSUT().mainViewAccessibilityID, .emptyView)
     }
     
     func testEditModeBinding_whenIsSelectingPlayers_isActive() {
-        sut.isSelectingPlayers = true
+        let sut = makeSUT(isSelectingPlayers: true)
         XCTAssertEqual(sut.editModeBinding.wrappedValue, .active)
     }
     
     func testEditModeBinding_whenIsNotSelectingPlayers_isInactive() {
-        XCTAssertEqual(sut.editModeBinding.wrappedValue, .inactive)
+        XCTAssertEqual(makeSUT().editModeBinding.wrappedValue, .inactive)
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT(
+        storage: PlayerStorageHandler = Mocks.PlayerStorageHandler(),
+        isSelectingPlayers: Bool = false
+    ) -> PlayersViewModel {
+        let sut = PlayersViewModel(storage: storage)
+        sut.isSelectingPlayers = isSelectingPlayers
+        return sut
+    }
     
     private func makeButtonModel(
         title: String = "Button",

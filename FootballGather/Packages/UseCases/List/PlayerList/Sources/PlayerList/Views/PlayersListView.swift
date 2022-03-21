@@ -9,6 +9,7 @@ import SwiftUI
 import CoreModels
 import PlayerListAssets
 import UITools
+import FoundationTools
 
 // MARK: - PlayerListView
 
@@ -130,7 +131,7 @@ struct PlayerListView_Previews: PreviewProvider {
         
         return PlayersListView(
             viewModel: .init(
-                storage: .init(),
+                storage: FoundationTools.AppStorage(),
                 selectedRows: .constant(.init()),
                 showListView: .constant(true)
             ),

@@ -16,9 +16,9 @@ public final class PlayersViewModel: ObservableObject {
     @Published var isSelectingPlayers = false
     @Published var selectedRows = Set<UUID>()
     
-    private(set) var storage: FoundationTools.AppStorage
+    private(set) var storage: PlayerStorageHandler
 
-    public init(storage: FoundationTools.AppStorage) {
+    public init(storage: PlayerStorageHandler = AppStorage()) {
         self.storage = storage
     }
     

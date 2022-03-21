@@ -13,45 +13,31 @@ import FoundationMocks
 
 final class PlayersViewModelTests: XCTestCase {
     
-    private var sut: PlayersViewModel!
     private var cancellable: AnyCancellable?
     
-    override func setUp() {
-        super.setUp()
-        sut = PlayersViewModel(storage: Mocks.storage)
-    }
-    
     override func tearDown() {
-        Mocks.storage.clear()
         cancellable = nil
-        
         super.tearDown()
     }
     
     func testHasPlayers_whenStorageIsEmpty_isFalse() {
-        XCTAssertFalse(sut.hasPlayers)
+        XCTAssertFalse(makeSUT().hasPlayers)
     }
     
     func testHasPlayers_whenStorageIsNotEmpty_isTrue() {
-        sut.storage.updatePlayer(Player(name: "John"))
-        XCTAssertTrue(sut.hasPlayers)
+        XCTAssertTrue(makeSUT(players: .demoPlayers).hasPlayers)
     }
     
     func testStoredPlayers_whenStorageIsEmpty_isEmpty() {
-        XCTAssertTrue(sut.storedPlayers.isEmpty)
+        XCTAssertTrue(makeSUT().storedPlayers.isEmpty)
     }
     
     func testStoredPlayers_whenStorageIsNotEmpty_isNotEmpty() {
-        sut.storage.updatePlayer(.demo)
-        XCTAssertFalse(sut.storedPlayers.isEmpty)
-    }
-    
-    func testAddPlayers_updatesStorage() {
-        sut.storage.updatePlayer(.demo)
-        XCTAssertFalse(sut.storedPlayers.isEmpty)
+        XCTAssertFalse(makeSUT(players: .demoPlayers).storedPlayers.isEmpty)
     }
     
     func testToggleSelection() {
+        let sut = makeSUT()
         XCTAssertFalse(sut.isSelectingPlayers)
         
         sut.toggleSelection()
@@ -60,6 +46,7 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testToggleSelection_clearsSelectedRows() {
+        let sut = makeSUT()
         sut.isSelectingPlayers = true
         sut.selectedRows.insert(UUID())
         
@@ -69,6 +56,7 @@ final class PlayersViewModelTests: XCTestCase {
     }
     
     func testReloadView() {
+        let sut = makeSUT()
         let reloadViewExpectation = expectation(description: "Reload view expectation")
         cancellable = sut.objectWillChange.sink { _ in
             reloadViewExpectation.fulfill()
@@ -77,6 +65,14 @@ final class PlayersViewModelTests: XCTestCase {
         sut.reloadView()
         
         waitForExpectations(timeout: 2, handler: nil)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        players: [Player] = []
+    ) -> PlayersViewModel {
+        .init(storage: Mocks.PlayerStorageHandler(storedPlayers: players))
     }
     
 }

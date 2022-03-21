@@ -9,34 +9,22 @@ import XCTest
 import SwiftUI
 import CoreModels
 import FoundationMocks
+import FoundationTools
 @testable import PlayerList
 
 final class PlayersListViewModelTests: XCTestCase {
     
-    override func tearDown() {
-        Mocks.storage.clear()
-        super.tearDown()
-    }
-    
     func testHasSelected_whenRowContainsPlayerID_isTrue() {
         let player = Player.demoPlayers[0]
         let selectedRowID = player.id
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([selectedRowID])
-        )
+        let sut = makeSUT(selectedRows: .constant([selectedRowID]))
         
         XCTAssertTrue(sut.hasSelected(player))
     }
     
     func testHasSelected_whenSelectedRowsAreEmpty_isFalse() {
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([])
-        )
-        
         XCTAssertFalse(
-            sut.hasSelected(.demoPlayers[0])
+            makeSUT().hasSelected(.demoPlayers[0])
         )
     }
     
@@ -44,10 +32,7 @@ final class PlayersListViewModelTests: XCTestCase {
         let selectedRows = Set<UUID>(
             Player.demoPlayers.map { $0.id }
         )
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant(selectedRows)
-        )
+        let sut = makeSUT(selectedRows: .constant(selectedRows))
         
         XCTAssertFalse(
             sut.hasSelected(Player(name: "John"))
@@ -56,11 +41,10 @@ final class PlayersListViewModelTests: XCTestCase {
     
     func testHasSelected_whenAllRowsAreSelected_isTrueForAllPlayers() {
         let players = Player.demoPlayers
-        players.forEach { Mocks.storage.updatePlayer($0) }
-        
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: players)
         let selectedRows = Set<UUID>(players.map { $0.id })
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
+        let sut = makeSUT(
+            storage: storage,
             selectedRows: .constant(selectedRows)
         )
         
@@ -105,8 +89,7 @@ final class PlayersListViewModelTests: XCTestCase {
     }
     
     func testShouldConfirmPlayers_whenSeletedRowsAreTwo_isTrue() {
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
+        let sut = makeSUT(
             selectedRows: .constant([UUID(), UUID()])
         )
         
@@ -114,8 +97,7 @@ final class PlayersListViewModelTests: XCTestCase {
     }
     
     func testShouldConfirmPlayers_whenSeletedRowsAreGreaterThanTwo_isTrue() {
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
+        let sut = makeSUT(
             selectedRows: .constant([UUID(), UUID(), UUID()])
         )
         
@@ -123,17 +105,11 @@ final class PlayersListViewModelTests: XCTestCase {
     }
     
     func testShouldConfirmPlayers_whenSeletedRowsAreZero_isFalse() {
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([])
-        )
-        
-        XCTAssertFalse(sut.shouldConfirmPlayers)
+        XCTAssertFalse(makeSUT().shouldConfirmPlayers)
     }
     
     func testShouldConfirmPlayers_whenSeletedRowsAreOne_isFalse() {
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
+        let sut = makeSUT(
             selectedRows: .constant([UUID()])
         )
         
@@ -142,11 +118,10 @@ final class PlayersListViewModelTests: XCTestCase {
     
     func testSelectedPlayers_whenSelectedRowsAreNotEmpty_equalsCorrectPlayers() {
         let players = Player.demoPlayers
-        players.forEach { Mocks.storage.updatePlayer($0) }
+        let storage = Mocks.PlayerStorageHandler(storedPlayers: players)
         let selectedRows = Set<UUID>(players.map { $0.id })
-        
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
+        let sut = makeSUT(
+            storage: storage,
             selectedRows: .constant(selectedRows)
         )
         
@@ -154,34 +129,32 @@ final class PlayersListViewModelTests: XCTestCase {
     }
     
     func testSelectedPlayers_whenSelectedRowsAreEmpty_isEmpty() {
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([])
-        )
-        
-        XCTAssertTrue(sut.selectedPlayers.isEmpty)
+        XCTAssertTrue(makeSUT().selectedPlayers.isEmpty)
     }
     
     func testDeletePlayer() {
-        let player = Player(name: "John Doe")
-        Mocks.storage.updatePlayer(player)
-        
-        var showListView = false
-        let showListViewBinding = Binding<Bool>(
-            get: { showListView },
-            set: { showListView = $0 }
+        let storage = Mocks.PlayerStorageHandler(
+            storedPlayers: [.demo]
         )
+        let sut = makeSUT(storage: storage)
         
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([]),
-            showListView: showListViewBinding
+        sut.delete(.demo)
+        
+        XCTAssertTrue(storage.deletePlayerCalled)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        storage: PlayerStorageHandler = Mocks.PlayerStorageHandler(),
+        selectedRows: Binding<Set<UUID>> = .constant([]),
+        showListView: Binding<Bool> = .constant(false)
+    ) -> PlayersListViewModel {
+        .init(
+            storage: storage,
+            selectedRows: selectedRows,
+            showListView: showListView
         )
-        
-        sut.delete(player)
-        
-        XCTAssertTrue(sut.players.isEmpty)
-        XCTAssertFalse(sut.showListView)
     }
     
 }

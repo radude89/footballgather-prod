@@ -8,6 +8,7 @@
 import XCTest
 import FoundationMocks
 import CoreModels
+import SwiftUI
 @testable import PlayerList
 
 final class PlayersListViewModelIntegrationTests: XCTestCase {
@@ -29,6 +30,21 @@ final class PlayersListViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(sut.shouldConfirmPlayers)
     }
     
+    func testHasSelected_whenAllRowsAreSelected_isTrueForAllPlayers() {
+        let players = Player.demoPlayers
+        players.forEach { Mocks.storage.updatePlayer($0) }
+        
+        let selectedRows = Set<UUID>(players.map { $0.id })
+        let sut = PlayersListViewModel(
+            storage: Mocks.storage,
+            selectedRows: .constant(selectedRows)
+        )
+        
+        players.forEach { player in
+            XCTAssertTrue(sut.hasSelected(player))
+        }
+    }
+    
     func testDeletePlayers() {
         let sut = makeSUT()
         
@@ -40,9 +56,27 @@ final class PlayersListViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(Mocks.storage.storedPlayers.isEmpty)
     }
     
+    func testDeletePlayers_updatesShowListViewBinding() {
+        var showListView = false
+        let showListViewBinding = Binding<Bool>(
+            get: { showListView },
+            set: { showListView = $0 }
+        )
+        let sut = makeSUT(showListView: showListViewBinding)
+        
+        players.forEach { player in
+            sut.delete(player)
+        }
+        
+        XCTAssertTrue(sut.players.isEmpty)
+        XCTAssertFalse(sut.showListView)
+    }
+    
     // MARK: - Helpers
     
-    private func makeSUT() -> PlayersListViewModel {
+    private func makeSUT(
+        showListView: Binding<Bool> = .constant(false)
+    ) -> PlayersListViewModel {
         let storage = Mocks.storage
         
         players.forEach { player in
@@ -53,7 +87,8 @@ final class PlayersListViewModelIntegrationTests: XCTestCase {
         
         return .init(
             storage: storage,
-            selectedRows: .constant(Set(ids))
+            selectedRows: .constant(Set(ids)),
+            showListView: showListView
         )
     }
 }

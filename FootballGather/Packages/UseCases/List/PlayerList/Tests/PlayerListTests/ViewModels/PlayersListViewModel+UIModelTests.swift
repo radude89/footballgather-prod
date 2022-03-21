@@ -9,6 +9,7 @@ import XCTest
 import SwiftUI
 import CoreModels
 import FoundationMocks
+import FoundationTools
 @testable import PlayerList
 
 final class PlayersListViewModelUIModelTests: XCTestCase {
@@ -19,17 +20,9 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
         Int.random(in: 0 ..< players.count)
     }
     
-    override func tearDown() {
-        Mocks.storage.clear()
-        super.tearDown()
-    }
-    
     func testAccessibilityID_whenIsEditingAndHasSelectedPlayer_equalsSelectedEditingPlayerAccessibilityID() {
         let player = players[rowIndex]
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([player.id])
-        )
+        let sut = makeSUT(selectedRows: .constant([player.id]))
         
         XCTAssertEqual(
             sut.accessibilityID(for: player, isEditing: true),
@@ -39,10 +32,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     
     func testAccessibilityID_whenIsEditingAndHasNotSelectedPlayer_equalsUnselectedEditingPlayerAccessibilityID() {
         let player = players[rowIndex]
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([])
-        )
+        let sut = makeSUT(selectedRows: .constant([]))
         
         XCTAssertEqual(
             sut.accessibilityID(for: player, isEditing: true),
@@ -52,11 +42,8 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     
     func testAccessibilityID_whenIsNotEditing_equalsUnselectedPlayerAccessibilityID() {
         let player = players[rowIndex]
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([player.id])
-        )
-        
+        let sut = makeSUT(selectedRows: .constant([player.id]))
+
         XCTAssertEqual(
             sut.accessibilityID(for: player, isEditing: false),
             PlayersListRowAccessibility.unselected(player).id
@@ -65,10 +52,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     
     func testAccessibilityLabel_whenIsEditingAndHasSelectedPlayer_equalsSelectedEditingPlayerAccessibilityLabel() {
         let player = players[rowIndex]
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([player.id])
-        )
+        let sut = makeSUT(selectedRows: .constant([player.id]))
         
         XCTAssertEqual(
             sut.accessibilityLabel(for: player, isEditing: true),
@@ -78,10 +62,7 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     
     func testAccessibilityLabel_whenIsEditingAndHasNotSelectedPlayer_equalsUnselectedEditingPlayerAccessibilityLabel() {
         let player = players[rowIndex]
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([])
-        )
+        let sut = makeSUT(selectedRows: .constant([]))
         
         XCTAssertEqual(
             sut.accessibilityLabel(for: player, isEditing: true),
@@ -91,14 +72,24 @@ final class PlayersListViewModelUIModelTests: XCTestCase {
     
     func testAccessibilityLabel_whenIsNotEditing_equalsUnselectedPlayerAccessibilityLabel() {
         let player = players[rowIndex]
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant([player.id])
-        )
+        let sut = makeSUT(selectedRows: .constant([player.id]))
         
         XCTAssertEqual(
             sut.accessibilityLabel(for: player, isEditing: false),
             PlayersListRowAccessibility.unselected(player).label
+        )
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(
+        storage: PlayerStorageHandler = Mocks.PlayerStorageHandler(),
+        selectedRows: Binding<Set<UUID>> = .constant([])
+    ) -> PlayersListViewModel {
+        .init(
+            storage: storage,
+            selectedRows: selectedRows,
+            showListView: .constant(false)
         )
     }
     

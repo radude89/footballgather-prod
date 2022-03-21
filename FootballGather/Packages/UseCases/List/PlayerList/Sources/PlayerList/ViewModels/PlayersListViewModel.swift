@@ -15,10 +15,10 @@ final class PlayersListViewModel: ObservableObject {
     @Binding var showListView: Bool
     
     @Published private(set) var players: [Player]
-    private(set) var storage: FoundationTools.AppStorage
+    private(set) var storage: PlayerStorageHandler
     
     init(
-        storage: FoundationTools.AppStorage,
+        storage: PlayerStorageHandler = AppStorage(),
         selectedRows: Binding<Set<UUID>>,
         showListView: Binding<Bool> = .constant(false)
     ) {
