@@ -8,14 +8,11 @@
 import CoreModels
 
 protocol HistoryRowDescriptable {
-    var title: String { get }
-    
     func playersDescription(for gather: Gather) -> String
 }
 
 struct TeamARowDescription: HistoryRowDescriptable {
     private let viewModel: HistoryViewModel
-    let title = Team.teamA.name
     
     init(viewModel: HistoryViewModel) {
         self.viewModel = viewModel
@@ -28,7 +25,6 @@ struct TeamARowDescription: HistoryRowDescriptable {
 
 struct TeamBRowDescription: HistoryRowDescriptable {
     private let viewModel: HistoryViewModel
-    let title = Team.teamB.name
     
     init(viewModel: HistoryViewModel) {
         self.viewModel = viewModel

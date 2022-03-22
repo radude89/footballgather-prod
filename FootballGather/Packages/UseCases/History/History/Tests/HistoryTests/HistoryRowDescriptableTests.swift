@@ -17,14 +17,6 @@ final class HistoryRowDescriptableTests: XCTestCase {
         super.tearDown()
     }
     
-    func testTitle_teamA_isTeamName() {
-        XCTAssertEqual(makeTeamARowDescription().title, Team.teamA.name)
-    }
-    
-    func testTitle_teamB_isTeamName() {
-        XCTAssertEqual(makeTeamBRowDescription().title, Team.teamB.name)
-    }
-    
     func testPlayersDescription_teamA_isViewModelPlayerDescription() {
         let viewModel = HistoryViewModel(storage: Mocks.storage)
         let sut = makeTeamARowDescription(viewModel: viewModel)

@@ -57,13 +57,17 @@ public struct HistoryView: View {
     
     private func row(for gather: Gather) -> some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(
+                alignment: .leading,
+                spacing: 10
+            ) {
                 makePlayerRowDescription(
                     for: gather,
                     teamDescription: TeamARowDescription(viewModel: viewModel)
                 )
                 
-                teamSeparatorView
+                Text(LocalizedString.vs)
+                    .font(.headline)
                 
                 makePlayerRowDescription(
                     for: gather,
@@ -84,20 +88,7 @@ public struct HistoryView: View {
         for gather: Gather,
         teamDescription: HistoryRowDescriptable
     ) -> some View {
-        HStack(spacing: 20) {
-            Text(teamDescription.title)
-                .font(.title2)
-            Text(teamDescription.playersDescription(for: gather))
-        }
-    }
-    
-    private var teamSeparatorView: some View {
-        HStack {
-            Spacer()
-            Text(LocalizedString.vs)
-                .font(.headline)
-            Spacer()
-        }
+        Text(teamDescription.playersDescription(for: gather))
     }
     
 }
