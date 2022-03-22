@@ -12,51 +12,28 @@ import FoundationMocks
 
 final class HistoryRowDescriptableTests: XCTestCase {
     
-    override func tearDown() {
-        Mocks.storage.clear()
-        super.tearDown()
-    }
+    private let gathers: [Gather] = .demoGathers
     
     func testPlayersDescription_teamA_isViewModelPlayerDescription() {
-        let viewModel = HistoryViewModel(storage: Mocks.storage)
-        let sut = makeTeamARowDescription(viewModel: viewModel)
+        let storage = Mocks.GatherStorageHandler(gathers: gathers)
+        let viewModel = HistoryViewModel(storage: storage)
+        let sut = TeamARowDescription(viewModel: viewModel)
         
-        Gather.demoGathers.forEach { gather in
+        gathers.forEach { gather in
             let expectedDescription = viewModel.teamAPlayersDescription(for: gather)
             XCTAssertEqual(sut.playersDescription(for: gather), expectedDescription)
         }
     }
     
     func testPlayersDescription_teamB_isViewModelPlayerDescription() {
-        let viewModel = HistoryViewModel(storage: Mocks.storage)
-        let sut = makeTeamBRowDescription(viewModel: viewModel)
+        let storage = Mocks.GatherStorageHandler(gathers: gathers)
+        let viewModel = HistoryViewModel(storage: storage)
+        let sut = TeamBRowDescription(viewModel: viewModel)
         
-        Gather.demoGathers.forEach { gather in
+        gathers.forEach { gather in
             let expectedDescription = viewModel.teamBPlayersDescription(for: gather)
             XCTAssertEqual(sut.playersDescription(for: gather), expectedDescription)
         }
-    }
-    
-    // MARK: - Helpers
-    
-    private func makeTeamARowDescription(
-        with gathers: [Gather] = .demoGathers,
-        viewModel: HistoryViewModel = .init(storage: Mocks.storage)
-    ) -> TeamARowDescription {
-        addGathersToStorage(gathers)
-        return TeamARowDescription(viewModel: viewModel)
-    }
-    
-    private func makeTeamBRowDescription(
-        with gathers: [Gather] = .demoGathers,
-        viewModel: HistoryViewModel = .init(storage: Mocks.storage)
-    ) -> TeamBRowDescription {
-        addGathersToStorage()
-        return TeamBRowDescription(viewModel: viewModel)
-    }
-    
-    private func addGathersToStorage(_ gathers: [Gather] = .demoGathers) {
-        Gather.demoGathers.forEach { Mocks.storage.addGather($0) }
     }
     
 }
