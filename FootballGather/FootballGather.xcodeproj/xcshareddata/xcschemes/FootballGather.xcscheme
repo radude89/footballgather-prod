@@ -224,6 +224,20 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherIntegrationTests"
+               BuildableName = "GatherIntegrationTests"
+               BlueprintName = "GatherIntegrationTests"
+               ReferencedContainer = "container:Packages/UseCases/Gather/Gather">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "HistoryAssetsTests"
                BuildableName = "HistoryAssetsTests"
                BlueprintName = "HistoryAssetsTests"
@@ -529,6 +543,17 @@
                BuildableName = "PlayerDetailsIntegrationTests"
                BlueprintName = "PlayerDetailsIntegrationTests"
                ReferencedContainer = "container:Packages/UseCases/Details/PlayerDetails">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GatherIntegrationTests"
+               BuildableName = "GatherIntegrationTests"
+               BlueprintName = "GatherIntegrationTests"
+               ReferencedContainer = "container:Packages/UseCases/Gather/Gather">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -7,6 +7,10 @@
 
 import UserNotifications
 
+protocol NotificationAuthorizationRequestable {
+    func requestAuthorization() async -> NotificationRequestError?
+}
+
 struct NotificationAuthorizationRequestHandler {
     private let center: Gather.NotificationCenter
     private let options: UNAuthorizationOptions
@@ -18,7 +22,9 @@ struct NotificationAuthorizationRequestHandler {
         self.center = center
         self.options = options
     }
-    
+}
+
+extension NotificationAuthorizationRequestHandler: NotificationAuthorizationRequestable {
     func requestAuthorization() async -> NotificationRequestError? {
         do {
             guard try await center.requestAuthorization(

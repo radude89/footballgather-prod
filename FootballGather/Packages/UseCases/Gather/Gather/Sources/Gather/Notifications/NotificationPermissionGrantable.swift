@@ -13,17 +13,21 @@ protocol NotificationPermissionGrantable {
     mutating func askForPermissions() async
 }
 
-struct NotificationPermissionGranter: NotificationPermissionGrantable {
-    private let resolver: NotificationAuthorizationResolver
-    private let requestHandler: NotificationAuthorizationRequestHandler
+struct NotificationPermissionGranter {
+    private let resolver: NotificationAuthorizationResolvable
+    private let requestHandler: NotificationAuthorizationRequestable
     private var requestError: NotificationRequestError?
     
-    init(resolver: NotificationAuthorizationResolver = .init(),
-         requestHandler: NotificationAuthorizationRequestHandler = .init()) {
+    init(
+        resolver: NotificationAuthorizationResolvable = NotificationAuthorizationResolver(),
+         requestHandler: NotificationAuthorizationRequestable = NotificationAuthorizationRequestHandler()
+    ) {
         self.resolver = resolver
         self.requestHandler = requestHandler
     }
-    
+}
+
+extension NotificationPermissionGranter: NotificationPermissionGrantable {
     mutating func askForPermissions() async {
         let authStatus = await resolver.resolveAuthStatus()
         if authStatus == .notDetermined {

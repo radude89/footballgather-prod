@@ -8,6 +8,12 @@
 import CoreModels
 import FoundationTools
 
+protocol ScoreHandling {
+    func score(for team: Team) -> Int
+    mutating func incrementScore(for team: Team)
+    mutating func decrementScore(for team: Team)
+}
+
 struct ScoreHandler {
     private var score: [Team: Int]
     private let maxScore: Int
@@ -19,7 +25,9 @@ struct ScoreHandler {
         self.score = score
         self.maxScore = maxScore
     }
-    
+}
+
+extension ScoreHandler: ScoreHandling {
     func score(for team: Team) -> Int {
         guard let score = score[team] else {
             return 0

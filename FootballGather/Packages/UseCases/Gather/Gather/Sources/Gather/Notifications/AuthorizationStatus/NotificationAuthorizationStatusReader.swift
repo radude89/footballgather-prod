@@ -7,6 +7,10 @@
 
 import NotificationCenter
 
+protocol NotificationAuthorizationStatusReadable {
+    var authorizationStatus: UNAuthorizationStatus { get async }
+}
+
 struct NotificationAuthorizationStatusReader {
     private let notificationCenter: NotificationCenter
     
@@ -15,7 +19,9 @@ struct NotificationAuthorizationStatusReader {
     ) {
         self.notificationCenter = notificationCenter
     }
-    
+}
+
+extension NotificationAuthorizationStatusReader: NotificationAuthorizationStatusReadable {
     var authorizationStatus: UNAuthorizationStatus {
         get async {
             await notificationCenter.authorizationStatus

@@ -55,11 +55,8 @@ final class NotificationAuthorizationResolverTests: XCTestCase {
     private func makeSUT(
         status: UNAuthorizationStatus
     ) -> NotificationAuthorizationResolver {
-        let center = Mocks.NotificationCenter(
+        let statusReader = Mocks.NotificationAuthorizationStatusReader(
             authorizationStatus: status
-        )
-        let statusReader = NotificationAuthorizationStatusReader(
-            notificationCenter: center
         )
         
         return NotificationAuthorizationResolver(

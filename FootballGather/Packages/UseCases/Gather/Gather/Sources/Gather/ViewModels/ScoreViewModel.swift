@@ -14,9 +14,9 @@ final class ScoreViewModel: ObservableObject {
     @Published var teamAScore: Int
     @Published var teamBScore: Int
     
-    private var scoreHandler: ScoreHandler
+    private var scoreHandler: ScoreHandling
     
-    init(scoreHandler: ScoreHandler = .init()) {
+    init(scoreHandler: ScoreHandling = ScoreHandler()) {
         self.scoreHandler = scoreHandler
         teamAScore = scoreHandler.score(for: .teamA)
         teamBScore = scoreHandler.score(for: .teamB)
@@ -46,25 +46,22 @@ final class ScoreViewModel: ObservableObject {
     
     func onIncrementScore(for team: Team) {
         scoreHandler.incrementScore(for: team)
-        updateScore(for: team, increment: true)
+        updateScore(for: team)
     }
     
     func onDecrementScore(for team: Team) {
         scoreHandler.decrementScore(for: team)
-        updateScore(for: team, increment: false)
+        updateScore(for: team)
     }
     
-    private func updateScore(for team: Team, increment: Bool) {
-        let value = increment ? 1 : -1
-        
+    private func updateScore(for team: Team) {
         switch team {
         case .teamA:
-            teamAScore += value
+            teamAScore = scoreHandler.score(for: .teamA)
         case .teamB:
-            teamBScore += value
+            teamBScore = scoreHandler.score(for: .teamB)
         default:
             break
         }
     }
-    
 }

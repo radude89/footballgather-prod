@@ -7,13 +7,21 @@
 
 import UserNotifications
 
+protocol NotificationAuthorizationResolvable {
+    func resolveAuthStatus() async -> NotificationRequestError?
+}
+
 struct NotificationAuthorizationResolver {
-    private let statusReader: NotificationAuthorizationStatusReader
+    private let statusReader: NotificationAuthorizationStatusReadable
     
-    init(statusReader: NotificationAuthorizationStatusReader = .init()) {
+    init(
+        statusReader: NotificationAuthorizationStatusReadable = NotificationAuthorizationStatusReader()
+    ) {
         self.statusReader = statusReader
     }
-    
+}
+ 
+extension NotificationAuthorizationResolver: NotificationAuthorizationResolvable {
     func resolveAuthStatus() async -> NotificationRequestError? {
         let status = await statusReader.authorizationStatus
         return checkNotificationStatus(status)

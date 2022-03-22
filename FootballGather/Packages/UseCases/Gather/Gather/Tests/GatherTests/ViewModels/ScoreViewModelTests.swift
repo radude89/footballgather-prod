@@ -23,14 +23,14 @@ final class ScoreViewModelTests: XCTestCase {
     }
     
     func testShowsScore() {
-        let sut = ScoreViewModel(scoreHandler: .init())
+        let sut = ScoreViewModel()
         
         XCTAssertEqual(sut.formattedScore(for: .teamA), "0")
         XCTAssertEqual(sut.formattedScore(for: .teamB), "0")
     }
     
     func testFormattedScore() {
-        let sut = ScoreViewModel(scoreHandler: .init())
+        let sut = ScoreViewModel()
         
         XCTAssertEqual(sut.formattedScore, "0:0")
     }
@@ -50,75 +50,62 @@ final class ScoreViewModelTests: XCTestCase {
     }
     
     func testIncrementsScore() {
-        var scoreHandler = ScoreHandler(
-            score: [
-                .teamA: Int.random(in: 0...Self.maxScore),
-                .teamB: Int.random(in: 0...Self.maxScore)
-            ]
-        )
-        let sut = ScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel()
         
-        [Team.teamA, Team.teamB].forEach { team in
-            sut.onIncrementScore(for: team)
-            scoreHandler.incrementScore(for: team)
-            
-            XCTAssertEqual(
-                sut.formattedScore(for: team),
-                "\(scoreHandler.score(for: team))"
-            )
-        }
+        sut.onIncrementScore(for: .teamA)
+        sut.onIncrementScore(for: .teamB)
+        
+        XCTAssertEqual(sut.teamAScore, 1)
+        XCTAssertEqual(sut.teamBScore, 1)
     }
     
     func testIncrementsScore_forBench_breaks() {
-        let score = Int.random(in: 1..<Self.maxScore)
-        let scoreHandler = ScoreHandler(
-            score: [
-                .teamA: score,
-                .teamB: score
-            ]
-        )
-        let sut = ScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel()
         
         sut.onIncrementScore(for: .bench)
         
-        XCTAssertEqual(sut.teamAScore, score)
-        XCTAssertEqual(sut.teamBScore, score)
+        XCTAssertEqual(sut.teamAScore, 0)
+        XCTAssertEqual(sut.teamBScore, 0)
     }
     
     func testDecrementsScore() {
-        var scoreHandler = ScoreHandler(
-            score: [
-                .teamA: Int.random(in: 0...Self.maxScore),
-                .teamB: Int.random(in: 0...Self.maxScore)
-            ]
-        )
+        let scoreHandler = MockScoreHandler()
         let sut = ScoreViewModel(scoreHandler: scoreHandler)
         
-        [Team.teamA, Team.teamB].forEach { team in
-            sut.onDecrementScore(for: team)
-            scoreHandler.decrementScore(for: team)
-            
-            XCTAssertEqual(
-                sut.formattedScore(for: team),
-                "\(scoreHandler.score(for: team))"
-            )
-        }
+        sut.onDecrementScore(for: .teamA)
+        sut.onDecrementScore(for: .teamB)
+        
+        XCTAssertTrue(scoreHandler.decrementScoreCalled)
     }
     
     func testDecrementsScore_forBench_breaks() {
-        let score = Int.random(in: 1..<Self.maxScore)
-        let scoreHandler = ScoreHandler(
-            score: [
-                .teamA: score,
-                .teamB: score
-            ]
-        )
-        let sut = ScoreViewModel(scoreHandler: scoreHandler)
+        let sut = ScoreViewModel()
         
         sut.onDecrementScore(for: .bench)
         
-        XCTAssertEqual(sut.teamAScore, score)
-        XCTAssertEqual(sut.teamBScore, score)
+        XCTAssertEqual(sut.teamAScore, 0)
+        XCTAssertEqual(sut.teamBScore, 0)
+    }
+    
+    // MARK: - Helpers
+    
+    private final class MockScoreHandler: ScoreHandling {
+        
+        private(set) var incrementScoreCalled = false
+        private(set) var decrementScoreCalled = false
+        
+        func score(for team: Team) -> Int {
+            0
+        }
+        
+        func incrementScore(for team: Team) {
+            incrementScoreCalled = true
+        }
+        
+        func decrementScore(for team: Team) {
+            decrementScoreCalled = true
+        }
+        
     }
     
 }

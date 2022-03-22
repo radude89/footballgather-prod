@@ -1,17 +1,17 @@
 //
-//  NotificationPermissionGranterTests.swift
+//  NotificationPermissionGranterIntegrationTests.swift
 //  
 //
-//  Created by Radu Dan on 15.03.2022.
+//  Created by Radu Dan on 21.03.2022.
 //
 
 import XCTest
 @testable import Gather
 
-final class NotificationPermissionGranterTests: XCTestCase {
+final class NotificationPermissionGranterIntegrationTests: XCTestCase {
     
     func testAskForPermissions_whenAuthStatusIsNotDetermined_requestsAuthorization() async {
-        var sut = makeSUT(resolveError: .notDetermined)
+        var sut = makeSUT()
         
         await sut.askForPermissions()
         
@@ -19,7 +19,7 @@ final class NotificationPermissionGranterTests: XCTestCase {
     }
     
     func testAskForPermissions_whenHasAuthError_requestsAuthorization() async {
-        var sut = makeSUT(resolveError: .unknown)
+        var sut = makeSUT(authError: .unknown)
         
         await sut.askForPermissions()
         
@@ -30,21 +30,16 @@ final class NotificationPermissionGranterTests: XCTestCase {
         XCTAssertTrue(makeSUT().hasGrantedPermissions)
     }
     
+    
     // MARK: - Helpers
+    
     private func makeSUT(
-        resolveError: NotificationRequestError? = nil,
-        requestError: NotificationRequestError? = nil
+        authorizationStatus: UNAuthorizationStatus = .notDetermined,
+        authError: NotificationRequestError? = nil
     ) -> NotificationPermissionGranter {
-        let resolver = Mocks.NotificationAuthorizationResolver(
-            error: resolveError
-        )
-        let requestHandler = Mocks.NotificationAuthorizationRequester(
-            error: requestError
-        )
-        
-        return NotificationPermissionGranter(
-            resolver: resolver,
-            requestHandler: requestHandler
+        Mocks.makeNotificationPermissionGranter(
+            authorizationStatus: authorizationStatus,
+            authError: authError
         )
     }
     

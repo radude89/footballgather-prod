@@ -18,9 +18,21 @@ let package = Package(
     targets: [
         .target(
             name: "Gather",
-            dependencies: ["GatherAssets", "UITools", "FoundationTools"]),
+            dependencies: ["GatherAssets", "UITools", "FoundationTools"]
+        ),
         .testTarget(
             name: "GatherTests",
-            dependencies: ["Gather"]),
+            dependencies: [
+                "Gather",
+                .product(name: "FoundationMocks", package: "FoundationTools")
+            ]
+        ),
+        .testTarget(
+            name: "GatherIntegrationTests",
+            dependencies: [
+                "Gather",
+                .product(name: "FoundationMocks", package: "FoundationTools")
+            ]
+        )
     ]
 )

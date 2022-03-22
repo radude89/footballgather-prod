@@ -27,7 +27,7 @@ public struct GatherViewModel {
         return (time[0], time[1])
     }
     
-    func storeGather(score: String, storage: AppStorage) {
+    func storeGather(score: String, storage: GatherStorageHandler) {
         let gather = Gather(
             score: score,
             teamAPlayers: playersTeams[.teamA] ?? [],

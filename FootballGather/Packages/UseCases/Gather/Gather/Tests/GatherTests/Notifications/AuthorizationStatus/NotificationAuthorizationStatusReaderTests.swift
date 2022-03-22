@@ -21,7 +21,9 @@ final class NotificationAuthorizationStatusReaderTests: XCTestCase {
         
         for status in statuses {
             let center = Mocks.NotificationCenter(authorizationStatus: status)
-            let sut = NotificationAuthorizationStatusReader(notificationCenter: center)
+            let sut = NotificationAuthorizationStatusReader(
+                notificationCenter: center
+            )
             
             let authorizationStatus = await sut.authorizationStatus
             
