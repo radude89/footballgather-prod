@@ -1,4 +1,4 @@
-# FootballGather
+# Football Gather App
 
 <p align="center">
     <img src="assets/app-icon.png" alt="FootballGather App Icon" />
@@ -134,7 +134,7 @@ Sources:
 ### App Structure
 
 The app consists of the following groups:
-* **App** - contains the entry point of the FootballGather and the `WindowGroup` that contains the `MainView`. It depends on the `Home` module.
+* **App** - contains the entry point of the Football Gather and the `WindowGroup` that contains the `MainView`. It depends on the `Home` module.
 * **Core Packages** - the modules that don't depend on anything: `FoundationTools`, `UITools` and `CoreModels`.
 * **Use Cases** - these are the features of the application and are independent from one another.
 
@@ -194,10 +194,10 @@ Snippets from **April, 2022**:
 
 ## Contributions & Support
 
-FootballGather is developed as an open source project. I encourage everyone to contribute.   
+Football Gather is developed as an open source project. I encourage everyone to contribute.   
 Please do make pull requests if you have suggestions or ideas of improvement.   
 Thanks!
 
 ## License
 
-FootballGather source code is released under the MIT license. [See LICENSE](https://github.com/radude89/footballgather-prod/blob/main/LICENSE) for details.
+Football Gather source code is released under the MIT license. [See LICENSE](https://github.com/radude89/footballgather-prod/blob/main/LICENSE) for details.
