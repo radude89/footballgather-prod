@@ -47,6 +47,14 @@ Takes screenshots
 
 Distributes IPA to AppStore
 
+### ios bump_versions
+
+```sh
+[bundle exec] fastlane ios bump_versions
+```
+
+Bumps the app versions
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
