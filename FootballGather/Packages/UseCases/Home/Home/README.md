@@ -1,3 +1,3 @@
 # Home
 
-This is the compositional root.
+This package contains the home screen logic.
