@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-@testable import FootballGather
+@testable import Football_Gather
 
 final class TestAppTests: XCTestCase {
     

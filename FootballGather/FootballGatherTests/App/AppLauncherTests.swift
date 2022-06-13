@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FootballGather
+@testable import Football_Gather
 
 final class AppLauncherTests: XCTestCase {
     

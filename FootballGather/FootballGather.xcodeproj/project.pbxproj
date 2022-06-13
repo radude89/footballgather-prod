@@ -106,7 +106,7 @@
 		F75698A92771B70200A3E0E1 /* GatherUITests+SetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+SetTime.swift"; sourceTree = "<group>"; };
 		F756F8D8260C3D6600A36040 /* FootballGatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGatherApp.swift; sourceTree = "<group>"; };
 		F756F8DA260C3D6600A36040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F756F8DF260C3D6600A36040 /* FootballGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F756F8DF260C3D6600A36040 /* Football Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F756F8E2260C3D6600A36040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F756F952260C40BB00A36040 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F756F956260C40BB00A36040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		F756F8E0260C3D6600A36040 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F756F8DF260C3D6600A36040 /* FootballGather.app */,
+				F756F8DF260C3D6600A36040 /* Football Gather.app */,
 				F756F952260C40BB00A36040 /* UITests.xctest */,
 				F795CCFB264A4F8D00D8FC3C /* FootballGatherTests.xctest */,
 				F7F2A136279FA7F90094D9B0 /* Snapshots.xctest */,
@@ -503,7 +503,7 @@
 				F7FC054827C3475900B59A0A /* Home */,
 			);
 			productName = "Football Gather (iOS)";
-			productReference = F756F8DF260C3D6600A36040 /* FootballGather.app */;
+			productReference = F756F8DF260C3D6600A36040 /* Football Gather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F756F951260C40BB00A36040 /* UITests */ = {
@@ -906,9 +906,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.fg;
-				PRODUCT_NAME = FootballGather;
+				PRODUCT_NAME = "Football Gather";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.rdan.fg";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -932,10 +932,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.fg;
-				PRODUCT_NAME = FootballGather;
+				PRODUCT_NAME = "Football Gather";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.rdan.fg";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1008,7 +1008,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FootballGather.app/FootballGather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Football Gather.app/Football Gather";
 			};
 			name = Debug;
 		};
@@ -1030,7 +1030,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FootballGather.app/FootballGather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Football Gather.app/Football Gather";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

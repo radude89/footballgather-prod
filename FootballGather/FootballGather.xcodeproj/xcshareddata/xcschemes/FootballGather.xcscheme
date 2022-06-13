@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F756F8DE260C3D6600A36040"
-               BuildableName = "FootballGather.app"
+               BuildableName = "Football Gather.app"
                BlueprintName = "FootballGather (iOS)"
                ReferencedContainer = "container:FootballGather.xcodeproj">
             </BuildableReference>
@@ -312,7 +312,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F756F8DE260C3D6600A36040"
-            BuildableName = "FootballGather.app"
+            BuildableName = "Football Gather.app"
             BlueprintName = "FootballGather (iOS)"
             ReferencedContainer = "container:FootballGather.xcodeproj">
          </BuildableReference>
@@ -573,7 +573,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F756F8DE260C3D6600A36040"
-            BuildableName = "FootballGather.app"
+            BuildableName = "Football Gather.app"
             BlueprintName = "FootballGather (iOS)"
             ReferencedContainer = "container:FootballGather.xcodeproj">
          </BuildableReference>
@@ -590,7 +590,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F756F8DE260C3D6600A36040"
-            BuildableName = "FootballGather.app"
+            BuildableName = "Football Gather.app"
             BlueprintName = "FootballGather (iOS)"
             ReferencedContainer = "container:FootballGather.xcodeproj">
          </BuildableReference>
