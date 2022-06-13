@@ -46,7 +46,7 @@ platform :ios do
     connect_to_appstore
     sync_device_info
     sync_certs(type: "appstore")
-    # bump_versions
+    bump_versions
     build_release_app
     upload_app_to_testflight
   end

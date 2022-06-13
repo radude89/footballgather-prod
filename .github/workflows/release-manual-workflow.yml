@@ -1,0 +1,39 @@
+name: Manual Release Workflow
+
+on:
+  push:
+    branches:
+      - 'releases/**'
+
+jobs:
+  release-app:
+    runs-on: macos-11
+    defaults:
+      run:
+        working-directory: ./FootballGather
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/FootballGather/Gemfile
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      - name: Select Xcode
+        run: |
+          ls /Applications | grep Xcode
+          sudo xcode-select -switch /Applications/Xcode_13.2.1.app
+
+      - name: Distribute app
+        run: bundle exec fastlane distribute_release_app
+        env:
+          APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+          APP_STORE_CONNECT_API_KEY_KEY: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}'
+          MATCH_GIT_BASIC_AUTHORIZATION: '${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}'
+          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
