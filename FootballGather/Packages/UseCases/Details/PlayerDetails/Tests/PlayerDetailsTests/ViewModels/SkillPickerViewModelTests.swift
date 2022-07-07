@@ -14,10 +14,10 @@ final class SkillPickerViewModelTests: XCTestCase {
     
     private let skills = Player.Skill.allCases
     
-    func testSkillBinding_whenNotNil() {
+    func testSkillBinding() {
         skills.forEach { skill in
-            let skillBinding = Binding<Player.Skill?> {
-                nil
+            let skillBinding = Binding<Player.Skill> {
+                .unknown
             } set: { newValue in
                 XCTAssertEqual(newValue, skill)
             }
@@ -26,13 +26,8 @@ final class SkillPickerViewModelTests: XCTestCase {
         }
     }
     
-    func testSkillBinding_whenNil() {
-        let sut = SkillPickerViewModel(skill: .constant(nil))
-        XCTAssertNil(sut.skill)
-    }
-    
     func testAllSkills() {
-        let sut = SkillPickerViewModel(skill: .constant(nil))
+        let sut = SkillPickerViewModel(skill: .constant(.unknown))
         XCTAssertEqual(sut.allSkills, skills)
     }
     

@@ -10,12 +10,12 @@ import CoreModels
 
 struct SkillPickerViewModel {
     
-    @Binding var skill: Player.Skill?
+    @Binding var skill: Player.Skill
     
     let allSkills: [Player.Skill]
     
     init(
-        skill: Binding<Player.Skill?>,
+        skill: Binding<Player.Skill>,
         allSkills: [Player.Skill] = Player.Skill.allCases
     ) {
         _skill = skill

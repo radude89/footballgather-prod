@@ -10,14 +10,14 @@ import Foundation
 public struct Player {
     public let id: UUID
     public var name: String
-    public var position: Position?
-    public var skill: Skill?
+    public var position: Position
+    public var skill: Skill
     
     public init(
         id: UUID = .init(),
         name: String,
-        position: Position? = nil,
-        skill: Skill? = nil
+        position: Position = .unknown,
+        skill: Skill = .unknown
     ) {
         self.id = id
         self.name = name

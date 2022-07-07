@@ -122,7 +122,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
         let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
-        sut.selectedPlayer.position = allPositions.randomElement()
+        sut.selectedPlayer.position = allPositions.randomElement()!
         
         XCTAssertTrue(sut.playerIsValid)
     }
@@ -132,7 +132,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
         let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
-        sut.selectedPlayer.skill = allSkills.randomElement()
+        sut.selectedPlayer.skill = allSkills.randomElement()!
         
         XCTAssertTrue(sut.playerIsValid)
     }
@@ -147,7 +147,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testHasEnteredDetails_whenSkillIsNotEmpty_isTrue() {
         allSkills.forEach { skill in
-            let sut = makeSUT()
+            let sut = makeSUT(player: .init(name: "John"))
             
             sut.selectedPlayer.skill = skill
             
@@ -157,7 +157,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     
     func testHasEnteredDetails_whenPositionIsNotEmpty_isTrue() {
         allPositions.forEach { position in
-            let sut = makeSUT()
+            let sut = makeSUT(player: .init(name: "John"))
             
             sut.selectedPlayer.position = position
             

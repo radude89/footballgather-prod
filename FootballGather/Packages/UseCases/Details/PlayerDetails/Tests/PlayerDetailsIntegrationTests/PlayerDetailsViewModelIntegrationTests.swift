@@ -42,7 +42,7 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         let player = Player(name: "Mike")
         let storage = makeAppStorage(players: [player])
         let sut = makeSUT(storage: storage, player: player)
-        let randomPosition = Player.Position.allCases.randomElement()
+        let randomPosition = Player.Position.allCases.randomElement()!
         
         sut.selectedPlayer.position = randomPosition
 
@@ -53,7 +53,7 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         let player = Player(name: "Andrew")
         let storage = makeAppStorage(players: [player])
         let sut = makeSUT(storage: storage, player: player)
-        let randomSkill = Player.Skill.allCases.randomElement()
+        let randomSkill = Player.Skill.allCases.randomElement()!
 
         sut.selectedPlayer.skill = randomSkill
 

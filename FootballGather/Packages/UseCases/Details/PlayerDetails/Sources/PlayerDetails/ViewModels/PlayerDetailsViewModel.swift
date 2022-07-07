@@ -36,9 +36,7 @@ public final class PlayerDetailsViewModel: ObservableObject {
     }
     
     var hasEnteredDetails: Bool {
-        selectedPlayer.name.isEmpty == false ||
-        selectedPlayer.skill != nil ||
-        selectedPlayer.position != nil
+        selectedPlayer.name.isEmpty == false
     }
     
     var playerIsValid: Bool {

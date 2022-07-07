@@ -9,7 +9,7 @@ import SwiftUI
 import CoreModels
 
 struct SkillAndPositionSectionViewModel {
-    @Binding var skill: Player.Skill?
-    @Binding var position: Player.Position?
+    @Binding var skill: Player.Skill
+    @Binding var position: Player.Position
     let isAddingPlayer: Bool
 }
