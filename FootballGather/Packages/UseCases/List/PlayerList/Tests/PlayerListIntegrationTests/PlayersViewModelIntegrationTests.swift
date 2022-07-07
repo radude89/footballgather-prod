@@ -26,14 +26,6 @@ final class PlayersViewModelIntegrationTests: XCTestCase {
         XCTAssertEqual(sut.storedPlayers, players)
     }
     
-    func testToggleSelection() {
-        let sut = makeSUT()
-        
-        sut.toggleSelection()
-        
-        XCTAssertTrue(sut.isSelectingPlayers)
-    }
-    
     // MARK: - Helpers
     
     private func makeSUT() -> PlayersViewModel {

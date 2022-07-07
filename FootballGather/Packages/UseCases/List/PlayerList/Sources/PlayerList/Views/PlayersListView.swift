@@ -19,7 +19,6 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
     let viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>
     
-    @Environment(\.editMode) private var editMode
     @State private var isShowingConfirmPlayersView = false
     @State private var gatherEnded = false
     
@@ -42,53 +41,38 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     }
     
     private var playerList: some View {
-        List(
-            viewModel.players,
-            selection: viewModel.$selectedRows
-        ) { player in
-            NavigationLink(
-                destination: viewProvider.detailsView(
-                    viewModel.$showListView,
-                    player
-                )
-            ) {
-                makeListRow(for: player)
-            }
-            .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                Button(
-                    role: .destructive,
-                    action: { onDelete(player) }
+        List {
+            ForEach(viewModel.players) { player in
+                NavigationLink(
+                    destination: viewProvider.detailsView(
+                        viewModel.$showListView,
+                        player
+                    )
                 ) {
-                    Label(LocalizedString.delete, systemImage: "trash")
+                    makeListRow(for: player)
+                }
+                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                    Button(
+                        role: .destructive,
+                        action: { deletePlayer(player) }
+                    ) {
+                        Label(LocalizedString.delete, systemImage: "trash")
+                    }
                 }
             }
+            .onDelete(perform: viewModel.delete)
         }
         .listStyle(.plain)
     }
     
     private func makeListRow(for player: Player) -> some View {
         Text(PlayersListViewModel.formattedRowTitle(for: player))
-            .accessibilityID(
-                viewModel.accessibilityID(
-                    for: player, isEditing: isEditing
-                )
-            )
-            .accessibilityLabel(
-                viewModel.accessibilityLabel(
-                    for: player, isEditing: isEditing
-                )
-            )
-            .accessibilityAddTraits(
-                viewModel.hasSelected(player) ? .isSelected : []
-            )
+            .accessibilityID(AccessibilityID.unselectedRow)
+            .accessibilityLabel(Text(String(player.name)))
     }
     
-    private func onDelete(_ player: Player) {
+    private func deletePlayer(_ player: Player) {
         viewModel.delete(player)
-    }
-    
-    private var isEditing: Bool {
-        editMode?.wrappedValue == .active
     }
     
     private var confirmPlayersNavigationLink: some View {
@@ -98,15 +82,14 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
         ) {
             confirmPlayersButton
         }
-        .disabled(!viewModel.shouldConfirmPlayers)
     }
     
     private var confirmView: some View {
         viewProvider.confirmPlayersView(
-            viewModel.selectedPlayers,
+            viewModel.players,
             $gatherEnded
         )
-            .navigationTitle(LocalizedString.confirmPlayersTitle)
+        .navigationTitle(LocalizedString.confirmPlayersTitle)
     }
     
     private var confirmPlayersButton: some View {
@@ -118,25 +101,4 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
         .padding(.bottom)
     }
     
-}
-
-// MARK: - Preview
-
-struct PlayerListView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewProvider = PlayersListViewProvider(
-            detailsView: { _,_ in AnyView(Text("Details View")) },
-            confirmPlayersView: { _,_ in AnyView(Text("Confirm view")) }
-        )
-        
-        return PlayersListView(
-            viewModel: .init(
-                storage: FoundationTools.AppStorage(),
-                selectedRows: .constant(.init()),
-                showListView: .constant(true)
-            ),
-            viewProvider: viewProvider
-        )
-            .previewLayout(.sizeThatFits)
-    }
 }

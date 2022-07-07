@@ -9,6 +9,7 @@ import SwiftUI
 import CoreModels
 import FoundationTools
 import UITools
+import PlayerListAssets
 
 // MARK: - PlayersView
 
@@ -32,13 +33,16 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
     public var body: some View {
         NavigationView {
             mainContent
-                .navigationTitle(viewModel.formattedNavigationTitle)
+                .navigationTitle(LocalizedString.players)
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(
-                    leading: showListView ? leadingBarButton : nil,
-                    trailing: trailingBarButton
-                )
-                .environment(\.editMode, viewModel.editModeBinding)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        trailingBarButton
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+                }
                 .sheet(isPresented: $showAddView) {
                     viewProvider.addView($showListView)
                 }
@@ -46,7 +50,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                     showListView = viewModel.hasPlayers
                 }
         }
-        .accessibilityID(viewModel.mainViewAccessibilityID)
+        .accessibilityID(viewModel.hasPlayers ? AccessibilityID.playerList : AccessibilityID.emptyView)
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -58,7 +62,6 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
             PlayersListView(
                 viewModel: .init(
                     storage: viewModel.storage,
-                    selectedRows: $viewModel.selectedRows,
                     showListView: $showListView
                 ),
                 viewProvider: PlayersListViewProvider(
@@ -70,48 +73,18 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
         }
     }
     
-    private var leadingBarButton: some View {
-        Button(action: viewModel.toggleSelection) {
-            Text(viewModel.leadingBarButton.title)
-        }
-        .accessibilityID(viewModel.leadingBarButton.accessibilityID)
-        .accessibilityHint(
-            Text(viewModel.leadingBarButton.accessibilityHint)
-        )
-        .accessibilityLabel(
-            Text(viewModel.leadingBarButton.accessibilityLabel)
-        )
-    }
-    
     private var trailingBarButton: some View {
         Button(action: { showAddView = true }) {
             Image(systemName: "plus")
                 .accessibility(removeTraits: .isImage)
         }
-        .accessibilityID(viewModel.trailingBarButton.accessibilityID)
+        .accessibilityID(AccessibilityID.addButton)
         .accessibilityHint(
-            Text(viewModel.trailingBarButton.accessibilityHint)
+            Text(LocalizedString.addPlayersHint)
         )
         .accessibilityLabel(
-            Text(viewModel.trailingBarButton.accessibilityLabel)
+            Text(LocalizedString.addPlayerLabel)
         )
     }
     
-}
-
-// MARK: - Preview
-
-struct PlayersView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewProvider = PlayersViewProvider(
-            addView: { _ in AnyView(Text("Add View")) },
-            detailsView: { _,_ in AnyView(Text("Details View")) },
-            confirmPlayersView: { _,_ in AnyView(Text("Confirm view")) }
-        )
-        
-        return PlayersView(
-            viewModel: .init(storage: FoundationTools.AppStorage()),
-            viewProvider: viewProvider
-        )
-    }
 }

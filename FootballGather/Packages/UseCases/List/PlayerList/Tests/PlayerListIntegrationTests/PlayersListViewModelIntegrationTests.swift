@@ -20,31 +20,6 @@ final class PlayersListViewModelIntegrationTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSelectedPlayers() {
-        let sut = makeSUT()
-        
-        XCTAssertEqual(sut.players, players)
-        players.forEach { player in
-            XCTAssertTrue(sut.hasSelected(player))
-        }
-        XCTAssertTrue(sut.shouldConfirmPlayers)
-    }
-    
-    func testHasSelected_whenAllRowsAreSelected_isTrueForAllPlayers() {
-        let players = Player.demoPlayers
-        players.forEach { Mocks.storage.updatePlayer($0) }
-        
-        let selectedRows = Set<UUID>(players.map { $0.id })
-        let sut = PlayersListViewModel(
-            storage: Mocks.storage,
-            selectedRows: .constant(selectedRows)
-        )
-        
-        players.forEach { player in
-            XCTAssertTrue(sut.hasSelected(player))
-        }
-    }
-    
     func testDeletePlayers() {
         let sut = makeSUT()
         
@@ -82,12 +57,9 @@ final class PlayersListViewModelIntegrationTests: XCTestCase {
         players.forEach { player in
             storage.updatePlayer(player)
         }
-        
-        let ids = players.map { $0.id }
-        
+
         return .init(
             storage: storage,
-            selectedRows: .constant(Set(ids)),
             showListView: showListView
         )
     }
