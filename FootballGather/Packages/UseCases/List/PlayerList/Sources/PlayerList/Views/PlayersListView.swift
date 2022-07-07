@@ -53,14 +53,14 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
                 )
             ) {
                 makeListRow(for: player)
-                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                        Button(
-                            role: .destructive,
-                            action: { onDelete(player) }
-                        ) {
-                            Label(LocalizedString.delete, systemImage: "trash")
-                        }
-                    }
+            }
+            .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                Button(
+                    role: .destructive,
+                    action: { onDelete(player) }
+                ) {
+                    Label(LocalizedString.delete, systemImage: "trash")
+                }
             }
         }
         .listStyle(.plain)
