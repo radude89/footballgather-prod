@@ -7,7 +7,7 @@ on:
 
 jobs:
   release-app:
-    runs-on: macos-11
+    runs-on: macos-12
     defaults:
       run:
         working-directory: ./FootballGather
@@ -27,7 +27,7 @@ jobs:
       - name: Select Xcode
         run: |
           ls /Applications | grep Xcode
-          sudo xcode-select -switch /Applications/Xcode_13.2.1.app
+          sudo xcode-select -switch /Applications/Xcode_13.4.1.app
 
       - name: Run UT
         run: bundle exec fastlane ut
