@@ -32,4 +32,16 @@ extension Player: Equatable {}
 
 extension Player: Hashable {}
 
-extension Player: Codable {}
+extension Player: Codable {
+    enum CodingKeys: String, CodingKey {
+        case id, name, position, skill
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        position = try container.decodeIfPresent(Player.Position.self, forKey: .position) ?? .unknown
+        skill = try container.decodeIfPresent(Player.Skill.self, forKey: .skill) ?? .unknown
+    }
+}
