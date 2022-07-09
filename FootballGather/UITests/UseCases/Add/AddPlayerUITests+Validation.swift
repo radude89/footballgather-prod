@@ -36,7 +36,6 @@ extension AddPlayerUITests {
     /// **THEN** the "Save" button is enabled
     func testValidation() {
         let nameField = app.textFields[.enterNameTextfield]
-        let saveButton = app.buttons[.saveButton]
 
         XCTAssertTrue(saveButton.waitToAppear())
         XCTAssertFalse(saveButton.isEnabled)

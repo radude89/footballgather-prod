@@ -14,4 +14,3 @@
 "ok" = "OK";
 "delete" = "Delete";
 "confirm.players.title" = "Confirm Players";
-"confirm.players.button.hint" = "Becomes enabled when you select at least two players";

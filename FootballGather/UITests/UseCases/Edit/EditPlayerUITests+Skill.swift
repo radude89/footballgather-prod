@@ -16,7 +16,7 @@ extension EditPlayerUITests {
     /// **WHEN** I tap on the row to select the skill
     /// **THEN** I am navigated to the screen where I select the player's skill
     /// **AND** I can see a list of all skills
-    /// **AND** I don't see any ticked items
+    /// **AND** the 'Unknown' skill is selected
     ///
     /// **Scenario 2**: No previous selected skill
     ///
@@ -25,12 +25,14 @@ extension EditPlayerUITests {
     /// **WHEN** I select a skill
     /// **THEN** the "Save" button becomes ENABLED
     func testEditSkill() {
-        let saveButton = app.buttons[.saveButton]
         XCTAssertFalse(saveButton.isEnabled)
 
-        selectionHandler.selectCell(.skill)
-        assertAllCellsAreUnticked()
-        selectionHandler.selectSkill()
+        selectionHandler.openItemPicker(for: unknownSkill, rowType: .skill)
+        
+        assertItemIsSelected(unknownSkill)
+        assertItemsAreUnselected(knownSkills)
+        
+        selectionHandler.selectRandomItem(from: knownSkills)
         
         XCTAssertTrue(saveButton.isEnabled)
     }
@@ -40,46 +42,38 @@ extension EditPlayerUITests {
     /// **GIVEN** I am in the "Player Details" screen
     /// **AND** I have already a skill assigned to my player
     /// **WHEN** I tap on the row to select the skill
-    /// **THEN** I am navigated to the screen where I select the player's skill
+    /// **THEN** I am able to select a player's skill (from another screen or a menu)
     /// **AND** my player's current skill is ticked
     ///
     /// **Scenario 4**: Changing current skill
     ///
-    /// **GIVEN** I am in the screen where I select the player's skill
+    /// **GIVEN** I am in the menu or screen where I select the player's skill
     /// **AND** my player has a previous selected skill
     /// **WHEN** I select a different skill than my player currently has
     /// **THEN** the "Save" button becomes ENABLED
     ///
     /// **Scenario 5**: Selecting the same skill
     ///
-    /// **GIVEN** I am in the screen where I select the player's skill
+    /// **GIVEN** I am in the menu or screen where I select the player's skill
     /// **AND** my player has a previous selected skill
     /// **WHEN** I select the same skill my player has
     /// **THEN** the "Save" button becomes DISABLED
     func testEditSkillWhenHasAlreadyOne() throws {
-        updatePlayerWithRandomSkill()
-        selectionHandler.selectCell(.skill)
-        try assertHasSelectedOption()
-        goBack()
-        
-        let saveButton = app.buttons[.saveButton]
+        let skill = setPlayerWithRandomItem(
+            from: knownSkills,
+            currentItem: unknownSkill,
+            rowType: .skill
+        )
+
+        XCTAssertFalse(saveButton.isEnabled)
+
+        selectionHandler.selectSameItem(item: skill, rowType: .skill)
         XCTAssertFalse(saveButton.isEnabled)
         
-        try selectDifferentOption(for: .skill)
+        selectionHandler.openItemPicker(for: skill, rowType: .skill)
         
+        let restOfSkills = Player.Skill.allCases.filter { $0 != skill }
+        selectionHandler.selectRandomItem(from: restOfSkills)
         XCTAssertTrue(saveButton.isEnabled)
     }
-    
-    private func updatePlayerWithRandomSkill() {
-        selectRandomSkill()
-        save()
-        // last cell contains the edited player
-        cells[cells.count - 1].tap()
-    }
-    
-    private func selectRandomSkill() {
-        selectionHandler.selectCell(.skill)
-        selectionHandler.selectSkill()
-    }
-    
 }

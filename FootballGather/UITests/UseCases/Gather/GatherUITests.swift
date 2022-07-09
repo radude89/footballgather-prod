@@ -20,7 +20,6 @@ final class GatherUITests: UITestCase {
         addUIInterruptionMonitor()
         
         launchApp(populatingStorage: true)
-        app.tap()
         
         navigator = .init(app: app, testCase: self)
         navigator.presentGatherView()

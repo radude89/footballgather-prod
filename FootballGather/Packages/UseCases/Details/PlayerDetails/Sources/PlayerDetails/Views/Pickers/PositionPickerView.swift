@@ -23,7 +23,7 @@ struct PositionPickerView: View {
                     .tag(position as Player.Position?)
             }
         }
-        .pickerStyle(.menu)
+        .pickerStyle(.automatic)
     }
     
 }

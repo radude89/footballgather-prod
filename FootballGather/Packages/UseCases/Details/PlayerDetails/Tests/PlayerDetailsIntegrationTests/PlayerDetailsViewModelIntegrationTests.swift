@@ -42,9 +42,8 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         let player = Player(name: "Mike")
         let storage = makeAppStorage(players: [player])
         let sut = makeSUT(storage: storage, player: player)
-        let randomPosition = Player.Position.allCases.randomElement()!
-        
-        sut.selectedPlayer.position = randomPosition
+
+        sut.selectedPlayer.position = Player.Position.goalkeeper
 
         XCTAssertTrue(sut.playerIsValid)
     }
@@ -53,9 +52,8 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         let player = Player(name: "Andrew")
         let storage = makeAppStorage(players: [player])
         let sut = makeSUT(storage: storage, player: player)
-        let randomSkill = Player.Skill.allCases.randomElement()!
 
-        sut.selectedPlayer.skill = randomSkill
+        sut.selectedPlayer.skill = Player.Skill.amateur
 
         XCTAssertTrue(sut.playerIsValid)
     }

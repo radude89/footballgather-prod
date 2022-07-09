@@ -16,7 +16,7 @@ extension EditPlayerUITests {
     /// **WHEN** I tap on the row to select the position
     /// **THEN** I am navigated to the screen where I select the player's position
     /// **AND** I can see a list of all positions
-    /// **AND** I don't see any ticked items
+    /// **AND** the 'Unknown' position is selected
     ///
     /// **Scenario 2**: No previous selected position
     ///
@@ -25,12 +25,14 @@ extension EditPlayerUITests {
     /// **WHEN** I select a position
     /// **THEN** the "Save" button becomes ENABLED
     func testEditPosition() {
-        let saveButton = app.buttons[.saveButton]
         XCTAssertFalse(saveButton.isEnabled)
 
-        selectionHandler.selectCell(.position)
-        assertAllCellsAreUnticked()
-        selectionHandler.selectPosition()
+        selectionHandler.openItemPicker(for: unknownPosition, rowType: .position)
+        
+        assertItemIsSelected(unknownPosition)
+        assertItemsAreUnselected(knownPositions)
+        
+        selectionHandler.selectRandomItem(from: knownPositions)
         
         XCTAssertTrue(saveButton.isEnabled)
     }
@@ -40,46 +42,38 @@ extension EditPlayerUITests {
     /// **GIVEN** I am in the "Player Details" screen
     /// **AND** I have already a position assigned to my player
     /// **WHEN** I tap on the row to select the position
-    /// **THEN** I am navigated to the screen where I select the player's position
+    /// **THEN** I am able to select a player's position (from another screen or a menu)
     /// **AND** my player's current position is ticked
     ///
     /// **Scenario 4**: Changing current position
     ///
-    /// **GIVEN** I am in the screen where I select the player's position
+    /// **GIVEN** I am in the menu or screen where I select the player's position
     /// **AND** my player has a previous selected position
     /// **WHEN** I select a different position than my player currently has
     /// **THEN** the "Save" button becomes ENABLED
     ///
     /// **Scenario 5**: Selecting the same position
     ///
-    /// **GIVEN** I am in the screen where I select the player's position
+    /// **GIVEN** I am in the menu or screen where I select the player's position
     /// **AND** my player has a previous selected position
     /// **WHEN** I select the same position my player has
     /// **THEN** the "Save" button becomes DISABLED
     func testEditPositionWhenHasAlreadyOne() throws {
-        updatePlayerWithRandomPosition()
-        selectionHandler.selectCell(.position)
-        try assertHasSelectedOption()
-        goBack()
-        
-        let saveButton = app.buttons[.saveButton]
+        let position = setPlayerWithRandomItem(
+            from: knownPositions,
+            currentItem: unknownPosition,
+            rowType: .position
+        )
+
+        XCTAssertFalse(saveButton.isEnabled)
+
+        selectionHandler.selectSameItem(item: position, rowType: .position)
         XCTAssertFalse(saveButton.isEnabled)
         
-        try selectDifferentOption(for: .position)
+        selectionHandler.openItemPicker(for: position, rowType: .position)
         
+        let restOfPositions = Player.Position.allCases.filter { $0 != position }
+        selectionHandler.selectRandomItem(from: restOfPositions)
         XCTAssertTrue(saveButton.isEnabled)
     }
-    
-    private func updatePlayerWithRandomPosition() {
-        selectRandomPosition()
-        save()
-        // last cell contains the edited player
-        cells[cells.count - 1].tap()
-    }
-    
-    private func selectRandomPosition() {
-        selectionHandler.selectCell(.position)
-        selectionHandler.selectPosition()
-    }
-    
 }

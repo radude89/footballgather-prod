@@ -122,7 +122,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
         let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
-        sut.selectedPlayer.position = allPositions.randomElement()!
+        sut.selectedPlayer.position = Player.Position.midfielder
         
         XCTAssertTrue(sut.playerIsValid)
     }
@@ -132,7 +132,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         let storage = Mocks.PlayerStorageHandler(storedPlayers: [player])
         let sut = makeSUT(storage: storage, state: .viewingDetails, player: player)
         
-        sut.selectedPlayer.skill = allSkills.randomElement()!
+        sut.selectedPlayer.skill = Player.Skill.amateur
         
         XCTAssertTrue(sut.playerIsValid)
     }

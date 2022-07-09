@@ -52,16 +52,15 @@ final class Snapshots: XCTestCase {
         app.buttons[.addButton].tap()
         takeSnapshot(named: "02-player-add")
         app.buttons[PlayerListAssets.AccessibilityID.cancelButton.rawValue].tap()
-        
-        selectPlayers()
-        
+                
         // Confirmation screen
+        app.buttons[.confirmButton].tap()
         movePlayers()
         takeSnapshot(named: "03-confirm")
         
         // Gather screen
         app.buttons[.startGatherButton].tap()
-        XCTAssertTrue(app.tables[.gatherPlayersList].waitForExistence(timeout: 1))
+        XCTAssertTrue(app.collectionViews[.gatherPlayersList].waitForExistence(timeout: 1))
         
         setScore()
         takeSnapshot(named: "04-gather")
@@ -82,16 +81,6 @@ final class Snapshots: XCTestCase {
         }
         
         snapshot(snapshotName)
-    }
-    
-    private func selectPlayers() {
-        app.buttons[.selectButton].tap()
-        
-        let cells = (0 ..< app.cells.count).enumerated().map { app.cells.element(boundBy: $0.offset) }
-        cells[0].tap()
-        cells[1].tap()
-        
-        app.buttons[.confirmButton].tap()
     }
     
     private func movePlayers() {

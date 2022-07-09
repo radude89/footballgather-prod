@@ -29,8 +29,8 @@ final class PlayerDetailsDuplicateVerifierIntegrationTests: XCTestCase {
     func testSameDetailsEntered_isTrue() {
         let player = Player(
             name: "John",
-            position: allPositions.randomElement()!,
-            skill: allSkills.randomElement()!
+            position: Player.Position.midfielder,
+            skill: Player.Skill.amateur
         )
         Mocks.storage.updatePlayer(player)
         
@@ -63,7 +63,7 @@ final class PlayerDetailsDuplicateVerifierIntegrationTests: XCTestCase {
     }
     
     func testSameDetailsEntered_whenPositionIsDifferent_isFalse() {
-        let initialPosition = allPositions.randomElement()!
+        let initialPosition = Player.Position.midfielder
         var player = Player(name: "Jane", position: initialPosition)
         Mocks.storage.updatePlayer(player)
         
@@ -76,7 +76,7 @@ final class PlayerDetailsDuplicateVerifierIntegrationTests: XCTestCase {
     }
     
     func testSameDetailsEntered_whenPositionIsSetToTheSamePosition_isTrue() {
-        let position = allPositions.randomElement()!
+        let position = Player.Position.winger
         var player = Player(
             name: "Thomas",
             position: position
@@ -89,7 +89,7 @@ final class PlayerDetailsDuplicateVerifierIntegrationTests: XCTestCase {
     }
     
     func testSameDetailsEntered_whenSkillIsDifferent_isFalse() {
-        let initialSkill = allSkills.randomElement()!
+        let initialSkill = Player.Skill.amateur
         var player = Player(name: "Jane", skill: initialSkill)
         Mocks.storage.updatePlayer(player)
         
@@ -102,7 +102,7 @@ final class PlayerDetailsDuplicateVerifierIntegrationTests: XCTestCase {
     }
     
     func testSameDetailsEntered_whenSkillIsSetToTheSameSkill_isTrue() {
-        let skill = allSkills.randomElement()!
+        let skill = Player.Skill.amateur
         var player = Player(
             name: "Thomas",
             skill: skill

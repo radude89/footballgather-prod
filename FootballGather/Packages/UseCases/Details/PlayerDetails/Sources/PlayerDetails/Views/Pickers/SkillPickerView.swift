@@ -23,7 +23,7 @@ struct SkillPickerView: View {
                     .tag(skill as Player.Skill?)
             }
         }
-        .pickerStyle(.menu)
+        .pickerStyle(.automatic)
     }
     
 }

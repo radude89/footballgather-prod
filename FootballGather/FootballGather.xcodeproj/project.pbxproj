@@ -38,7 +38,6 @@
 		F75FD85B278E8D0700266527 /* HistoryViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75FD85A278E8D0700266527 /* HistoryViewUITests.swift */; };
 		F76AD5E6279FBB7A00B18633 /* FoundationTools in Frameworks */ = {isa = PBXBuildFile; productRef = F76AD5E5279FBB7A00B18633 /* FoundationTools */; };
 		F7944F97272152B3002DAF6D /* ConfirmPlayersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7944F96272152B3002DAF6D /* ConfirmPlayersUITests.swift */; };
-		F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F798950126DC987200898B24 /* PlayerSelectionUITests.swift */; };
 		F7A525662755FC51006D2CBC /* TeamsTableAsserter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */; };
 		F7A52568275606C5006D2CBC /* GatherUITests+EndConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */; };
 		F7A5256D275750D6006D2CBC /* GatherUITests+Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5256C275750D6006D2CBC /* GatherUITests+Score.swift */; };
@@ -124,7 +123,6 @@
 		F7986A4527BCB8F8000AA9F2 /* CoreModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreModels; sourceTree = "<group>"; };
 		F7986A4627BCB91A000AA9F2 /* FoundationTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FoundationTools; sourceTree = "<group>"; };
 		F7986A4827BCB941000AA9F2 /* UITools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UITools; sourceTree = "<group>"; };
-		F798950126DC987200898B24 /* PlayerSelectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectionUITests.swift; sourceTree = "<group>"; };
 		F7A525652755FC51006D2CBC /* TeamsTableAsserter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsTableAsserter.swift; sourceTree = "<group>"; };
 		F7A52567275606C5006D2CBC /* GatherUITests+EndConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+EndConfirmation.swift"; sourceTree = "<group>"; };
 		F7A5256C275750D6006D2CBC /* GatherUITests+Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatherUITests+Score.swift"; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				F75AFA6326537C62002D1CE8 /* PlayerListUITests.swift */,
-				F798950126DC987200898B24 /* PlayerSelectionUITests.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -730,7 +727,6 @@
 				F73147ED274CA98F003F773E /* AppNavigator.swift in Sources */,
 				F7A5256D275750D6006D2CBC /* GatherUITests+Score.swift in Sources */,
 				F71D37B027001D46002DC14E /* AddPlayerUITests+Validation.swift in Sources */,
-				F798950226DC987200898B24 /* PlayerSelectionUITests.swift in Sources */,
 				F75698AA2771B70200A3E0E1 /* GatherUITests+SetTime.swift in Sources */,
 				F7427D7926E7155B00474D18 /* AddPlayerUITests.swift in Sources */,
 			);

@@ -26,7 +26,7 @@ extension GatherUITests {
         alert.buttons[LocalizedString.yes].tap()
         
         let doesNotExistPredicate = NSPredicate(format: "exists == FALSE")
-        expectation(for: doesNotExistPredicate, evaluatedWith: app.tables[.gatherPlayersList], handler: nil)
+        expectation(for: doesNotExistPredicate, evaluatedWith: app.collectionViews[.gatherPlayersList], handler: nil)
         waitForExpectations(timeout: 3, handler: nil)
     }
 }
