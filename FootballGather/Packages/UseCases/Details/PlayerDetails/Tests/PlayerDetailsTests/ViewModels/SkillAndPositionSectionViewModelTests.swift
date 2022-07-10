@@ -15,17 +15,17 @@ final class SkillAndPositionSectionViewModelTests: XCTestCase {
     private let skills = Player.Skill.allCases
     private let positions = Player.Position.allCases
     
-    func testSkillAndPosition_whenNotNil() {
+    func testSkillAndPosition() {
         skills.forEach { skill in
-            let skillBinding = Binding<Player.Skill?> {
-                nil
+            let skillBinding = Binding<Player.Skill> {
+                .unknown
             } set: { newSkill in
                 XCTAssertEqual(newSkill, skill)
             }
             
             positions.forEach { position in
-                let positionBinding = Binding<Player.Position?> {
-                    nil
+                let positionBinding = Binding<Player.Position> {
+                    .unknown
                 } set: { newPosition in
                     XCTAssertEqual(newPosition, position)
                 }
@@ -40,17 +40,6 @@ final class SkillAndPositionSectionViewModelTests: XCTestCase {
                 sut.position = position
             }
         }
-    }
-    
-    func testSkillAndPosition_whenNil() {
-        let sut = SkillAndPositionSectionViewModel(
-            skill: .constant(nil),
-            position: .constant(nil),
-            isAddingPlayer: true
-        )
-        
-        XCTAssertNil(sut.skill)
-        XCTAssertNil(sut.position)
     }
     
 }

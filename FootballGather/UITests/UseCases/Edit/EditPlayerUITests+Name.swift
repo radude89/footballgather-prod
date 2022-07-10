@@ -30,7 +30,6 @@ extension EditPlayerUITests {
     /// **THEN** the "Save" button is DISABLED
     func testEditName() {
         let nameField = app.textFields[.enterNameTextfield]
-        let saveButton = app.buttons[.saveButton]
 
         XCTAssertTrue(saveButton.waitToAppear())
         XCTAssertFalse(saveButton.isEnabled)

@@ -12,41 +12,57 @@ import PlayerDetailsAssets
 struct PlayerDetailsSelection {
     private let app: XCUIApplication
     
-    enum CellType {
-        case skill
-        case position
-    }
-    
     init(app: XCUIApplication) {
         self.app = app
     }
     
-    func selectSkill(at index: Int = .random(in: 0..<Player.Skill.allCases.count)) {
-        app.cells.element(boundBy: index).tap()
-    }
-    
-    func selectPosition(at index: Int = .random(in: 0..<Player.Position.allCases.count)) {
-        app.cells.element(boundBy: index).tap()
-    }
-    
-    func selectCell(_ type: CellType) {
-        let cell = cell(of: type)
-        scrollIfNeeded(to: cell)
-        cell.tap()
-    }
-    
-    private func cell(of type: CellType) -> XCUIElement {
-        switch type {
-        case .skill:
-            return app.cells[LocalizedString.skill]
-        case .position:
-            return app.cells[LocalizedString.position]
+    func openItemPicker<T: RawRepresentable>(
+        for item: T,
+        rowType: PlayerDetailsSelection.RowType
+    ) where T.RawValue == String {
+        let id = item.rawValue.capitalized
+        let textElements = app.staticTexts.matching(identifier: id)
+        
+        if textElements.count > 1 {
+            textElements.element(boundBy: rowType.rawValue).tap()
+        } else {
+            textElements.element(boundBy: 0).tap()
         }
     }
     
-    private func scrollIfNeeded(to cell: XCUIElement) {
-        if !cell.exists {
-            app.swipeUp()
+    func selectItem<T: RawRepresentable>(_ item: T) where T.RawValue == String {
+        app.buttons[item.rawValue.capitalized].tap()
+    }
+    
+    @discardableResult
+    func selectRandomItem<T: RawRepresentable>(from list: [T]) -> T where T.RawValue == String {
+        let item = list.randomElement()!
+        selectItem(item)
+        return item
+    }
+    
+    func selectSameItem<T: RawRepresentable>(
+        item: T,
+        rowType: RowType
+    ) where T.RawValue == String {
+        openItemPicker(for: item, rowType: rowType)
+        selectItem(item)
+    }
+}
+
+// MARK: - RowType
+extension PlayerDetailsSelection {
+    enum RowType: Int {
+        case skill
+        case position
+        
+        var description: String {
+            switch self {
+            case .skill:
+                return LocalizedString.skill
+            case .position:
+                return LocalizedString.position
+            }
         }
     }
 }

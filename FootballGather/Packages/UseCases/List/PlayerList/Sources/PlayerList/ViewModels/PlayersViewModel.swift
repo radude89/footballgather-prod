@@ -9,12 +9,7 @@ import SwiftUI
 import CoreModels
 import FoundationTools
 
-// MARK: - PlayersViewModel
-
 public final class PlayersViewModel: ObservableObject {
-    
-    @Published var isSelectingPlayers = false
-    @Published var selectedRows = Set<UUID>()
     
     private(set) var storage: PlayerStorageHandler
 
@@ -22,15 +17,6 @@ public final class PlayersViewModel: ObservableObject {
         self.storage = storage
     }
     
-    func reloadView() {
-        objectWillChange.send()
-    }
-    
-}
-
-// MARK: - Player interaction
-    
-extension PlayersViewModel {
     var hasPlayers: Bool {
         storage.storedPlayers.isEmpty == false
     }
@@ -39,16 +25,8 @@ extension PlayersViewModel {
         storage.storedPlayers
     }
     
-    func toggleSelection() {
-        isSelectingPlayers.toggle()
-        clearSelectedRowsIfNeeded()
+    func reloadView() {
+        objectWillChange.send()
     }
     
-    private func clearSelectedRowsIfNeeded() {
-        guard !isSelectingPlayers else {
-            return
-        }
-        
-        selectedRows = []
-    }
 }

@@ -55,13 +55,13 @@ final class AddPlayerUITests: UITestCase {
     /// **AND** the new player I created is on top of the list
     func testCreatingPlayer() {
         let name = "Margaret"
-        
+
         enterName(name)
-        selectRandomSkill()
-        selectRandomPosition()
+        selectSkill()
+        selectPosition()
         saveDetails()
         
-        XCTAssertTrue(app.cells[name].waitToAppear())
+        XCTAssertTrue(app.buttons[name].waitToAppear())
     }
     
     private func enterName(_ name: String) {
@@ -71,18 +71,17 @@ final class AddPlayerUITests: UITestCase {
         nameField.dismissKeyboard()
     }
     
-    private func selectRandomSkill() {
-        selectionHandler.selectCell(.skill)
-        selectionHandler.selectSkill()
+    private func selectSkill() {
+        selectionHandler.openItemPicker(for: Player.Skill.unknown, rowType: .skill)
+        selectionHandler.selectItem(Player.Skill.amateur)
     }
     
-    private func selectRandomPosition() {
-        selectionHandler.selectCell(.position)
-        selectionHandler.selectPosition()
+    private func selectPosition() {
+        selectionHandler.openItemPicker(for: Player.Position.unknown, rowType: .position)
+        selectionHandler.selectItem(Player.Position.winger)
     }
     
     private func saveDetails() {
-        let saveButton = app.buttons[.saveButton]
         XCTAssertTrue(saveButton.waitToAppear())
         saveButton.tap()
     }

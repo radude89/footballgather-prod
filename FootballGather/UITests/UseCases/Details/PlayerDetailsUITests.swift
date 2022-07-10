@@ -21,7 +21,6 @@ final class PlayerDetailsUITests: UITestCase {
     /// **Scenario 1: Navigating to details screen**
     ///
     /// **GIVEN** I am in the "Player List" screen
-    /// **AND** I have not tapped "Select"
     /// **WHEN** I tap on a player row
     /// **THEN** I see the "Player Details" screen
     ///
@@ -42,24 +41,40 @@ final class PlayerDetailsUITests: UITestCase {
     /// **WHEN** I tap on "Back" or I swipe from left to right at the left edge of the screen
     /// **THEN** I am navigated back to "Player List" screen
     func testViewPlayerDetails() throws {
-        cells[0].tap()
-        XCTAssertTrue(app.tables[.detailsView].waitToAppear())
+        selectFirstPlayer()
+        XCTAssertTrue(app.collectionViews[.detailsView].waitToAppear())
         
         let nameField = app.textFields[.enterNameTextfield]
         let name = try XCTUnwrap(nameField.value as? String)
         
         XCTAssertEqual(name, "John")
         
-        try assertCellValueIsEmpty(app.cells[LocalizedString.skill])
-        try assertCellValueIsEmpty(app.cells[LocalizedString.position])
+        assertSkillAndPositionHaveDefaultValues()
         
         goBack()
+        
         XCTAssertTrue(app.otherElements[.playerList].exists)
     }
     
-    private func assertCellValueIsEmpty(_ cell: XCUIElement, line: UInt = #line) throws {
-        let value = try XCTUnwrap(cell.value as? String, line: line)
-        XCTAssertTrue(value.isEmpty, line: line)
+    private func selectFirstPlayer() {
+        cells[0].tap()
+    }
+    
+    private func assertSkillAndPositionHaveDefaultValues(line: UInt = #line) {
+        assertValueExists(
+            Player.Skill.unknown.rawValue,
+            localizedText: LocalizedString.skill,
+            line: line
+        )
+        assertValueExists(
+            Player.Position.unknown.rawValue,
+            localizedText: LocalizedString.position,
+            line: line
+        )
+    }
+    
+    private func assertValueExists(_ value: String, localizedText: String, line: UInt = #line) {
+        XCTAssertTrue(app.buttons["\(localizedText), \(value.capitalized)"].exists, line: line)
     }
     
 }

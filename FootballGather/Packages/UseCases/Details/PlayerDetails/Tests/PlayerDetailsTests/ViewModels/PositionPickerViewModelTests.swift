@@ -14,10 +14,10 @@ final class PositionPickerViewModelTests: XCTestCase {
     
     private let positions = Player.Position.allCases
     
-    func testPositionBinding_whenNotNil() {
+    func testPositionBinding() {
         positions.forEach { position in
-            let positionBinding = Binding<Player.Position?> {
-                nil
+            let positionBinding = Binding<Player.Position> {
+                .unknown
             } set: { newValue in
                 XCTAssertEqual(newValue, position)
             }
@@ -26,13 +26,8 @@ final class PositionPickerViewModelTests: XCTestCase {
         }
     }
     
-    func testPositionBinding_whenNil() {
-        let sut = PositionPickerViewModel(position: .constant(nil))
-        XCTAssertNil(sut.position)
-    }
-    
     func testAllPositions() {
-        let sut = PositionPickerViewModel(position: .constant(nil))
+        let sut = PositionPickerViewModel(position: .constant(.unknown))
         XCTAssertEqual(sut.allPositions, positions)
     }
     

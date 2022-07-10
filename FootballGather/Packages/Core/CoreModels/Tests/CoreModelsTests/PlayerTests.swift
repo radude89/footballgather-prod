@@ -28,8 +28,8 @@ final class PlayerTests: XCTestCase {
         
         XCTAssertEqual(player.id, id)
         XCTAssertEqual(player.name, name)
-        XCTAssertNil(player.position)
-        XCTAssertNil(player.skill)
+        XCTAssertEqual(player.position, .unknown)
+        XCTAssertEqual(player.skill, .unknown)
     }
     
     func testEquatable_whenPropertiesAreTheSame_equals() {

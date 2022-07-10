@@ -37,7 +37,7 @@ extension ConfirmPlayersUITests {
         playerMover.move("John", to: .teamA)
         playerMover.move("Jane", to: .teamB)
         
-        assertPlayers(inTeam: .bench, haveNames: [])
+        assertPlayers(inTeam: .bench, haveNames: ["Arthur"])
         assertPlayers(inTeam: .teamA, haveNames: ["John"])
         assertPlayers(inTeam: .teamB, haveNames: ["Jane"])
         

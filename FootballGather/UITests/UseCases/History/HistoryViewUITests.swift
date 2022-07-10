@@ -21,7 +21,7 @@ final class HistoryViewUITests: UITestCase {
         
         historyTabButton.tap()
         
-        XCTAssertTrue(app.tables[.historyView].waitToAppear())
+        XCTAssertTrue(app.collectionViews[.historyView].waitToAppear())
     }
     
     private var historyTabButton: XCUIElement {

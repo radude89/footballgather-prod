@@ -19,7 +19,6 @@ extension EditPlayerUITests {
     /// **AND** the modified details are reflected in the player's entry
     func testSaveName() {
         let nameField = app.textFields[.enterNameTextfield]
-        let saveButton = app.buttons[.saveButton]
         let newName = "Jonathan"
         
         nameField.tap()
@@ -28,7 +27,7 @@ extension EditPlayerUITests {
         
         saveButton.tap()
         
-        XCTAssertEqual(cells[cells.count - 1].label, newName)
+        XCTAssertTrue(app.buttons[newName].exists)
     }
     
     /// **Scenario 2: Back**
@@ -47,8 +46,8 @@ extension EditPlayerUITests {
         
         goBack()
         
-        let cell = cells[playerToEditIndex]
-        XCTAssertEqual(cell.label, "Jane")
+        XCTAssertFalse(app.buttons[newName].exists)
+        XCTAssertTrue(app.buttons["Jane"].exists)
     }
     
 }

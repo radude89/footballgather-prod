@@ -11,7 +11,6 @@ import FoundationTools
 
 final class PlayersListViewModel: ObservableObject {
     
-    @Binding var selectedRows: Set<UUID>
     @Binding var showListView: Bool
     
     @Published private(set) var players: [Player]
@@ -19,17 +18,15 @@ final class PlayersListViewModel: ObservableObject {
     
     init(
         storage: PlayerStorageHandler = AppStorage(),
-        selectedRows: Binding<Set<UUID>>,
         showListView: Binding<Bool> = .constant(false)
     ) {
         self.storage = storage
         players = storage.storedPlayers
-        _selectedRows = selectedRows
         _showListView = showListView
     }
     
-    func hasSelected(_ player: Player) -> Bool {
-        selectedRows.contains(player.id)
+    func delete(at indexSet: IndexSet) {
+        indexSet.forEach { delete(players[$0]) }
     }
     
     func delete(_ player: Player) {
@@ -48,16 +45,6 @@ final class PlayersListViewModel: ObservableObject {
     
     static func formattedRowTitle(for player: Player) -> String {
         player.name
-    }
-    
-    var shouldConfirmPlayers: Bool {
-        selectedRows.count >= minAllowedPlayersToStartMatch
-    }
-    
-    private let minAllowedPlayersToStartMatch = 2
-    
-    var selectedPlayers: [Player] {
-        players.filter { selectedRows.contains($0.id) }
     }
     
 }

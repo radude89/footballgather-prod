@@ -25,15 +25,8 @@ struct AppNavigator {
     }
     
     func presentConfirmPlayersView() {
-        selectPlayers()
         confirmSelection()
         waitConfirmViewToAppear()
-    }
-    
-    private func selectPlayers() {
-        app.buttons[.selectButton].tap()
-        testCase.cells[0].tap()
-        testCase.cells[1].tap()
     }
     
     private func confirmSelection() {
@@ -50,6 +43,7 @@ struct AppNavigator {
         presentConfirmPlayersView()
         movePlayers()
         startGather()
+        handlePermissionAlert()
         waitForGatherViewToAppear()
     }
     
@@ -65,9 +59,18 @@ struct AppNavigator {
         startGatherButton.tap()
     }
     
+    private func handlePermissionAlert() {
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        
+        let allowBtn = springboard.buttons["Allow"]
+        if allowBtn.waitToAppear() {
+            allowBtn.tap()
+        }
+    }
+    
     private func waitForGatherViewToAppear() {
         testCase.assertNavigationTitle(is: LocalizedString.gatherInProgress)
-        XCTAssertTrue(app.tables[.gatherPlayersList].waitToAppear())
+        XCTAssertTrue(app.collectionViews[.gatherPlayersList].waitToAppear())
     }
     
 }

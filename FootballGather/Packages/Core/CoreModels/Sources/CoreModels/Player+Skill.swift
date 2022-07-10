@@ -9,6 +9,7 @@ import Foundation
 
 public extension Player {
     enum Skill: String {
+        case unknown
         case rookie
         case amateur
         case professional

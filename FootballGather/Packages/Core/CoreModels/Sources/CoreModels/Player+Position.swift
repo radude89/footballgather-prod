@@ -9,6 +9,7 @@ import Foundation
 
 public extension Player {
     enum Position: String {
+        case unknown
         case goalkeeper
         case defender
         case midfielder

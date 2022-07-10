@@ -36,25 +36,6 @@ final class PlayersViewModelTests: XCTestCase {
         XCTAssertFalse(makeSUT(players: .demoPlayers).storedPlayers.isEmpty)
     }
     
-    func testToggleSelection() {
-        let sut = makeSUT()
-        XCTAssertFalse(sut.isSelectingPlayers)
-        
-        sut.toggleSelection()
-        
-        XCTAssertTrue(sut.isSelectingPlayers)
-    }
-    
-    func testToggleSelection_clearsSelectedRows() {
-        let sut = makeSUT()
-        sut.isSelectingPlayers = true
-        sut.selectedRows.insert(UUID())
-        
-        sut.toggleSelection()
-        
-        XCTAssertTrue(sut.selectedRows.isEmpty)
-    }
-    
     func testReloadView() {
         let sut = makeSUT()
         let reloadViewExpectation = expectation(description: "Reload view expectation")

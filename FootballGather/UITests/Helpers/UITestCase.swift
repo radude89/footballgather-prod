@@ -7,10 +7,13 @@
 
 import XCTest
 import FoundationTools
+import PlayerDetailsAssets
 
 class UITestCase: XCTestCase {
     
     var app: XCUIApplication!
+    
+    lazy var saveButton = app.buttons[.saveButton]
     
     override func setUpWithError() throws {
         try super.setUpWithError()
