@@ -51,7 +51,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                         .disabled(!viewModel.hasPlayers)
                     }
                 }
-                .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
+                .environment(\.editMode, .constant(isEditing ? .active : .inactive))
                 .sheet(isPresented: $showAddView) {
                     viewProvider.addView($showListView)
                 }

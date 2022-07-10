@@ -35,6 +35,7 @@ final class Snapshots: XCTestCase {
     private func setupLaunchArguments() {
         app.launchArguments = ["-uitests"]
         app.launchArguments.append(Command.populateStorage.rawValue)
+        addUIInterruptionMonitor()
     }
     
     override func tearDownWithError() throws {
@@ -60,20 +61,24 @@ final class Snapshots: XCTestCase {
         
         // Gather screen
         app.buttons[.startGatherButton].tap()
-        XCTAssertTrue(app.collectionViews[.gatherPlayersList].waitForExistence(timeout: 1))
-        
+        handlePermissionAlert()
+        XCTAssertTrue(app.collectionViews[.gatherPlayersList].waitForExistence(timeout: 5))
+
         setScore()
         takeSnapshot(named: "04-gather")
         endGather()
-        
+
         // History screen
         app.tabBars.buttons[LocalizedString.pastGathers].tap()
         takeSnapshot(named: "05-history")
     }
     
-    // MARK: - Helpers
-    
-    private func takeSnapshot(named name: String) {
+}
+
+// MARK: - Helpers
+
+private extension Snapshots {
+    func takeSnapshot(named name: String) {
         var snapshotName = name
         
         if UITraitCollection.current.userInterfaceStyle == .dark {
@@ -83,7 +88,7 @@ final class Snapshots: XCTestCase {
         snapshot(snapshotName)
     }
     
-    private func movePlayers() {
+    func movePlayers() {
         let confirmTable = app.tables[.confirmPlayersView]
         
         app.buttons["Reorder John"]
@@ -92,7 +97,7 @@ final class Snapshots: XCTestCase {
             .press(forDuration: 0.3, thenDragTo: confirmTable.staticTexts["TEAM B"])
     }
     
-    private func setScore() {
+    func setScore() {
         let stepperAccessibilityID = AccessibilityID.scoreStepper
         let stepperTeamA = "\(stepperAccessibilityID.rawValue)-Team A"
         let stepperIncrementer = app.steppers[stepperTeamA].buttons["Increment"]
@@ -100,17 +105,51 @@ final class Snapshots: XCTestCase {
         stepperIncrementer.tap()
     }
     
-    private func endGather() {
+    func endGather() {
         app.buttons[.endGatherButton].tap()
         let alert = app.alerts[LocalizedString.endGatherConfirmation]
         XCTAssertTrue(alert.waitForExistence(timeout: 1))
         
         alert.buttons[LocalizedString.yes].tap()
     }
-    
 }
 
-// MARK: - Helpers
+// MARK: - Permissions Alert
+
+private extension Snapshots {
+    func addUIInterruptionMonitor() {
+        addUIInterruptionMonitor(
+            withDescription: "Notification alert") { [weak self] alert in
+                return self?.handleAlertPermissions(alert) ?? false
+            }
+    }
+    
+    func handleAlertPermissions(_ alert: XCUIElement) -> Bool {
+        let notifPermission = "Would Like to Send You Notifications"
+        guard alert.labelContains(text: notifPermission) else {
+            return false
+        }
+        
+        let allowButton = alert.buttons.element(boundBy: 1)
+        if allowButton.exists {
+            allowButton.tap()
+            return true
+        }
+        
+        return false
+    }
+    
+    func handlePermissionAlert() {
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        
+        let allowBtn = springboard.buttons["Allow"]
+        if allowBtn.waitForExistence(timeout: 3) {
+            allowBtn.tap()
+        }
+    }
+}
+
+// MARK: - Extensions
 
 extension XCUIElementQuery {
     subscript(key: HistoryAssets.AccessibilityID) -> XCUIElement {
@@ -127,5 +166,12 @@ extension XCUIElementQuery {
     
     subscript(key: GatherAssets.AccessibilityID) -> XCUIElement {
         self[key.rawValue]
+    }
+}
+ 
+extension XCUIElement {
+    func labelContains(text: String) -> Bool {
+        let predicate = NSPredicate(format: "label CONTAINS %@", text)
+        return staticTexts.matching(predicate).firstMatch.exists
     }
 }

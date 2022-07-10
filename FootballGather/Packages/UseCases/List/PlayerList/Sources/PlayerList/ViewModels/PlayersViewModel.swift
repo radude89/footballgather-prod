@@ -11,7 +11,7 @@ import FoundationTools
 
 public final class PlayersViewModel: ObservableObject {
     
-    private(set) var storage: PlayerStorageHandler
+    @Published private(set) var storage: PlayerStorageHandler
 
     public init(storage: PlayerStorageHandler = AppStorage()) {
         self.storage = storage

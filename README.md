@@ -4,8 +4,8 @@
     <img src="assets/app-icon.png" alt="FootballGather App Icon" />
 </p>
 <p align="center">
-    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-5.6-orange.svg" alt="Swift 5.6" /></a>
-    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-13.3-blue.svg" alt="Xcode 13.3" /></a>
+    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-5.7-orange.svg" alt="Swift 5.7" /></a>
+    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-14-blue.svg" alt="Xcode 14" /></a>
 </p>
 
 ## Requirements
@@ -15,7 +15,7 @@
 
 ## Tools
 
-- Xcode & Swift 5.5 to develop the project - https://developer.apple.com/xcode/
+- Xcode & Swift to develop the project - https://developer.apple.com/xcode/
 - Swift Package Manager for modularisation - https://www.swift.org/package-manager/
 - GitHub Actions for the CI/CD pipelines - https://docs.github.com/en/actions
 - fastlane for automating CI & distribution to TestFlight - https://fastlane.tools/
@@ -36,6 +36,12 @@ bundle exec fastlane ios ut
 
 # Running the UI tests
 bundle exec fastlane ios ui
+
+# Taking snapshots
+bundle exec fastlane screenshots
+
+# Bumping versions
+bundle exec fastlane bump_versions
 ```
 
 ## App Store
