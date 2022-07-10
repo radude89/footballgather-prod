@@ -21,6 +21,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
     
     @State private var showAddView = false
     @State private var showListView = false
+    @State private var isEditing: Bool = false
     
     public init(
         viewModel: PlayersViewModel,
@@ -40,9 +41,17 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                         trailingBarButton
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
-                        EditButton()
+                        Button {
+                            withAnimation {
+                                isEditing.toggle()
+                            }
+                        } label: {
+                            Text(isEditing ? LocalizedString.done : LocalizedString.edit)
+                        }
+                        .disabled(!viewModel.hasPlayers)
                     }
                 }
+                .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
                 .sheet(isPresented: $showAddView) {
                     viewProvider.addView($showListView)
                 }
@@ -64,6 +73,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                     storage: viewModel.storage,
                     showListView: $showListView
                 ),
+                isEditing: $isEditing,
                 viewProvider: PlayersListViewProvider(
                     detailsView: viewProvider.detailsView,
                     confirmPlayersView: viewProvider.confirmPlayersView

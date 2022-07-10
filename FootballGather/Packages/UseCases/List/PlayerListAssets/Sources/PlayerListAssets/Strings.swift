@@ -17,4 +17,7 @@ public enum LocalizedString {
 	public static let ok = NSLocalizedString("ok", bundle: .module, comment: "")
 	public static let delete = NSLocalizedString("delete", bundle: .module, comment: "")
 	public static let confirmPlayersTitle = NSLocalizedString("confirm.players.title", bundle: .module, comment: "")
+	public static let done = NSLocalizedString("done", bundle: .module, comment: "")
+	public static let edit = NSLocalizedString("edit", bundle: .module, comment: "")
+	public static let swipeDeleteHint = NSLocalizedString("swipe.delete.hint", bundle: .module, comment: "")
 }

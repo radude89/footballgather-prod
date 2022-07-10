@@ -16,6 +16,7 @@ import FoundationTools
 struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
     @ObservedObject var viewModel: PlayersListViewModel
+    @Binding var isEditing: Bool
     
     let viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>
     
@@ -54,13 +55,19 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                     Button(
                         role: .destructive,
-                        action: { deletePlayer(player) }
+                        action: {
+                            deletePlayer(player)
+                            disableEditModeIfNeeded()
+                        }
                     ) {
                         Label(LocalizedString.delete, systemImage: "trash")
                     }
                 }
             }
-            .onDelete(perform: viewModel.delete)
+            .onDelete { indexSet in
+                viewModel.delete(at: indexSet)
+                disableEditModeIfNeeded()
+            }
         }
         .listStyle(.plain)
     }
@@ -69,10 +76,17 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
         Text(PlayersListViewModel.formattedRowTitle(for: player))
             .accessibilityID(AccessibilityID.unselectedRow)
             .accessibilityLabel(Text(String(player.name)))
+            .accessibilityHint(LocalizedString.swipeDeleteHint)
     }
     
     private func deletePlayer(_ player: Player) {
         viewModel.delete(player)
+    }
+    
+    private func disableEditModeIfNeeded() {
+        if viewModel.players.isEmpty {
+            isEditing = false
+        }
     }
     
     private var confirmPlayersNavigationLink: some View {
