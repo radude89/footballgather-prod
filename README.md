@@ -5,7 +5,7 @@
 </p>
 <p align="center">
     <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-5.7-orange.svg" alt="Swift 5.7" /></a>
-    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-14-blue.svg" alt="Xcode 14" /></a>
+    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-14%20beta-blue.svg" alt="Xcode 14 beta" /></a>
 </p>
 
 ## Requirements
