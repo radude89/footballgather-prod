@@ -8,6 +8,7 @@
 import XCTest
 import CoreModels
 
+@MainActor
 struct PlayersFinder {
     
     private let app: XCUIApplication

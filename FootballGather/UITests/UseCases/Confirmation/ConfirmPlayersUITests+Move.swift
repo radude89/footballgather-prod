@@ -29,6 +29,7 @@ extension ConfirmPlayersUITests {
     /// **WHEN** I completed the action to move players
     /// **AND** I HAVE NOT moved at least one player in each "TEAM A" and "TEAM B" section
     /// **THEN** the "Start Gather" button becomes DISABLED
+    @MainActor
     func testMovePlayers() {
         let startGatherButton = app.buttons[.startGatherButton]
         XCTAssertFalse(startGatherButton.isEnabled)
@@ -47,6 +48,7 @@ extension ConfirmPlayersUITests {
         XCTAssertFalse(startGatherButton.isEnabled)
     }
 
+    @MainActor
     private func assertPlayers(
         inTeam team: Team,
         haveNames names: [String],

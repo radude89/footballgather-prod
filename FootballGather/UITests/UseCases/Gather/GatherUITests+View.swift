@@ -21,6 +21,7 @@ extension GatherUITests {
     /// **WHEN** the screen loads
     /// **THEN** I can see my players I chose in the "Confirmation" screen
     /// **AND** the players are in the correct Team
+    @MainActor
     func testViewGather() {
         let teamsTable = app.collectionViews[.gatherPlayersList]
         let teamsTableAsserter = TeamsTableAsserter(cells: cells, table: teamsTable)

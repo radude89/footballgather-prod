@@ -8,6 +8,7 @@
 import XCTest
 import CoreModels
 
+@MainActor
 struct TeamsTableAsserter {
     private let cells: [XCUIElement]
     private let table: XCUIElement

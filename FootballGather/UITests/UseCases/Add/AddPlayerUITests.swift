@@ -77,11 +77,13 @@ final class AddPlayerUITests: UITestCase {
         nameField.dismissKeyboard()
     }
     
+    @MainActor
     private func selectSkill() {
         selectionHandler.openItemPicker(for: Player.Skill.unknown, rowType: .skill)
         selectionHandler.selectItem(Player.Skill.amateur)
     }
     
+    @MainActor
     private func selectPosition() {
         selectionHandler.openItemPicker(for: Player.Position.unknown, rowType: .position)
         selectionHandler.selectItem(Player.Position.winger)

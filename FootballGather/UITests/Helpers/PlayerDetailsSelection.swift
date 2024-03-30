@@ -9,6 +9,7 @@ import XCTest
 import CoreModels
 import PlayerDetailsAssets
 
+@MainActor
 struct PlayerDetailsSelection {
     private let app: XCUIApplication
     

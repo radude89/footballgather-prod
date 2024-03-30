@@ -10,6 +10,7 @@ import CoreModels
 import GatherAssets
 import FoundationTools
 
+@MainActor
 struct ScoreViewAsserter {
     private let team: Team
     private let app: XCUIApplication

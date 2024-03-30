@@ -10,7 +10,8 @@ import SwiftUI
 @testable import Football_Gather
 
 final class TestAppTests: XCTestCase {
-    
+
+    @MainActor
     func testBody() {
         XCTAssertNotNil(TestApp().body as? WindowGroup<Text>)
     }

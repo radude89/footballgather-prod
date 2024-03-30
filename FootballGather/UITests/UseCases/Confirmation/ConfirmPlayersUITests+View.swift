@@ -20,6 +20,7 @@ extension ConfirmPlayersUITests {
     /// **AND** I see three sections "BENCH", "TEAM A" and "TEAM B"
     /// **AND** I see my selected players under the "BENCH" section
     /// **AND** the bottom "Start Gather" button is DISABLED
+    @MainActor
     func testViewConfirmPlayers() {
         let teamsAsserter = TeamsTableAsserter(cells: cells, table: confirmTable)
 

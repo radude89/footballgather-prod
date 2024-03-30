@@ -30,6 +30,7 @@ extension GatherUITests {
     /// **AND** the score of one of my team is the maximum score allowed by the app
     /// **WHEN** I press "+"
     /// **THEN** the score stays at the maximum score
+    @MainActor
     func testUpdateScore() {
         [Team.teamA, Team.teamB].forEach { team in
             let scoreViewAsserter = ScoreViewAsserter(team: team, app: app)
