@@ -15,6 +15,7 @@ extension GatherUITests {
     /// **GIVEN** I am in the "Gather" screen
     /// **WHEN** I tap on "End Gather" button
     /// **THEN** I am asked if I am sure to end the gather
+    @MainActor
     func testEndGather() {
         let endGatherButton = app.buttons[.endGatherButton]
         XCTAssertTrue(endGatherButton.waitToAppear())

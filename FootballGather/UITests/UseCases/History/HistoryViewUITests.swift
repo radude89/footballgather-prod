@@ -16,6 +16,7 @@ final class HistoryViewUITests: UITestCase {
     /// **WHEN** I tap on the "History" tab
     /// **THEN** I am navigated to the "History" screen
     /// **AND** I can see my previous gathers sorted by date newest first
+    @MainActor
     func testHistoryViewHasEntries() {
         launchApp(populatingStorage: true)
         
@@ -24,6 +25,7 @@ final class HistoryViewUITests: UITestCase {
         XCTAssertTrue(app.collectionViews[.historyView].waitToAppear())
     }
     
+    @MainActor
     private var historyTabButton: XCUIElement {
         app.tabBars.buttons[LocalizedString.pastGathers]
     }
@@ -34,6 +36,7 @@ final class HistoryViewUITests: UITestCase {
     /// **AND** I haven't played any matches
     /// **WHEN** the screen is loaded
     /// **THEN** I see a message that I haven't played any gathers
+    @MainActor
     func testHistoryViewIsEmpty() {
         launchApp()
 

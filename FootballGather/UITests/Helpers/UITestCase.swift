@@ -13,8 +13,9 @@ class UITestCase: XCTestCase {
     
     var app: XCUIApplication!
     
-    lazy var saveButton = app.buttons[.saveButton]
-    
+    @MainActor lazy var saveButton = app.buttons[.saveButton]
+
+    @MainActor
     override func setUpWithError() throws {
         try super.setUpWithError()
         
@@ -24,11 +25,13 @@ class UITestCase: XCTestCase {
         app.launchArguments = ["-uitests"]
     }
     
+    @MainActor
     override func tearDownWithError() throws {
         app.terminate()
         try super.tearDownWithError()
     }
     
+    @MainActor
     func launchApp(populatingStorage: Bool = false) {
         if populatingStorage {
             app.launchArguments.append(Command.populateStorage.rawValue)

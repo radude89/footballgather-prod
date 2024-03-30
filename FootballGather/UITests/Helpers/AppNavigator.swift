@@ -10,6 +10,7 @@ import CoreModels
 import PlayerListAssets
 import GatherAssets
 
+@MainActor
 struct AppNavigator {
     
     private let app: XCUIApplication

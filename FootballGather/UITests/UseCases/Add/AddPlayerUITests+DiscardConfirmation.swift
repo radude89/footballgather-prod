@@ -29,6 +29,7 @@ extension AddPlayerUITests {
     /// **THEN** the alert dialog is dismissed
     /// **AND** I am navigated back to the "Player List" screen
     /// **AND** I don't see any new players in the list
+    @MainActor
     func testDiscard() {
         enterName("A")
         tapCancel()
@@ -38,6 +39,7 @@ extension AddPlayerUITests {
         XCTAssertFalse(app.otherElements[.playerList].exists)
     }
     
+    @MainActor
     private func enterName(_ name: String) {
         let nameField = app.textFields[.enterNameTextfield]
         nameField.tap()
@@ -45,12 +47,14 @@ extension AddPlayerUITests {
         nameField.dismissKeyboard()
     }
     
+    @MainActor
     private func tapCancel() {
         let cancelButton = app.buttons[PlayerDetailsAssets.AccessibilityID.cancelButton]
         XCTAssertTrue(cancelButton.waitToAppear())
         cancelButton.tap()
     }
     
+    @MainActor
     private func tapOnConfirmationAlertButton(named buttonName: String) {
         let alert = app.alerts[LocalizedString.discardConfirmation]
         XCTAssertTrue(alert.waitToAppear())
@@ -67,6 +71,7 @@ extension AddPlayerUITests {
     /// **WHEN** I select "Cancel"
     /// **THEN** the alert dialog dismisses
     /// **AND** I remain in the "Add Player" screen
+    @MainActor
     func testCancel() {
         enterName("Mike")
         tapCancel()

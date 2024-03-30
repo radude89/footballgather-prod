@@ -49,6 +49,7 @@ extension GatherUITests {
     /// **THEN** the timer resets to the initial time
     /// **AND** the right button's title is "Start"
     /// **AND** a popup dialog informing the time is up
+    @MainActor
     func testTimerInteraction() {
         assertTime(is: "00:02", state: .stopped)
         
@@ -77,6 +78,7 @@ extension GatherUITests {
     
     // MARK: - Helpers
     
+    @MainActor
     private func assertTimeIsUp(line: UInt = #line) {
         let alert = app.alerts[LocalizedString.timeIsUpTitle]
         XCTAssertTrue(alert.waitToAppear(), line: line)

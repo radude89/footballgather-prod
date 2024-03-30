@@ -24,6 +24,7 @@ extension EditPlayerUITests {
     /// **AND** my player has NOT a previous selected skill
     /// **WHEN** I select a skill
     /// **THEN** the "Save" button becomes ENABLED
+    @MainActor
     func testEditSkill() {
         XCTAssertFalse(saveButton.isEnabled)
 
@@ -58,6 +59,7 @@ extension EditPlayerUITests {
     /// **AND** my player has a previous selected skill
     /// **WHEN** I select the same skill my player has
     /// **THEN** the "Save" button becomes DISABLED
+    @MainActor
     func testEditSkillWhenHasAlreadyOne() throws {
         let skill = setPlayerWithRandomItem(
             from: knownSkills,

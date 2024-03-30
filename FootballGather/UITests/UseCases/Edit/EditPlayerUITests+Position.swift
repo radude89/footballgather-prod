@@ -24,6 +24,7 @@ extension EditPlayerUITests {
     /// **AND** my player has NOT a previous selected position
     /// **WHEN** I select a position
     /// **THEN** the "Save" button becomes ENABLED
+    @MainActor
     func testEditPosition() {
         XCTAssertFalse(saveButton.isEnabled)
 
@@ -58,6 +59,7 @@ extension EditPlayerUITests {
     /// **AND** my player has a previous selected position
     /// **WHEN** I select the same position my player has
     /// **THEN** the "Save" button becomes DISABLED
+    @MainActor
     func testEditPositionWhenHasAlreadyOne() throws {
         let position = setPlayerWithRandomItem(
             from: knownPositions,

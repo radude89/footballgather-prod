@@ -34,6 +34,7 @@ extension AddPlayerUITests {
     /// **GIVEN** I am in the "Add Player" screen
     /// **WHEN** the field is valid
     /// **THEN** the "Save" button is enabled
+    @MainActor
     func testValidation() {
         let nameField = app.textFields[.enterNameTextfield]
 

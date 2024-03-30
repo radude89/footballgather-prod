@@ -17,6 +17,7 @@ extension EditPlayerUITests {
     /// **THEN** the changes are committed
     /// **AND** I am returned to the "Player List" screen
     /// **AND** the modified details are reflected in the player's entry
+    @MainActor
     func testSaveName() {
         let nameField = app.textFields[.enterNameTextfield]
         let newName = "Jonathan"
@@ -36,6 +37,7 @@ extension EditPlayerUITests {
     /// **WHEN** I tap on "Back" or I swipe from left to right at the left edge of the screen
     /// **THEN** all changes are discarded
     /// **AND** I am navigated back to "Player Details" screen
+    @MainActor
     func testBackDiscardsChanges() {
         let nameField = app.textFields[.enterNameTextfield]
         let newName = "Joe"

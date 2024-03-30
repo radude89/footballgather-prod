@@ -28,6 +28,7 @@ extension EditPlayerUITests {
     /// **AND** the name field is in focus
     /// **WHEN** I enter the same name
     /// **THEN** the "Save" button is DISABLED
+    @MainActor
     func testEditName() {
         let nameField = app.textFields[.enterNameTextfield]
 

@@ -16,6 +16,7 @@ final class ConfirmPlayersUITests: UITestCase {
     
     // MARK: - Setup
     
+    @MainActor
     override func setUp() {
         super.setUp()
         

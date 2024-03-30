@@ -14,6 +14,7 @@ final class AddPlayerUITests: UITestCase {
     
     // MARK: - Setup
     
+    @MainActor
     override func setUp() {
         super.setUp()
         
@@ -23,11 +24,13 @@ final class AddPlayerUITests: UITestCase {
         presentAddView()
     }
     
+    @MainActor
     private func presentEmptyView() {
         XCTAssertTrue(app.otherElements[.emptyView].waitToAppear())
         XCTAssertTrue(app.buttons[.addButton].waitToAppear())
     }
     
+    @MainActor
     private func presentAddView() {
         app.buttons[.addButton].tap()
         XCTAssertTrue(app.otherElements[.addView].waitToAppear())
@@ -40,6 +43,7 @@ final class AddPlayerUITests: UITestCase {
     /// **GIVEN** I am in the "Player List" screen
     /// **WHEN** I tap on the "Add Player" button
     /// **THEN** I am navigated to the "Add Player" screen
+    @MainActor
     func testViewAddPlayer() {
         XCTAssertTrue(app.otherElements[.addView].exists)
     }
@@ -53,6 +57,7 @@ final class AddPlayerUITests: UITestCase {
     /// **THEN** a new player is created
     /// **AND** I am navigated back to the "Player List" screen
     /// **AND** the new player I created is on top of the list
+    @MainActor
     func testCreatingPlayer() {
         let name = "Margaret"
 
@@ -64,6 +69,7 @@ final class AddPlayerUITests: UITestCase {
         XCTAssertTrue(app.buttons[name].waitToAppear())
     }
     
+    @MainActor
     private func enterName(_ name: String) {
         let nameField = app.textFields[.enterNameTextfield]
         nameField.tap()
@@ -81,6 +87,7 @@ final class AddPlayerUITests: UITestCase {
         selectionHandler.selectItem(Player.Position.winger)
     }
     
+    @MainActor
     private func saveDetails() {
         XCTAssertTrue(saveButton.waitToAppear())
         saveButton.tap()

@@ -14,6 +14,7 @@ final class GatherUITests: UITestCase {
     
     private var navigator: AppNavigator!
     
+    @MainActor
     override func setUp() {
         super.setUp()
         
@@ -25,6 +26,7 @@ final class GatherUITests: UITestCase {
         navigator.presentGatherView()
     }
     
+    @MainActor
     private func addUIInterruptionMonitor() {
         addUIInterruptionMonitor(
             withDescription: "Notification alert") { [weak self] alert in
@@ -32,6 +34,7 @@ final class GatherUITests: UITestCase {
             }
     }
     
+    @MainActor
     private func handleAlertPermissions(_ alert: XCUIElement) -> Bool {
         let notifPermission = "Would Like to Send You Notifications"
         guard alert.labelContains(text: notifPermission) else {
@@ -47,6 +50,7 @@ final class GatherUITests: UITestCase {
         return false
     }
     
+    @MainActor
     func assertTime(
         is formattedTime: String,
         state: TimerState,
@@ -62,6 +66,7 @@ final class GatherUITests: UITestCase {
         assertTimerState(is: state, file: file, line: line)
     }
     
+    @MainActor
     func assertTimerState(
         is state: TimerState,
         file: StaticString = #file,
@@ -90,6 +95,7 @@ final class GatherUITests: UITestCase {
         }
     }
     
+    @MainActor
     func assertActionTimerButtonTitle(
         is title: String,
         isEnabled: Bool = true,
@@ -107,10 +113,12 @@ final class GatherUITests: UITestCase {
         )
     }
     
+    @MainActor
     var cancelTimerButton: XCUIElement {
         app.buttons[GatherAssets.AccessibilityID.cancelButton]
     }
     
+    @MainActor
     var actionTimerButton: XCUIElement {
         app.buttons[.actionTimerButton]
     }

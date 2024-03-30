@@ -13,6 +13,7 @@ final class PlayerDetailsUITests: UITestCase {
     
     // MARK: - Setup
     
+    @MainActor
     override func setUp() {
         super.setUp()
         launchApp(populatingStorage: true)
@@ -40,6 +41,7 @@ final class PlayerDetailsUITests: UITestCase {
     /// **GIVEN** I am in the "Player Details" screen
     /// **WHEN** I tap on "Back" or I swipe from left to right at the left edge of the screen
     /// **THEN** I am navigated back to "Player List" screen
+    @MainActor
     func testViewPlayerDetails() throws {
         selectFirstPlayer()
         XCTAssertTrue(app.collectionViews[.detailsView].waitToAppear())
@@ -56,10 +58,12 @@ final class PlayerDetailsUITests: UITestCase {
         XCTAssertTrue(app.otherElements[.playerList].exists)
     }
     
+    @MainActor
     private func selectFirstPlayer() {
         cells[0].tap()
     }
     
+    @MainActor
     private func assertSkillAndPositionHaveDefaultValues(line: UInt = #line) {
         assertValueExists(
             Player.Skill.unknown.rawValue,
@@ -73,6 +77,7 @@ final class PlayerDetailsUITests: UITestCase {
         )
     }
     
+    @MainActor
     private func assertValueExists(_ value: String, localizedText: String, line: UInt = #line) {
         XCTAssertTrue(app.buttons["\(localizedText), \(value.capitalized)"].exists, line: line)
     }

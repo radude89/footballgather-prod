@@ -21,6 +21,7 @@ final class EditPlayerUITests: UITestCase {
     
     // MARK: - Setup
     
+    @MainActor
     override func setUp() {
         super.setUp()
         
@@ -29,6 +30,7 @@ final class EditPlayerUITests: UITestCase {
         presentPlayerDetails()
     }
     
+    @MainActor
     private func presentPlayerDetails() {
         cells[playerToEditIndex].tap()
         XCTAssertTrue(app.collectionViews[.detailsView].waitToAppear())
@@ -36,10 +38,12 @@ final class EditPlayerUITests: UITestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     func save() {
         saveButton.tap()
     }
     
+    @MainActor
     func assertItemIsSelected<Item: RawRepresentable>(
         _ item: Item,
         file: StaticString = #file,
@@ -52,6 +56,7 @@ final class EditPlayerUITests: UITestCase {
         )
     }
     
+    @MainActor
     func assertItemsAreUnselected<Item: RawRepresentable>(
         _ items: [Item],
         file: StaticString = #file,
@@ -66,6 +71,7 @@ final class EditPlayerUITests: UITestCase {
         }
     }
     
+    @MainActor
     func setPlayerWithRandomItem<T: RawRepresentable>(
         from list: [T],
         currentItem: T,
