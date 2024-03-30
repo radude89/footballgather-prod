@@ -7,7 +7,7 @@ on:
 
 jobs:
   release-app:
-    runs-on: macos-13
+    runs-on: macos-14
     defaults:
       run:
         working-directory: ./FootballGather
@@ -16,18 +16,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.3
           bundler-cache: true
 
       - name: Select Xcode
         run: |
           ls /Applications | grep Xcode
-          sudo xcode-select -switch /Applications/Xcode_14.3.1.app
+          sudo xcode-select -switch /Applications/Xcode_15.3.app
 
       - name: Run UT
         run: bundle exec fastlane ut

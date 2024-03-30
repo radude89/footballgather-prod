@@ -1,7 +1,7 @@
 default_platform(:ios)
 
 before_all do
-  xcversion(version: "~> 14.3.1")
+  xcversion(version: "~> 15.3")
   clear_derived_data
 end
 
