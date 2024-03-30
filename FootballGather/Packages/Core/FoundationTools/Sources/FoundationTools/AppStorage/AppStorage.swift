@@ -10,7 +10,7 @@ import CoreModels
 
 // MARK: - AppStorage
 
-public final class AppStorage: ObservableObject {
+public final class AppStorage: ObservableObject, @unchecked Sendable {
     
     private let commandLineHandler: CommandRunnable
     

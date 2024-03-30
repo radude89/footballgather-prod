@@ -2,6 +2,10 @@
 
 import PackageDescription
 
+let settings: [SwiftSetting] = [
+    .enableExperimentalFeature("StrictConcurrency")
+]
+
 let package = Package(
     name: "FoundationTools",
     platforms: [.iOS(.v15)],
@@ -21,19 +25,23 @@ let package = Package(
     targets: [
         .target(
             name: "FoundationTools",
-            dependencies: ["CoreModels"]
+            dependencies: ["CoreModels"],
+            swiftSettings: settings
         ),
         .target(
             name: "FoundationMocks",
-            dependencies: ["CoreModels", "FoundationTools"]
+            dependencies: ["CoreModels", "FoundationTools"],
+            swiftSettings: settings
         ),
         .testTarget(
             name: "FoundationToolsTests",
-            dependencies: ["FoundationTools", "FoundationMocks"]
+            dependencies: ["FoundationTools", "FoundationMocks"],
+            swiftSettings: settings
         ),
         .testTarget(
             name: "FoundationToolsIntegrationTests",
-            dependencies: ["FoundationTools", "FoundationMocks"]
+            dependencies: ["FoundationTools", "FoundationMocks"],
+            swiftSettings: settings
         )
     ]
 )

@@ -21,3 +21,5 @@ public extension Player {
 extension Player.Position: CaseIterable {}
 
 extension Player.Position: Codable {}
+
+extension Player.Position: Sendable {}

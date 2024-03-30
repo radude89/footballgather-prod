@@ -22,3 +22,5 @@ public struct StoredObject: Codable {
         self.gathers = gathers
     }
 }
+
+extension StoredObject: @unchecked Sendable {}

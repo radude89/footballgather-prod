@@ -12,7 +12,7 @@ public enum Command: String {
     case populateStorage = "-populate-storage"
 }
 
-public protocol CommandRunnable {
+public protocol CommandRunnable: Sendable {
     var isRunningUITests: Bool { get }
     var shouldPopulateStorage: Bool { get }
 }
@@ -20,7 +20,7 @@ public protocol CommandRunnable {
 public struct CommandLineHandler: CommandRunnable {
     private let commandLineArguments: [String]
     
-    public init(commandLineArguments: [String] = CommandLine.arguments) {
+    public init(commandLineArguments: [String] = CommandLine.arguments()) {
         self.commandLineArguments = commandLineArguments
     }
     
@@ -30,5 +30,16 @@ public struct CommandLineHandler: CommandRunnable {
     
     public var shouldPopulateStorage: Bool {
         commandLineArguments.contains(Command.populateStorage.rawValue)
+    }
+}
+
+extension CommandLine {
+    /// Get the command-line arguments passed to this process.
+    ///
+    /// - Returns: An array of command-line arguments.
+    public static func arguments() -> [String] {
+        UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).lazy
+            .compactMap { $0 }
+            .compactMap { String(validatingUTF8: $0) }
     }
 }

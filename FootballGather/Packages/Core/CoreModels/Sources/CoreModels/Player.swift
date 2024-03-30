@@ -32,6 +32,8 @@ extension Player: Equatable {}
 
 extension Player: Hashable {}
 
+extension Player: Sendable {}
+
 extension Player: Codable {
     enum CodingKeys: String, CodingKey {
         case id, name, position, skill
