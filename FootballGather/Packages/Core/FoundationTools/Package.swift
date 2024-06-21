@@ -1,10 +1,6 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.0
 
 import PackageDescription
-
-let settings: [SwiftSetting] = [
-    .enableExperimentalFeature("StrictConcurrency")
-]
 
 let package = Package(
     name: "FoundationTools",
@@ -25,23 +21,20 @@ let package = Package(
     targets: [
         .target(
             name: "FoundationTools",
-            dependencies: ["CoreModels"],
-            swiftSettings: settings
+            dependencies: ["CoreModels"]
         ),
         .target(
             name: "FoundationMocks",
-            dependencies: ["CoreModels", "FoundationTools"],
-            swiftSettings: settings
+            dependencies: ["CoreModels", "FoundationTools"]
         ),
         .testTarget(
             name: "FoundationToolsTests",
-            dependencies: ["FoundationTools", "FoundationMocks"],
-            swiftSettings: settings
+            dependencies: ["FoundationTools", "FoundationMocks"]
         ),
         .testTarget(
             name: "FoundationToolsIntegrationTests",
-            dependencies: ["FoundationTools", "FoundationMocks"],
-            swiftSettings: settings
+            dependencies: ["FoundationTools", "FoundationMocks"]
         )
-    ]
+    ],
+    swiftLanguageVersions: [.version("6")]
 )
