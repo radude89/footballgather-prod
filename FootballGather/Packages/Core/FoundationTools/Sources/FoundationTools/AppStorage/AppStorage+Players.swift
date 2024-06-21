@@ -14,6 +14,7 @@ public protocol PlayerStorageHandler {
     func deletePlayer(_ player: Player)
 }
 
+@available(macOS 10.15, *)
 extension AppStorage: PlayerStorageHandler {
     public var storedPlayers: [Player] {
         let storedObject = storage.load(forKey: storageKey)

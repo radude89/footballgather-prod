@@ -20,8 +20,10 @@ extension Mocks {
     
     public static let storageKey = "test_storage_key"
     
+    @available(macOS 10.15, *)
     public static let storage = Mocks.makeAppStorage()
     
+    @available(macOS 10.15, *)
     public static func makeAppStorage(
         populated: Bool = false
     ) -> AppStorage {
