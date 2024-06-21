@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 public enum LayoutPinner {
     
     public static func top(
