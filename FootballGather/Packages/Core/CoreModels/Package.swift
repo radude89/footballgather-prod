@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -19,5 +19,6 @@ let package = Package(
         .testTarget(
             name: "CoreModelsTests",
             dependencies: ["CoreModels"]),
-    ]
+    ],
+    swiftLanguageVersions: [.version("6")]
 )
