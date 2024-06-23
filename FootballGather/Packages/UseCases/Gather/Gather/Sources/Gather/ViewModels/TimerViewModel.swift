@@ -9,7 +9,7 @@ import SwiftUI
 import FoundationTools
 import GatherAssets
 
-final class TimerViewModel: ObservableObject {
+final class TimerViewModel: ObservableObject, @unchecked Sendable {
     
     private var timerController: TimerControllable
     private var timerState = TimerState.stopped
@@ -22,12 +22,12 @@ final class TimerViewModel: ObservableObject {
     
     var remainingTimeInSeconds: Int {
         didSet {
-            formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+            updateFormattedTime()
         }
     }
     
-    @Published private(set) var formattedTime: String
-    @Published var timeIsUp: Bool
+    @Published private(set) var formattedTime = ""
+    @Published var timeIsUp = false
     
     init(
         timerController: TimerControllable = TimerController(),
@@ -47,8 +47,7 @@ final class TimerViewModel: ObservableObject {
         self.notificationScheduler = notificationScheduler
         
         initialTimeInSeconds = remainingTimeInSeconds
-        timeIsUp = false
-        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+        updateFormattedTime()
     }
     
     // MARK: - UI Model
@@ -113,7 +112,9 @@ final class TimerViewModel: ObservableObject {
     
     func timerReachedZero() {
         cancelTimer()
-        timeIsUp = true
+        DispatchQueue.main.async {
+            self.timeIsUp = true
+        }
     }
     
     func cancelTimer() {
@@ -133,7 +134,13 @@ final class TimerViewModel: ObservableObject {
     func pauseTimer() {
         stopTimer()
         setTimerState(to: .paused)
-        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
+        updateFormattedTime()
+    }
+    
+    private func updateFormattedTime() {
+        DispatchQueue.main.async {
+            self.formattedTime = GatherTimeFormatter(seconds: self.remainingTimeInSeconds).formattedTime
+        }
     }
     
     var timerIsRunning: Bool {
