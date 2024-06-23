@@ -54,7 +54,7 @@ final class GatherUITests: UITestCase {
     func assertTime(
         is formattedTime: String,
         state: TimerState,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         XCTAssertTrue(
@@ -99,7 +99,7 @@ final class GatherUITests: UITestCase {
     func assertActionTimerButtonTitle(
         is title: String,
         isEnabled: Bool = true,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         XCTAssertEqual(

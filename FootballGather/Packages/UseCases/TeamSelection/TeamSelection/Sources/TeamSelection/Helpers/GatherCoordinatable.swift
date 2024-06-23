@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 import CoreModels
 
+@MainActor
 public protocol GatherCoordinatable {
     func startGather(
         from parent: UIViewController,

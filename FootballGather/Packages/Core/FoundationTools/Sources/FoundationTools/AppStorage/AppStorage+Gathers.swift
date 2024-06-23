@@ -13,6 +13,7 @@ public protocol GatherStorageHandler {
     func addGather(_ gather: Gather)
 }
 
+@available(macOS 10.15, *)
 extension AppStorage: GatherStorageHandler {
     public var gathers: [Gather] {
         let storedObject = storage.load(forKey: storageKey)

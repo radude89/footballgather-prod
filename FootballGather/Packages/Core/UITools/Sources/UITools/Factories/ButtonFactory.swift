@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 public enum ButtonFactory {
     public static func makeSystemButton(
         title: String,

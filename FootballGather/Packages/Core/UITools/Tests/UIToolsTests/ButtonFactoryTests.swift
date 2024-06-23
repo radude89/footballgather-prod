@@ -10,7 +10,7 @@ import XCTest
 
 final class ButtonFactoryTests: XCTestCase {
     
-    func testMakeSystemButton() {
+    @MainActor func testMakeSystemButton() {
         let buttonTitle = "Title"
         let accessibilityID = "start-gather-button"
         let accessibilityLabel = "Accessibility Label"

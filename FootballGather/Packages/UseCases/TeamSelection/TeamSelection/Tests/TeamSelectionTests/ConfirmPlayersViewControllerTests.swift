@@ -16,6 +16,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     private let playersCount = Player.demoPlayers.count
     private var gatherCoordinator: MockGatherCoordinator!
     
+    @MainActor
     override func setUp() {
         super.setUp()
         
@@ -31,26 +32,31 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testNumberOfSections_isTeamCount() {
         XCTAssertEqual(numberOfSections(), Team.allCases.count)
     }
     
+    @MainActor
     func testNumberOfRows_initial() {
         XCTAssertEqual(numberOfRows(in: .bench), Player.demoPlayers.count)
         XCTAssertEqual(numberOfRows(in: .teamA), 0)
         XCTAssertEqual(numberOfRows(in: .teamB), 0)
     }
     
+    @MainActor
     func testTitleForHeaderInSection_displaysTeamTitle() {
         Team.allCases.forEach { team in
             XCTAssertEqual(sectionTitle(for: team), team.name.uppercased())
         }
     }
     
+    @MainActor
     func testCanMoveRows_isTrue() {
         XCTAssertTrue(sut.tableView(.init(), canMoveRowAt: .init()))
     }
     
+    @MainActor
     func testMoveRowAt_fromBenchToTeamA() {
         movePlayer(from: .bench, to: .teamA)
         
@@ -75,6 +81,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testMoveRowAt_fromBenchToTeamB() {
         movePlayer(from: .bench, to: .teamB)
         
@@ -99,6 +106,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testMoveRowAt_fromTeamBToTeamA() {
         movePlayer(from: .bench, to: .teamB)
         movePlayer(from: .bench, to: .teamB)
@@ -126,6 +134,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testMoveRowAt_fromTeamAToTeamB() {
         movePlayer(from: .bench, to: .teamA)
         movePlayer(from: .bench, to: .teamA)
@@ -153,6 +162,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testMoveRowAt_sourceIndexOutOfBounds() {
         [Team.teamA, Team.teamB].forEach { team in
             movePlayer(from: .bench, to: team, sourceRow: playersCount + 1)
@@ -165,6 +175,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testMoveRowAt_destinationIndexOutOfBounds() {
         [Team.teamA, Team.teamB].forEach { team in
             movePlayer(from: .bench, to: team, destinationRow: -1)
@@ -173,6 +184,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testCellForRowAt_displaysPlayersName() {
         Player.demoPlayers.enumerated().forEach { index, player in
             XCTAssertEqual(
@@ -182,6 +194,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testEditingStyleForRowAt_isNone() {
         XCTAssertEqual(
             sut.tableView(.init(), editingStyleForRowAt: .init()),
@@ -189,12 +202,14 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testShouldIndentWhileEditingRowAt_isFalse() {
         XCTAssertFalse(
             sut.tableView(.init(), shouldIndentWhileEditingRowAt: .init())
         )
     }
     
+    @MainActor
     func testSetEditing() throws {
         let tableView = try XCTUnwrap(
             sut.view.subviews.first { $0 is UITableView } as? UITableView
@@ -211,18 +226,21 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private var startGatherButton: UIButton {
         sut.view.subviews.first {
             $0.accessibilityIdentifier == AccessibilityID.startGatherButton.rawValue
         } as! UIButton
     }
     
+    @MainActor
     private func numberOfSections(
         in tableView: UITableView = .init()
     ) -> Int {
         sut.numberOfSections(in: tableView)
     }
     
+    @MainActor
     private func numberOfRows(in team: Team) -> Int {
         sut.tableView(
             .init(),
@@ -230,10 +248,12 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     private func sectionTitle(for team: Team) -> String? {
         sut.tableView(.init(), titleForHeaderInSection: team.rawValue)
     }
     
+    @MainActor
     private func movePlayer(
         from sourceTeam: Team,
         to destinationTeam: Team,
@@ -253,6 +273,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     private func assertPlayerName(
         at index: Int,
         team: Team,
@@ -266,6 +287,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
         )
     }
     
+    @MainActor
     private func cellTitle(at row: Int, team: Team) -> String? {
         let cell = sut.tableView(
             .init(),

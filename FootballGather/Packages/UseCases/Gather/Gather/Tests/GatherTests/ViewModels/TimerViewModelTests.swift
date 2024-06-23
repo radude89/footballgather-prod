@@ -97,12 +97,14 @@ final class TimerViewModelTests: XCTestCase {
         let granter = Mocks.NotificationPermissionGranter(
             hasGrantedPermissions: true
         )
+        let dispatcher = FakeDispatcher()
         
         return TimerViewModel(
             timerController: timerController,
             timeSettings: timeSettings,
             notificationPermissionGranter: granter,
-            notificationScheduler: scheduler
+            notificationScheduler: scheduler,
+            timerUpdateDispatcher: dispatcher
         )
     }
     

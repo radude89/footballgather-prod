@@ -18,6 +18,7 @@ final class Snapshots: XCTestCase {
     
     private var app: XCUIApplication!
     
+    @MainActor
     override func setUpWithError() throws {
         try super.setUpWithError()
         
@@ -26,18 +27,21 @@ final class Snapshots: XCTestCase {
         app.launch()
     }
     
+    @MainActor
     private func setupApp() {
         app = XCUIApplication()
         setupLaunchArguments()
         setupSnapshot(app)
     }
     
+    @MainActor
     private func setupLaunchArguments() {
         app.launchArguments = ["-uitests"]
         app.launchArguments.append(Command.populateStorage.rawValue)
         addUIInterruptionMonitor()
     }
     
+    @MainActor
     override func tearDownWithError() throws {
         app.terminate()
         try super.tearDownWithError()
@@ -45,6 +49,7 @@ final class Snapshots: XCTestCase {
     
     // MARK: - Snapshots
 
+    @MainActor
     func testSnapshots() throws {
         // Landing screen - player list
         takeSnapshot(named: "01-player-list")
@@ -77,6 +82,7 @@ final class Snapshots: XCTestCase {
 
 // MARK: - Helpers
 
+@MainActor
 private extension Snapshots {
     func takeSnapshot(named name: String) {
         var snapshotName = name
@@ -116,6 +122,7 @@ private extension Snapshots {
 
 // MARK: - Permissions Alert
 
+@MainActor
 private extension Snapshots {
     func addUIInterruptionMonitor() {
         addUIInterruptionMonitor(

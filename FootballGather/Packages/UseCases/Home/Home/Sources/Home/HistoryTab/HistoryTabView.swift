@@ -10,6 +10,7 @@ import HomeAssets
 import FoundationTools
 import History
 
+@MainActor
 struct HistoryTabView {
     
     private let storage: FoundationTools.AppStorage

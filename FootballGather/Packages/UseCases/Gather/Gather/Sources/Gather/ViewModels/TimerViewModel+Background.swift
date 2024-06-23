@@ -9,10 +9,12 @@ import SwiftUI
 import GatherAssets
 
 extension TimerViewModel: TimerSceneChangeHandlerDelegate {
+    @MainActor
     func askForNotificationPermissions() async {
         await notificationPermissionGranter.askForPermissions()
     }
     
+    @MainActor
     func onScenePhaseChanged(to newState: ScenePhase) async {
         await sceneChangeHandler.onScenePhaseChanged(to: newState)
     }

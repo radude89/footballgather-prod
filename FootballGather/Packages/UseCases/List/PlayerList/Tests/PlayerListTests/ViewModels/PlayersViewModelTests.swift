@@ -36,6 +36,7 @@ final class PlayersViewModelTests: XCTestCase {
         XCTAssertFalse(makeSUT(players: .demoPlayers).storedPlayers.isEmpty)
     }
     
+    @MainActor
     func testReloadView() {
         let sut = makeSUT()
         let reloadViewExpectation = expectation(description: "Reload view expectation")

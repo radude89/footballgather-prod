@@ -21,7 +21,7 @@ struct TeamsTableAsserter {
     func assertSection(
         forTeam team: Team,
         shouldExist: Bool,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         let sectionExists = table.staticTexts[team.name.uppercased()].exists
@@ -35,7 +35,7 @@ struct TeamsTableAsserter {
     func assertRow(
         at index: Int,
         hasLabel label: String,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         XCTAssertTrue(
