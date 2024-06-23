@@ -15,6 +15,7 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
     private var timerState = TimerState.stopped
     private let initialTimeInSeconds: Int
     private var timeSettings: TimeSettings
+    private let timerUpdateDispatcher: DispatchHelper
     
     let notificationScheduler: NotificationScheduler
     var notificationPermissionGranter: NotificationPermissionGrantable
@@ -33,7 +34,8 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
         timerController: TimerControllable = TimerController(),
         timeSettings: TimeSettings = .init(),
         notificationPermissionGranter: NotificationPermissionGrantable = NotificationPermissionGranter(),
-        notificationScheduler: NotificationScheduler = .init()
+        notificationScheduler: NotificationScheduler = .init(),
+        timerUpdateDispatcher: DispatchHelper = DispatchQueue.main
     ) {
         precondition(
             timeSettings.remainingTimeInSeconds >= GatherDefaultTime.minAllowedTimeInSeconds,
@@ -45,6 +47,7 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
         self.remainingTimeInSeconds = timeSettings.remainingTimeInSeconds
         self.notificationPermissionGranter = notificationPermissionGranter
         self.notificationScheduler = notificationScheduler
+        self.timerUpdateDispatcher = timerUpdateDispatcher
         
         initialTimeInSeconds = remainingTimeInSeconds
         updateFormattedTime()
@@ -112,8 +115,8 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
     
     func timerReachedZero() {
         cancelTimer()
-        DispatchQueue.main.async {
-            self.timeIsUp = true
+        timerUpdateDispatcher.executeAsync { [weak self] in
+            self?.timeIsUp = true
         }
     }
     
@@ -138,8 +141,9 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
     }
     
     private func updateFormattedTime() {
-        DispatchQueue.main.async {
-            self.formattedTime = GatherTimeFormatter(seconds: self.remainingTimeInSeconds).formattedTime
+        timerUpdateDispatcher.executeAsync { [weak self] in
+            guard let self else { return }
+            formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
         }
     }
     
