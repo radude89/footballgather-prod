@@ -11,6 +11,7 @@ import FoundationTools
 import PlayerList
 import HomeAssets
 
+@MainActor
 struct PlayersTabView {
     
     private let storage: FoundationTools.AppStorage

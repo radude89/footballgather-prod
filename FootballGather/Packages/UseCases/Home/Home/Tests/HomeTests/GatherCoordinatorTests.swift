@@ -9,7 +9,8 @@ import XCTest
 @testable import Home
 
 final class GatherCoordinatorTests: XCTestCase {
-    
+
+    @MainActor
     func testStartGather_presentsGatherView() {
         let views = makeViews()
         let sut = GatherCoordinator(gatherEnded: .constant(false))
@@ -21,6 +22,7 @@ final class GatherCoordinatorTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func makeViews() -> (navController: MockNavController, viewController: UIViewController) {
         let viewController = UIViewController()
         viewController.loadViewIfNeeded()
