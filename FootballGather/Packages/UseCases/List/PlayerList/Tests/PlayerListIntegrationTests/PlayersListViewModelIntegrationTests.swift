@@ -31,6 +31,7 @@ final class PlayersListViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(Mocks.storage.storedPlayers.isEmpty)
     }
     
+    @MainActor
     func testDeletePlayers_updatesShowListViewBinding() {
         var showListView = false
         let showListViewBinding = Binding<Bool>(
