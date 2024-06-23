@@ -6,7 +6,7 @@ before_all do
 end
 
 SIMULATORS = [
-  'iPhone 15'
+  'iPhone SE (3rd generation) (18.0)'
 ]
 
 platform :ios do
@@ -15,7 +15,8 @@ platform :ios do
     scan(
       scheme: "FootballGather",
       clean: true,
-      reset_simulator: true
+      reset_simulator: true,
+      devices: SIMULATORS
     )
   end
 
