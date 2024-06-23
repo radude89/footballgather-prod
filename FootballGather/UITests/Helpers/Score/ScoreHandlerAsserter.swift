@@ -78,7 +78,7 @@ struct ScoreHandlerAsserter {
         }
     }
     
-    private func assertScoreIsCorrect(file: StaticString = #file, line: UInt = #line) {
+    private func assertScoreIsCorrect(file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertEqual(score.label, "\(currentScore)", file: file, line: line)
     }
 

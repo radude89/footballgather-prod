@@ -45,7 +45,7 @@ struct ScoreViewAsserter {
         havingID id: String,
         existsForTeam team: Team,
         elementsToSearchIn elements: XCUIElementQuery,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) {
         let accessibilityID = ScoreAccessibility.viewID(

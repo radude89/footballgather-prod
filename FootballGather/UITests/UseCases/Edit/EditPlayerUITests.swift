@@ -46,7 +46,7 @@ final class EditPlayerUITests: UITestCase {
     @MainActor
     func assertItemIsSelected<Item: RawRepresentable>(
         _ item: Item,
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) where Item.RawValue == String {
         XCTAssertTrue(
@@ -59,7 +59,7 @@ final class EditPlayerUITests: UITestCase {
     @MainActor
     func assertItemsAreUnselected<Item: RawRepresentable>(
         _ items: [Item],
-        file: StaticString = #file,
+        file: StaticString = #filePath,
         line: UInt = #line
     ) where Item.RawValue == String {
         items.forEach {

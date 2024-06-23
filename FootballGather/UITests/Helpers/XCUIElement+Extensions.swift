@@ -81,7 +81,7 @@ extension UITestCase {
     }
     
     @MainActor
-    func assertNavigationTitle(is title: String, file: StaticString = #file, line: UInt = #line) {
+    func assertNavigationTitle(is title: String, file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertEqual(navigationBar.identifier, title, file: file, line: line)
     }
     
