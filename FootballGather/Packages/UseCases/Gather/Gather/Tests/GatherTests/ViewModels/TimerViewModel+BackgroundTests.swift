@@ -11,6 +11,7 @@ import GatherAssets
 
 final class TimerViewModelBackgroundTests: XCTestCase {
     
+    @MainActor
     func testAskForNotificationPermissions() async {
         let granter = Mocks.NotificationPermissionGranter(
             hasGrantedPermissions: true
@@ -22,6 +23,7 @@ final class TimerViewModelBackgroundTests: XCTestCase {
         XCTAssertTrue(granter.askForPermissionsCalled)
     }
     
+    @MainActor
     func testOnScenePhaseChanged_toBackground_schedulesNotification() async {
         let sut = makeSUT()
         let sceneChangeDelegate = Mocks.TimerSceneChangeHandlerDelegate(
@@ -36,6 +38,7 @@ final class TimerViewModelBackgroundTests: XCTestCase {
         XCTAssertTrue(sceneChangeDelegate.scheduleNotificationCalled)
     }
     
+    @MainActor
     func testOnScenePhaseChanged_toActive_cancelsNotification() async {
         let sut = makeSUT()
         let sceneChangeDelegate = Mocks.TimerSceneChangeHandlerDelegate(

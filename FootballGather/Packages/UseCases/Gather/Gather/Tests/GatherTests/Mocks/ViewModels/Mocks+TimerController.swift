@@ -11,7 +11,7 @@ import Combine
 
 extension Mocks {
     
-    static let timer = Timer.TimerPublisher(
+    nonisolated(unsafe) static let timer = Timer.TimerPublisher(
         interval: 0.0000001,
         runLoop: .current,
         mode: .default

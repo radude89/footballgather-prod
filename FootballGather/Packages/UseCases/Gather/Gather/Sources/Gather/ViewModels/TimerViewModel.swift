@@ -133,10 +133,7 @@ final class TimerViewModel: ObservableObject {
     func pauseTimer() {
         stopTimer()
         setTimerState(to: .paused)
-        
-        DispatchQueue.main.async { [self] in
-            formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
-        }
+        formattedTime = GatherTimeFormatter(seconds: remainingTimeInSeconds).formattedTime
     }
     
     var timerIsRunning: Bool {

@@ -8,14 +8,18 @@
 import SwiftUI
 import GatherAssets
 
+@MainActor
 struct TimerView: View {
     
     @Environment(\.scenePhase) private var scenePhase
+    @EnvironmentObject private var timeSettings: TimeSettings
+    @ObservedObject private var viewModel: TimerViewModel
+    private let setTimeAction: () -> Void
     
-    @EnvironmentObject var timeSettings: TimeSettings
-    @ObservedObject var viewModel: TimerViewModel
-    
-    var setTimeAction: () -> Void
+    init(viewModel: TimerViewModel, setTimeAction: @escaping () -> Void) {
+        self.viewModel = viewModel
+        self.setTimeAction = setTimeAction
+    }
     
     var body: some View {
         VStack {
