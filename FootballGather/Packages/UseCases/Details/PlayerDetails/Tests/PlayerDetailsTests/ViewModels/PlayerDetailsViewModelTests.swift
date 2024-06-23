@@ -29,6 +29,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testSelectedPlayer() throws {
         var expectedPlayerNames = ["", "John"]
         let receivedAllExpectation = expectation(description: "Adding player expectation")
@@ -178,6 +179,7 @@ final class PlayerDetailsViewModelTests: XCTestCase {
         XCTAssertTrue(storage.updatePlayerCalled)
     }
     
+    @MainActor
     func testUpdateBindingToShowListView_setsToTrue() {
         var showListView = false
         let showListViewBinding = Binding<Bool>(
