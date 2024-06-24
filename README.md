@@ -4,14 +4,13 @@
     <img src="assets/app-icon.png" alt="FootballGather App Icon" />
 </p>
 <p align="center">
-    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-5.10-orange.svg" alt="Swift 5.10" /></a>
-    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-15.3-blue.svg" alt="Xcode 15.3" /></a>
+    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-6.0-orange.svg" alt="Swift 6.0" /></a>
+    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-16.0-blue.svg" alt="Xcode 16.0" /></a>
 </p>
 
 ## Requirements
 
-- iOS 15.0+
-- iPadOS 15.0+
+- iOS 17.0+
 
 ## Tools
 
@@ -170,11 +169,9 @@ Notes:
 
 1. Using `SwiftUI` to implement the user interface.
   - For learning purposes, I wanted to get a look & feel of the framework on a real application.
-2. iOS 15 as the minimum version of the app.
-  - To support the newest Apple APIs.
-3. Using MVVM for the UI implementation.
+2. Using MVVM for the UI implementation.
   - Works natural with SwiftUI.
-4. Implementing the players selection with `UIKit`.
+3. Implementing the players selection with `UIKit`.
   - Due to a limitation of SwiftUI to drag & drop rows in a multi-sectioned `List`, I took the decision to use `UIKit`.
 
 ### Testing approach
