@@ -11,7 +11,7 @@ import GatherAssets
 struct TimerView: View {
     
     @Environment(\.scenePhase) private var scenePhase
-    @EnvironmentObject private var timeSettings: TimeSettings
+    @Environment(TimeSettings.self) private var timeSettings
     @ObservedObject private var viewModel: TimerViewModel
     private let setTimeAction: () -> Void
     

@@ -8,6 +8,7 @@
 import SwiftUI
 import FoundationTools
 
-final class TimeSettings: ObservableObject {
-    @Published var remainingTimeInSeconds = GatherDefaultTime.value()
+@Observable
+final class TimeSettings {
+    var remainingTimeInSeconds = GatherDefaultTime.value()
 }

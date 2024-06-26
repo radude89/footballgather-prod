@@ -15,8 +15,7 @@ struct SetTimerView: View {
     @State private var selectedSeconds: String
     
     @Environment(\.dismiss) private var dismiss
-    
-    @EnvironmentObject var timeSettings: TimeSettings
+    @Environment(TimeSettings.self) private var timeSettings
     
     private let viewModel: SetTimerViewModel
     

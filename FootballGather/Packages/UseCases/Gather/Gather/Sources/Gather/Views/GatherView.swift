@@ -17,7 +17,7 @@ public struct GatherView: View {
     let viewModel: GatherViewModel
     
     @State private var showingSetTimerView = false
-    @StateObject private var timeSettings = TimeSettings()
+    @State private var timeSettings = TimeSettings()
     @StateObject private var scoreViewModel = ScoreViewModel()
     
     public init(gatherEnded: Binding<Bool>, viewModel: GatherViewModel) {
@@ -35,7 +35,7 @@ public struct GatherView: View {
         .sheet(isPresented: $showingSetTimerView) {
             setTimerView
         }
-        .environmentObject(timeSettings)
+        .environment(timeSettings)
         .padding(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
