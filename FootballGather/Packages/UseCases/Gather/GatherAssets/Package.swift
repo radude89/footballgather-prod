@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "GatherAssets",
     defaultLocalization: "en",
-    platforms: [.iOS(.v15)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(
             name: "GatherAssets",

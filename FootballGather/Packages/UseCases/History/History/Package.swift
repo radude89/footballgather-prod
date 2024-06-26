@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "History",
-    platforms: [.iOS(.v15)],
+    platforms: [.iOS(.v17)],
     products: [
         .library(
             name: "History",
