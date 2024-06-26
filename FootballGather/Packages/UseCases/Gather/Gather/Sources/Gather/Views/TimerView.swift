@@ -38,7 +38,11 @@ struct TimerView: View {
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
             Button(LocalizedString.ok, role: .cancel) {}
         }
-        .onChange(of: scenePhase, perform: onScheneChanged)
+        .onChange(of: scenePhase, { _, newValue in
+            Task {
+                await viewModel.onScenePhaseChanged(to: newValue)
+            }
+        })
         .task { await viewModel.askForNotificationPermissions() }
     }
     
@@ -65,10 +69,6 @@ struct TimerView: View {
         )
             .accessibilityID(AccessibilityID.actionTimerButton)
             .accessibilityLabel(viewModel.actionButtonAccessibilityLabel)
-    }
-    
-    private func onScheneChanged(to newValue: ScenePhase) {
-        Task { await viewModel.onScenePhaseChanged(to: newValue) }
     }
     
 }
