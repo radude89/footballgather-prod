@@ -34,7 +34,7 @@ struct SetTimerView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             TwoComponentsPickerView(dataSource: makeDataSource())
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {

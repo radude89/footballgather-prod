@@ -29,7 +29,7 @@ public struct PlayerDetailsView: View {
     @ViewBuilder
     private var detailsView: some View {
         if viewModel.isAddingPlayer {
-            NavigationView { formView }
+            NavigationStack { formView }
         } else {
             formView
         }

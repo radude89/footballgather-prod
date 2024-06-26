@@ -22,13 +22,10 @@ public struct HistoryView: View {
     }
     
     public var body: some View {
-        NavigationView {
+        NavigationStack {
             mainContent
                 .navigationTitle(LocalizedString.pastGathers)
-                .navigationBarTitleDisplayMode(.inline)
-            
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     @ViewBuilder

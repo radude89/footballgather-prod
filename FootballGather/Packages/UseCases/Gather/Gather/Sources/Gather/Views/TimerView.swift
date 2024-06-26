@@ -8,7 +8,6 @@
 import SwiftUI
 import GatherAssets
 
-@MainActor
 struct TimerView: View {
     
     @Environment(\.scenePhase) private var scenePhase

@@ -26,7 +26,12 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     var body: some View {
         VStack {
             playerList
-            confirmPlayersNavigationLink
+            confirmPlayersButton
+        }
+        .navigationDestination(
+            isPresented: $isShowingConfirmPlayersView
+        ) {
+            confirmView
         }
         .alert(
             LocalizedString.gatherCompleteTitle,
@@ -86,15 +91,6 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     private func disableEditModeIfNeeded() {
         if viewModel.players.isEmpty {
             isEditing = false
-        }
-    }
-    
-    private var confirmPlayersNavigationLink: some View {
-        NavigationLink(
-            destination: confirmView,
-            isActive: $isShowingConfirmPlayersView
-        ) {
-            confirmPlayersButton
         }
     }
     

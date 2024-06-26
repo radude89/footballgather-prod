@@ -32,10 +32,9 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
     }
     
     public var body: some View {
-        NavigationView {
+        NavigationStack {
             mainContent
                 .navigationTitle(LocalizedString.players)
-                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         trailingBarButton
@@ -60,7 +59,6 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                 }
         }
         .accessibilityID(viewModel.hasPlayers ? AccessibilityID.playerList : AccessibilityID.emptyView)
-        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     @ViewBuilder

@@ -39,7 +39,6 @@ public struct GatherView: View {
         .padding(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     private var gatherViewContent: some View {
