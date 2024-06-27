@@ -9,10 +9,11 @@ import SwiftUI
 import CoreModels
 import GatherAssets
 
-final class ScoreViewModel: ObservableObject {
+@Observable
+final class ScoreViewModel {
     
-    @Published var teamAScore: Int
-    @Published var teamBScore: Int
+    private(set) var teamAScore: Int
+    private(set) var teamBScore: Int
     
     private var scoreHandler: ScoreHandling
     

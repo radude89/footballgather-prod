@@ -18,7 +18,7 @@ public struct GatherView: View {
     
     @State private var showingSetTimerView = false
     @State private var timeSettings = TimeSettings()
-    @StateObject private var scoreViewModel = ScoreViewModel()
+    @State private var scoreViewModel = ScoreViewModel()
     
     public init(gatherEnded: Binding<Bool>, viewModel: GatherViewModel) {
         _gatherEnded = gatherEnded

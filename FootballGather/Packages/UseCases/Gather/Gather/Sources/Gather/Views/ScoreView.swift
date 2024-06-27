@@ -16,7 +16,11 @@ struct ScoreView: View {
         static let defaultSpacing: CGFloat = 25
     }
     
-    @ObservedObject var viewModel: ScoreViewModel
+    private let viewModel: ScoreViewModel
+    
+    init(viewModel: ScoreViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         HStack(spacing: 2 * ViewConstants.defaultSpacing) {
