@@ -10,5 +10,22 @@ import FoundationTools
 
 @Observable
 final class TimeSettings {
-    var remainingTimeInSeconds = GatherDefaultTime.value()
+
+    var remainingTimeInSeconds: Int {
+        didSet {
+            onRemainingTimeInSecondsChanged?(remainingTimeInSeconds)
+        }
+    }
+
+    @ObservationIgnored
+    let onRemainingTimeInSecondsChanged: ((Int) -> Void)?
+    
+    init(
+        remainingTimeInSeconds: Int = GatherDefaultTime.value(),
+        onRemainingTimeInSecondsChanged: ((Int) -> Void)? = nil
+    ) {
+        self.remainingTimeInSeconds = remainingTimeInSeconds
+        self.onRemainingTimeInSecondsChanged = onRemainingTimeInSecondsChanged
+    }
+
 }

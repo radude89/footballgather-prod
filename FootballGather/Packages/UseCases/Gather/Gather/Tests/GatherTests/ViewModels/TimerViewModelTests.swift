@@ -22,16 +22,23 @@ final class TimerViewModelTests: XCTestCase {
     }
     
     func testOnActionTimer_decrementsRemainingTime() {
-        let timerController = Mocks.TimerController(remainingTimeUnit: 2)
+        let seconds = 2
+        let timerController = Mocks.TimerController(remainingTimeUnit: seconds)
+        let expectation = XCTestExpectation(description: "Waiting for action timer expectation")
+        var collectedValues: [String] = []
         let sut = makeSUT(
             timerController: timerController,
-            timeSettings: makeTimeSettings(remainingTimeInSeconds: 2)
-        )
-        let spy = Mocks.ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
-        
+            timeSettings: makeTimeSettings(remainingTimeInSeconds: seconds)
+        ) { formattedTime in
+            collectedValues.append(formattedTime)
+            if collectedValues == ["00:02", "00:01", "00:00", "00:02"] {
+                expectation.fulfill()
+            }
+        }
+
         sut.onActionTimer()
         
-        XCTAssertEqual(spy.values, ["00:02", "00:01", "00:00", "00:02"])
+        wait(for: [expectation], timeout: 2)
     }
     
     func testOnActionTimer_stopsTimerAfterReachingToZero() {
@@ -49,17 +56,23 @@ final class TimerViewModelTests: XCTestCase {
     
     func testCancelTimer_resetsTimeToInitial() {
         let timerController = Mocks.TimerController()
+        let expectation = XCTestExpectation(description: "Waiting for action timer expectation")
+        var collectedValues: [String] = []
         let sut = makeSUT(
             timerController: timerController,
             timeSettings: makeTimeSettings(remainingTimeInSeconds: 1)
-        )
-        let spy = Mocks.ValueSpy(sut.$formattedTime.eraseToAnyPublisher())
+        ) { formattedTime in
+            collectedValues.append(formattedTime)
+            if collectedValues == ["00:01", "00:00", "00:01", "00:01", "00:00", "00:01"] {
+                expectation.fulfill()
+            }
+        }
         
         sut.onActionTimer()
         sut.cancelTimer()
         sut.onActionTimer()
-        
-        XCTAssertEqual(spy.values, ["00:01", "00:00", "00:01", "00:01", "00:00", "00:01"])
+
+        wait(for: [expectation], timeout: 2)
         XCTAssertTrue(timerController.timerStopped)
     }
     
@@ -88,7 +101,8 @@ final class TimerViewModelTests: XCTestCase {
     
     private func makeSUT(
         timerController: Mocks.TimerController = .init(),
-        timeSettings: TimeSettings = .init()
+        timeSettings: TimeSettings = .init(),
+        onFormattedTimeChanged: ((String) -> Void)? = nil
     ) -> TimerViewModel {
         let center = Mocks.NotificationCenter(
             authorizationStatus: .authorized
@@ -104,7 +118,8 @@ final class TimerViewModelTests: XCTestCase {
             timeSettings: timeSettings,
             notificationPermissionGranter: granter,
             notificationScheduler: scheduler,
-            timerUpdateDispatcher: dispatcher
+            timerUpdateDispatcher: dispatcher,
+            onFormattedTimeChanged: onFormattedTimeChanged
         )
     }
     

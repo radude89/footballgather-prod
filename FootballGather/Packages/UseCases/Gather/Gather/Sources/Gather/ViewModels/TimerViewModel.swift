@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 import FoundationTools
 import GatherAssets
 
-final class TimerViewModel: ObservableObject, @unchecked Sendable {
+@Observable
+final class TimerViewModel: @unchecked Sendable {
     
     private var timerController: TimerControllable
     private var timerState = TimerState.stopped
@@ -17,9 +19,17 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
     private var timeSettings: TimeSettings
     private let timerUpdateDispatcher: DispatchHelper
     
+    @ObservationIgnored
     let notificationScheduler: NotificationScheduler
+    
+    @ObservationIgnored
     var notificationPermissionGranter: NotificationPermissionGrantable
+    
+    @ObservationIgnored
     lazy var sceneChangeHandler = TimerSceneChangeHandler(delegate: self)
+    
+    @ObservationIgnored
+    let onFormattedTimeChanged: ((String) -> Void)?
     
     var remainingTimeInSeconds: Int {
         didSet {
@@ -27,15 +37,21 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
         }
     }
     
-    @Published private(set) var formattedTime = ""
-    @Published var timeIsUp = false
+    var timeIsUp = false
+    
+    private(set) var formattedTime = "" {
+        didSet {
+            onFormattedTimeChanged?(formattedTime)
+        }
+    }
     
     init(
         timerController: TimerControllable = TimerController(),
         timeSettings: TimeSettings = .init(),
         notificationPermissionGranter: NotificationPermissionGrantable = NotificationPermissionGranter(),
         notificationScheduler: NotificationScheduler = .init(),
-        timerUpdateDispatcher: DispatchHelper = DispatchQueue.main
+        timerUpdateDispatcher: DispatchHelper = DispatchQueue.main,
+        onFormattedTimeChanged: ((String) -> Void)? = nil
     ) {
         precondition(
             timeSettings.remainingTimeInSeconds >= GatherDefaultTime.minAllowedTimeInSeconds,
@@ -45,11 +61,11 @@ final class TimerViewModel: ObservableObject, @unchecked Sendable {
         self.timeSettings = timeSettings
         self.timerController = timerController
         self.remainingTimeInSeconds = timeSettings.remainingTimeInSeconds
+        self.initialTimeInSeconds = timeSettings.remainingTimeInSeconds
         self.notificationPermissionGranter = notificationPermissionGranter
         self.notificationScheduler = notificationScheduler
         self.timerUpdateDispatcher = timerUpdateDispatcher
-        
-        initialTimeInSeconds = remainingTimeInSeconds
+        self.onFormattedTimeChanged = onFormattedTimeChanged
         updateFormattedTime()
     }
     

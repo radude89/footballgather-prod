@@ -19,17 +19,19 @@ final class TimeSettingsTests: XCTestCase {
     }
     
     func testRemainingTimeInSeconds_publishesValue() {
-        let sut = TimeSettings()
-        let spy = Mocks.ValueSpy(
-            sut.$remainingTimeInSeconds.eraseToAnyPublisher()
-        )
-        let newValue = 100
+        let expectation = XCTestExpectation(description: "Waiting for `remainingTimeInSeconds` updates expectation.")
+        let updatedValues = [GatherDefaultTime.value(), 100]
+        var collectedValues: [Int] = []
+        let sut = TimeSettings { remainingTimeInSeconds in
+            collectedValues.append(remainingTimeInSeconds)
+            if collectedValues == updatedValues {
+                expectation.fulfill()
+            }
+        }
         
-        sut.remainingTimeInSeconds = newValue
+        updatedValues.forEach { sut.remainingTimeInSeconds = $0 }
         
-        XCTAssertEqual(
-            spy.values, [GatherDefaultTime.value(), 100]
-        )
+        wait(for: [expectation], timeout: 2)
     }
     
 }

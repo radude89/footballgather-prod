@@ -12,7 +12,8 @@ struct TimerView: View {
     
     @Environment(\.scenePhase) private var scenePhase
     @Environment(TimeSettings.self) private var timeSettings
-    @ObservedObject private var viewModel: TimerViewModel
+
+    @Bindable private var viewModel: TimerViewModel
     private let setTimeAction: () -> Void
     
     init(viewModel: TimerViewModel, setTimeAction: @escaping () -> Void) {
