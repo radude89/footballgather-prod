@@ -7,7 +7,6 @@
 
 import XCTest
 import SwiftUI
-import Combine
 import CoreModels
 import PlayerDetailsAssets
 import FoundationMocks
@@ -15,51 +14,8 @@ import FoundationMocks
 
 final class PlayerDetailsViewModelTests: XCTestCase {
     
-    private var cancellables: Set<AnyCancellable>!
     private let allSkills = Player.Skill.allCases
     private let allPositions = Player.Position.allCases
-    
-    override func setUp() {
-        super.setUp()
-        cancellables = []
-    }
-    
-    override func tearDown() {
-        cancellables = []
-        super.tearDown()
-    }
-    
-    @MainActor
-    func testSelectedPlayer() throws {
-        var expectedPlayerNames = ["", "John"]
-        let receivedAllExpectation = expectation(description: "Adding player expectation")
-        let sut = makeSUT()
-                
-        sut.$selectedPlayer
-            .sink { player in
-                guard let expectedPlayerName = expectedPlayerNames.first else {
-                    XCTFail("Received more values than expected.")
-                    return
-                }
-                
-                guard expectedPlayerName == player.name else {
-                    XCTFail("Expected received \(player.name) to match first expected \(expectedPlayerName)")
-                    return
-                }
-                
-                expectedPlayerNames = Array(expectedPlayerNames.dropFirst())
-                
-                if expectedPlayerNames.isEmpty {
-                    receivedAllExpectation.fulfill()
-                }
-                
-            }
-            .store(in: &cancellables)
-        
-        sut.selectedPlayer.name = "John"
-        
-        waitForExpectations(timeout: 2, handler: nil)
-    }
     
     func testPlayerIsValid_whenNameIsNotEmpty_isTrue() {
         PlayerDetailsViewModel.State.allCases.forEach { state in

@@ -12,13 +12,21 @@ import PlayerDetailsAssets
 
 // MARK: - PlayerDetailsViewModel
 
-public final class PlayerDetailsViewModel: ObservableObject {
+@Observable
+public final class PlayerDetailsViewModel {
     
-    @Published var selectedPlayer: Player
+    var selectedPlayer: Player
+    
+    @ObservationIgnored
     @Binding var showListView: Bool
     
+    @ObservationIgnored
     private let storage: PlayerStorageHandler
+    
+    @ObservationIgnored
     private let state: State
+    
+    @ObservationIgnored
     private lazy var playerDetails = PlayerDetailsUIModelFactory.makeDetailsModel(
         for: selectedPlayer, state: state
     )

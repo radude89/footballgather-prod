@@ -12,10 +12,10 @@ import PlayerDetailsAssets
 
 public struct PlayerDetailsView: View {
     
-    @ObservedObject var viewModel: PlayerDetailsViewModel
-    
     @Environment(\.dismiss) private var dismiss
+    
     @State private var showConfirmationAlert = false
+    @Bindable private var viewModel: PlayerDetailsViewModel
     
     public init(viewModel: PlayerDetailsViewModel) {
         self.viewModel = viewModel
