@@ -15,13 +15,21 @@ import FoundationTools
 
 struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     
-    @ObservedObject var viewModel: PlayersListViewModel
-    @Binding var isEditing: Bool
-    
-    let viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>
+    private let viewModel: PlayersListViewModel
+    private let viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>
     
     @State private var isShowingConfirmPlayersView = false
     @State private var gatherEnded = false
+    
+    @Binding var isEditing: Bool
+    
+    init(viewModel: PlayersListViewModel,
+         viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>,
+         isEditing: Binding<Bool>) {
+        self.viewModel = viewModel
+        self.viewProvider = viewProvider
+        _isEditing = isEditing
+    }
     
     var body: some View {
         VStack {

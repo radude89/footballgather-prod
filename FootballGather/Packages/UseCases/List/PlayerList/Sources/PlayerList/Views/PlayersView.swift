@@ -71,11 +71,11 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                     storage: viewModel.storage,
                     showListView: $showListView
                 ),
-                isEditing: $isEditing,
                 viewProvider: PlayersListViewProvider(
                     detailsView: viewProvider.detailsView,
                     confirmPlayersView: viewProvider.confirmPlayersView
-                )
+                ),
+                isEditing: $isEditing
             )
                 .onAppear(perform: viewModel.reloadView)
         }

@@ -9,11 +9,15 @@ import SwiftUI
 import CoreModels
 import FoundationTools
 
-final class PlayersListViewModel: ObservableObject {
+@Observable
+final class PlayersListViewModel {
     
+    @ObservationIgnored
     @Binding var showListView: Bool
     
-    @Published private(set) var players: [Player]
+    private(set) var players: [Player]
+    
+    @ObservationIgnored
     private(set) var storage: PlayerStorageHandler
     
     init(
