@@ -14,6 +14,7 @@ final class HistoryRowDescriptableTests: XCTestCase {
     
     private let gathers: [Gather] = .demoGathers
     
+    @MainActor 
     func testPlayersDescription_teamA_isViewModelPlayerDescription() {
         let storage = Mocks.GatherStorageHandler(gathers: gathers)
         let viewModel = HistoryViewModel(storage: storage)
@@ -25,6 +26,7 @@ final class HistoryRowDescriptableTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testPlayersDescription_teamB_isViewModelPlayerDescription() {
         let storage = Mocks.GatherStorageHandler(gathers: gathers)
         let viewModel = HistoryViewModel(storage: storage)

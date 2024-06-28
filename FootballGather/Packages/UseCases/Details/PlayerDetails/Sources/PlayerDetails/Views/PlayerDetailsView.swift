@@ -15,7 +15,7 @@ public struct PlayerDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var showConfirmationAlert = false
-    @Bindable private var viewModel: PlayerDetailsViewModel
+    @State private var viewModel: PlayerDetailsViewModel
     
     public init(viewModel: PlayerDetailsViewModel) {
         self.viewModel = viewModel
@@ -87,18 +87,4 @@ public struct PlayerDetailsView: View {
         dismiss()
     }
     
-}
-
-// MARK: - Preview
-
-struct PlayerDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerDetailsView(
-            viewModel: .init(
-                storage: FoundationTools.AppStorage(),
-                state: .viewingDetails,
-                showListView: .constant(false)
-            )
-        )
-    }
 }

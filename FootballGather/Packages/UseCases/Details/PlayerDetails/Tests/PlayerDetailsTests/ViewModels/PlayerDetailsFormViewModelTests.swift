@@ -12,6 +12,7 @@ import CoreModels
 
 final class PlayerDetailsFormViewModelTests: XCTestCase {
     
+    @MainActor
     func testSelectedPlayer() {
         let player = Player(name: "John")
         let binding = Binding<Player> {

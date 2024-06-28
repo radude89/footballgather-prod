@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModels
 
+@MainActor
 struct PositionPickerViewModel {
     
     @Binding var position: Player.Position

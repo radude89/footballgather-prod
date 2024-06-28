@@ -19,6 +19,7 @@ final class PlayersViewModelIntegrationTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testStoredPlayers() {
         let sut = makeSUT()
         
@@ -28,6 +29,7 @@ final class PlayersViewModelIntegrationTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func makeSUT() -> PlayersViewModel {
         let storage = Mocks.storage
         

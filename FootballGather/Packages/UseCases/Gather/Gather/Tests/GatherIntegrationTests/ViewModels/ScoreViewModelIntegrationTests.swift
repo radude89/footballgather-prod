@@ -15,6 +15,7 @@ final class ScoreViewModelIntegrationTests: XCTestCase {
     private static let maxScore = GatherMaxScore.value()
     private let teams: [Team] = [.teamA, .teamB]
     
+    @MainActor
     func testIncrementsScore() {
         var scoreHandler = ScoreHandler(
             score: [
@@ -35,6 +36,7 @@ final class ScoreViewModelIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testIncrementsScore_forBench_breaks() {
         let score = Int.random(in: 1..<Self.maxScore)
         let scoreHandler = ScoreHandler(
@@ -55,6 +57,7 @@ final class ScoreViewModelIntegrationTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testDecrementsScore() {
         var scoreHandler = ScoreHandler(
             score: [
@@ -75,6 +78,7 @@ final class ScoreViewModelIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testDecrementsScore_forBench_breaks() {
         let score = Int.random(in: 1..<Self.maxScore)
         let scoreHandler = ScoreHandler(

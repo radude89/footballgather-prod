@@ -11,7 +11,11 @@ import CoreModels
 
 struct SkillPickerView: View {
     
-    let viewModel: SkillPickerViewModel
+    private let viewModel: SkillPickerViewModel
+    
+    init(viewModel: SkillPickerViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Picker(
@@ -26,10 +30,4 @@ struct SkillPickerView: View {
         .pickerStyle(.automatic)
     }
     
-}
-
-struct SkillPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        SkillPickerView(viewModel: .init(skill: .constant(.amateur)))
-    }
 }

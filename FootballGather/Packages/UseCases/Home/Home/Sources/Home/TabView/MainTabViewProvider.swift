@@ -10,5 +10,5 @@ import SwiftUI
 struct MainTabViewProvider {
     let icon: String
     let title: String
-    let view: () -> AnyView
+    let view: any View
 }

@@ -13,14 +13,17 @@ import FoundationMocks
 
 final class HistoryViewModelTests: XCTestCase {
     
+    @MainActor
     func testHasGathers_whenGathersAreEmpty_isFalse() {
         XCTAssertFalse(makeSUT(gathers: []).hasGathers)
     }
     
+    @MainActor
     func testHasGathers_whenGathersAreNotEmpty_isTrue() {
         XCTAssertTrue(makeSUT().hasGathers)
     }
     
+    @MainActor
     func testScoreDescription_whenHasEntries_returnsGatherScore() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -30,6 +33,7 @@ final class HistoryViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testAccessibilityLabel_isNotEmpty() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -40,6 +44,7 @@ final class HistoryViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testTeamAPlayersDescription_whenHasEntries_isPlayerNamesJoinedByComma() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -56,6 +61,7 @@ final class HistoryViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testTeamBPlayersDescription_whenHasEntries_isPlayerNamesJoinedByComma() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -72,6 +78,7 @@ final class HistoryViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testGathers_areOrderedByDate() {
         let firstGatherDate = Date()
         var components = DateComponents()
@@ -88,6 +95,7 @@ final class HistoryViewModelTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func makeSUT(gathers: [Gather] = .demoGathers) -> HistoryViewModel {
         .init(storage: Mocks.GatherStorageHandler(gathers: gathers))
     }

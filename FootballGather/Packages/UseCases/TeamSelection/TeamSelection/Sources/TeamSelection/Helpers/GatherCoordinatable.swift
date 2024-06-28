@@ -18,6 +18,7 @@ public protocol GatherCoordinatable {
     )
 }
 
+@MainActor
 struct EmptyGatherCoordinator: GatherCoordinatable {
     func startGather(
         from parent: UIViewController,

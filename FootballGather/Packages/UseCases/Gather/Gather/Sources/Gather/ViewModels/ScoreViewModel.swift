@@ -10,6 +10,7 @@ import CoreModels
 import GatherAssets
 
 @Observable
+@MainActor
 final class ScoreViewModel {
     
     private(set) var teamAScore: Int

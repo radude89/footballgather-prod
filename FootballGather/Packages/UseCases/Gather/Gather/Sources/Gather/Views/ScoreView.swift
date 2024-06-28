@@ -83,11 +83,3 @@ struct ScoreView: View {
     }
     
 }
-
-// MARK: - Preview
-
-struct ScoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScoreView(viewModel: .init())
-    }
-}

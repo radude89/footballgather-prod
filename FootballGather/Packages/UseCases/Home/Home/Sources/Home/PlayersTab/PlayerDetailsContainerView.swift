@@ -38,15 +38,3 @@ struct PlayerDetailsContainerView: View {
     }
     
 }
-
-// MARK: - Previews
-
-struct PlayerDetailsContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerDetailsContainerView(
-            storage: .init(),
-            player: .demoPlayers.randomElement()!,
-            showListView: .constant(true)
-        )
-    }
-}

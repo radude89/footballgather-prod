@@ -17,6 +17,7 @@ let package = Package(
         .package(name: "PlayerDetails", path: "../Details/PlayerDetails"),
         .package(name: "TeamSelection", path: "../TeamSelection/TeamSelection"),
         .package(name: "Gather", path: "../Gather/Gather"),
+        .package(name: "FoundationTools", path: "../../../Core/FoundationTools")
     ],
     targets: [
         .target(
@@ -31,7 +32,10 @@ let package = Package(
             ]),
         .testTarget(
             name: "HomeTests",
-            dependencies: ["Home"]),
+            dependencies: [
+                "Home",
+                .product(name: "FoundationMocks", package: "FoundationTools")
+            ]),
     ],
     swiftLanguageVersions: [.version("6")]
 )

@@ -26,6 +26,7 @@ final class HistoryRowDescriptableIntegrationTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testPlayersDescription_teamA_isViewModelPlayerDescription() {
         let viewModel = HistoryViewModel(storage: storage)
         let sut = TeamARowDescription(viewModel: viewModel)
@@ -36,6 +37,7 @@ final class HistoryRowDescriptableIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testPlayersDescription_teamB_isViewModelPlayerDescription() {
         let viewModel = HistoryViewModel(storage: storage)
         let sut = TeamBRowDescription(viewModel: viewModel)
@@ -50,7 +52,7 @@ final class HistoryRowDescriptableIntegrationTests: XCTestCase {
     
     private func add(
         _ gathers: [Gather] = .demoGathers,
-        to storage: AppStorage
+        to storage: FoundationTools.AppStorage
     ) {
         gathers.forEach { storage.addGather($0) }
     }

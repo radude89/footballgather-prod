@@ -11,6 +11,7 @@ import SwiftUI
 
 final class NameDetailsSectionViewModelTests: XCTestCase {
     
+    @MainActor
     func testPlayerName() {
         let playerName = "John"
         let binding = Binding<String> {

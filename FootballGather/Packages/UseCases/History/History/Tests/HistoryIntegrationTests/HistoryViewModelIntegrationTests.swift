@@ -18,6 +18,7 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         super.tearDown()
     }
         
+    @MainActor
     func testSortGathers() {
         let storage = makePopulatedStorage()
         let sut = HistoryViewModel(storage: storage)
@@ -27,18 +28,22 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(gathers[0].completedAt > gathers[1].completedAt)
     }
     
+    @MainActor
     func testHasGathers_whenStorageIsNotEmpty_hasGathers() {
         XCTAssertTrue(makeSUT().hasGathers)
     }
     
+    @MainActor
     func testHasGathers_whenGathersAreEmpty_isFalse() {
         XCTAssertFalse(makeSUT(gathers: []).hasGathers)
     }
     
+    @MainActor
     func testHasGathers_whenGathersAreNotEmpty_isTrue() {
         XCTAssertTrue(makeSUT().hasGathers)
     }
     
+    @MainActor
     func testScoreDescription_whenHasEntries_returnsGatherScore() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -48,6 +53,7 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testAccessibilityLabel_isNotEmpty() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -58,6 +64,7 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testTeamAPlayersDescription_whenHasEntries_isPlayerNamesJoinedByComma() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -74,6 +81,7 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testTeamBPlayersDescription_whenHasEntries_isPlayerNamesJoinedByComma() {
         let gathers = Gather.demoGathers
         let sut = makeSUT(gathers: gathers)
@@ -90,6 +98,7 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testGathers_areOrderedByDate() {
         let firstGatherDate = Date()
         var components = DateComponents()
@@ -106,6 +115,7 @@ final class HistoryViewModelIntegrationTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func makeSUT(gathers: [Gather] = .demoGathers) -> HistoryViewModel {
         let storage = Mocks.storage
         gathers.forEach { storage.addGather($0) }

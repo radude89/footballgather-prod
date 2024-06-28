@@ -10,9 +10,13 @@ import FoundationTools
 
 public struct MainView: View {
     
-    @EnvironmentObject var storage: FoundationTools.AppStorage
+    @ObservedObject private var storage: FoundationTools.AppStorage
     
-    public init(completion: () -> Void) {
+    public init(
+        storage: FoundationTools.AppStorage,
+        completion: () -> Void
+    ) {
+        self.storage = storage
         completion()
     }
     
@@ -23,13 +27,4 @@ public struct MainView: View {
         ])
     }
     
-}
-
-// MARK: - Previews
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView {}
-            .environmentObject(AppStorage())
-    }
 }

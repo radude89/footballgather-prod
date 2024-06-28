@@ -7,11 +7,14 @@
 
 import CoreModels
 import FoundationTools
+import SwiftUI
 
-public struct HistoryViewModel {
+@MainActor
+public final class HistoryViewModel {
+
     private let storage: GatherStorageHandler
     
-    public init(storage: GatherStorageHandler = AppStorage()) {
+    public init(storage: GatherStorageHandler) {
         self.storage = storage
     }
     

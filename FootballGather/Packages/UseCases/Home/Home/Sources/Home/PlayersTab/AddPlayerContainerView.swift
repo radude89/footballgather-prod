@@ -14,7 +14,10 @@ struct AddPlayerContainerView: View {
     private let storage: FoundationTools.AppStorage
     private let showListView: Binding<Bool>
     
-    init(storage: FoundationTools.AppStorage, showListView: Binding<Bool>) {
+    init(
+        storage: FoundationTools.AppStorage,
+        showListView: Binding<Bool>
+    ) {
         self.storage = storage
         self.showListView = showListView
     }
@@ -29,15 +32,4 @@ struct AddPlayerContainerView: View {
         )
     }
     
-}
-
-// MARK: - Previews
-
-struct AddPlayerContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddPlayerContainerView(
-            storage: .init(),
-            showListView: .constant(true)
-        )
-    }
 }

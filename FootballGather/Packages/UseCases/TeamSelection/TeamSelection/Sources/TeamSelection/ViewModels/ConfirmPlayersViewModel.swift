@@ -8,6 +8,7 @@
 import Foundation
 import CoreModels
 
+@MainActor
 struct ConfirmPlayersViewModel {
     
     private(set) var playersTeams: [Team: [Player]]

@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModels
 
+@MainActor
 struct SkillAndPositionSectionViewModel {
     @Binding var skill: Player.Skill
     @Binding var position: Player.Position

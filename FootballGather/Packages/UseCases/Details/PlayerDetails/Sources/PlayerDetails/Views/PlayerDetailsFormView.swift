@@ -10,7 +10,11 @@ import CoreModels
 
 struct PlayerDetailsFormView: View {
     
-    let viewModel: PlayerDetailsFormViewModel
+    private let viewModel: PlayerDetailsFormViewModel
+    
+    init(viewModel: PlayerDetailsFormViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Form {
@@ -31,17 +35,4 @@ struct PlayerDetailsFormView: View {
         }
     }
     
-}
-
-// MARK: - Preview
-
-struct PlayerDetailsFormView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerDetailsFormView(
-            viewModel: .init(
-                selectedPlayer: .constant(Player.demoPlayers[0]),
-                isAddingPlayer: true
-            )
-        )
-    }
 }

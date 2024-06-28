@@ -15,12 +15,3 @@ struct PlayersEmptyView: View {
             .padding()
     }
 }
-
-// MARK: - Preview
-
-struct EmptyPlayersView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayersEmptyView()
-            .previewLayout(.sizeThatFits)
-    }
-}

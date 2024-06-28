@@ -11,7 +11,11 @@ import CoreModels
 
 struct PositionPickerView: View {
     
-    let viewModel: PositionPickerViewModel
+    private let viewModel: PositionPickerViewModel
+    
+    init(viewModel: PositionPickerViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Picker(
@@ -26,10 +30,4 @@ struct PositionPickerView: View {
         .pickerStyle(.automatic)
     }
     
-}
-
-struct PositionPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        PositionPickerView(viewModel: .init(position: .constant(.forward)))
-    }
 }

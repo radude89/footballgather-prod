@@ -15,6 +15,7 @@ final class SkillAndPositionSectionViewModelTests: XCTestCase {
     private let skills = Player.Skill.allCases
     private let positions = Player.Position.allCases
     
+    @MainActor
     func testSkillAndPosition() {
         skills.forEach { skill in
             let skillBinding = Binding<Player.Skill> {

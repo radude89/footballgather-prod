@@ -8,11 +8,13 @@
 import GatherAssets
 import FoundationTools
 
+@MainActor
 protocol ActionTimerButtonModel {
     var title: String { get }
     var accessibilityLabel: String { get }
 }
 
+@MainActor
 extension TimerViewModel {
     enum ActionTimerButtonModelFactory {
         static func makeModel(

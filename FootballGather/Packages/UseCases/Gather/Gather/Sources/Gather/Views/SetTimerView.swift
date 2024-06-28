@@ -87,11 +87,3 @@ struct SetTimerView: View {
     }
     
 }
-
-// MARK: - Preview
-
-struct SetTimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        SetTimerView()
-    }
-}

@@ -15,10 +15,9 @@ struct FootballGatherApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView {
+            MainView(storage: storage) {
                 updateAnimationsIfRunningUITests()
             }
-            .environmentObject(storage)
         }
     }
     

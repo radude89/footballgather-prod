@@ -8,6 +8,7 @@
 import CoreModels
 import FoundationTools
 
+@MainActor
 public struct GatherViewModel {
     let playersTeams: [Team: [Player]]
     

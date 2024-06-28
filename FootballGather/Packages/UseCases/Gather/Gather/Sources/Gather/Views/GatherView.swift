@@ -12,15 +12,21 @@ import FoundationTools
 
 public struct GatherView: View {
     
-    @Binding var gatherEnded: Bool
-    @EnvironmentObject var storage: FoundationTools.AppStorage
-    let viewModel: GatherViewModel
+    private let viewModel: GatherViewModel
+    private let storage: FoundationTools.AppStorage
+    
+    @Binding private var gatherEnded: Bool
     
     @State private var showingSetTimerView = false
     @State private var timeSettings = TimeSettings()
     @State private var scoreViewModel = ScoreViewModel()
     
-    public init(gatherEnded: Binding<Bool>, viewModel: GatherViewModel) {
+    public init(
+        storage: FoundationTools.AppStorage,
+        gatherEnded: Binding<Bool>,
+        viewModel: GatherViewModel
+    ) {
+        self.storage = storage
         _gatherEnded = gatherEnded
         self.viewModel = viewModel
     }
@@ -73,20 +79,4 @@ public struct GatherView: View {
         )
     }
     
-}
-
-// MARK: - Preview
-
-struct GatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        GatherView(
-            gatherEnded: .constant(false),
-            viewModel: .init(
-                playersTeams: [
-                    .teamA: [.demoPlayers[0], .demoPlayers[2]],
-                    .teamB: [.demoPlayers[1]]
-                ]
-            )
-        )
-    }
 }

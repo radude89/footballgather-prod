@@ -23,11 +23,7 @@ struct HistoryTabView {
         .init(
             icon: Images.history.icon,
             title: LocalizedString.pastGathers,
-            view: {
-                AnyView(
-                    HistoryView(viewModel: .init(storage: storage))
-                )
-            }
+            view: HistoryView(viewModel: .init(storage: storage))
         )
     }
     

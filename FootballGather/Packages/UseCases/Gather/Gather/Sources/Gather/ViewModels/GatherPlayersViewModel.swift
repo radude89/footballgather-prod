@@ -7,6 +7,7 @@
 
 import CoreModels
 
+@MainActor
 struct GatherPlayersViewModel {
     private let playersTeams: [Team: [Player]]
     

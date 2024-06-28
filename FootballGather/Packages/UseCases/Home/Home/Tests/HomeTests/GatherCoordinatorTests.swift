@@ -6,14 +6,20 @@
 //
 
 import XCTest
+import FoundationMocks
 @testable import Home
 
 final class GatherCoordinatorTests: XCTestCase {
+    
+    override func tearDown() {
+        Mocks.storage.clear()
+        super.tearDown()
+    }
 
     @MainActor
     func testStartGather_presentsGatherView() {
         let views = makeViews()
-        let sut = GatherCoordinator(gatherEnded: .constant(false))
+        let sut = GatherCoordinator(gatherEnded: .constant(false), storage: Mocks.storage)
         
         sut.startGather(from: views.viewController, playersTeams: [:], animated: false)
         

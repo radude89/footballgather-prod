@@ -16,6 +16,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     private let allPositions = Player.Position.allCases
     private let allSkills = Player.Skill.allCases
     
+    @MainActor
     func testSameDetailsEntered_isTrue() {
         let player = Player(
             name: "John",
@@ -27,6 +28,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         XCTAssertTrue(sut.sameDetailsEntered(for: player))
     }
     
+    @MainActor
     func testSameDetailsEntered_whenStoredPlayerIsDifferent_isFalse() {
         let player = Player(name: "Jane")
         let sut = makeSUT(players: [player])
@@ -34,12 +36,14 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         XCTAssertFalse(sut.sameDetailsEntered(for: Player(name: "Jane")))
     }
     
+    @MainActor
     func testSameDetailsEntered_whenStorageIsEmpty_isFalse() {
         XCTAssertFalse(
             makeSUT().sameDetailsEntered(for: Player(name: "Jerome"))
         )
     }
     
+    @MainActor
     func testSameDetailsEntered_whenNameIsDifferent_isFalse() {
         var player = Player(name: "Jane")
         let sut = makeSUT(players: [player])
@@ -49,6 +53,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         XCTAssertFalse(sut.sameDetailsEntered(for: player))
     }
     
+    @MainActor
     func testSameDetailsEntered_whenNameIsTheSame_isTrue() {
         var player = Player(name: "Jane")
         let sut = makeSUT(players: [player])
@@ -58,6 +63,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         XCTAssertTrue(sut.sameDetailsEntered(for: player))
     }
     
+    @MainActor
     func testSameDetailsEntered_whenPositionIsDifferent_isFalse() {
         let initialPosition = Player.Position.goalkeeper
         var player = Player(name: "Jane", position: initialPosition)
@@ -71,6 +77,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testSameDetailsEntered_whenPositionIsSetToTheSamePosition_isTrue() {
         let position = Player.Position.goalkeeper
         var player = Player(
@@ -84,6 +91,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         XCTAssertTrue(sut.sameDetailsEntered(for: player))
     }
     
+    @MainActor
     func testSameDetailsEntered_whenSkillIsDifferent_isFalse() {
         let initialSkill = Player.Skill.amateur
         var player = Player(name: "Jane", skill: initialSkill)
@@ -97,6 +105,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testSameDetailsEntered_whenSkillIsSetToTheSameSkill_isTrue() {
         let skill = Player.Skill.amateur
         var player = Player(
@@ -112,6 +121,7 @@ final class PlayerDetailsDuplicateVerifierTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func makeSUT(
         players: [Player] = []
     ) -> PlayerDetailsDuplicateVerifier {

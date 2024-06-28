@@ -24,7 +24,7 @@ struct PlayersTabView {
         .init(
             icon: Images.players.icon,
             title: LocalizedString.players,
-            view: { AnyView(playersView) }
+            view: playersView
         )
     }
     
@@ -66,6 +66,7 @@ struct PlayersTabView {
         gatherEnded: Binding<Bool>
     ) -> ConfirmPlayersContainerView {
         .init(
+            storage: storage,
             players: players,
             gatherEnded: gatherEnded
         )

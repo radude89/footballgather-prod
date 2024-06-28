@@ -13,17 +13,15 @@ import PlayerDetailsAssets
 // MARK: - PlayerDetailsViewModel
 
 @Observable
+@MainActor
 public final class PlayerDetailsViewModel {
     
     var selectedPlayer: Player
     
     @ObservationIgnored
     @Binding var showListView: Bool
-    
-    @ObservationIgnored
+
     private let storage: PlayerStorageHandler
-    
-    @ObservationIgnored
     private let state: State
     
     @ObservationIgnored

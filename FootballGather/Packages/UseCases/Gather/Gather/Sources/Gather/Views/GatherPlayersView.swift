@@ -12,7 +12,11 @@ import UITools
 
 struct GatherPlayersView: View {
     
-    let viewModel: GatherPlayersViewModel
+    private let viewModel: GatherPlayersViewModel
+    
+    init(viewModel: GatherPlayersViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         List {
@@ -33,19 +37,4 @@ struct GatherPlayersView: View {
         }
     }
     
-}
-
-// MARK: - Preview
-
-struct GatherPlayersView_Previews: PreviewProvider {
-    static var previews: some View {
-        GatherPlayersView(
-            viewModel: .init(
-                playersTeams: [
-                    .teamA: [.demoPlayers[0], .demoPlayers[2]],
-                    .teamB: [.demoPlayers[1]]
-                ]
-            )
-        )
-    }
 }

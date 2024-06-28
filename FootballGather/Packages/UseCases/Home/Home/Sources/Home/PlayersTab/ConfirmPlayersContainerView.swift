@@ -8,13 +8,20 @@
 import SwiftUI
 import CoreModels
 import TeamSelection
+import FoundationTools
 
 struct ConfirmPlayersContainerView: View {
     
+    private let storage: FoundationTools.AppStorage
     private let players: [Player]
     private let gatherEnded: Binding<Bool>
     
-    init(players: [Player], gatherEnded: Binding<Bool>) {
+    init(
+        storage: FoundationTools.AppStorage,
+        players: [Player],
+        gatherEnded: Binding<Bool>
+    ) {
+        self.storage = storage
         self.players = players
         self.gatherEnded = gatherEnded
     }
@@ -22,17 +29,11 @@ struct ConfirmPlayersContainerView: View {
     var body: some View {
         ConfirmPlayersView(
             players: players,
-            gatherCoordinator: GatherCoordinator(gatherEnded: gatherEnded)
+            gatherCoordinator: GatherCoordinator(
+                gatherEnded: gatherEnded,
+                storage: storage
+            )
         )
     }
     
-}
-
-struct ConfirmPlayersContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConfirmPlayersContainerView(
-            players: .demoPlayers,
-            gatherEnded: .constant(false)
-        )
-    }
 }

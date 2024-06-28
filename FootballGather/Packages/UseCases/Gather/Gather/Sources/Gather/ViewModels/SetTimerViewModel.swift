@@ -10,6 +10,7 @@ import FoundationTools
 
 // MARK: - SetTimerViewModel
 
+@MainActor
 struct SetTimerViewModel {
     
     private let timeIntervals: TimeIntervals

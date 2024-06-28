@@ -13,6 +13,7 @@ import FoundationMocks
 
 final class GatherViewModelTests: XCTestCase {
     
+    @MainActor
     func testInit() {
         let sut = GatherViewModel(
             playersTeams: [.teamA: .demoPlayers, .teamB: .demoPlayers]
@@ -23,6 +24,7 @@ final class GatherViewModelTests: XCTestCase {
         XCTAssertNil(sut.playersTeams[.bench])
     }
 
+    @MainActor
     func testFormattedTime() {
         let sut = GatherViewModel(playersTeams: [:])
         let time = sut.formattedTime(from: .init())
@@ -36,6 +38,7 @@ final class GatherViewModelTests: XCTestCase {
         XCTAssertEqual(time.seconds, expectedTime[1])
     }
 
+    @MainActor
     func testStoreGather() {
         let storage = FoundationMocks.Mocks.GatherStorageHandler()
         let sut = GatherViewModel(playersTeams: [:])

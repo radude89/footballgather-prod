@@ -20,37 +20,29 @@ final class PlayersViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testHasPlayers_whenStorageIsEmpty_isFalse() {
         XCTAssertFalse(makeSUT().hasPlayers)
     }
     
+    @MainActor
     func testHasPlayers_whenStorageIsNotEmpty_isTrue() {
         XCTAssertTrue(makeSUT(players: .demoPlayers).hasPlayers)
     }
     
+    @MainActor
     func testStoredPlayers_whenStorageIsEmpty_isEmpty() {
         XCTAssertTrue(makeSUT().storedPlayers.isEmpty)
     }
     
+    @MainActor
     func testStoredPlayers_whenStorageIsNotEmpty_isNotEmpty() {
         XCTAssertFalse(makeSUT(players: .demoPlayers).storedPlayers.isEmpty)
     }
     
-    @MainActor
-    func testReloadView() {
-        let sut = makeSUT()
-        let reloadViewExpectation = expectation(description: "Reload view expectation")
-        cancellable = sut.objectWillChange.sink { _ in
-            reloadViewExpectation.fulfill()
-        }
-        
-        sut.reloadView()
-        
-        waitForExpectations(timeout: 2, handler: nil)
-    }
-    
     // MARK: - Helpers
     
+    @MainActor
     private func makeSUT(
         players: [Player] = []
     ) -> PlayersViewModel {

@@ -11,10 +11,14 @@ import UITools
 
 struct GatherEndView: View {
     
-    var completion: () -> Void
-    
     @State private var showConfirmationAlert = false
     @Environment(\.dismiss) private var dismiss
+    
+    private let completion: () -> Void
+    
+    init(completion: @escaping () -> Void) {
+        self.completion = completion
+    }
     
     var body: some View {
         endGatherButton
@@ -46,12 +50,4 @@ struct GatherEndView: View {
         dismiss()
     }
     
-}
-
-// MARK: - Preview
-
-struct GatherEndView_Previews: PreviewProvider {
-    static var previews: some View {
-        GatherEndView {}
-    }
 }

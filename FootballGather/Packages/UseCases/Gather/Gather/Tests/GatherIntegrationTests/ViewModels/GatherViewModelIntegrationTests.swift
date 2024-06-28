@@ -18,6 +18,7 @@ final class GatherViewModelIntegrationTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testStoreGather() {
         let sut = GatherViewModel(playersTeams: [:])
         

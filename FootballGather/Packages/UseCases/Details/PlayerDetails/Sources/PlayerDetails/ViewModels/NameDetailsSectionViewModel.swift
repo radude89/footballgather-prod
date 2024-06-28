@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 struct NameDetailsSectionViewModel {
     @Binding var playerName: String
     let isAddingPlayer: Bool

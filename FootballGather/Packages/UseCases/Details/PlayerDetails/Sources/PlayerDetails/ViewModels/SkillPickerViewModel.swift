@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModels
 
+@MainActor
 struct SkillPickerViewModel {
     
     @Binding var skill: Player.Skill

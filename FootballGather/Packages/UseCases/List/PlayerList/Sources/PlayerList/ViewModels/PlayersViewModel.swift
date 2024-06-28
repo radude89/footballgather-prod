@@ -9,11 +9,13 @@ import SwiftUI
 import CoreModels
 import FoundationTools
 
-public final class PlayersViewModel: ObservableObject {
+@Observable
+@MainActor
+public final class PlayersViewModel {
     
-    @Published private(set) var storage: PlayerStorageHandler
+    private(set) var storage: PlayerStorageHandler
 
-    public init(storage: PlayerStorageHandler = AppStorage()) {
+    public init(storage: PlayerStorageHandler) {
         self.storage = storage
     }
     
@@ -26,7 +28,7 @@ public final class PlayersViewModel: ObservableObject {
     }
     
     func reloadView() {
-        objectWillChange.send()
+//        objectWillChange.send()
     }
     
 }

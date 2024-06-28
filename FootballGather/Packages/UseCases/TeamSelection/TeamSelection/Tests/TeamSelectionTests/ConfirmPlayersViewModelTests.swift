@@ -14,6 +14,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
     private var sut: ConfirmPlayersViewModel!
     private let players = Player.demoPlayers
     
+    @MainActor
     override func setUp() {
         super.setUp()
         sut = ConfirmPlayersViewModel(players: players)
@@ -24,14 +25,17 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    @MainActor
     func testTeams_equalsAllCases() {
         XCTAssertEqual(sut.teams, Team.allCases)
     }
     
+    @MainActor
     func testNumberOfSections_equalsTeamsCount() {
         XCTAssertEqual(sut.numberOfSections, Team.allCases.count)
     }
     
+    @MainActor
     func testNumberOfRows_whenSectionIsInvalid_isZero() {
         XCTAssertEqual(sut.numberOfRows(in: -1), 0)
         XCTAssertEqual(sut.numberOfRows(in: Int.max), 0)
@@ -41,11 +45,13 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertEqual(sut.numberOfRows(in: -Int.max), 0)
     }
     
+    @MainActor
     func testNumberOfRows_whenTeamIsAOrB_isZero() {
         XCTAssertEqual(numberOfRows(in: .teamA), 0)
         XCTAssertEqual(numberOfRows(in: .teamB), 0)
     }
     
+    @MainActor
     func testNumberOfRows_whenTeamIsBench_isNumberOfDemoPlayers() {
         XCTAssertEqual(
             numberOfRows(in: .bench),
@@ -53,6 +59,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         )
     }
     
+    @MainActor
     func testTitleForHeaderInSection_isUppercased() {
         Team.allCases.forEach { team in
             let title = sut.titleForHeaderInSection(team.rawValue)
@@ -60,6 +67,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testRowTitle_equalsPlayersName() {
         players.enumerated().forEach { index, player in
             XCTAssertEqual(
@@ -69,6 +77,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testRowTitle_whenSectionIsInvalid_isNil() {
         XCTAssertNil(rowTitle(section: -1))
         XCTAssertNil(rowTitle(section: Int.max))
@@ -78,11 +87,13 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertNil(rowTitle(section: -Int.max))
     }
     
+    @MainActor
     func testRowTitle_whenThereAreNotPlayers_isNil() {
         XCTAssertNil(rowTitle(at: 0, team: .teamA))
         XCTAssertNil(rowTitle(at: 0, team: .teamB))
     }
     
+    @MainActor
     func testRowTitle_whenRowIndexIsInvalid_isNil() {
         XCTAssertNil(rowTitle(at: -1, team: .bench))
         XCTAssertNil(rowTitle(at: players.count, team: .bench))
@@ -91,6 +102,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertNil(rowTitle(at: -Int.max, team: .bench))
     }
     
+    @MainActor
     func testMove() {
         move(from: .bench, to: .teamA)
         XCTAssertEqual(numberOfRows(in: .bench), players.count - 1)
@@ -125,6 +137,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertFalse(sut.startGatherIsEnabled)
     }
     
+    @MainActor
     func testMove_whenSourceSectionIsInvalid_returns() {
         [Team.teamA, Team.teamB].forEach { team in
             move(from: -1, to: team.rawValue)
@@ -149,6 +162,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         }
     }
     
+    @MainActor
     func testMove_whenDestinationSectionIsInvalid_returns() {
         move(from: Team.bench.rawValue, to: -1)
         XCTAssertEqual(numberOfRows(in: .teamA), 0)
@@ -176,6 +190,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertFalse(sut.startGatherIsEnabled)
     }
     
+    @MainActor
     func testMove_whenThereAreNotPlayers_returns() {
         move(from: .teamA, to: .bench)
         XCTAssertEqual(numberOfRows(in: .bench), players.count)
@@ -186,6 +201,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertFalse(sut.startGatherIsEnabled)
     }
     
+    @MainActor
     func testMove_whenSourceRowIsInvalid_returns() {
         [Team.teamA, Team.teamB].forEach { team in
             move(from: .bench, sourceRowIndex: -1, to: team)
@@ -217,14 +233,17 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func numberOfRows(in team: Team) -> Int {
         sut.numberOfRows(in: team.rawValue)
     }
     
+    @MainActor
     private func rowTitle(at row: Int = 0, section: Int) -> String? {
         sut.rowTitle(at: IndexPath(row: row, section: section))
     }
     
+    @MainActor
     private func rowTitle(at row: Int, team: Team) -> String? {
         sut.rowTitle(
             at: IndexPath(
@@ -233,6 +252,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         )
     }
     
+    @MainActor
     private func move(
         from source: Team,
         sourceRowIndex: Int = 0,
@@ -251,6 +271,7 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         )
     }
     
+    @MainActor
     private func move(
         from sourceSection: Int,
         to destinationSection: Int

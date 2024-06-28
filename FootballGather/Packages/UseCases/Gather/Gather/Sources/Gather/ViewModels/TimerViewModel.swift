@@ -80,12 +80,14 @@ final class TimerViewModel: @unchecked Sendable {
         }
     }
     
+    @MainActor
     var actionButtonTitle: String {
         ActionTimerButtonModelFactory
             .makeModel(from: timerState)
             .title
     }
     
+    @MainActor
     var actionButtonAccessibilityLabel: String {
         ActionTimerButtonModelFactory
             .makeModel(from: timerState)

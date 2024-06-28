@@ -10,7 +10,11 @@ import PlayerDetailsAssets
 
 struct SkillAndPositionSection: View {
     
-    let viewModel: SkillAndPositionSectionViewModel
+    private let viewModel: SkillAndPositionSectionViewModel
+    
+    init(viewModel: SkillAndPositionSectionViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Section(
@@ -33,16 +37,4 @@ struct SkillAndPositionSection: View {
         viewModel.isAddingPlayer ? Text(LocalizedString.skillsetAndPositionFooter) : nil
     }
     
-}
-
-struct SkillAndPositionSection_Previews: PreviewProvider {
-    static var previews: some View {
-        SkillAndPositionSection(
-            viewModel: .init(
-                skill: .constant(.amateur),
-                position: .constant(.forward),
-                isAddingPlayer: true
-            )
-        )
-    }
 }

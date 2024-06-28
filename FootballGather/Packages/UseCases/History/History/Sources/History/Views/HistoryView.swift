@@ -13,9 +13,7 @@ import UITools
 
 public struct HistoryView: View {
     
-    @EnvironmentObject var storage: FoundationTools.AppStorage
-    
-    let viewModel: HistoryViewModel
+    private let viewModel: HistoryViewModel
     
     public init(viewModel: HistoryViewModel) {
         self.viewModel = viewModel
@@ -88,14 +86,4 @@ public struct HistoryView: View {
         Text(teamDescription.playersDescription(for: gather))
     }
     
-}
-
-// MARK: - Preview
-
-struct HistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        let storage = AppStorage()
-        Gather.demoGathers.forEach { storage.addGather($0) }
-        return HistoryView(viewModel: .init(storage: storage))
-    }
 }

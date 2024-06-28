@@ -15,9 +15,8 @@ import PlayerListAssets
 
 public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: View {
     
-    @ObservedObject var viewModel: PlayersViewModel
-    
     private let viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
+    private let viewModel: PlayersViewModel
     
     @State private var showAddView = false
     @State private var showListView = false
@@ -77,7 +76,6 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
                 ),
                 isEditing: $isEditing
             )
-                .onAppear(perform: viewModel.reloadView)
         }
     }
     

@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreModels
 
+@MainActor
 struct PlayerDetailsFormViewModel {
     @Binding var selectedPlayer: Player
     let isAddingPlayer: Bool

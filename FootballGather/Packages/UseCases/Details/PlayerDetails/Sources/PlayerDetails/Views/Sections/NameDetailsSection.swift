@@ -10,7 +10,11 @@ import PlayerDetailsAssets
 
 struct NameDetailsSection: View {
     
-    let viewModel: NameDetailsSectionViewModel
+    private let viewModel: NameDetailsSectionViewModel
+    
+    init(viewModel: NameDetailsSectionViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Section(
@@ -19,10 +23,10 @@ struct NameDetailsSection: View {
                     LocalizedString.playerNameField,
                     text: viewModel.$playerName
                 )
-                    .disableAutocorrection(true)
-                    .textInputAutocapitalization(.words)
-                    .submitLabel(.done)
-                    .accessibilityID(AccessibilityID.enterNameTextfield)
+                .disableAutocorrection(true)
+                .textInputAutocapitalization(.words)
+                .submitLabel(.done)
+                .accessibilityID(AccessibilityID.enterNameTextfield)
             },
             header: {
                 Text(LocalizedString.sectionPlayerDetailsHeader)
@@ -34,12 +38,5 @@ struct NameDetailsSection: View {
     private var footerViewContent: some View {
         viewModel.isAddingPlayer ? Text(LocalizedString.sectionPlayerDetailsFooter) : nil
     }
-}
-
-struct NameDetailsSection_Previews: PreviewProvider {
-    static var previews: some View {
-        NameDetailsSection(
-            viewModel: .init(playerName: .constant("John"), isAddingPlayer: true)
-        )
-    }
+    
 }

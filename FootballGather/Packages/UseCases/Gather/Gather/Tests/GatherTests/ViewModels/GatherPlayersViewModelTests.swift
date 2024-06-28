@@ -11,6 +11,7 @@ import CoreModels
 
 final class GatherPlayersViewModelTests: XCTestCase {
     
+    @MainActor
     func testPlayersInTeam_returnsCorrectPlayers() {
         let sut = GatherPlayersViewModel(
             playersTeams: [.teamA: .demoPlayers, .teamB: .demoPlayers]
@@ -21,6 +22,7 @@ final class GatherPlayersViewModelTests: XCTestCase {
         XCTAssertTrue(sut.players(in: .bench).isEmpty)
     }
     
+    @MainActor
     func testSectionNameForTeam_returnsCorrectTeam() {
         let sut = GatherPlayersViewModel(
             playersTeams: [.teamA: .demoPlayers, .teamB: .demoPlayers]

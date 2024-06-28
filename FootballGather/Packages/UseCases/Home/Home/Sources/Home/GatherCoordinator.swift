@@ -10,12 +10,19 @@ import SwiftUI
 import CoreModels
 import TeamSelection
 import Gather
+import FoundationTools
 
 struct GatherCoordinator: GatherCoordinatable {
-    private let gatherEnded: Binding<Bool>
     
-    init(gatherEnded: Binding<Bool>) {
+    private let gatherEnded: Binding<Bool>
+    private let storage: FoundationTools.AppStorage
+    
+    init(
+        gatherEnded: Binding<Bool>,
+        storage: FoundationTools.AppStorage
+    ) {
         self.gatherEnded = gatherEnded
+        self.storage = storage
     }
     
     func startGather(
@@ -24,10 +31,12 @@ struct GatherCoordinator: GatherCoordinatable {
         animated: Bool
     ) {
         let gatherView = GatherView(
+            storage: storage,
             gatherEnded: gatherEnded,
             viewModel: .init(playersTeams: playersTeams)
         )
         let gatherViewController = UIHostingController(rootView: gatherView)
         parent.navigationController?.pushViewController(gatherViewController, animated: animated)
     }
+    
 }
