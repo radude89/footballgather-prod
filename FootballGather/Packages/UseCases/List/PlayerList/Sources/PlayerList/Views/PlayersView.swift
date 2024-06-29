@@ -20,7 +20,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
     
     @State private var showAddView = false
     @State private var showListView = false
-    @State private var isEditing: Bool = false
+    @State private var isEditing = false
     
     public init(
         viewModel: PlayersViewModel,
@@ -35,10 +35,10 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
             mainContent
                 .navigationTitle(LocalizedString.players)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         trailingBarButton
                     }
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .topBarLeading) {
                         Button {
                             withAnimation {
                                 isEditing.toggle()

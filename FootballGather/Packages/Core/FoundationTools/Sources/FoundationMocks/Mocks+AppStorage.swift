@@ -114,6 +114,7 @@ extension Mocks {
         
         public private(set) var gathers: [Gather]
         public private(set) var addGatherCalled = false
+        public private(set) var deleteGatherCalled = false
         
         public init(gathers: [Gather] = []) {
             self.gathers = gathers
@@ -121,6 +122,10 @@ extension Mocks {
         
         public func addGather(_ gather: Gather) {
             addGatherCalled = true
+        }
+        
+        public func deleteGather(_ gather: Gather) {
+            deleteGatherCalled = true
         }
         
     }

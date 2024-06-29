@@ -14,6 +14,7 @@ import UITools
 public struct HistoryView: View {
     
     private let viewModel: HistoryViewModel
+    @State private var isEditing = false
     
     public init(viewModel: HistoryViewModel) {
         self.viewModel = viewModel
@@ -36,11 +37,30 @@ public struct HistoryView: View {
     }
     
     private var listView: some View {
-        List(viewModel.gathers) { gather in
-            row(for: gather)
+        List {
+            ForEach(viewModel.gathers) { gather in
+                row(for: gather)
+            }
+            .onDelete {
+                viewModel.deleteGather(at: $0)
+                disableEditModeIfNeeded()
+            }
         }
         .listStyle(.insetGrouped)
         .accessibilityID(AccessibilityID.historyView)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    withAnimation {
+                        isEditing.toggle()
+                    }
+                } label: {
+                    Text(isEditing ? LocalizedString.done : LocalizedString.edit)
+                }
+                .disabled(!viewModel.hasGathers)
+            }
+        }
+        .environment(\.editMode, .constant(isEditing ? .active : .inactive))
     }
     
     private var emptyView: some View {
@@ -84,6 +104,12 @@ public struct HistoryView: View {
         teamDescription: HistoryRowDescriptable
     ) -> some View {
         Text(teamDescription.playersDescription(for: gather))
+    }
+    
+    private func disableEditModeIfNeeded() {
+        if viewModel.gathers.isEmpty {
+            isEditing = false
+        }
     }
     
 }

@@ -8,4 +8,6 @@ public enum LocalizedString {
 	public static let pastGathers = NSLocalizedString("past.gathers", bundle: .module, comment: "")
 	public static let noGathers = NSLocalizedString("no.gathers", bundle: .module, comment: "")
 	public static let vs = NSLocalizedString("vs", bundle: .module, comment: "")
+	public static let done = NSLocalizedString("done", bundle: .module, comment: "")
+	public static let edit = NSLocalizedString("edit", bundle: .module, comment: "")
 }

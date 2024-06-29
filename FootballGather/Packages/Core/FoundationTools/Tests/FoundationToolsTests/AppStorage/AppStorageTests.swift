@@ -96,6 +96,24 @@ final class AppStorageTests: XCTestCase {
         XCTAssertTrue(sut.storedPlayers.isEmpty)
     }
     
+    func testDeleteGathers() {
+        let sut = makeSUT()
+        let gather = Gather.demoGathers[0]
+        sut.addGather(gather)
+        
+        sut.deleteGather(gather)
+        
+        XCTAssertTrue(sut.gathers.isEmpty)
+    }
+    
+    func testDeleteGathers_whenStorageIsEmpty_returns() {
+        let sut = makeSUT()
+        
+        sut.deleteGather(Gather.demoGathers[0])
+        
+        XCTAssertTrue(sut.gathers.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(

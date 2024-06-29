@@ -10,16 +10,15 @@ import FoundationTools
 import SwiftUI
 
 @MainActor
+@Observable
 public final class HistoryViewModel {
 
     private let storage: GatherStorageHandler
+    private(set) var gathers: [Gather]
     
     public init(storage: GatherStorageHandler) {
         self.storage = storage
-    }
-    
-    var gathers: [Gather] {
-        storage.gathers.sorted { $0.completedAt > $1.completedAt }
+        self.gathers = Self.loadGathers(storage: storage)
     }
     
     var hasGathers: Bool {
@@ -47,4 +46,18 @@ public final class HistoryViewModel {
             .map { $0.name }
             .joined(separator: ", ")
     }
+    
+    func deleteGather(at indexSet: IndexSet) {
+        indexSet.forEach { delete(gathers[$0]) }
+    }
+    
+    func delete(_ gather: Gather) {
+        storage.deleteGather(gather)
+        gathers = Self.loadGathers(storage: storage)
+    }
+    
+    private static func loadGathers(storage: GatherStorageHandler) -> [Gather] {
+        storage.gathers.sorted { $0.completedAt > $1.completedAt }
+    }
+
 }

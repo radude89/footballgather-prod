@@ -36,12 +36,12 @@ struct SetTimerView: View {
         NavigationStack {
             TwoComponentsPickerView(dataSource: makeDataSource())
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .topBarLeading) {
                         Button(LocalizedString.cancel, action: { dismiss() })
                             .accessibilityID(AccessibilityID.cancelButton)
                     }
                     
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Button(LocalizedString.done, action: onSave)
                             .disabled(!doneButtonIsEnabled)
                             .accessibilityID(AccessibilityID.doneButton)
