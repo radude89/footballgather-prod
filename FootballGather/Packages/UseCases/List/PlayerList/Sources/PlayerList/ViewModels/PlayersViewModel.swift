@@ -26,9 +26,4 @@ public final class PlayersViewModel {
     var storedPlayers: [Player] {
         storage.storedPlayers
     }
-    
-    func reloadView() {
-//        objectWillChange.send()
-    }
-    
 }
