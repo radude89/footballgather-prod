@@ -10,20 +10,19 @@ import CoreModels
 import GatherAssets
 import FoundationTools
 
-final class GatherUITests: UITestCase {
+final class GatherUITests: UITestCase, @unchecked Sendable {
     
     private var navigator: AppNavigator!
     
-    @MainActor
-    override func setUp() {
-        super.setUp()
+    override func setUp() async throws {
+        try await super.setUp()
         
-        addUIInterruptionMonitor()
+        await addUIInterruptionMonitor()
         
-        launchApp(populatingStorage: true)
+        await launchApp(populatingStorage: true)
         
-        navigator = .init(app: app, testCase: self)
-        navigator.presentGatherView()
+        navigator = await .init(app: app, testCase: self)
+        await navigator.presentGatherView()
     }
     
     @MainActor

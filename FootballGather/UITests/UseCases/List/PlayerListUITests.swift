@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class PlayerListUITests: UITestCase {
+final class PlayerListUITests: UITestCase, @unchecked Sendable {
     
     /// **Scenario 1: View list of players**
     ///

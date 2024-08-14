@@ -8,7 +8,7 @@
 import XCTest
 import HistoryAssets
 
-final class HistoryViewUITests: UITestCase {
+final class HistoryViewUITests: UITestCase, @unchecked Sendable {
     
     /// **Scenario 1: Navigating to History screen**
     ///

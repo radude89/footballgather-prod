@@ -12,45 +12,31 @@ import PlayerListAssets
 import TeamSelectionAssets
 import GatherAssets
 
-final class Snapshots: XCTestCase {
+final class Snapshots: XCTestCase, @unchecked Sendable {
     
     // MARK: - Setup
     
     private var app: XCUIApplication!
     
-    @MainActor
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-        
+    override func setUp() {
+        super.setUp()
         continueAfterFailure = false
-        setupApp()
-        app.launch()
-    }
-    
-    @MainActor
-    private func setupApp() {
         app = XCUIApplication()
-        setupLaunchArguments()
-        setupSnapshot(app)
     }
-    
-    @MainActor
-    private func setupLaunchArguments() {
-        app.launchArguments = ["-uitests"]
-        app.launchArguments.append(Command.populateStorage.rawValue)
-        addUIInterruptionMonitor()
-    }
-    
-    @MainActor
-    override func tearDownWithError() throws {
-        app.terminate()
-        try super.tearDownWithError()
+
+    override func tearDown() async throws {
+        await app.terminate()
+        try await super.tearDown()
     }
     
     // MARK: - Snapshots
 
     @MainActor
     func testSnapshots() throws {
+        // Setup and launch the app
+        setupApp()
+        app.launch()
+
         // Landing screen - player list
         takeSnapshot(named: "01-player-list")
         
@@ -84,6 +70,17 @@ final class Snapshots: XCTestCase {
 
 @MainActor
 private extension Snapshots {
+    func setupApp() {
+        setupLaunchArguments()
+        addUIInterruptionMonitor()
+        setupSnapshot(app)
+    }
+    
+    func setupLaunchArguments() {
+        app.launchArguments = ["-uitests"]
+        app.launchArguments.append(Command.populateStorage.rawValue)
+    }
+
     func takeSnapshot(named name: String) {
         var snapshotName = name
         
@@ -126,9 +123,10 @@ private extension Snapshots {
 private extension Snapshots {
     func addUIInterruptionMonitor() {
         addUIInterruptionMonitor(
-            withDescription: "Notification alert") { [weak self] alert in
-                return self?.handleAlertPermissions(alert) ?? false
-            }
+            withDescription: "Notification alert"
+        ) { [weak self] alert in
+            self?.handleAlertPermissions(alert) ?? false
+        }
     }
     
     func handleAlertPermissions(_ alert: XCUIElement) -> Bool {

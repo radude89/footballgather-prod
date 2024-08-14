@@ -14,6 +14,7 @@ struct PlayersFinder {
     private let app: XCUIApplication
     private let table: XCUIElement
     
+    @MainActor
     init(app: XCUIApplication, table: XCUIElement) {
         self.app = app
         self.table = table

@@ -9,14 +9,13 @@ import XCTest
 import CoreModels
 import PlayerDetailsAssets
 
-final class PlayerDetailsUITests: UITestCase {
+final class PlayerDetailsUITests: UITestCase, @unchecked Sendable {
     
     // MARK: - Setup
     
-    @MainActor
-    override func setUp() {
-        super.setUp()
-        launchApp(populatingStorage: true)
+    override func setUp() async throws {
+        try await super.setUp()
+        await launchApp(populatingStorage: true)
     }
     
     /// **Scenario 1: Navigating to details screen**

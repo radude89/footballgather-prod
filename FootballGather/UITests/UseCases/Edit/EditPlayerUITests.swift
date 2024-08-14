@@ -8,7 +8,7 @@
 import XCTest
 import CoreModels
 
-final class EditPlayerUITests: UITestCase {
+final class EditPlayerUITests: UITestCase, @unchecked Sendable {
     
     var selectionHandler: PlayerDetailsSelection!
 
@@ -21,13 +21,12 @@ final class EditPlayerUITests: UITestCase {
     
     // MARK: - Setup
     
-    @MainActor
-    override func setUp() {
-        super.setUp()
+    override func setUp() async throws {
+        try await super.setUp()
         
-        selectionHandler = PlayerDetailsSelection(app: app)
-        launchApp(populatingStorage: true)
-        presentPlayerDetails()
+        selectionHandler = await PlayerDetailsSelection(app: app)
+        await launchApp(populatingStorage: true)
+        await presentPlayerDetails()
     }
     
     @MainActor

@@ -16,13 +16,15 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     private let playersCount = Player.demoPlayers.count
     private var gatherCoordinator: MockGatherCoordinator!
     
-    @MainActor
-    override func setUp() {
-        super.setUp()
-        
+    override func setUp() async throws {
+        try await super.setUp()
+
         gatherCoordinator = MockGatherCoordinator()
-        sut = ConfirmPlayersViewController(players: .demoPlayers, gatherCoordinator: gatherCoordinator)
-        sut.loadViewIfNeeded()
+        sut = await ConfirmPlayersViewController(
+            players: .demoPlayers,
+            gatherCoordinator: gatherCoordinator
+        )
+        await sut.loadViewIfNeeded()
     }
     
     override func tearDown() {
@@ -301,6 +303,7 @@ final class ConfirmPlayersViewControllerTests: XCTestCase {
     }
     
     private final class MockGatherCoordinator: GatherCoordinatable {
+        @MainActor
         func startGather(from parent: UIViewController, playersTeams: [Team : [Player]], animated: Bool) {
         }
     }

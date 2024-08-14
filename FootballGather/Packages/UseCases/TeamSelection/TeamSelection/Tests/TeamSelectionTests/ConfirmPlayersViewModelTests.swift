@@ -14,10 +14,9 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
     private var sut: ConfirmPlayersViewModel!
     private let players = Player.demoPlayers
     
-    @MainActor
-    override func setUp() {
-        super.setUp()
-        sut = ConfirmPlayersViewModel(players: players)
+    override func setUp() async throws {
+        try await super.setUp()
+        sut = await ConfirmPlayersViewModel(players: players)
     }
     
     override func tearDown() {

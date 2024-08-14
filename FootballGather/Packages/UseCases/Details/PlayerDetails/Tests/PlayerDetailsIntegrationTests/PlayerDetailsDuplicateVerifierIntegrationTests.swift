@@ -16,10 +16,9 @@ final class PlayerDetailsDuplicateVerifierIntegrationTests: XCTestCase {
     private let allPositions = Player.Position.allCases
     private let allSkills = Player.Skill.allCases
     
-    @MainActor
-    override func setUp() {
-        super.setUp()
-        sut = PlayerDetailsDuplicateVerifier(storage: Mocks.storage)
+    override func setUp() async throws {
+        try await super.setUp()
+        sut = await PlayerDetailsDuplicateVerifier(storage: Mocks.storage)
     }
     
     override func tearDown() {

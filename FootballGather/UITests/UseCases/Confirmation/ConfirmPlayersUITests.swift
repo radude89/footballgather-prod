@@ -8,24 +8,23 @@
 import XCTest
 import CoreModels
 
-final class ConfirmPlayersUITests: UITestCase {
+final class ConfirmPlayersUITests: UITestCase, @unchecked Sendable {
     
     var playersFinder: PlayersFinder!
     
     private var navigator: AppNavigator!
     
     // MARK: - Setup
-    
-    @MainActor
-    override func setUp() {
-        super.setUp()
+
+    override func setUp() async throws {
+        try await super.setUp()
         
-        playersFinder = PlayersFinder(app: app, table: confirmTable)
-        navigator = .init(app: app, testCase: self)
+        playersFinder = await PlayersFinder(app: app, table: confirmTable)
+        navigator = await .init(app: app, testCase: self)
         
-        launchApp(populatingStorage: true)
-        navigator.presentPlayerListView()
-        navigator.presentConfirmPlayersView()
+        await launchApp(populatingStorage: true)
+        await navigator.presentPlayerListView()
+        await navigator.presentConfirmPlayersView()
     }
     
 }

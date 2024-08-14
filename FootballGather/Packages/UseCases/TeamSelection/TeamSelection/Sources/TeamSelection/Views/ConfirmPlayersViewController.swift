@@ -13,7 +13,8 @@ import TeamSelectionAssets
 
 // MARK: - ConfirmPlayersViewController
 
-final class ConfirmPlayersViewController: UIViewController {
+@MainActor
+final class ConfirmPlayersViewController: UIViewController, @unchecked Sendable {
     
     // MARK: - Properties
     

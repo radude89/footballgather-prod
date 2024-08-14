@@ -9,26 +9,26 @@ import XCTest
 import FoundationTools
 import PlayerDetailsAssets
 
-class UITestCase: XCTestCase {
+class UITestCase: XCTestCase, @unchecked Sendable {
     
     var app: XCUIApplication!
     
     @MainActor lazy var saveButton = app.buttons[.saveButton]
-
-    @MainActor
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    
+    override func setUp() async throws {
+        try await super.setUp()
         
         continueAfterFailure = false
         
         app = XCUIApplication()
-        app.launchArguments = ["-uitests"]
+        Task { @MainActor in
+            app.launchArguments = ["-uitests"]
+        }
     }
     
-    @MainActor
-    override func tearDownWithError() throws {
-        app.terminate()
-        try super.tearDownWithError()
+    override func tearDown() async throws {
+        await app.terminate()
+        try await super.tearDown()
     }
     
     @MainActor
