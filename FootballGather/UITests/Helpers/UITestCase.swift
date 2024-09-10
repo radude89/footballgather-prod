@@ -20,7 +20,7 @@ class UITestCase: XCTestCase, @unchecked Sendable {
         
         continueAfterFailure = false
         
-        app = XCUIApplication()
+        app = await XCUIApplication()
         Task { @MainActor in
             app.launchArguments = ["-uitests"]
         }
