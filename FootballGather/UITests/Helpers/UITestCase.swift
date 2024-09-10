@@ -21,9 +21,6 @@ class UITestCase: XCTestCase, @unchecked Sendable {
         continueAfterFailure = false
         
         app = await XCUIApplication()
-        Task { @MainActor in
-            app.launchArguments = ["-uitests"]
-        }
     }
     
     override func tearDown() async throws {
@@ -33,6 +30,7 @@ class UITestCase: XCTestCase, @unchecked Sendable {
     
     @MainActor
     func launchApp(populatingStorage: Bool = false) {
+        app.launchArguments.append(Command.runUITests.rawValue)
         if populatingStorage {
             app.launchArguments.append(Command.populateStorage.rawValue)
         }
