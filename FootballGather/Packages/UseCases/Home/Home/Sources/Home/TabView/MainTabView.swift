@@ -25,9 +25,11 @@ struct MainTabView: View {
     }
     
     private func tabItemView(provider: MainTabViewProvider) -> some View {
-        provider.view.tabItem {
-            tabLabel(provider: provider)
-        }
+        AnyView(
+            provider.view.tabItem {
+                tabLabel(provider: provider)
+            }
+        )
     }
     
     private func tabLabel(provider: MainTabViewProvider) -> some View {
