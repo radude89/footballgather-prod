@@ -21,5 +21,5 @@ let package = Package(
             name: "HomeAssetsTests",
             dependencies: ["HomeAssets"]),
     ],
-    swiftLanguageVersions: [.version("6")]
+    swiftLanguageModes: [.version("6")]
 )

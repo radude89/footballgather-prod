@@ -37,5 +37,5 @@ let package = Package(
                 .product(name: "FoundationMocks", package: "FoundationTools")
             ]),
     ],
-    swiftLanguageVersions: [.version("6")]
+    swiftLanguageModes: [.version("6")]
 )

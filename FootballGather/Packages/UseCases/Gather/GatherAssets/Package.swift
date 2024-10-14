@@ -21,5 +21,5 @@ let package = Package(
             name: "GatherAssetsTests",
             dependencies: ["GatherAssets"]),
     ],
-    swiftLanguageVersions: [.version("6")]
+    swiftLanguageModes: [.version("6")]
 )

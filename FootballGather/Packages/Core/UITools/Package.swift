@@ -20,5 +20,5 @@ let package = Package(
             name: "UIToolsTests",
             dependencies: ["UITools"]),
     ],
-    swiftLanguageVersions: [.version("6")]
+    swiftLanguageModes: [.version("6")]
 )

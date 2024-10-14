@@ -20,5 +20,5 @@ let package = Package(
             name: "CoreModelsTests",
             dependencies: ["CoreModels"]),
     ],
-    swiftLanguageVersions: [.version("6")]
+    swiftLanguageModes: [.version("6")]
 )

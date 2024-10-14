@@ -21,5 +21,5 @@ let package = Package(
             name: "PlayerDetailsAssetsTests",
             dependencies: ["PlayerDetailsAssets"]),
     ],
-    swiftLanguageVersions: [.version("6")]
+    swiftLanguageModes: [.version("6")]
 )
