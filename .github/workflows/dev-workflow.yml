@@ -21,9 +21,10 @@ jobs:
       - name: Install dependencies
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: 2.7
           bundler-cache: true
-
+      - run: bundle install
+      
       - name: Select Xcode
         run: |
           ls /Applications | grep Xcode
