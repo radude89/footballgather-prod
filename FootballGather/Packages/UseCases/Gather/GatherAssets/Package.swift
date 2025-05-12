@@ -1,11 +1,11 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 
 import PackageDescription
 
 let package = Package(
     name: "GatherAssets",
     defaultLocalization: "en",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v18)],
     products: [
         .library(
             name: "GatherAssets",
@@ -21,5 +21,5 @@ let package = Package(
             name: "GatherAssetsTests",
             dependencies: ["GatherAssets"]),
     ],
-    swiftLanguageModes: [.version("6")]
+    swiftLanguageModes: [.v6]
 )

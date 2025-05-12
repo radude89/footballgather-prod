@@ -1,11 +1,11 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 
 import PackageDescription
 
 let package = Package(
     name: "PlayerDetailsAssets",
     defaultLocalization: "en",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v18)],
     products: [
         .library(
             name: "PlayerDetailsAssets",
@@ -21,5 +21,5 @@ let package = Package(
             name: "PlayerDetailsAssetsTests",
             dependencies: ["PlayerDetailsAssets"]),
     ],
-    swiftLanguageModes: [.version("6")]
+    swiftLanguageModes: [.v6]
 )

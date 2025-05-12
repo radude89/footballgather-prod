@@ -1,10 +1,10 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 
 import PackageDescription
 
 let package = Package(
     name: "History",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v18)],
     products: [
         .library(
             name: "History",
@@ -35,5 +35,5 @@ let package = Package(
             ]
         )
     ],
-    swiftLanguageModes: [.version("6")]
+    swiftLanguageModes: [.v6]
 )

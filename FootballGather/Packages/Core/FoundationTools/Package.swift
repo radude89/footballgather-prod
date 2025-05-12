@@ -1,10 +1,10 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 
 import PackageDescription
 
 let package = Package(
     name: "FoundationTools",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v18)],
     products: [
         .library(
             name: "FoundationTools",
@@ -36,5 +36,5 @@ let package = Package(
             dependencies: ["FoundationTools", "FoundationMocks"]
         )
     ],
-    swiftLanguageModes: [.version("6")]
+    swiftLanguageModes: [.v6]
 )
