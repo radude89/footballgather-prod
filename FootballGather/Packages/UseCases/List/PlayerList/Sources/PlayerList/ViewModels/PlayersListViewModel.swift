@@ -50,5 +50,5 @@ final class PlayersListViewModel {
     static func formattedRowTitle(for player: Player) -> String {
         player.name
     }
-    
+
 }

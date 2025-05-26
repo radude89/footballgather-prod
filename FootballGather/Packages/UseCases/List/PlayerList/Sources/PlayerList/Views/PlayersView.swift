@@ -14,14 +14,14 @@ import PlayerListAssets
 // MARK: - PlayersView
 
 public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: View {
-    
+
     private let viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
     private let viewModel: PlayersViewModel
-    
+
     @State private var showAddView = false
     @State private var showListView = false
     @State private var isEditing = false
-    
+
     public init(
         viewModel: PlayersViewModel,
         viewProvider: PlayersViewProvider<AddView, DetailsView, ConfirmView>
@@ -29,15 +29,17 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
         self.viewModel = viewModel
         self.viewProvider = viewProvider
     }
-    
+
     public var body: some View {
         NavigationStack {
             mainContent
                 .navigationTitle(LocalizedString.players)
                 .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        trailingBarButton
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        supportBarButton
+                        addBarButton
                     }
+
                     ToolbarItem(placement: .topBarLeading) {
                         Button {
                             withAnimation {
@@ -59,7 +61,7 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
         }
         .accessibilityID(viewModel.hasPlayers ? AccessibilityID.playerList : AccessibilityID.emptyView)
     }
-    
+
     @ViewBuilder
     private var mainContent: some View {
         if !showListView {
@@ -78,8 +80,8 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
             )
         }
     }
-    
-    private var trailingBarButton: some View {
+
+    private var addBarButton: some View {
         Button(action: { showAddView = true }) {
             Image(systemName: "plus")
                 .accessibility(removeTraits: .isImage)
@@ -92,5 +94,21 @@ public struct PlayersView<AddView: View, DetailsView: View, ConfirmView: View>: 
             Text(LocalizedString.addPlayerLabel)
         )
     }
-    
+
+    private var supportBarButton: some View {
+        Button {
+            Task {
+                await viewModel.onTapSupportButton()
+            }
+        }
+        label: {
+            Image(systemName: "questionmark.circle")
+                .accessibility(removeTraits: .isImage)
+        }
+        .accessibilityLabel(
+            Text(
+                LocalizedString.support
+            )
+        )
+    }
 }

@@ -14,9 +14,15 @@ import FoundationTools
 public final class PlayersViewModel {
     
     private(set) var storage: PlayerStorageHandler
+    private let urlOpener: URLOpener
+    private static let urlString = "https://footballgather.app/support"
 
-    public init(storage: PlayerStorageHandler) {
+    public init(
+        storage: PlayerStorageHandler,
+        urlOpener: URLOpener = UIApplication.shared
+    ) {
         self.storage = storage
+        self.urlOpener = urlOpener
     }
     
     var hasPlayers: Bool {
@@ -26,4 +32,14 @@ public final class PlayersViewModel {
     var storedPlayers: [Player] {
         storage.storedPlayers
     }
+
+    func onTapSupportButton() async {
+        guard let url = URL(string: Self.urlString),
+              urlOpener.canOpenURL(url) else {
+            return
+        }
+
+        await urlOpener.openURL(url)
+    }
+
 }
