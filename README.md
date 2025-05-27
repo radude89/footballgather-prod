@@ -1,39 +1,76 @@
-# Football Gather App
+# 📱 Football Gather App
 
 <p align="center">
-    <img src="assets/app-icon.png" alt="FootballGather App Icon" />
+    <img src="assets/app-icon.png" alt="FootballGather App Icon" width="35%" />
 </p>
 <p align="center">
-    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-6.0-orange.svg" alt="Swift 6.0" /></a>
-    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-16.0-blue.svg" alt="Xcode 16.0" /></a>
+    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-6.1-orange.svg" alt="Swift 6.1" /></a>
+    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-16.1-blue.svg" alt="Xcode 16.1" /></a>
 </p>
 
-## Requirements
+## ⬇️ Download
 
-- iOS 17.0+
+<p>
 
-## Tools
+[![Download on the App Store](https://img.shields.io/badge/Download_on_the-App_Store-black.svg?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/ro/app/football-gather/id1607436439)
 
-- Xcode & Swift to develop the project - https://developer.apple.com/xcode/
-- Swift Package Manager for modularisation - https://www.swift.org/package-manager/
-- GitHub Actions for the CI/CD pipelines - https://docs.github.com/en/actions
+</p>
+
+<p>
+
+[![Get it on Google Play](https://img.shields.io/badge/Get_it_on-Google_Play-green.svg?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.rdan.footballgather)
+
+</p>
+
+### Official Website
+Visit our website at [footballgather.app](https://footballgather.app/) for more information.
+
+## 🛠️ Requirements
+
+- minimum iOS 18.0
+
+## 🔧 Tools
+
+- Xcode & Swift for development - https://developer.apple.com/xcode/
+- Swift Package Manager for modularization - https://www.swift.org/package-manager/
+- GitHub Actions for CI/CD pipelines - https://docs.github.com/en/actions
 - fastlane for automating CI & distribution to TestFlight - https://fastlane.tools/
-- Bundler to execute the fastlane commands - https://bundler.io/
+- Bundler to execute fastlane commands - https://bundler.io/
 
-## Usage
+## 📖 Usage
 
-The project can be cloned from the repository. Make sure you use the correct Xcode version.  
+Clone the repository and ensure you have the correct Xcode version installed:  
 `git clone https://github.com/radude89/footballgather-prod.git`
 
-To run the project or unit tests, use the `FootballGather` scheme.   
-To run the UI tests, use `UITests` scheme.
+### 🚀 Running the App
 
-If you want to use fastlane, make sure you <a href="FootballGather/fastlane/README.md">read this</a>. The commands are:  
+1. Open the project in Xcode:
+   ```
+   open FootballGather.xcodeproj
+   ```
+2. Select a simulator or connected device from the scheme menu in Xcode's toolbar
+3. Select the `FootballGather` scheme
+4. Click the Run button (▶️) or press `Cmd + R` to build and run the app
+
+### 🧪 Running Tests
+
+To run the project or unit tests, use the `FootballGather` scheme:
+1. Select Product > Test from the menu bar, or
+2. Press `Cmd + U` to run the tests
+
+To run the UI tests, use the `UITests` scheme:
+1. Select the `UITests` scheme from the scheme menu
+2. Select Product > Test from the menu bar, or
+3. Press `Cmd + U` to run the UI tests
+
+### 🤖 Using Fastlane
+
+For fastlane usage, please <a href="FootballGather/fastlane/README.md">refer to this guide</a>. Available commands:  
 ```
-# Running the unit tests
+# Running unit tests
 bundle exec fastlane ios ut
 
-# Running the UI tests
+# Running UI tests
 bundle exec fastlane ios ui
 
 # Taking snapshots
@@ -43,34 +80,29 @@ bundle exec fastlane screenshots
 bundle exec fastlane bump_versions
 ```
 
-## App Store
-
-Link here: https://apps.apple.com/ro/app/football-gather/id1607436439.
-
-## Screens
+## 📱 Screens
 
 <p align="center">
     <img src="assets/screens.png" alt="All screens" />
 </p>
 
-## Demo
+## 🎮 Demo
 
 <p align="center">
     <img src="assets/demo.gif" alt="Demo" />
 </p>
 
-## Application Summary
+## 📝 Application Summary
 
-<p>Football Gather is your way to record matches that you play against your friends.</p>
-<p>Do you want to track the football matches that you play with your friends in an app? Football Gather is your way to go!</p>
+Football Gather helps you record and track matches that you play with your friends. 
 
-Available features:
-- Ability to add players
-- Set countdown timer for matches
-- Manage your score
-- View your past gathers
+Key features:
+- Player management
+- Customizable match countdown timer
+- Score tracking
+- Match history
 
-## Blog Articles
+## 📚 Blog Articles
 
 Article series - **Battle of the iOS Architecture Patterns**:
 - Model View Controller (MVC) - <a href="https://medium.com/p/442241b447f6">medium article here</a> or on <a href="https://radude89.com/blog/mvc.html">my personal blog</a>.
@@ -84,7 +116,7 @@ Other connected articles:
 - Using Vapor 3 and Fluent to create a REST API - <a href="https://medium.com/p/5f9a0dcffc7b">medium article here</a> or on <a href="https://radude89.com/blog/vapor.html"> my personal blog</a>.
 - Migrating to Vapor 4 - <a href="https://medium.com/p/53a821c29203">medium article here</a> or on <a href="https://radude89.com/blog/migrate-to-vapor4.html"> my personal blog</a>.
 
-## Definition of Done
+## ✅ Definition of Done
 
 - Acceptance Tests created.
 - Unit Tests created - aiming for 100% code coverage.
@@ -98,7 +130,7 @@ Other connected articles:
 - No known bugs are introduced into the product.
 - No design / UI issues are introduced into the product.
 
-## Kanban Board
+## 📋 Kanban Board
 
 All stories and the product backlog can be seen publicly here: https://trello.com/b/UTfCqxBK/football-gather.
 
@@ -106,42 +138,17 @@ All stories and the product backlog can be seen publicly here: https://trello.co
     <img src="assets/kaban.png" alt="Product Kanban" />
 </p>
 
-## Technical Notes
+## 📘 Technical Notes
 
-The architecture is modular and uses Swift packages. For the UI implementation, we used MVVM and SwiftUI.  
-We believe in the following engineering principles and best practices:
+The architecture is modular and leverages Swift packages. The UI implementation uses MVVM architecture pattern with SwiftUI.  
+We adhere to the following engineering principles and best practices:
 
-### SOLID Principles
+### 🏗️ App Structure
 
-> * **Single Responsibility Principle**: a class should have one, and only one, reason to change. Or the new version: a module should be responsible to one, and only one, actor.
-> * **Open-Closed Principle**: a class should be open for extension but closed for modification.
-> * **Liskov’s Substitution Principle**: objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
-> * **Interface Segregation Principle**: many client-specific interfaces are better than one general-purpose interface.
-> * **Dependency Inversion Principle**: one should depend upon abstractions, not concretions.
-
-### Component Cohesion Principles
-
-> * **Reuse/Release Equivalence Principle**: classes and modules (i.e. a component) reused together should be released together.
-> * **Common Closure Principle**: classes that change together should be grouped together, and vice versa. The single responsibility principle at component-level.
-> * **Common Reuse Principle**: don’t force users of a component to depend on things they don’t need. The interface segregation principle at component-level.
-
-### Component Coupling Principles
-
-> * **Acyclic Dependencies Principle**: no cycle in the dependency graph. Cycles couple components and, among other things, force them to be to released together. Use the dependency inversion principle to break cycles.
-> * **The Stable Dependency Principle**: less stable components should depend on more stable components. Depend in the direction of stability.
-> * **Stable Abstractions Principle**: stable components should be abstract, and vice versa. An example of an abstract stable component is a high-level policy which is changed by extension following the open-closed principle.
-
-Sources:
-* https://clevercoder.net/2018/09/08/clean-architecture-summary-review/.
-* https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
-* <a href="https://www.amazon.co.uk/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/ref=sr_1_1?crid=10IJB97O89XTI&keywords=clean+architecture&qid=1648092747&s=books&sprefix=clean+architecture%2Cstripbooks%2C103&sr=1-1">Clean Architecture book</a>.
-
-### App Structure
-
-The app consists of the following groups:
-* **App** - contains the entry point of the Football Gather and the `WindowGroup` that contains the `MainView`. It depends on the `Home` module.
-* **Core Packages** - the modules that don't depend on anything: `FoundationTools`, `UITools` and `CoreModels`.
-* **Use Cases** - these are the features of the application and are independent from one another.
+The app consists of the following components:
+* **App** - Contains the entry point of Football Gather and the `WindowGroup` that houses the `MainView`. It depends on the `Home` module.
+* **Core Packages** - Foundation modules with no dependencies: `FoundationTools`, `UITools`, and `CoreModels`.
+* **Use Cases** - Independent feature modules that implement the application's functionality.
 
 Below, we present the high-level diagram of the project's packages:
 
@@ -165,42 +172,72 @@ Notes:
   - **UITools**: is the package containing the helper files related to the application's UI.
   - **CoreModels**: this package contains the domain models of the app.
 
-### Key Tech Decisions
+### 🔑 Key Technical Decisions
 
-1. Using `SwiftUI` to implement the user interface.
-  - For learning purposes, I wanted to get a look & feel of the framework on a real application.
-2. Using MVVM for the UI implementation.
-  - Works natural with SwiftUI.
-3. Implementing the players selection with `UIKit`.
-  - Due to a limitation of SwiftUI to drag & drop rows in a multi-sectioned `List`, I took the decision to use `UIKit`.
+1. SwiftUI for user interface implementation
+  - Chosen to gain practical experience with the framework in a production environment
+2. MVVM architecture pattern for UI implementation
+  - Natural integration with SwiftUI
+3. UIKit implementation for player selection
+  - Implemented due to SwiftUI limitations with drag & drop functionality in multi-sectioned Lists
 
-### Testing approach
+### 🧪 Testing approach
 
 We use unit tests, integration tests and UI tests.  
 
 Snippets from **April, 2022**:
-- Total number of tests: **378**.
-  - Number of UT: **301**.
-  - Number of Integration Tests: **51**.
-  - Number of UI tests: **26**.
-- Code Coverage for unit and integration tests (just business logic files, without views)
-  - Core packages:
-    - CoreModels: **100%**, executable lines: **23**.
-    - FoundationTools: **100%**, executable lines: **278**.
-  - Use cases:
-    - TeamSelection: **94,86%**, executable lines: **175**.
-    - Gather: **99,18%**, executable lines: **486**.
-    - History: **100%**, executable lines: **93**.
-    - PlayerList: **100%**, executable lines: **149**.
-    - PlayerDetails: **100%**, executable lines: **88**.
-    - Home: **100%**, executable lines: **11**.
 
-## Contributions & Support
+#### Test Distribution
+
+| Test Type | Count |
+|-----------|-------|
+| Unit Tests | 301 |
+| Integration Tests | 51 |
+| UI Tests | 26 |
+| **Total** | **378** |
+
+#### Code Coverage
+
+| Package | Coverage | Executable Lines |
+|---------|----------|-----------------|
+| **Core Packages** | | |
+| CoreModels | 100% | 23 |
+| FoundationTools | 100% | 278 |
+| **Use Cases** | | |
+| TeamSelection | 94.86% | 175 |
+| Gather | 99.18% | 486 |
+| History | 100% | 93 |
+| PlayerList | 100% | 149 |
+| PlayerDetails | 100% | 88 |
+| Home | 100% | 11 |
+
+> Note: Coverage metrics include only business logic files, excluding views.
+
+## 🤝 Contributions & Support
 
 Football Gather is developed as an open source project. I encourage everyone to contribute.   
 Please do make pull requests if you have suggestions or ideas of improvement.   
 Thanks!
 
-## License
+## 👨‍💻 About the Author
+
+Hi! I'm **Radu Dan**, a Staff iOS Engineer with over 13 years of experience in mobile development. I'm passionate about crafting high-quality iOS applications and sharing knowledge with the developer community.
+
+### 🎯 Professional Background
+- Currently Staff iOS Engineer at Qonto
+- Previously Mobile Lead at Deloitte Digital Romania
+- Over 6 years of experience in fintech projects
+
+### 🚀 Other Apps
+Besides Football Gather, I've developed several other indie apps:
+- [CarChum](https://apps.apple.com/us/app/carchum/id6465991938) - Your friendly vehicle helper
+- [n0chanc3](https://apps.apple.com/us/app/n0chanc3/id6742768684) - A visually engaging word puzzle game
+
+### 📱 Connect With Me
+- Personal Website: [radude89.com](https://www.radude89.com)
+- LinkedIn: [Radu Dan](https://www.linkedin.com/in/radu-dan-b0182349/)
+- Email: rdan.dev@gmail.com
+
+## 📄 License
 
 Football Gather source code is released under the MIT license. [See LICENSE](https://github.com/radude89/footballgather-prod/blob/main/LICENSE) for details.
