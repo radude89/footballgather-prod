@@ -15,7 +15,7 @@ public final class PlayersViewModel {
     
     private(set) var storage: PlayerStorageHandler
     private let urlOpener: URLOpener
-    private static let urlString = "https://footballgather.app/support"
+    private static let urlString = "https://footballgather.app/support.html"
 
     public init(
         storage: PlayerStorageHandler,
