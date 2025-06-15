@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
-gem "fastlane", "~> 2.227.2"
+gem "fastlane"
 gem "xcode-install"
-gem "rexml", "~> 3.2.5"
+gem "rexml"
+gem "abbrev"

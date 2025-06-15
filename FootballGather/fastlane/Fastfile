@@ -1,12 +1,12 @@
 default_platform(:ios)
 
 before_all do
-  xcversion(version: "~> 16.1")
+  xcversion(version: "~> 16.4")
   clear_derived_data
 end
 
 SIMULATORS = [
-  'iPhone SE (3rd generation) (18.4)'
+  'iPhone SE (3rd generation) (18.5)'
 ]
 
 platform :ios do
