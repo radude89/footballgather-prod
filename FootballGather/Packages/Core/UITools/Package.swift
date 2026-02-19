@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "UITools",
-    platforms: [.iOS(.v18)],
+    platforms: [.iOS("26.0")],
     products: [
         .library(
             name: "UITools",

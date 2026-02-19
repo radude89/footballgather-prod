@@ -44,10 +44,14 @@ public struct PlayerDetailsView: View {
         )
             .interactiveDismissDisabled(true)
             .navigationBarTitle(viewModel.formattedNavigationBarTitle)
-            .navigationBarItems(
-                leading: viewModel.showLeadingBarItem ? cancelButton : nil,
-                trailing: saveButton
-            )
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    if viewModel.showLeadingBarItem { cancelButton }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    saveButton
+                }
+            }
             .confirmationAlert(
                 isPresented: $showConfirmationAlert,
                 title: LocalizedString.discardConfirmation,

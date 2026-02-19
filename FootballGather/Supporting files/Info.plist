@@ -27,15 +27,9 @@
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<true/>
 	</dict>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>UILaunchScreen</key>
+<key>UILaunchScreen</key>
 	<dict/>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
+<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

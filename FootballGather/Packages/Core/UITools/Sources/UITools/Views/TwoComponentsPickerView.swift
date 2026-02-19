@@ -30,7 +30,7 @@ public struct TwoComponentsPickerView: View {
             }
         }
         .padding()
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
     }
     
     private var components: [TwoComponentsPickerViewDataSource.Component] {

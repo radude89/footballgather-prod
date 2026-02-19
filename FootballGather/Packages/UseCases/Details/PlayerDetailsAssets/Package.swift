@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "PlayerDetailsAssets",
     defaultLocalization: "en",
-    platforms: [.iOS(.v18)],
+    platforms: [.iOS("26.0")],
     products: [
         .library(
             name: "PlayerDetailsAssets",
