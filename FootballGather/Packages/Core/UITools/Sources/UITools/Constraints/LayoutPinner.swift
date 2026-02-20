@@ -14,7 +14,7 @@ public enum LayoutPinner {
         _ view: UIView,
         to anotherView: UIView,
         usingSafeLayoutGuide: Bool = true,
-        spacing: CGFloat = 0
+        spacing: CGFloat = .zero
     ) {
         let topAnchor = usingSafeLayoutGuide ?
         anotherView.safeAreaLayoutGuide.topAnchor :
@@ -33,7 +33,7 @@ public enum LayoutPinner {
         _ view: UIView,
         to anotherView: UIView,
         usingSafeLayoutGuide: Bool = false,
-        spacing: CGFloat
+        spacing: CGFloat = .zero
     ) {
         let bottomAnchor = usingSafeLayoutGuide ?
         anotherView.safeAreaLayoutGuide.bottomAnchor :
@@ -51,7 +51,7 @@ public enum LayoutPinner {
     public static func leading(
         _ view: UIView,
         to anotherView: UIView,
-        spacing: CGFloat = 0
+        spacing: CGFloat = .zero
     ) {
         view
             .leadingAnchor
@@ -65,7 +65,7 @@ public enum LayoutPinner {
     public static func trailing(
         _ view: UIView,
         to anotherView: UIView,
-        spacing: CGFloat = 0
+        spacing: CGFloat = .zero
     ) {
         view
             .trailingAnchor

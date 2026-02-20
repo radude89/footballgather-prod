@@ -33,15 +33,23 @@ final class ConfirmPlayersViewController: UIViewController, @unchecked Sendable 
         return tableView
     }()
     
-    private let startGatherButton = ButtonFactory.makeSystemButton(
-        title: LocalizedString.startGather,
-        isEnabled: false,
-        accessibilityID: AccessibilityID.startGatherButton.rawValue,
-        accessibilityHint: LocalizedString.startGatherHint,
-        selector: #selector(startGather)
-    )
+    @ObservedObject private var buttonState = StartGatherButtonState()
     
-    @objc private func startGather() {
+    private lazy var startGatherButton: UIView = {
+        let button = StartGatherButtonView(
+            state: buttonState,
+            action: { [weak self] in
+                self?.startGather()
+            }
+        )
+        
+        let hostingController = UIHostingController(rootView: button)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        hostingController.view.backgroundColor = .clear
+        return hostingController.view
+    }()
+    
+    private func startGather() {
         gatherCoordinator.startGather(
             from: self,
             playersTeams: viewModel.playersTeams,
@@ -63,6 +71,22 @@ final class ConfirmPlayersViewController: UIViewController, @unchecked Sendable 
         setupViews()
         setupHierarchy()
         setupConstraints()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateTableViewContentInset()
+    }
+    
+    private func updateTableViewContentInset() {
+        let buttonHeight = startGatherButton.frame.height
+        tableView.contentInset = UIEdgeInsets(
+            top: .zero,
+            left: .zero,
+            bottom: buttonHeight + 8,
+            right: .zero
+        )
+        tableView.scrollIndicatorInsets = tableView.contentInset
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -95,19 +119,13 @@ private extension ConfirmPlayersViewController {
         LayoutPinner.top(tableView, to: view, usingSafeLayoutGuide: true)
         LayoutPinner.leading(tableView, to: view)
         LayoutPinner.trailing(tableView, to: view)
-        
-        tableView
-            .bottomAnchor
-            .constraint(equalTo: startGatherButton.topAnchor)
-            .isActive = true
+        LayoutPinner.bottom(tableView, to: view, usingSafeLayoutGuide: true)
     }
     
     func setupStartGatherButtonConstraints() {
         LayoutPinner.leading(startGatherButton, to: view)
         LayoutPinner.trailing(startGatherButton, to: view)
-        
-        let bottomSpacing: CGFloat = 10
-        LayoutPinner.bottom(startGatherButton, to: view, spacing: -bottomSpacing)
+        LayoutPinner.bottom(startGatherButton, to: view, usingSafeLayoutGuide: true)
     }
 }
 
@@ -175,7 +193,7 @@ extension ConfirmPlayersViewController: UITableViewDataSource {
         to destinationIndexPath: IndexPath
     ) {
         viewModel.move(from: sourceIndexPath, to: destinationIndexPath)
-        startGatherButton.isEnabled = viewModel.startGatherIsEnabled
+        buttonState.isEnabled = viewModel.startGatherIsEnabled
     }
 }
 
@@ -196,3 +214,27 @@ extension ConfirmPlayersViewController: UITableViewDelegate {
         false
     }
 }
+// MARK: - StartGatherButtonState
+
+final class StartGatherButtonState: ObservableObject {
+    @Published var isEnabled: Bool = false
+}
+
+// MARK: - StartGatherButtonView
+
+struct StartGatherButtonView: View {
+    @ObservedObject var state: StartGatherButtonState
+    let action: () -> Void
+    
+    var body: some View {
+        GlassIconButton(
+            icon: "arrow.right.circle.fill",
+            tint: state.isEnabled ? .green : .gray,
+            accessibilityID: AccessibilityID.startGatherButton.rawValue,
+            accessibilityLabel: LocalizedString.startGatherHint,
+            action: action
+        )
+        .disabled(!state.isEnabled)
+    }
+}
+
