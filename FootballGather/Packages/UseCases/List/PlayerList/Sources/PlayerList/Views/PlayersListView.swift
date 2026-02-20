@@ -32,26 +32,26 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     }
     
     var body: some View {
-        VStack {
-            playerList
-            confirmPlayersButton
-        }
-        .navigationDestination(
-            isPresented: $isShowingConfirmPlayersView
-        ) {
-            confirmView
-        }
-        .alert(
-            LocalizedString.gatherCompleteTitle,
-            isPresented: $gatherEnded,
-            actions: {
-                Button(LocalizedString.ok, role: .cancel, action: {
-                    isShowingConfirmPlayersView = false
-                })
-            }, message: {
-                Text(LocalizedString.gatherCompleteMessage)
+        playerList
+            .safeAreaInset(edge: .bottom) {
+                confirmPlayersButton
             }
-        )
+            .navigationDestination(
+                isPresented: $isShowingConfirmPlayersView
+            ) {
+                confirmView
+            }
+            .alert(
+                LocalizedString.gatherCompleteTitle,
+                isPresented: $gatherEnded,
+                actions: {
+                    Button(LocalizedString.ok, role: .cancel, action: {
+                        isShowingConfirmPlayersView = false
+                    })
+                }, message: {
+                    Text(LocalizedString.gatherCompleteMessage)
+                }
+            )
     }
     
     private var playerList: some View {
@@ -82,7 +82,6 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
                 disableEditModeIfNeeded()
             }
         }
-        .listStyle(.plain)
     }
     
     private func makeListRow(for player: Player) -> some View {
@@ -111,11 +110,13 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     }
     
     private var confirmPlayersButton: some View {
-        Button(LocalizedString.confirmPlayersTitle) {
+        GlassIconButton(
+            icon: "arrow.right.circle.fill",
+            accessibilityID: AccessibilityID.confirmButton.rawValue,
+            accessibilityLabel: LocalizedString.confirmPlayersTitle
+        ) {
             isShowingConfirmPlayersView = true
         }
-        .accessibilityID(AccessibilityID.confirmButton)
-        .padding(.bottom)
     }
     
 }
