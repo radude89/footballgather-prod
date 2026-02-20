@@ -17,20 +17,19 @@ public struct TwoComponentsPickerView: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 0) {
+            HStack(spacing: 16) {
                 ForEach(components) { component in
                     makePickerView(
                         labelled: component.name,
                         selection: component.$selectedValue,
                         values: component.values,
-                        width: geometry.size.width / CGFloat(components.count)
+                        width: max(0, (geometry.size.width - 48) / CGFloat(components.count))
                     )
-                        .accessibilityIdentifier(component.accessibilityID)
+                    .accessibilityIdentifier(component.accessibilityID)
                 }
             }
+            .padding(16)
         }
-        .padding()
-        .ignoresSafeArea()
     }
     
     private var components: [TwoComponentsPickerViewDataSource.Component] {
@@ -43,10 +42,12 @@ public struct TwoComponentsPickerView: View {
         values: [String],
         width: CGFloat
     ) -> some View {
-        VStack {
+        VStack(spacing: 12) {
             Picker(label, selection: selection) {
                 ForEach(values, id: \.self)  { value in
                     Text("\(value)")
+                        .font(.title3)
+                        .fontWeight(.medium)
                 }
             }
             .pickerStyle(.wheel)
@@ -55,7 +56,24 @@ public struct TwoComponentsPickerView: View {
             .clipped()
             
             Text(label)
+                .font(.caption)
+                .fontWeight(.semibold)
+                .textCase(.uppercase)
+                .foregroundStyle(.secondary)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background {
+                    Capsule()
+                        .fill(.tint.opacity(0.15))
+                }
+                .glassEffect(.regular, in: .capsule)
         }
+        .padding(.vertical, 16)
+        .background {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.background.secondary)
+        }
+        .glassEffect(.regular, in: .rect(cornerRadius: 20))
     }
     
 }
