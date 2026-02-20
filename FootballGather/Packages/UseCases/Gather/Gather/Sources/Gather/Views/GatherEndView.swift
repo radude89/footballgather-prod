@@ -35,9 +35,13 @@ struct GatherEndView: View {
     private var endGatherButton: some View {
         Button(
             LocalizedString.endGather,
-            role: .cancel,
             action: presentEndGatherConfirmationAlert
         )
+            .buttonStyle(.glass)
+            .controlSize(.large)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 20)
             .accessibilityID(AccessibilityID.endGatherButton)
     }
     

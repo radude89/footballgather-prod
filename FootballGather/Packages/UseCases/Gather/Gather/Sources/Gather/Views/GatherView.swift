@@ -9,6 +9,9 @@ import SwiftUI
 import GatherAssets
 import CoreModels
 import FoundationTools
+#if DEBUG
+import FoundationMocks
+#endif
 
 public struct GatherView: View {
     
@@ -32,34 +35,33 @@ public struct GatherView: View {
     }
     
     public var body: some View {
-        VStack {
-            ScrollView {
-                gatherViewContent
+        ScrollView {
+            VStack(spacing: 24) {
+                ScoreView(viewModel: scoreViewModel)
+                
+                TimerView(viewModel: .init(timeSettings: timeSettings)) {
+                    showingSetTimerView = true
+                }
+                
+                GatherPlayersView(
+                    viewModel: .init(playersTeams: viewModel.playersTeams)
+                )
+                .padding(.horizontal)
             }
+            .padding(.top, 16)
+            .padding(.bottom, 24)
+        }
+        .scrollContentBackground(.hidden)
+        .safeAreaInset(edge: .bottom) {
             GatherEndView(completion: onCompleteGather)
         }
+        .background(Color(uiColor: .systemGroupedBackground))
         .sheet(isPresented: $showingSetTimerView) {
             setTimerView
         }
         .environment(timeSettings)
-        .padding(.bottom)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
-    }
-    
-    private var gatherViewContent: some View {
-        VStack {
-            ScoreView(viewModel: scoreViewModel)
-            
-            TimerView(viewModel: .init(timeSettings: timeSettings)) {
-                showingSetTimerView = true
-            }
-            
-            GatherPlayersView(
-                viewModel: .init(playersTeams: viewModel.playersTeams)
-            )
-                .scaledToFill()
-        }
     }
     
     private var setTimerView: some View {
@@ -80,3 +82,31 @@ public struct GatherView: View {
     }
     
 }
+
+#if DEBUG
+#Preview {
+    @Previewable @State var gatherEnded = false
+    
+    return NavigationStack {
+        GatherView(
+            storage: Mocks.storage,
+            gatherEnded: $gatherEnded,
+            viewModel: .init(
+                playersTeams: [
+                    .teamA: [
+                        Player(name: "John"),
+                        Player(name: "Jane"),
+                        Player(name: "Arthur")
+                    ],
+                    .teamB: [
+                        Player(name: "Michael"),
+                        Player(name: "Sarah"),
+                        Player(name: "David")
+                    ]
+                ]
+            )
+        )
+    }
+}
+#endif
+

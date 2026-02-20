@@ -19,22 +19,55 @@ struct GatherPlayersView: View {
     }
     
     var body: some View {
-        List {
+        VStack(spacing: 20) {
             section(for: .teamA)
             section(for: .teamB)
         }
-        .listStyle(.grouped)
         .accessibilityID(AccessibilityID.gatherPlayersList)
     }
     
     private func section(for team: Team) -> some View {
-        Section(
-            header: Text(viewModel.sectionName(for: team))
-        ) {
-            ForEach(viewModel.players(in: team)) { player in
-                Text(player.name)
+        VStack(alignment: .leading, spacing: 12) {
+            Text(viewModel.sectionName(for: team))
+                .font(.headline)
+                .fontWeight(.bold)
+                .foregroundStyle(.primary)
+            
+            VStack(spacing: 8) {
+                ForEach(viewModel.players(in: team)) { player in
+                    HStack {
+                        Text(player.name)
+                        Spacer()
+                    }
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 12)
+                    .background(Color(uiColor: .secondarySystemGroupedBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
+}
+
+#Preview {
+    GatherPlayersView(
+        viewModel: .init(
+            playersTeams: [
+                .teamA: [
+                    Player(name: "John"),
+                    Player(name: "Jane"),
+                    Player(name: "Arthur")
+                ],
+                .teamB: [
+                    Player(name: "Michael"),
+                    Player(name: "Sarah"),
+                    Player(name: "David")
+                ]
+            ]
+        )
+    )
+    .padding()
+    .background(Color(uiColor: .systemGroupedBackground))
 }
