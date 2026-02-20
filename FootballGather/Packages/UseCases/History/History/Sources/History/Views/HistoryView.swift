@@ -40,13 +40,16 @@ public struct HistoryView: View {
         List {
             ForEach(viewModel.gathers) { gather in
                 row(for: gather)
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
             }
             .onDelete {
                 viewModel.deleteGather(at: $0)
                 disableEditModeIfNeeded()
             }
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.plain)
         .accessibilityID(AccessibilityID.historyView)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -71,32 +74,65 @@ public struct HistoryView: View {
     }
     
     private func row(for gather: Gather) -> some View {
-        HStack {
+        HStack(alignment: .center, spacing: 16) {
             VStack(
                 alignment: .leading,
-                spacing: 10
+                spacing: 16
             ) {
-                makePlayerRowDescription(
-                    for: gather,
-                    teamDescription: TeamARowDescription(viewModel: viewModel)
+                teamSection(
+                    players: makePlayerRowDescription(
+                        for: gather,
+                        teamDescription: TeamARowDescription(viewModel: viewModel)
+                    )
                 )
                 
-                Text(LocalizedString.vs)
-                    .font(.headline)
+                Divider()
+                    .padding(.horizontal, -8)
                 
-                makePlayerRowDescription(
-                    for: gather,
-                    teamDescription: TeamBRowDescription(viewModel: viewModel)
+                teamSection(
+                    players: makePlayerRowDescription(
+                        for: gather,
+                        teamDescription: TeamBRowDescription(viewModel: viewModel)
+                    )
                 )
             }
             
             Spacer()
             
-            Text(viewModel.scoreDescription(for: gather))
+            scoreView(for: gather)
         }
-        .padding([.top, .bottom])
+        .padding(20)
+        .background {
+            RoundedRectangle(cornerRadius: 16)
+                .fill(.background)
+                .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 2)
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(.separator.opacity(0.5), lineWidth: 1)
+        }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(viewModel.accessibilityLabel(for: gather))
+    }
+    
+    private func teamSection<Content: View>(players: Content) -> some View {
+        players
+            .font(.body)
+            .foregroundStyle(.primary)
+    }
+    
+    private func scoreView(for gather: Gather) -> some View {
+        Text(viewModel.scoreDescription(for: gather))
+            .font(.title2)
+            .fontWeight(.semibold)
+            .foregroundStyle(.primary)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(.tint.opacity(0.1))
+            }
+            .glassEffect(.regular, in: .rect(cornerRadius: 12))
     }
     
     private func makePlayerRowDescription(
