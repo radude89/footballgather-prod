@@ -29,17 +29,6 @@ platform :ios do
     )
   end
 
-  desc "Takes screenshots"
-  lane :screenshots do
-    capture_ios_screenshots(
-      clear_previous_screenshots: true
-    )
-
-    capture_ios_screenshots(
-      dark_mode: true
-    )
-  end
-
   desc "Distributes IPA to AppStore"
   lane :distribute_release_app do
     setup_ci

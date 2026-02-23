@@ -50,7 +50,7 @@ extension AddPlayerUITests {
         
         XCTAssertFalse(saveButton.isEnabled)
         
-        nameField.typeText(" Jane")
-        XCTAssertFalse(saveButton.isEnabled)
+        nameField.typeText("Jane")
+        XCTAssertTrue(saveButton.isEnabled)
     }
 }

@@ -12,20 +12,21 @@ import PlayerListAssets
 import TeamSelectionAssets
 import GatherAssets
 
-final class Snapshots: XCTestCase, @unchecked Sendable {
+@MainActor
+final class Snapshots: XCTestCase {
     
     // MARK: - Setup
     
     private var app: XCUIApplication!
     
-    override func setUp() {
-        super.setUp()
+    override func setUp() async throws {
+        try await super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
     }
 
     override func tearDown() async throws {
-        await app.terminate()
+        app.terminate()
         try await super.tearDown()
     }
     
@@ -53,7 +54,7 @@ final class Snapshots: XCTestCase, @unchecked Sendable {
         // Gather screen
         app.buttons[.startGatherButton].tap()
         handlePermissionAlert()
-        XCTAssertTrue(app.collectionViews[.gatherPlayersList].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons[.endGatherButton].waitForExistence(timeout: 5))
 
         setScore()
         takeSnapshot(named: "04-gather")
@@ -92,12 +93,13 @@ private extension Snapshots {
     }
     
     func movePlayers() {
-        let confirmTable = app.tables[.confirmPlayersView]
-        
-        app.buttons["Reorder John"]
-            .press(forDuration: 0.3, thenDragTo: confirmTable.staticTexts["TEAM A"])
-        app.buttons["Reorder Jane"]
-            .press(forDuration: 0.3, thenDragTo: confirmTable.staticTexts["TEAM B"])
+        let confirmView = app.collectionViews[AccessibilityID.confirmPlayersView.rawValue]
+
+        confirmView.cells.containing(.staticText, identifier: "John").firstMatch.tap()
+        app.buttons["\(AccessibilityID.moveToTeamButton.rawValue)-Team A"].tap()
+
+        confirmView.cells.containing(.staticText, identifier: "Jane").firstMatch.tap()
+        app.buttons["\(AccessibilityID.moveToTeamButton.rawValue)-Team B"].tap()
     }
     
     func setScore() {
@@ -119,7 +121,6 @@ private extension Snapshots {
 
 // MARK: - Permissions Alert
 
-@MainActor
 private extension Snapshots {
     func addUIInterruptionMonitor() {
         addUIInterruptionMonitor(
