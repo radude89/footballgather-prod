@@ -8,14 +8,17 @@
 import SwiftUI
 import CoreModels
 import TeamSelection
+import Gather
 import FoundationTools
 
 struct ConfirmPlayersContainerView: View {
-    
+
     private let storage: FoundationTools.AppStorage
     private let players: [Player]
     private let gatherEnded: Binding<Bool>
-    
+
+    @State private var gatherPlayersTeams: [Team: [Player]]?
+
     init(
         storage: FoundationTools.AppStorage,
         players: [Player],
@@ -25,15 +28,28 @@ struct ConfirmPlayersContainerView: View {
         self.players = players
         self.gatherEnded = gatherEnded
     }
-    
+
     var body: some View {
         ConfirmPlayersView(
             players: players,
             gatherCoordinator: GatherCoordinator(
-                gatherEnded: gatherEnded,
-                storage: storage
+                gatherPlayersTeams: $gatherPlayersTeams
             )
         )
+        .navigationDestination(
+            isPresented: Binding(
+                get: { gatherPlayersTeams != nil },
+                set: { if !$0 { gatherPlayersTeams = nil } }
+            )
+        ) {
+            if let playersTeams = gatherPlayersTeams {
+                GatherView(
+                    storage: storage,
+                    gatherEnded: gatherEnded,
+                    viewModel: .init(playersTeams: playersTeams)
+                )
+            }
+        }
     }
-    
+
 }

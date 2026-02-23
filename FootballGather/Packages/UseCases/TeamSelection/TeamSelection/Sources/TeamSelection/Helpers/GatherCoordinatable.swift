@@ -5,24 +5,14 @@
 //  Created by Radu Dan on 08.02.2022.
 //
 
-import UIKit
-import SwiftUI
 import CoreModels
 
 @MainActor
 public protocol GatherCoordinatable {
-    func startGather(
-        from parent: UIViewController,
-        playersTeams: [Team: [Player]],
-        animated: Bool
-    )
+    func startGather(playersTeams: [Team: [Player]])
 }
 
 @MainActor
 struct EmptyGatherCoordinator: GatherCoordinatable {
-    func startGather(
-        from parent: UIViewController,
-        playersTeams: [Team : [Player]],
-        animated: Bool
-    ) {}
+    func startGather(playersTeams: [Team: [Player]]) {}
 }
