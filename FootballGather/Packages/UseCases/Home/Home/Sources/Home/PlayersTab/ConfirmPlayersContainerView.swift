@@ -10,23 +10,26 @@ import CoreModels
 import TeamSelection
 import Gather
 import FoundationTools
+import PlayerListAssets
 
 struct ConfirmPlayersContainerView: View {
 
     private let storage: FoundationTools.AppStorage
     private let players: [Player]
-    private let gatherEnded: Binding<Bool>
+
+    @Binding private var isPresented: Bool
 
     @State private var gatherPlayersTeams: [Team: [Player]]?
+    @State private var gatherEnded = false
 
     init(
         storage: FoundationTools.AppStorage,
         players: [Player],
-        gatherEnded: Binding<Bool>
+        isPresented: Binding<Bool>
     ) {
         self.storage = storage
         self.players = players
-        self.gatherEnded = gatherEnded
+        _isPresented = isPresented
     }
 
     var body: some View {
@@ -45,11 +48,22 @@ struct ConfirmPlayersContainerView: View {
             if let playersTeams = gatherPlayersTeams {
                 GatherView(
                     storage: storage,
-                    gatherEnded: gatherEnded,
+                    gatherEnded: $gatherEnded,
                     viewModel: .init(playersTeams: playersTeams)
                 )
             }
         }
+        .alert(
+            LocalizedString.gatherCompleteTitle,
+            isPresented: $gatherEnded,
+            actions: {
+                Button(LocalizedString.ok, role: .cancel) {
+                    isPresented = false
+                }
+            }, message: {
+                Text(LocalizedString.gatherCompleteMessage)
+            }
+        )
     }
 
 }

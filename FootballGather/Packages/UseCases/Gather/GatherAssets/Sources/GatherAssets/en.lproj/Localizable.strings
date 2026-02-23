@@ -20,3 +20,5 @@
 "time.is.up.title" = "Time's up!";
 "time.is.up.message" = "Your gather ran out of time.";
 "ok" = "OK";
+"back.gather.confirmation" = "Do you want to go back?";
+"back.gather.message" = "Your gather is in progress. Going back will discard it.";

@@ -23,4 +23,6 @@ public enum LocalizedString {
 	public static let timeIsUpTitle = NSLocalizedString("time.is.up.title", bundle: .module, comment: "")
 	public static let timeIsUpMessage = NSLocalizedString("time.is.up.message", bundle: .module, comment: "")
 	public static let ok = NSLocalizedString("ok", bundle: .module, comment: "")
+	public static let backGatherConfirmation = NSLocalizedString("back.gather.confirmation", bundle: .module, comment: "")
+	public static let backGatherMessage = NSLocalizedString("back.gather.message", bundle: .module, comment: "")
 }

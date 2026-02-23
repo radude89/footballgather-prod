@@ -63,12 +63,12 @@ struct PlayersTabView {
     
     private func confirmPlayersContainerView(
         players: [Player],
-        gatherEnded: Binding<Bool>
+        isPresented: Binding<Bool>
     ) -> ConfirmPlayersContainerView {
         .init(
             storage: storage,
             players: players,
-            gatherEnded: gatherEnded
+            isPresented: isPresented
         )
     }
     

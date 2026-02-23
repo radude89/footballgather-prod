@@ -9,6 +9,7 @@ import SwiftUI
 import GatherAssets
 import CoreModels
 import FoundationTools
+import UITools
 #if DEBUG
 import FoundationMocks
 #endif
@@ -20,7 +21,10 @@ public struct GatherView: View {
     
     @Binding private var gatherEnded: Bool
     
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var showingSetTimerView = false
+    @State private var showingBackConfirmation = false
     @State private var timeSettings = TimeSettings()
     @State private var scoreViewModel = ScoreViewModel()
     
@@ -62,6 +66,24 @@ public struct GatherView: View {
         .environment(timeSettings)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    showingBackConfirmation = true
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
+            }
+        }
+        .confirmationAlert(
+            isPresented: $showingBackConfirmation,
+            title: LocalizedString.backGatherConfirmation,
+            message: LocalizedString.backGatherMessage,
+            cancelTitle: LocalizedString.no,
+            confirmActionTitle: LocalizedString.yes
+        ) {
+            dismiss()
+        }
     }
     
     private var setTimerView: some View {

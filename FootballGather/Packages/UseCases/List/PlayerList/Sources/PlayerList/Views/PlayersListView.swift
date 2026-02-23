@@ -19,7 +19,6 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     private let viewProvider: PlayersListViewProvider<DetailsView, ConfirmView>
     
     @State private var isShowingConfirmPlayersView = false
-    @State private var gatherEnded = false
     
     @Binding var isEditing: Bool
     
@@ -41,17 +40,6 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
             ) {
                 confirmView
             }
-            .alert(
-                LocalizedString.gatherCompleteTitle,
-                isPresented: $gatherEnded,
-                actions: {
-                    Button(LocalizedString.ok, role: .cancel, action: {
-                        isShowingConfirmPlayersView = false
-                    })
-                }, message: {
-                    Text(LocalizedString.gatherCompleteMessage)
-                }
-            )
     }
     
     private var playerList: some View {
@@ -102,11 +90,8 @@ struct PlayersListView<DetailsView: View, ConfirmView: View>: View {
     }
     
     private var confirmView: some View {
-        viewProvider.confirmPlayersView(
-            viewModel.players,
-            $gatherEnded
-        )
-        .navigationTitle(LocalizedString.confirmPlayersTitle)
+        viewProvider.confirmPlayersView(viewModel.players, $isShowingConfirmPlayersView)
+            .navigationTitle(LocalizedString.confirmPlayersTitle)
     }
     
     private var confirmPlayersButton: some View {
