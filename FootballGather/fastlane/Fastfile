@@ -5,7 +5,7 @@ before_all do
 end
 
 SIMULATORS = [
-  'iPhone SE (3rd generation)'
+  'iPhone 17 (26.2)'
 ]
 
 platform :ios do
