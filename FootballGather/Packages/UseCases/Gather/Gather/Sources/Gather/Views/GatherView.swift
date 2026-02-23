@@ -43,9 +43,12 @@ public struct GatherView: View {
             VStack(spacing: 24) {
                 ScoreView(viewModel: scoreViewModel)
                 
-                TimerView(viewModel: timerViewModel) {
+                TimerView(viewModel: timerViewModel, setTimeAction: {
                     showingSetTimerView = true
-                }
+                }, endGatherAction: {
+                    onCompleteGather()
+                    dismiss()
+                })
                 
                 GatherPlayersView(
                     viewModel: .init(playersTeams: viewModel.playersTeams)

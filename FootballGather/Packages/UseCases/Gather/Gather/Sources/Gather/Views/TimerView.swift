@@ -17,10 +17,16 @@ struct TimerView: View {
     
     @Bindable private var viewModel: TimerViewModel
     private let setTimeAction: () -> Void
+    private let endGatherAction: () -> Void
     
-    init(viewModel: TimerViewModel, setTimeAction: @escaping () -> Void) {
+    init(
+        viewModel: TimerViewModel,
+        setTimeAction: @escaping () -> Void,
+        endGatherAction: @escaping () -> Void
+    ) {
         self.viewModel = viewModel
         self.setTimeAction = setTimeAction
+        self.endGatherAction = endGatherAction
     }
     
     var body: some View {
@@ -49,6 +55,9 @@ struct TimerView: View {
         }
         .glassEffect(.regular, in: .rect(cornerRadius: 24))
         .alert(LocalizedString.timeIsUpTitle, isPresented: $viewModel.timeIsUp) {
+            Button(LocalizedString.endGather) {
+                endGatherAction()
+            }
             Button(LocalizedString.ok, role: .cancel) {}
         }
         .onChange(of: scenePhase, { _, newValue in
@@ -112,7 +121,8 @@ struct TimerView: View {
 #Preview("Timer - Stopped") {
     TimerView(
         viewModel: TimerViewModel(timeSettings: TimeSettings(remainingTimeInSeconds: 3600)),
-        setTimeAction: {}
+        setTimeAction: {},
+        endGatherAction: {}
     )
     .environment(TimeSettings(remainingTimeInSeconds: 3600))
     .padding()
@@ -124,7 +134,8 @@ struct TimerView: View {
     
     return TimerView(
         viewModel: viewModel,
-        setTimeAction: {}
+        setTimeAction: {},
+        endGatherAction: {}
     )
     .environment(timeSettings)
     .padding()
@@ -138,7 +149,8 @@ struct TimerView: View {
     
     return TimerView(
         viewModel: viewModel,
-        setTimeAction: {}
+        setTimeAction: {},
+        endGatherAction: {}
     )
     .environment(timeSettings)
     .padding()
