@@ -34,14 +34,14 @@ final class NameValidatorTests: XCTestCase {
         }
     }
     
-    func testIsValid_whenStartsWithSpaces_isFalse() {
-        XCTAssertFalse(
+    func testIsValid_whenStartsWithSpaces_isTrue() {
+        XCTAssertTrue(
             NameValidator(name: " John").isValid
         )
-        XCTAssertFalse(
+        XCTAssertTrue(
             NameValidator(name: " John Smith").isValid
         )
-        XCTAssertFalse(
+        XCTAssertTrue(
             NameValidator(name: " 🥁").isValid
         )
     }

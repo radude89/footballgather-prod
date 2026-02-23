@@ -36,13 +36,13 @@ final class PlayerDetailsViewModelTests: XCTestCase {
     }
     
     @MainActor
-    func testPlayerIsValid_whenNameStartsWithSpace_isFalse() {
+    func testPlayerIsValid_whenNameStartsWithSpace_isTrue() {
         PlayerDetailsViewModel.State.allCases.forEach { state in
             let sut = makeSUT(state: state)
             
             sut.selectedPlayer.name = " Thomas"
             
-            XCTAssertFalse(sut.playerIsValid)
+            XCTAssertTrue(sut.playerIsValid)
         }
     }
     

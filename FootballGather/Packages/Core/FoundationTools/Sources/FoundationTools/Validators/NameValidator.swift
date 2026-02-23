@@ -15,14 +15,11 @@ public struct NameValidator {
     }
     
     public var isValid: Bool {
-        !(name.isEmpty || containsOnlySpaces || startsWithSpace)
+        !(name.isEmpty || containsOnlySpaces)
     }
 
     private var containsOnlySpaces: Bool {
         name.replacingOccurrences(of: " ", with: "").isEmpty
     }
     
-    private var startsWithSpace: Bool {
-        name.starts(with: " ")
-    }
 }
