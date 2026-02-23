@@ -9,9 +9,9 @@ import XCTest
 import SwiftUI
 @testable import PlayerDetails
 
+@MainActor
 final class NameDetailsSectionViewModelTests: XCTestCase {
     
-    @MainActor
     func testPlayerName() {
         let playerName = "John"
         let binding = Binding<String> {

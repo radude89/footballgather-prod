@@ -10,11 +10,11 @@ import SwiftUI
 import CoreModels
 @testable import PlayerDetails
 
+@MainActor
 final class SkillPickerViewModelTests: XCTestCase {
     
     private let skills = Player.Skill.allCases
     
-    @MainActor
     func testSkillBinding() {
         skills.forEach { skill in
             let skillBinding = Binding<Player.Skill> {
@@ -27,13 +27,11 @@ final class SkillPickerViewModelTests: XCTestCase {
         }
     }
     
-    @MainActor
     func testAllSkills() {
         let sut = SkillPickerViewModel(skill: .constant(.unknown))
         XCTAssertEqual(sut.allSkills, skills)
     }
     
-    @MainActor
     func testSkillRowDescription_capitalizesValue() {
         skills.forEach { skill in
             XCTAssertEqual(

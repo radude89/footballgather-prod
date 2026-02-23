@@ -9,6 +9,7 @@ import XCTest
 import FoundationMocks
 @testable import Gather
 
+@MainActor
 final class GatherViewModelIntegrationTests: XCTestCase {
     
     private let storage = FoundationMocks.Mocks.storage
@@ -18,7 +19,6 @@ final class GatherViewModelIntegrationTests: XCTestCase {
         super.tearDown()
     }
     
-    @MainActor
     func testStoreGather() {
         let sut = GatherViewModel(playersTeams: [:])
         

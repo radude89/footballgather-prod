@@ -9,9 +9,9 @@ import XCTest
 import FoundationTools
 @testable import Gather
 
+@MainActor
 final class SetTimerViewModelTests: XCTestCase {
     
-    @MainActor
     func testFormattedMinutes_whenMinutesAreBelowTen_prefixesWithZero() {
         let minutes = Array(0...9)
         let sut = makeSUT(minutes: minutes)
@@ -20,13 +20,11 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(sut.formattedMinutes, formattedMinutes)
     }
     
-    @MainActor
     func testFormattedMinutes_whenMinutesIsTen_returnsFormattedTime() {
         let sut = makeSUT(minutes: [10])
         XCTAssertEqual(sut.formattedMinutes, ["10"])
     }
     
-    @MainActor
     func testFormattedSeconds_whenSecondsAreBelowTen_prefixesWithZero() {
         let seconds = Array(0...9)
         let sut = makeSUT(seconds: seconds)
@@ -35,37 +33,31 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(sut.formattedSeconds, formattedSeconds)
     }
     
-    @MainActor
     func testFormattedSeconds_whenSecondsIsTen_returnsFormattedTime() {
         let sut = makeSUT(seconds: [10])
         XCTAssertEqual(sut.formattedSeconds, ["10"])
     }
     
-    @MainActor
     func testDoneButtonIsEnabled_whenTimeIsNotChanged_isFalse() {
         let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
         XCTAssertFalse(sut.doneButtonIsEnabled(minutes: "10", seconds: "00"))
     }
     
-    @MainActor
     func testDoneButtonIsEnabled_whenMinutesAreChanged_isTrue() {
         let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
         XCTAssertTrue(sut.doneButtonIsEnabled(minutes: "00", seconds: "00"))
     }
     
-    @MainActor
     func testDoneButtonIsEnabled_whenSecondsAreChanged_isTrue() {
         let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
         XCTAssertTrue(sut.doneButtonIsEnabled(minutes: "10", seconds: "01"))
     }
     
-    @MainActor
     func testDoneButtonIsEnabled_whenTimeIsChanged_isTrue() {
         let sut = makeSUT(selectedMinutes: "10", selectedSeconds: "00")
         XCTAssertTrue(sut.doneButtonIsEnabled(minutes: "01", seconds: "01"))
     }
     
-    @MainActor
     func testRemainingTimeInSeconds_returnsTotalTimeInSeconds() {
         let sut = makeSUT()
         let time = sut.remainingTimeInSeconds(fromMinutes: "10", seconds: "10")
@@ -73,7 +65,6 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(time, 610)
     }
     
-    @MainActor
     func testRemainingTimeInSeconds_whenMinutesAreNotFormattedAsInt_returnsZero() {
         let sut = makeSUT()
         let time = sut.remainingTimeInSeconds(fromMinutes: "", seconds: "00")
@@ -81,7 +72,6 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(time, 0)
     }
     
-    @MainActor
     func testRemainingTimeInSeconds_whenMinutesAreBelowZero_returnsAbsolutValue() {
         let sut = makeSUT()
         let time = sut.remainingTimeInSeconds(fromMinutes: "-10", seconds: "00")
@@ -89,7 +79,6 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(time, 600)
     }
     
-    @MainActor
     func testRemainingTimeInSeconds_whenSecondsAreNotFormattedAsInt_returnsZero() {
         let sut = makeSUT()
         let time = sut.remainingTimeInSeconds(fromMinutes: "00", seconds: "")
@@ -97,7 +86,6 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(time, 0)
     }
     
-    @MainActor
     func testRemainingTimeInSeconds_whenSecondsAreBelowZero_returnsAbsolutValue() {
         let sut = makeSUT()
         let time = sut.remainingTimeInSeconds(fromMinutes: "00", seconds: "-15")
@@ -105,7 +93,6 @@ final class SetTimerViewModelTests: XCTestCase {
         XCTAssertEqual(time, 15)
     }
     
-    @MainActor
     func testRemainingTimeInSeconds_whenTotalTimeIsLessThanMin_returnsMinTime() {
         let sut = makeSUT()
         let time = sut.remainingTimeInSeconds(fromMinutes: "00", seconds: "00")
@@ -115,7 +102,6 @@ final class SetTimerViewModelTests: XCTestCase {
     
     // MARK: - Helpers
     
-    @MainActor
     private func makeSUT(
         minutes: [Int] = [],
         seconds: [Int] = [],

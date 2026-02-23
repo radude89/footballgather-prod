@@ -10,11 +10,11 @@ import SwiftUI
 import CoreModels
 @testable import PlayerDetails
 
+@MainActor
 final class PositionPickerViewModelTests: XCTestCase {
     
     private let positions = Player.Position.allCases
     
-    @MainActor
     func testPositionBinding() {
         positions.forEach { position in
             let positionBinding = Binding<Player.Position> {
@@ -27,13 +27,11 @@ final class PositionPickerViewModelTests: XCTestCase {
         }
     }
     
-    @MainActor
     func testAllPositions() {
         let sut = PositionPickerViewModel(position: .constant(.unknown))
         XCTAssertEqual(sut.allPositions, positions)
     }
     
-    @MainActor
     func testPositionRowDescription_capitalizesValue() {
         positions.forEach { position in
             XCTAssertEqual(

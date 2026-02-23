@@ -11,6 +11,7 @@ import FoundationMocks
 import FoundationTools
 @testable import PlayerDetails
 
+@MainActor
 final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
     
     override func tearDown() {
@@ -18,7 +19,6 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         super.tearDown()
     }
  
-    @MainActor
     func testPlayerIsValid_whenStateIsViewingDetailsAndHasEnteredTheSameName_isFalse() {
         let player = Player(name: "Mike")
         let storage = makeAppStorage(players: [player])
@@ -29,7 +29,6 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         XCTAssertFalse(sut.playerIsValid)
     }
 
-    @MainActor
     func testPlayerIsValid_whenStateIsViewingDetailsAndHasEnteredDifferentNames_isTrue() {
         let player = Player(name: "Mike")
         let storage = makeAppStorage(players: [player])
@@ -40,7 +39,6 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(sut.playerIsValid)
     }
 
-    @MainActor
     func testPlayerIsValid_whenEnteringDifferentPositions_isTrue() {
         let player = Player(name: "Mike")
         let storage = makeAppStorage(players: [player])
@@ -51,7 +49,6 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(sut.playerIsValid)
     }
 
-    @MainActor
     func testPlayerIsValid_whenEnteringDifferentSkills_isTrue() {
         let player = Player(name: "Andrew")
         let storage = makeAppStorage(players: [player])
@@ -62,7 +59,6 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         XCTAssertTrue(sut.playerIsValid)
     }
 
-    @MainActor
     func testSavePlayer_addsToStorage() {
         let storage = makeAppStorage()
         let sut = makeSUT(storage: storage)
@@ -87,7 +83,6 @@ final class PlayerDetailsViewModelIntegrationTests: XCTestCase {
         return storage
     }
     
-    @MainActor
     private func makeSUT(
         storage: PlayerStorageHandler = Mocks.storage,
         state: PlayerDetailsViewModel.State = .viewingDetails,

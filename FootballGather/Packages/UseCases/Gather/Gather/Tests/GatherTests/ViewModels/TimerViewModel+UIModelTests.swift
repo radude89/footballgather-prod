@@ -9,6 +9,7 @@ import XCTest
 import GatherAssets
 @testable import Gather
 
+@MainActor
 final class TimerViewModelUIModelTests: XCTestCase {
     
     func testCancelButtonTitle_whenTimerIsStopped_isDisabled() {
@@ -32,13 +33,11 @@ final class TimerViewModelUIModelTests: XCTestCase {
         
         XCTAssertTrue(sut.cancelButtonIsEnabled)
     }
-    
-    @MainActor
+
     func testActionTimerButtonTitle_whenTimerIsStopped_isStart() {
         XCTAssertEqual(makeSUT().actionButtonTitle, LocalizedString.start)
     }
     
-    @MainActor
     func testActionTimerButtonTitle_whenTimerIsStarted_isPause() {
         let sut = makeSUT()
         
@@ -47,7 +46,6 @@ final class TimerViewModelUIModelTests: XCTestCase {
         XCTAssertEqual(sut.actionButtonTitle, LocalizedString.pause)
     }
     
-    @MainActor
     func testActionTimerButtonTitle_whenTimerIsPaused_isResume() {
         let sut = makeSUT()
         
@@ -57,7 +55,6 @@ final class TimerViewModelUIModelTests: XCTestCase {
         XCTAssertEqual(sut.actionButtonTitle, LocalizedString.resume)
     }
     
-    @MainActor
     func testActionTimerButtonAccessibilityLabel_whenTimerIsStopped_isStartTimerLabel() {
         XCTAssertEqual(
             makeSUT().actionButtonAccessibilityLabel,
@@ -65,7 +62,6 @@ final class TimerViewModelUIModelTests: XCTestCase {
         )
     }
     
-    @MainActor
     func testActionTimerButtonAccessibilityLabel_whenTimerIsStarted_isPauseTimerLabel() {
         let sut = makeSUT()
         
@@ -77,7 +73,6 @@ final class TimerViewModelUIModelTests: XCTestCase {
         )
     }
     
-    @MainActor
     func testActionTimerButtonAccessibilityLabel_whenTimerIsPaused_isResumeTimerLabel() {
         let sut = makeSUT()
         

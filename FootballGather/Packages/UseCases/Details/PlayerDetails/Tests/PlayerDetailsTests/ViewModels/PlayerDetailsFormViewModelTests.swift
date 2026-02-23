@@ -10,9 +10,9 @@ import SwiftUI
 import CoreModels
 @testable import PlayerDetails
 
+@MainActor
 final class PlayerDetailsFormViewModelTests: XCTestCase {
     
-    @MainActor
     func testSelectedPlayer() {
         let player = Player(name: "John")
         let binding = Binding<Player> {

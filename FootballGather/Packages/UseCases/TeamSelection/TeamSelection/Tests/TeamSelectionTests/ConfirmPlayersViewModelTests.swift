@@ -9,6 +9,7 @@ import XCTest
 import CoreModels
 @testable import TeamSelection
 
+@MainActor
 final class ConfirmPlayersViewModelTests: XCTestCase {
 
     private var sut: ConfirmPlayersViewModel!
@@ -16,20 +17,13 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
 
     override func setUp() async throws {
         try await super.setUp()
-        sut = await ConfirmPlayersViewModel(players: players)
+        sut = ConfirmPlayersViewModel(players: players)
     }
 
-    override func tearDown() {
-        sut = nil
-        super.tearDown()
-    }
-
-    @MainActor
     func testTeams_equalsAllCases() {
         XCTAssertEqual(sut.teams, Team.allCases)
     }
 
-    @MainActor
     func testMove() {
         move(from: .bench, to: .teamA)
         XCTAssertEqual(sut.playersTeams[.bench]?.count ?? 0, players.count - 1)
@@ -64,7 +58,6 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
         XCTAssertFalse(sut.startGatherIsEnabled)
     }
 
-    @MainActor
     func testMove_whenThereAreNotPlayers_returns() {
         move(from: .teamA, to: .bench)
         XCTAssertEqual(sut.playersTeams[.bench]?.count ?? 0, players.count)
@@ -77,7 +70,6 @@ final class ConfirmPlayersViewModelTests: XCTestCase {
 
     // MARK: - Helpers
 
-    @MainActor
     private func move(from sourceTeam: Team, to destinationTeam: Team) {
         guard let player = (sut.playersTeams[sourceTeam] ?? []).first else { return }
         sut.move(player, to: destinationTeam)

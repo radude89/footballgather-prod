@@ -10,11 +10,11 @@ import CoreModels
 import FoundationTools
 @testable import Gather
 
+@MainActor
 final class ScoreViewModelTests: XCTestCase {
     
     private static let maxScore = GatherMaxScore.value()
     
-    @MainActor
     func testHeaderTitle() {
         let sut = ScoreViewModel()
         
@@ -23,7 +23,6 @@ final class ScoreViewModelTests: XCTestCase {
         }
     }
     
-    @MainActor
     func testShowsScore() {
         let sut = ScoreViewModel()
         
@@ -31,14 +30,12 @@ final class ScoreViewModelTests: XCTestCase {
         XCTAssertEqual(sut.formattedScore(for: .teamB), "0")
     }
     
-    @MainActor
     func testFormattedScore() {
         let sut = ScoreViewModel()
         
         XCTAssertEqual(sut.formattedScore, "0:0")
     }
     
-    @MainActor
     func testScoreViewAccessibilityLabel_containsScoreAndTeam() {
         let sut = ScoreViewModel()
         
@@ -53,7 +50,6 @@ final class ScoreViewModelTests: XCTestCase {
         }
     }
     
-    @MainActor
     func testIncrementsScore() {
         let sut = ScoreViewModel()
         
@@ -64,7 +60,6 @@ final class ScoreViewModelTests: XCTestCase {
         XCTAssertEqual(sut.teamBScore, 1)
     }
     
-    @MainActor
     func testIncrementsScore_forBench_breaks() {
         let sut = ScoreViewModel()
         
@@ -74,7 +69,6 @@ final class ScoreViewModelTests: XCTestCase {
         XCTAssertEqual(sut.teamBScore, 0)
     }
     
-    @MainActor
     func testDecrementsScore() {
         let scoreHandler = MockScoreHandler()
         let sut = ScoreViewModel(scoreHandler: scoreHandler)
@@ -85,7 +79,6 @@ final class ScoreViewModelTests: XCTestCase {
         XCTAssertTrue(scoreHandler.decrementScoreCalled)
     }
     
-    @MainActor
     func testDecrementsScore_forBench_breaks() {
         let sut = ScoreViewModel()
         

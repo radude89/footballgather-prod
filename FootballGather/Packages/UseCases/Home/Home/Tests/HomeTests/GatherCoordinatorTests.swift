@@ -10,9 +10,9 @@ import SwiftUI
 import CoreModels
 @testable import Home
 
+@MainActor
 final class GatherCoordinatorTests: XCTestCase {
 
-    @MainActor
     func testStartGather_setsPlayersTeams() {
         var playersTeams: [Team: [Player]]? = nil
         let binding = Binding(get: { playersTeams }, set: { playersTeams = $0 })
@@ -24,7 +24,6 @@ final class GatherCoordinatorTests: XCTestCase {
         XCTAssertEqual(playersTeams, expectedTeams)
     }
 
-    @MainActor
     func testStartGather_whenPlayersTeamsAreEmpty_setsEmptyDictionary() {
         var playersTeams: [Team: [Player]]? = nil
         let binding = Binding(get: { playersTeams }, set: { playersTeams = $0 })

@@ -8,9 +8,10 @@
 import XCTest
 @testable import UITools
 
+@MainActor
 final class ButtonFactoryTests: XCTestCase {
     
-    @MainActor func testMakeSystemButton() {
+    func testMakeSystemButton() {
         let buttonTitle = "Title"
         let accessibilityID = "start-gather-button"
         let accessibilityLabel = "Accessibility Label"
