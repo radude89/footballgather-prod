@@ -10,6 +10,9 @@ import SwiftUI
 /// A reusable button component with Liquid Glass styling, icon, and optional text
 public struct GlassIconButton: View {
     
+    @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.colorScheme) private var colorScheme
+    
     private let icon: String
     private let tint: Color
     private let spacing: CGFloat
@@ -56,6 +59,7 @@ public struct GlassIconButton: View {
                     .imageScale(.large)
             }
             .foregroundStyle(tint)
+            .opacity(isEnabled ? 1 : colorScheme == .dark ? 0.1 : 0.85)
             .padding(padding)
         }
         .buttonStyle(.glass)
@@ -91,25 +95,26 @@ private extension View {
             icon: "arrow.right.circle.fill",
             tint: .green,
             accessibilityLabel: "Confirm"
-        ) {
-            print("Button tapped")
-        }
+        ) {}
         
         GlassIconButton(
             icon: "checkmark.circle.fill",
             tint: .blue,
             accessibilityLabel: "Done"
-        ) {
-            print("Done tapped")
-        }
+        ) {}
         
         GlassIconButton(
             icon: "xmark.circle.fill",
             tint: .red,
             accessibilityLabel: "Cancel"
-        ) {
-            print("Cancel tapped")
-        }
+        ) {}
+        
+        GlassIconButton(
+            icon: "xmark.circle.fill",
+            tint: .red,
+            accessibilityLabel: "Cancel"
+        ) {}
+            .disabled(true)
     }
     .padding()
 }
