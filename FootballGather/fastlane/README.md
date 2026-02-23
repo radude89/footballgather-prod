@@ -15,42 +15,34 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios ut
+### ut
 
 ```sh
-[bundle exec] fastlane ios ut
+[bundle exec] fastlane ut
 ```
 
 Runs the unit tests of FootballGather
 
-### ios ui
+### ui
 
 ```sh
-[bundle exec] fastlane ios ui
+[bundle exec] fastlane ui
 ```
 
 Runs the UI tests of FootballGather
 
-### ios screenshots
+### distribute_release_app
 
 ```sh
-[bundle exec] fastlane ios screenshots
-```
-
-Takes screenshots
-
-### ios distribute_release_app
-
-```sh
-[bundle exec] fastlane ios distribute_release_app
+[bundle exec] fastlane distribute_release_app
 ```
 
 Distributes IPA to AppStore
 
-### ios bump_versions
+### bump_versions
 
 ```sh
-[bundle exec] fastlane ios bump_versions
+[bundle exec] fastlane bump_versions
 ```
 
 Bumps the app versions
