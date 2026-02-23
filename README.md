@@ -4,8 +4,8 @@
     <img src="assets/app-icon.png" alt="FootballGather App Icon" width="35%" />
 </p>
 <p align="center">
-    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-6.1-orange.svg" alt="Swift 6.1" /></a>
-    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-16.1-blue.svg" alt="Xcode 16.1" /></a>
+    <a href="https://swift.org"><img src="https://img.shields.io/badge/swift-6-orange.svg" alt="Swift 6" /></a>
+    <a href="https://developer.apple.com/xcode/"><img src="https://img.shields.io/badge/Xcode-26.3-blue.svg" alt="Xcode 26.3" /></a>
 </p>
 
 ## ⬇️ Download
@@ -27,7 +27,7 @@ Visit our website at [footballgather.app](https://footballgather.app/) for more 
 
 ## 🛠️ Requirements
 
-- minimum iOS 18.0
+- minimum iOS 26.0
 
 ## 🔧 Tools
 
@@ -68,10 +68,10 @@ To run the UI tests, use the `UITests` scheme:
 For fastlane usage, please <a href="FootballGather/fastlane/README.md">refer to this guide</a>. Available commands:  
 ```
 # Running unit tests
-bundle exec fastlane ios ut
+bundle exec fastlane ut
 
 # Running UI tests
-bundle exec fastlane ios ui
+bundle exec fastlane ui
 
 # Taking snapshots
 bundle exec fastlane screenshots
@@ -89,7 +89,7 @@ bundle exec fastlane bump_versions
 ## 🎮 Demo
 
 <p align="center">
-    <img src="assets/demo.gif" alt="Demo" />
+  <img src="assets/demo2.gif" alt="Demo" />
 </p>
 
 ## 📝 Application Summary
