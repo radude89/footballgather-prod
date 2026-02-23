@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import TeamSelectionAssets
 
 @MainActor
 struct PlayersFinder {
@@ -21,48 +22,15 @@ struct PlayersFinder {
     }
     
     func nameOfPlayers(inTeam team: Team) -> [String] {
-        switch team {
-        case .bench:
-            return benchPlayerNames
-        case .teamA:
-            return teamAPlayerNames
-        case .teamB:
-            return teamBPlayerNames
+        let rowID = "\(AccessibilityID.playerRow.rawValue)-\(team.name)"
+        let predicate = NSPredicate(format: "identifier == %@", rowID)
+        let matchingRows = table.buttons.matching(predicate)
+        _ = matchingRows.firstMatch.waitForExistence(timeout: 2)
+
+        return (0 ..< matchingRows.count).compactMap { index in
+            let label = matchingRows.element(boundBy: index).staticTexts.firstMatch.label
+            return label.isEmpty ? nil : label
         }
-    }
-    
-    private var benchPlayerNames: [String] {
-        Array(tableLabels[benchIndex + 1 ..< teamAIndex])
-    }
-    
-    private var teamAPlayerNames: [String] {
-        Array(tableLabels[teamAIndex + 1 ..< teamBIndex])
-    }
-    
-    private var teamBPlayerNames: [String] {
-        Array(tableLabels[(teamBIndex + 1)...])
-    }
-    
-    private var tableLabels: [String] {
-        (0 ..< table.staticTexts.count).enumerated().map {
-            table.staticTexts.element(boundBy: $0.offset).label
-        }
-    }
-    
-    private var benchIndex: Int {
-        index(of: .bench)
-    }
-    
-    private var teamAIndex: Int {
-        index(of: .teamA)
-    }
-    
-    private var teamBIndex: Int {
-        index(of: .teamB)
-    }
-    
-    private func index(of team: Team) -> Int {
-        tableLabels.firstIndex(of: team.name.uppercased())!
     }
     
 }

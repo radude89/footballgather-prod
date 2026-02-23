@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreModels
+import TeamSelectionAssets
 
 @MainActor
 struct PlayerMover {
@@ -20,10 +21,8 @@ struct PlayerMover {
     }
     
     func move(_ playerName: String, to team: Team) {
-        let sectionLabel = table.staticTexts[team.name.uppercased()]
-        
-        app.buttons["Reorder \(playerName)"]
-            .press(forDuration: 0.3, thenDragTo: sectionLabel)
+        table.cells.containing(.staticText, identifier: playerName).firstMatch.tap()
+        app.buttons["\(AccessibilityID.moveToTeamButton.rawValue)-\(team.name)"].tap()
     }
     
 }

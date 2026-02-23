@@ -34,7 +34,7 @@ extension XCUIElement {
     }
     
     var pickerValue: String? {
-        pickerWheels.firstMatch.value as? String
+        pickerWheels.element.value as? String
     }
     
     func scroll(toPickerWheelValue value: String) {
@@ -77,7 +77,7 @@ extension UITestCase {
     
     @MainActor
     var confirmTable: XCUIElement {
-        app.tables[AccessibilityID.confirmPlayersView.rawValue]
+        app.collectionViews[AccessibilityID.confirmPlayersView.rawValue]
     }
     
     @MainActor

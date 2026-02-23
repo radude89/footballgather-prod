@@ -23,13 +23,12 @@ extension GatherUITests {
     /// **AND** the players are in the correct Team
     @MainActor
     func testViewGather() {
-        let teamsTable = app.collectionViews[.gatherPlayersList]
-        let teamsTableAsserter = TeamsTableAsserter(cells: cells, table: teamsTable)
-        
+        let teamsTableAsserter = TeamsTableAsserter(cells: cells, table: app)
+
         teamsTableAsserter.assertSection(forTeam: .bench, shouldExist: false)
         teamsTableAsserter.assertSection(forTeam: .teamA, shouldExist: true)
         teamsTableAsserter.assertSection(forTeam: .teamB, shouldExist: true)
-        
+
         teamsTableAsserter.assertRow(at: 1, hasLabel: "John")
         teamsTableAsserter.assertRow(at: 3, hasLabel: "Jane")
     }

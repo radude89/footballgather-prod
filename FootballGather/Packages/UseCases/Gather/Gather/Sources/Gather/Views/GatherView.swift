@@ -25,8 +25,8 @@ public struct GatherView: View {
     
     @State private var showingSetTimerView = false
     @State private var showingBackConfirmation = false
-    @State private var timeSettings = TimeSettings()
     @State private var scoreViewModel = ScoreViewModel()
+    @State private var timerViewModel = TimerViewModel()
     
     public init(
         storage: FoundationTools.AppStorage,
@@ -43,7 +43,7 @@ public struct GatherView: View {
             VStack(spacing: 24) {
                 ScoreView(viewModel: scoreViewModel)
                 
-                TimerView(viewModel: .init(timeSettings: timeSettings)) {
+                TimerView(viewModel: timerViewModel) {
                     showingSetTimerView = true
                 }
                 
@@ -63,7 +63,7 @@ public struct GatherView: View {
         .sheet(isPresented: $showingSetTimerView) {
             setTimerView
         }
-        .environment(timeSettings)
+        .environment(timerViewModel.timeSettings)
         .navigationBarBackButtonHidden(true)
         .navigationTitle(LocalizedString.gatherInProgress)
         .toolbar {
@@ -87,7 +87,7 @@ public struct GatherView: View {
     }
     
     private var setTimerView: some View {
-        let time = viewModel.formattedTime(from: timeSettings)
+        let time = viewModel.formattedTime(from: timerViewModel.timeSettings)
         
         return SetTimerView(
             selectedMinutes: time.minutes,

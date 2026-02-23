@@ -15,8 +15,8 @@ final class TimerViewModel: @unchecked Sendable {
     
     private var timerController: TimerControllable
     private var timerState = TimerState.stopped
-    private let initialTimeInSeconds: Int
-    private var timeSettings: TimeSettings
+    private var initialTimeInSeconds: Int
+    private(set) var timeSettings: TimeSettings
     private let timerUpdateDispatcher: DispatchHelper
     
     @ObservationIgnored
@@ -67,6 +67,17 @@ final class TimerViewModel: @unchecked Sendable {
         self.timerUpdateDispatcher = timerUpdateDispatcher
         self.onFormattedTimeChanged = onFormattedTimeChanged
         updateFormattedTime()
+        
+        timeSettings.onRemainingTimeInSecondsChanged = { [weak self] newTime in
+            self?.applyNewTime(newTime)
+        }
+    }
+    
+    private func applyNewTime(_ newTimeInSeconds: Int) {
+        guard newTimeInSeconds >= GatherDefaultTime.minAllowedTimeInSeconds else { return }
+        cancelTimer()
+        initialTimeInSeconds = newTimeInSeconds
+        remainingTimeInSeconds = newTimeInSeconds
     }
     
     // MARK: - UI Model

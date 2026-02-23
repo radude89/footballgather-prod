@@ -51,38 +51,41 @@ extension GatherUITests {
     /// **AND** a popup dialog informing the time is up
     @MainActor
     func testTimerInteraction() {
-        assertTime(is: "00:02", state: .stopped)
+        app.swipeUp()
+        assertTime(is: "00:03", state: .stopped)
         
+        // Scenario 1: Start timer
         actionTimerButton.tap()
+        assertTime(is: "00:02", state: .started)
         
-        assertTime(is: "00:01", state: .started)
-        
+        // Scenario 3: Pause timer
         actionTimerButton.tap()
-        
         assertTimerState(is: .paused)
         
-        actionTimerButton.tap()
-        
-        assertTimeIsUp()
-        
-        assertTime(is: "00:02", state: .stopped)
-        
-        actionTimerButton.tap()
-        
-        assertTime(is: "00:01", state: .started)
-        
+        // Scenario 2: Cancel timer
         cancelTimerButton.tap()
+        assertTime(is: "00:03", state: .stopped)
         
-        assertTime(is: "00:02", state: .stopped)
+        // Scenario 4+5: Start timer and let it run to completion
+        actionTimerButton.tap()
+        assertTimerState(is: .started)
+        assertTimeIsUp()
+        assertTime(is: "00:03", state: .stopped)
     }
     
     // MARK: - Helpers
     
     @MainActor
     private func assertTimeIsUp(line: UInt = #line) {
-        let alert = app.alerts[LocalizedString.timeIsUpTitle]
-        XCTAssertTrue(alert.waitToAppear(), line: line)
+        // Wait for timer to reach 00:00
+        _ = app.staticTexts["00:00"].waitForExistence(timeout: 5)
         
+        let alert = app.alerts[LocalizedString.timeIsUpTitle]
+        XCTAssertTrue(
+            alert.waitForExistence(timeout: 5),
+            "Time is up alert should be displayed",
+            line: line
+        )
         alert.buttons[LocalizedString.ok].tap()
     }
 }

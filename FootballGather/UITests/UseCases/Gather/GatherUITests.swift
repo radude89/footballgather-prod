@@ -17,36 +17,10 @@ final class GatherUITests: UITestCase, @unchecked Sendable {
     override func setUp() async throws {
         try await super.setUp()
         
-        await addUIInterruptionMonitor()
-        
         await launchApp(populatingStorage: true)
         
         navigator = await .init(app: app, testCase: self)
         await navigator.presentGatherView()
-    }
-    
-    @MainActor
-    private func addUIInterruptionMonitor() {
-        addUIInterruptionMonitor(
-            withDescription: "Notification alert") { [weak self] alert in
-                return self?.handleAlertPermissions(alert) ?? false
-            }
-    }
-    
-    @MainActor
-    private func handleAlertPermissions(_ alert: XCUIElement) -> Bool {
-        let notifPermission = "Would Like to Send You Notifications"
-        guard alert.labelContains(text: notifPermission) else {
-            return false
-        }
-        
-        let allowButton = alert.buttons.element(boundBy: 1)
-        if allowButton.exists {
-            allowButton.tap()
-            return true
-        }
-        
-        return false
     }
     
     @MainActor

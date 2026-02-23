@@ -18,7 +18,7 @@ final class TimeSettings {
     }
 
     @ObservationIgnored
-    let onRemainingTimeInSecondsChanged: ((Int) -> Void)?
+    var onRemainingTimeInSecondsChanged: ((Int) -> Void)?
     
     init(
         remainingTimeInSeconds: Int = GatherDefaultTime.value(),

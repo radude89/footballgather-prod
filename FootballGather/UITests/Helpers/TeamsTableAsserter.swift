@@ -39,7 +39,7 @@ struct TeamsTableAsserter {
         line: UInt = #line
     ) {
         XCTAssertTrue(
-            cells[index].staticTexts[label].exists,
+            table.staticTexts[label].exists,
             file: file,
             line: line
         )

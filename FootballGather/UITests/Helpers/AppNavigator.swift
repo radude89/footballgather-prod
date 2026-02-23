@@ -36,7 +36,7 @@ struct AppNavigator {
     
     private func waitConfirmViewToAppear() {
         testCase.assertNavigationTitle(is: LocalizedString.confirmPlayersTitle)
-        XCTAssertTrue(app.tables[.confirmPlayersView].waitToAppear())
+        XCTAssertTrue(app.collectionViews[.confirmPlayersView].waitToAppear())
     }
     
     func presentGatherView() {
@@ -71,7 +71,7 @@ struct AppNavigator {
     
     private func waitForGatherViewToAppear() {
         testCase.assertNavigationTitle(is: LocalizedString.gatherInProgress)
-        XCTAssertTrue(app.collectionViews[.gatherPlayersList].waitToAppear())
+        XCTAssertTrue(app.buttons[.endGatherButton].waitToAppear())
     }
     
 }

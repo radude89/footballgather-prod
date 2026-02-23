@@ -10,7 +10,7 @@ import Foundation
 public struct GatherDefaultTime {
     private static let inSeconds = 600
     
-    public static let inSecondsWhenIsRunningUITests = 2
+    public static let inSecondsWhenIsRunningUITests = 3
     public static let minAllowedTimeInSeconds = 1
     
     public static func value(

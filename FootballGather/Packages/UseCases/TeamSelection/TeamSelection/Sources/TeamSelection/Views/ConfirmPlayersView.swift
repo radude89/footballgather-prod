@@ -70,6 +70,7 @@ public struct ConfirmPlayersView: View {
                     Button("Move to \(targetTeam.name)") {
                         viewModel.move(player, to: targetTeam)
                     }
+                    .accessibilityIdentifier("\(AccessibilityID.moveToTeamButton.rawValue)-\(targetTeam.name)")
                 }
             } label: {
                 HStack {
@@ -80,6 +81,7 @@ public struct ConfirmPlayersView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+            .accessibilityIdentifier("\(AccessibilityID.playerRow.rawValue)-\(team.name)")
             .buttonStyle(.plain)
         }
     }

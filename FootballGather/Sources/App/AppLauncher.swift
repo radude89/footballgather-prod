@@ -12,7 +12,7 @@ import FoundationTools
 struct AppLauncher {
     static func main() throws {
         if isRunningTests {
-            TestApp.main()
+            TestApp.main() 
         } else {
             FootballGatherApp.main()
         }

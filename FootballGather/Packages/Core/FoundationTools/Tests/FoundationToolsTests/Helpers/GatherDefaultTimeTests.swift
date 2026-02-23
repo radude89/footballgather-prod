@@ -18,7 +18,7 @@ final class GatherDefaultTimeTests: XCTestCase {
     }
     
     func testDefaultTime_whenIsRunningUITests_isTwoSeconds() {
-        let expectedTimeInSeconds = 2
+        let expectedTimeInSeconds = GatherDefaultTime.inSecondsWhenIsRunningUITests
         let sut = GatherDefaultTime.value(isRunningUITests: true)
         
         XCTAssertEqual(sut, expectedTimeInSeconds)

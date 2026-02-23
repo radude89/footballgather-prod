@@ -37,4 +37,7 @@ class UITestCase: XCTestCase, @unchecked Sendable {
         app.launch()
     }
     
+    func wait(for duration: TimeInterval = 1.0) {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: duration))
+    }
 }
